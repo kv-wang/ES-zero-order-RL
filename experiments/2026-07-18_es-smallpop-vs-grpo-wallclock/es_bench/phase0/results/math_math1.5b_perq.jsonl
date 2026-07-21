@@ -1,0 +1,367 @@
+{"level": 5, "gt": "p - q", "correct": 1, "out_tokens": 574}
+{"level": 3, "gt": "\\frac{14}{3}", "correct": 0, "out_tokens": 491}
+{"level": 3, "gt": "9", "correct": 1, "out_tokens": 448}
+{"level": 3, "gt": "27", "correct": 1, "out_tokens": 455}
+{"level": 4, "gt": "90^\\circ", "correct": 0, "out_tokens": 985}
+{"level": 3, "gt": "3\\sqrt{13}", "correct": 0, "out_tokens": 389}
+{"level": 5, "gt": "4", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "2220", "correct": 1, "out_tokens": 313}
+{"level": 5, "gt": "\\frac{3}{56}", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "284", "correct": 1, "out_tokens": 506}
+{"level": 5, "gt": "6 - 5i", "correct": 1, "out_tokens": 668}
+{"level": 4, "gt": "\\pi", "correct": 0, "out_tokens": 526}
+{"level": 3, "gt": "3", "correct": 1, "out_tokens": 812}
+{"level": 3, "gt": "6+9i", "correct": 1, "out_tokens": 180}
+{"level": 3, "gt": "13535", "correct": 1, "out_tokens": 936}
+{"level": 5, "gt": "5", "correct": 1, "out_tokens": 681}
+{"level": 5, "gt": "x=5", "correct": 0, "out_tokens": 637}
+{"level": 5, "gt": "10", "correct": 1, "out_tokens": 710}
+{"level": 5, "gt": "1,-2", "correct": 0, "out_tokens": 1020}
+{"level": 5, "gt": "144", "correct": 1, "out_tokens": 644}
+{"level": 3, "gt": "52_8", "correct": 1, "out_tokens": 356}
+{"level": 4, "gt": "11\\sqrt2", "correct": 0, "out_tokens": 430}
+{"level": 4, "gt": "720", "correct": 1, "out_tokens": 372}
+{"level": 4, "gt": "\\frac{243}{625}", "correct": 0, "out_tokens": 634}
+{"level": 4, "gt": "-125", "correct": 1, "out_tokens": 812}
+{"level": 3, "gt": "72", "correct": 1, "out_tokens": 265}
+{"level": 3, "gt": "23", "correct": 1, "out_tokens": 561}
+{"level": 4, "gt": "17", "correct": 0, "out_tokens": 596}
+{"level": 5, "gt": "70 \\sqrt{2}", "correct": 0, "out_tokens": 833}
+{"level": 5, "gt": "1.25", "correct": 1, "out_tokens": 505}
+{"level": 3, "gt": "2", "correct": 1, "out_tokens": 359}
+{"level": 5, "gt": "5", "correct": 1, "out_tokens": 465}
+{"level": 4, "gt": "83", "correct": 1, "out_tokens": 312}
+{"level": 5, "gt": "203", "correct": 1, "out_tokens": 459}
+{"level": 5, "gt": "12", "correct": 1, "out_tokens": 367}
+{"level": 4, "gt": "3", "correct": 1, "out_tokens": 380}
+{"level": 3, "gt": "11", "correct": 1, "out_tokens": 200}
+{"level": 5, "gt": "(6,31,-1)", "correct": 0, "out_tokens": 831}
+{"level": 3, "gt": "-256", "correct": 1, "out_tokens": 366}
+{"level": 5, "gt": "4", "correct": 0, "out_tokens": 741}
+{"level": 5, "gt": "10", "correct": 1, "out_tokens": 710}
+{"level": 4, "gt": "\\frac{35}{64}", "correct": 0, "out_tokens": 1006}
+{"level": 3, "gt": "x^3+3x-6", "correct": 1, "out_tokens": 407}
+{"level": 4, "gt": "10", "correct": 0, "out_tokens": 302}
+{"level": 4, "gt": "46", "correct": 0, "out_tokens": 875}
+{"level": 4, "gt": "-1", "correct": 1, "out_tokens": 406}
+{"level": 4, "gt": "2516_8", "correct": 0, "out_tokens": 289}
+{"level": 4, "gt": "\\frac{3\\sqrt{3}}{4}", "correct": 0, "out_tokens": 300}
+{"level": 4, "gt": "\\frac{11}{36}", "correct": 0, "out_tokens": 445}
+{"level": 4, "gt": "(-2,1)", "correct": 1, "out_tokens": 653}
+{"level": 5, "gt": "501", "correct": 0, "out_tokens": 778}
+{"level": 3, "gt": "3", "correct": 1, "out_tokens": 380}
+{"level": 5, "gt": "\\frac{3}{2}", "correct": 0, "out_tokens": 394}
+{"level": 4, "gt": "-1", "correct": 1, "out_tokens": 776}
+{"level": 4, "gt": "\\sqrt{5}", "correct": 0, "out_tokens": 494}
+{"level": 5, "gt": "2", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "21", "correct": 0, "out_tokens": 533}
+{"level": 3, "gt": "\\frac{3}{2}", "correct": 0, "out_tokens": 221}
+{"level": 3, "gt": "1", "correct": 0, "out_tokens": 440}
+{"level": 4, "gt": "\\frac{448}{15625}", "correct": 0, "out_tokens": 545}
+{"level": 4, "gt": "33", "correct": 1, "out_tokens": 590}
+{"level": 5, "gt": "80", "correct": 0, "out_tokens": 527}
+{"level": 5, "gt": "1 \\pm \\sqrt{19}", "correct": 0, "out_tokens": 813}
+{"level": 3, "gt": "\\begin{pmatrix} -1/3 \\\\ 2/3 \\\\ 5/3 \\end{pmatrix}", "correct": 0, "out_tokens": 836}
+{"level": 5, "gt": "145^\\circ", "correct": 0, "out_tokens": 429}
+{"level": 5, "gt": "850", "correct": 0, "out_tokens": 910}
+{"level": 5, "gt": "(3,4]", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "40", "correct": 0, "out_tokens": 531}
+{"level": 3, "gt": "29", "correct": 0, "out_tokens": 352}
+{"level": 3, "gt": "2", "correct": 1, "out_tokens": 716}
+{"level": 5, "gt": "120^\\circ", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "504", "correct": 0, "out_tokens": 1006}
+{"level": 3, "gt": "210", "correct": 1, "out_tokens": 614}
+{"level": 4, "gt": "13", "correct": 1, "out_tokens": 633}
+{"level": 3, "gt": "-5", "correct": 1, "out_tokens": 667}
+{"level": 5, "gt": "81", "correct": 1, "out_tokens": 1018}
+{"level": 3, "gt": "-9", "correct": 1, "out_tokens": 538}
+{"level": 3, "gt": "9", "correct": 1, "out_tokens": 365}
+{"level": 4, "gt": "8", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "\\frac{11}{2}", "correct": 0, "out_tokens": 630}
+{"level": 4, "gt": "-3", "correct": 1, "out_tokens": 315}
+{"level": 4, "gt": "1+274i", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "4210_{5}", "correct": 0, "out_tokens": 374}
+{"level": 3, "gt": "36", "correct": 1, "out_tokens": 199}
+{"level": 5, "gt": "\\frac{3840}{289}", "correct": 0, "out_tokens": 598}
+{"level": 4, "gt": "13", "correct": 1, "out_tokens": 427}
+{"level": 4, "gt": "8", "correct": 1, "out_tokens": 639}
+{"level": 3, "gt": "4", "correct": 1, "out_tokens": 322}
+{"level": 3, "gt": "120", "correct": 1, "out_tokens": 324}
+{"level": 4, "gt": "16", "correct": 1, "out_tokens": 791}
+{"level": 5, "gt": "9", "correct": 1, "out_tokens": 646}
+{"level": 5, "gt": "64", "correct": 1, "out_tokens": 853}
+{"level": 4, "gt": "204_5", "correct": 1, "out_tokens": 404}
+{"level": 4, "gt": "\\frac{1}{3}", "correct": 0, "out_tokens": 752}
+{"level": 3, "gt": "1", "correct": 1, "out_tokens": 919}
+{"level": 4, "gt": "13", "correct": 1, "out_tokens": 568}
+{"level": 5, "gt": "28800", "correct": 1, "out_tokens": 385}
+{"level": 3, "gt": "3 \\sqrt{5}", "correct": 0, "out_tokens": 752}
+{"level": 5, "gt": "-2", "correct": 0, "out_tokens": 662}
+{"level": 3, "gt": "\\frac{\\sqrt{3}}{3}", "correct": 0, "out_tokens": 296}
+{"level": 5, "gt": "16", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "1", "correct": 0, "out_tokens": 973}
+{"level": 5, "gt": "144", "correct": 1, "out_tokens": 488}
+{"level": 5, "gt": "8", "correct": 1, "out_tokens": 586}
+{"level": 4, "gt": "\\frac{2}{21}", "correct": 0, "out_tokens": 497}
+{"level": 5, "gt": "2\\sqrt{113}", "correct": 0, "out_tokens": 630}
+{"level": 4, "gt": "\\frac{1}{4}", "correct": 0, "out_tokens": 434}
+{"level": 3, "gt": "30^\\circ", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "2107", "correct": 1, "out_tokens": 674}
+{"level": 4, "gt": "3.21", "correct": 1, "out_tokens": 434}
+{"level": 5, "gt": "\\dfrac{17}{50}", "correct": 0, "out_tokens": 788}
+{"level": 5, "gt": "-\\frac{35}{9}", "correct": 0, "out_tokens": 446}
+{"level": 4, "gt": "\\frac{4}{9}", "correct": 0, "out_tokens": 381}
+{"level": 5, "gt": "\\frac{270}7\\text{ degrees}", "correct": 0, "out_tokens": 652}
+{"level": 5, "gt": "19", "correct": 0, "out_tokens": 940}
+{"level": 5, "gt": "1736", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "4", "correct": 1, "out_tokens": 678}
+{"level": 3, "gt": "2", "correct": 1, "out_tokens": 491}
+{"level": 3, "gt": ".0000672", "correct": 1, "out_tokens": 295}
+{"level": 3, "gt": "30^\\circ", "correct": 0, "out_tokens": 431}
+{"level": 4, "gt": "5x - 7y + 11z + 4 = 0", "correct": 1, "out_tokens": 811}
+{"level": 3, "gt": "3", "correct": 0, "out_tokens": 307}
+{"level": 3, "gt": "\\frac{\\sqrt{3}}{3}", "correct": 0, "out_tokens": 343}
+{"level": 4, "gt": "23", "correct": 1, "out_tokens": 738}
+{"level": 5, "gt": "(2,\\infty)", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "7", "correct": 1, "out_tokens": 240}
+{"level": 5, "gt": "6", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "160", "correct": 0, "out_tokens": 537}
+{"level": 5, "gt": "\\frac{13}{18}", "correct": 0, "out_tokens": 384}
+{"level": 3, "gt": "30", "correct": 1, "out_tokens": 434}
+{"level": 3, "gt": "4", "correct": 1, "out_tokens": 335}
+{"level": 5, "gt": "\\frac{1}{4}", "correct": 0, "out_tokens": 914}
+{"level": 4, "gt": "24", "correct": 1, "out_tokens": 317}
+{"level": 5, "gt": "6", "correct": 1, "out_tokens": 790}
+{"level": 3, "gt": "10,\\!080", "correct": 0, "out_tokens": 403}
+{"level": 4, "gt": "40", "correct": 1, "out_tokens": 414}
+{"level": 4, "gt": "66", "correct": 1, "out_tokens": 566}
+{"level": 5, "gt": "\\frac{2}{3}", "correct": 0, "out_tokens": 406}
+{"level": 3, "gt": "12", "correct": 1, "out_tokens": 558}
+{"level": 5, "gt": "0", "correct": 0, "out_tokens": 854}
+{"level": 3, "gt": "\\begin{pmatrix} -2 \\\\ -14 \\\\ -7 \\end{pmatrix}", "correct": 0, "out_tokens": 995}
+{"level": 3, "gt": "1", "correct": 1, "out_tokens": 372}
+{"level": 4, "gt": "10", "correct": 1, "out_tokens": 420}
+{"level": 3, "gt": "56", "correct": 1, "out_tokens": 406}
+{"level": 4, "gt": "2", "correct": 0, "out_tokens": 734}
+{"level": 5, "gt": "110", "correct": 0, "out_tokens": 527}
+{"level": 4, "gt": "2", "correct": 1, "out_tokens": 388}
+{"level": 4, "gt": "6", "correct": 1, "out_tokens": 499}
+{"level": 4, "gt": "11,\\! 111,\\! 111,\\! 100", "correct": 0, "out_tokens": 449}
+{"level": 4, "gt": "\\frac{1}{2}", "correct": 0, "out_tokens": 623}
+{"level": 5, "gt": "\\frac{16}{27}", "correct": 0, "out_tokens": 240}
+{"level": 3, "gt": "900", "correct": 1, "out_tokens": 625}
+{"level": 4, "gt": "54", "correct": 0, "out_tokens": 638}
+{"level": 3, "gt": "14", "correct": 1, "out_tokens": 310}
+{"level": 4, "gt": "\\frac{9}{256}", "correct": 0, "out_tokens": 767}
+{"level": 3, "gt": "11", "correct": 1, "out_tokens": 314}
+{"level": 3, "gt": "3", "correct": 1, "out_tokens": 201}
+{"level": 3, "gt": "\\text{(C)}", "correct": 0, "out_tokens": 271}
+{"level": 4, "gt": "288 \\pi", "correct": 1, "out_tokens": 911}
+{"level": 4, "gt": "90", "correct": 1, "out_tokens": 255}
+{"level": 4, "gt": "\\frac{16}{5}", "correct": 0, "out_tokens": 845}
+{"level": 4, "gt": "10", "correct": 1, "out_tokens": 718}
+{"level": 5, "gt": "\\frac{1997}{2}", "correct": 0, "out_tokens": 777}
+{"level": 3, "gt": "34", "correct": 1, "out_tokens": 492}
+{"level": 4, "gt": "\\frac 59", "correct": 0, "out_tokens": 587}
+{"level": 4, "gt": "12", "correct": 0, "out_tokens": 986}
+{"level": 5, "gt": "-4", "correct": 1, "out_tokens": 526}
+{"level": 5, "gt": "16", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "116", "correct": 0, "out_tokens": 587}
+{"level": 5, "gt": "17", "correct": 1, "out_tokens": 881}
+{"level": 5, "gt": "\\$32,\\!348", "correct": 0, "out_tokens": 404}
+{"level": 5, "gt": "8", "correct": 1, "out_tokens": 862}
+{"level": 4, "gt": "-13x+3", "correct": 0, "out_tokens": 989}
+{"level": 3, "gt": "\\frac{10}{11}", "correct": 0, "out_tokens": 522}
+{"level": 4, "gt": "\\begin{pmatrix} -1 & 0 \\\\ 0 & -1 \\end{pmatrix}", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "17", "correct": 0, "out_tokens": 677}
+{"level": 4, "gt": "13", "correct": 1, "out_tokens": 684}
+{"level": 5, "gt": "540", "correct": 1, "out_tokens": 323}
+{"level": 5, "gt": "81", "correct": 1, "out_tokens": 695}
+{"level": 3, "gt": "\\frac{1}{8}", "correct": 0, "out_tokens": 211}
+{"level": 5, "gt": "28", "correct": 1, "out_tokens": 368}
+{"level": 3, "gt": "\\frac{8}{21}", "correct": 0, "out_tokens": 366}
+{"level": 4, "gt": "864 \\mbox{ inches}^2", "correct": 0, "out_tokens": 384}
+{"level": 3, "gt": "16", "correct": 1, "out_tokens": 471}
+{"level": 3, "gt": "120^\\circ", "correct": 0, "out_tokens": 574}
+{"level": 3, "gt": "76^\\circ", "correct": 0, "out_tokens": 295}
+{"level": 4, "gt": "15", "correct": 1, "out_tokens": 368}
+{"level": 5, "gt": "1\\frac{4}{5}", "correct": 0, "out_tokens": 414}
+{"level": 3, "gt": "\\dfrac{33}{100}", "correct": 0, "out_tokens": 527}
+{"level": 3, "gt": "6", "correct": 1, "out_tokens": 294}
+{"level": 4, "gt": "333", "correct": 1, "out_tokens": 475}
+{"level": 4, "gt": "1030", "correct": 1, "out_tokens": 712}
+{"level": 4, "gt": "1250", "correct": 1, "out_tokens": 340}
+{"level": 5, "gt": "18+2\\pi", "correct": 0, "out_tokens": 227}
+{"level": 5, "gt": "11", "correct": 1, "out_tokens": 388}
+{"level": 4, "gt": "\\sqrt{53}", "correct": 0, "out_tokens": 333}
+{"level": 3, "gt": "255", "correct": 1, "out_tokens": 502}
+{"level": 5, "gt": "7\\pi", "correct": 0, "out_tokens": 560}
+{"level": 4, "gt": "8", "correct": 1, "out_tokens": 471}
+{"level": 4, "gt": "36^\\circ", "correct": 1, "out_tokens": 417}
+{"level": 4, "gt": "129", "correct": 0, "out_tokens": 366}
+{"level": 3, "gt": "1", "correct": 1, "out_tokens": 405}
+{"level": 5, "gt": "3 \\pm 2 \\sqrt{2}", "correct": 0, "out_tokens": 290}
+{"level": 4, "gt": "440", "correct": 0, "out_tokens": 874}
+{"level": 5, "gt": "\\frac{17}{21}", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "36", "correct": 1, "out_tokens": 688}
+{"level": 5, "gt": "7", "correct": 1, "out_tokens": 888}
+{"level": 3, "gt": "16", "correct": 1, "out_tokens": 532}
+{"level": 3, "gt": "4", "correct": 1, "out_tokens": 935}
+{"level": 4, "gt": "63", "correct": 1, "out_tokens": 453}
+{"level": 4, "gt": "898", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "\\left(\\frac{3}{5},\\frac{8}{3}\\right]", "correct": 0, "out_tokens": 571}
+{"level": 4, "gt": "58", "correct": 1, "out_tokens": 970}
+{"level": 3, "gt": "11", "correct": 0, "out_tokens": 830}
+{"level": 4, "gt": "103", "correct": 1, "out_tokens": 628}
+{"level": 4, "gt": "\\begin{pmatrix} -18 \\\\ -49 \\\\ 96 \\end{pmatrix}", "correct": 0, "out_tokens": 992}
+{"level": 4, "gt": "63", "correct": 1, "out_tokens": 347}
+{"level": 4, "gt": "12", "correct": 1, "out_tokens": 226}
+{"level": 5, "gt": "5.4 \\text{ cents}", "correct": 0, "out_tokens": 494}
+{"level": 4, "gt": "5", "correct": 0, "out_tokens": 749}
+{"level": 5, "gt": "28", "correct": 0, "out_tokens": 689}
+{"level": 3, "gt": "9", "correct": 1, "out_tokens": 761}
+{"level": 4, "gt": "\\frac9{19}", "correct": 0, "out_tokens": 543}
+{"level": 5, "gt": "6", "correct": 0, "out_tokens": 723}
+{"level": 5, "gt": "1+2\\sqrt{3}", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "14", "correct": 0, "out_tokens": 418}
+{"level": 4, "gt": "3", "correct": 1, "out_tokens": 636}
+{"level": 5, "gt": "12\\pi", "correct": 1, "out_tokens": 377}
+{"level": 4, "gt": "41", "correct": 1, "out_tokens": 430}
+{"level": 5, "gt": "0", "correct": 1, "out_tokens": 757}
+{"level": 3, "gt": "-128", "correct": 1, "out_tokens": 314}
+{"level": 5, "gt": "-\\frac{24}{25}", "correct": 0, "out_tokens": 447}
+{"level": 5, "gt": "10", "correct": 1, "out_tokens": 249}
+{"level": 3, "gt": "-1", "correct": 1, "out_tokens": 361}
+{"level": 5, "gt": "\\frac{1}{3}", "correct": 0, "out_tokens": 446}
+{"level": 4, "gt": "120", "correct": 0, "out_tokens": 639}
+{"level": 5, "gt": "15", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "3", "correct": 1, "out_tokens": 932}
+{"level": 4, "gt": "4", "correct": 1, "out_tokens": 249}
+{"level": 5, "gt": "1940", "correct": 1, "out_tokens": 413}
+{"level": 5, "gt": "\\frac{13}{6}", "correct": 0, "out_tokens": 720}
+{"level": 4, "gt": "2", "correct": 1, "out_tokens": 854}
+{"level": 4, "gt": "3", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "-120", "correct": 1, "out_tokens": 387}
+{"level": 4, "gt": "3", "correct": 1, "out_tokens": 721}
+{"level": 3, "gt": "6", "correct": 1, "out_tokens": 333}
+{"level": 3, "gt": "4343_6", "correct": 1, "out_tokens": 330}
+{"level": 3, "gt": "2k", "correct": 1, "out_tokens": 604}
+{"level": 3, "gt": "55^\\circ", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "-2", "correct": 1, "out_tokens": 357}
+{"level": 3, "gt": "2", "correct": 1, "out_tokens": 354}
+{"level": 3, "gt": "1", "correct": 1, "out_tokens": 239}
+{"level": 4, "gt": "66", "correct": 1, "out_tokens": 687}
+{"level": 3, "gt": "6r^2-4r-24", "correct": 1, "out_tokens": 410}
+{"level": 4, "gt": "10080", "correct": 0, "out_tokens": 264}
+{"level": 3, "gt": "\\frac{1}{16}", "correct": 0, "out_tokens": 691}
+{"level": 4, "gt": "11 \\sqrt{5} + 11", "correct": 0, "out_tokens": 692}
+{"level": 4, "gt": "480", "correct": 1, "out_tokens": 387}
+{"level": 4, "gt": "81", "correct": 1, "out_tokens": 213}
+{"level": 5, "gt": "100", "correct": 0, "out_tokens": 759}
+{"level": 5, "gt": "(-\\sqrt{3}, \\sqrt{3})", "correct": 0, "out_tokens": 716}
+{"level": 5, "gt": "4", "correct": 0, "out_tokens": 528}
+{"level": 4, "gt": "6", "correct": 1, "out_tokens": 919}
+{"level": 3, "gt": "\\frac{7}{4}", "correct": 0, "out_tokens": 430}
+{"level": 4, "gt": "16 \\sqrt{3}", "correct": 0, "out_tokens": 571}
+{"level": 4, "gt": "(1,-16,-4,43)", "correct": 0, "out_tokens": 642}
+{"level": 5, "gt": "8", "correct": 0, "out_tokens": 846}
+{"level": 4, "gt": "4", "correct": 1, "out_tokens": 464}
+{"level": 4, "gt": "1", "correct": 1, "out_tokens": 253}
+{"level": 5, "gt": "17", "correct": 0, "out_tokens": 1001}
+{"level": 5, "gt": "1+2i", "correct": 1, "out_tokens": 438}
+{"level": 5, "gt": "25", "correct": 1, "out_tokens": 618}
+{"level": 4, "gt": "(8,-2)", "correct": 1, "out_tokens": 736}
+{"level": 3, "gt": "6", "correct": 1, "out_tokens": 382}
+{"level": 3, "gt": "3", "correct": 1, "out_tokens": 658}
+{"level": 4, "gt": "12", "correct": 1, "out_tokens": 650}
+{"level": 4, "gt": "(0,9) \\cup (9,36)", "correct": 0, "out_tokens": 351}
+{"level": 5, "gt": "\\frac{1}{2}", "correct": 0, "out_tokens": 968}
+{"level": 5, "gt": "\\frac{20000}{\\pi}", "correct": 0, "out_tokens": 707}
+{"level": 4, "gt": "x \\in [-2,7]", "correct": 0, "out_tokens": 709}
+{"level": 5, "gt": "22", "correct": 0, "out_tokens": 358}
+{"level": 3, "gt": "11", "correct": 1, "out_tokens": 379}
+{"level": 5, "gt": "\\frac{11}{2}", "correct": 0, "out_tokens": 364}
+{"level": 3, "gt": "\\frac{\\sqrt{21}}{5}", "correct": 0, "out_tokens": 547}
+{"level": 5, "gt": "12", "correct": 1, "out_tokens": 944}
+{"level": 5, "gt": "0", "correct": 1, "out_tokens": 723}
+{"level": 5, "gt": "\\sqrt{66}", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "\\frac 34", "correct": 0, "out_tokens": 455}
+{"level": 5, "gt": "-\\frac{3}{8}", "correct": 0, "out_tokens": 681}
+{"level": 3, "gt": "2", "correct": 1, "out_tokens": 348}
+{"level": 4, "gt": "\\text{Navin}", "correct": 0, "out_tokens": 595}
+{"level": 5, "gt": "\\frac{14}{3}", "correct": 0, "out_tokens": 492}
+{"level": 5, "gt": "\\frac{13}{4}", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "1 - 12i", "correct": 1, "out_tokens": 456}
+{"level": 4, "gt": "3", "correct": 0, "out_tokens": 543}
+{"level": 4, "gt": "60", "correct": 1, "out_tokens": 357}
+{"level": 4, "gt": "9", "correct": 1, "out_tokens": 238}
+{"level": 5, "gt": "\\begin{pmatrix} 1/5 \\\\ -18/5 \\end{pmatrix}", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "2 \\sqrt{5}", "correct": 0, "out_tokens": 752}
+{"level": 3, "gt": "60", "correct": 1, "out_tokens": 195}
+{"level": 4, "gt": "406", "correct": 0, "out_tokens": 1024}
+{"level": 4, "gt": "10", "correct": 1, "out_tokens": 489}
+{"level": 5, "gt": "9", "correct": 1, "out_tokens": 764}
+{"level": 3, "gt": "\\frac{1}{8}", "correct": 0, "out_tokens": 493}
+{"level": 5, "gt": "-2", "correct": 1, "out_tokens": 212}
+{"level": 5, "gt": "2\\sqrt{5}", "correct": 0, "out_tokens": 422}
+{"level": 4, "gt": "\\begin{pmatrix} -7 \\\\ 16 \\\\ 5 \\end{pmatrix}", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "\\begin{pmatrix} 16/49 \\\\ 48/49 \\\\ 24/49 \\end{pmatrix}", "correct": 0, "out_tokens": 502}
+{"level": 5, "gt": "27", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "\\{1\\pm\\sqrt{5},-2\\}", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "1440", "correct": 0, "out_tokens": 913}
+{"level": 5, "gt": "600", "correct": 1, "out_tokens": 424}
+{"level": 5, "gt": "3R^2", "correct": 0, "out_tokens": 579}
+{"level": 3, "gt": "6\\sqrt{2}", "correct": 0, "out_tokens": 457}
+{"level": 4, "gt": "64", "correct": 1, "out_tokens": 843}
+{"level": 3, "gt": "50", "correct": 1, "out_tokens": 535}
+{"level": 4, "gt": "\\left[ \\frac{\\pi^2}{8}, \\frac{5 \\pi^2}{4} \\right]", "correct": 0, "out_tokens": 837}
+{"level": 5, "gt": "331", "correct": 0, "out_tokens": 1024}
+{"level": 5, "gt": "32", "correct": 1, "out_tokens": 515}
+{"level": 5, "gt": "(-\\infty, 2) \\cup (3, \\infty)", "correct": 0, "out_tokens": 511}
+{"level": 4, "gt": "4", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "3", "correct": 1, "out_tokens": 309}
+{"level": 3, "gt": "x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "14", "correct": 1, "out_tokens": 388}
+{"level": 4, "gt": "550", "correct": 1, "out_tokens": 338}
+{"level": 4, "gt": "256", "correct": 1, "out_tokens": 234}
+{"level": 4, "gt": "45", "correct": 1, "out_tokens": 419}
+{"level": 5, "gt": "\\frac{1}{2}", "correct": 0, "out_tokens": 657}
+{"level": 4, "gt": "15", "correct": 0, "out_tokens": 989}
+{"level": 4, "gt": "8", "correct": 1, "out_tokens": 624}
+{"level": 5, "gt": "44", "correct": 1, "out_tokens": 552}
+{"level": 5, "gt": "64", "correct": 1, "out_tokens": 599}
+{"level": 3, "gt": "\\frac{639}{40}", "correct": 0, "out_tokens": 486}
+{"level": 5, "gt": "y = 2x + 3", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "41", "correct": 1, "out_tokens": 387}
+{"level": 5, "gt": "\\$18.90", "correct": 0, "out_tokens": 685}
+{"level": 4, "gt": "75^\\circ", "correct": 0, "out_tokens": 431}
+{"level": 4, "gt": "12", "correct": 1, "out_tokens": 510}
+{"level": 3, "gt": "9", "correct": 1, "out_tokens": 738}
+{"level": 4, "gt": "121", "correct": 1, "out_tokens": 253}
+{"level": 5, "gt": "8 \\pi", "correct": 0, "out_tokens": 763}
+{"level": 4, "gt": "8", "correct": 1, "out_tokens": 264}
+{"level": 3, "gt": "25", "correct": 1, "out_tokens": 349}
+{"level": 5, "gt": "27648", "correct": 1, "out_tokens": 964}
+{"level": 3, "gt": "84", "correct": 1, "out_tokens": 238}
+{"level": 5, "gt": "7", "correct": 1, "out_tokens": 628}
+{"level": 5, "gt": "29", "correct": 0, "out_tokens": 883}
+{"level": 3, "gt": "2", "correct": 1, "out_tokens": 912}
+{"level": 5, "gt": "\\frac{2}{1005}", "correct": 0, "out_tokens": 945}
+{"level": 5, "gt": "2", "correct": 1, "out_tokens": 359}
+{"level": 5, "gt": "8n^2 + 4n + 1", "correct": 0, "out_tokens": 756}
+{"level": 5, "gt": "202", "correct": 1, "out_tokens": 564}
+{"level": 3, "gt": "\\frac{8}{15}", "correct": 0, "out_tokens": 1024}
+{"level": 3, "gt": "10", "correct": 1, "out_tokens": 835}
+{"level": 3, "gt": "216", "correct": 1, "out_tokens": 263}
+{"level": 5, "gt": "\\$36", "correct": 0, "out_tokens": 216}
+{"level": 3, "gt": "15", "correct": 1, "out_tokens": 565}
+{"level": 5, "gt": "14", "correct": 0, "out_tokens": 538}
+{"level": 5, "gt": "64", "correct": 0, "out_tokens": 420}
+{"level": 3, "gt": "y = -2x", "correct": 1, "out_tokens": 815}
+{"level": 5, "gt": "20", "correct": 0, "out_tokens": 452}
+{"level": 5, "gt": "\\frac{1}{4}", "correct": 0, "out_tokens": 938}
+{"level": 4, "gt": "(2,12) \\cup (12,102)", "correct": 1, "out_tokens": 490}
+{"level": 3, "gt": "\\frac{5}{13}", "correct": 0, "out_tokens": 495}
+{"level": 5, "gt": "\\frac{7}{2}", "correct": 0, "out_tokens": 669}
+{"level": 5, "gt": "-1", "correct": 0, "out_tokens": 711}
+{"level": 4, "gt": "106^\\circ", "correct": 0, "out_tokens": 279}

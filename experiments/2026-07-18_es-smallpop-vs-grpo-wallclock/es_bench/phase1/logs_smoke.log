@@ -1,0 +1,82 @@
+WARNING 07-18 15:02:25 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-18 15:02:25 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-18 15:02:31 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Exception in thread Thread-1 (_report_usage_worker):
+Traceback (most recent call last):
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 167, in _report_usage_worker
+    self._report_usage_once(model_architecture, usage_context, extra_kvs)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 223, in _report_usage_once
+    self._write_to_file(data)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 252, in _write_to_file
+    os.makedirs(os.path.dirname(_USAGE_STATS_JSON_PATH), exist_ok=True)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+NotADirectoryError: [Errno 20] Not a directory: '/home/hyin66/.config/vllm'
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:05<00:00,  5.45s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:05<00:00,  5.45s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 59.49it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:00<00:00, 63.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:00<00:00, 62.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:00<00:00, 62.04it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:00<00:00, 60.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:00<00:00, 59.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:00<00:00, 58.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:00<00:00, 56.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:01<00:00, 54.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:01<00:00, 56.17it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 58.00it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   1%|▏         | 1/67 [00:02<02:23,  2.17s/it]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 9/67 [00:02<00:10,  5.34it/s]Capturing CUDA graphs (decode, FULL):  27%|██▋       | 18/67 [00:02<00:04, 12.11it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 27/67 [00:02<00:01, 20.05it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 36/67 [00:02<00:01, 28.88it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:02<00:00, 38.27it/s]Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 55/67 [00:02<00:00, 48.41it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 65/67 [00:02<00:00, 57.70it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:02<00:00, 22.84it/s]
+[N=4 seed=0] step 0 fmean=0.531 fstd=0.054 |Δ|=9.82e+00 zero=False t_step=6.59s
+SUMMARY: {
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "dataset": "math",
+  "levels": [
+    3,
+    4,
+    5
+  ],
+  "population_size": 4,
+  "batch_size": 8,
+  "sigma": 0.001,
+  "alpha": 0.0005,
+  "data_seed": 1234,
+  "pop_seed": 0,
+  "gpu": 0,
+  "num_steps": 4,
+  "warmup": 0,
+  "max_tokens": 512,
+  "zero_update_count": 1,
+  "zero_update_rate": 0.25,
+  "fitness_var_mean": 0.002685546875,
+  "s_per_step": {
+    "mean": 5.722321696113795,
+    "std": 0.5027353120222972
+  },
+  "t_generation": {
+    "mean": 5.313820153474808,
+    "std": 0.030103965471446375
+  },
+  "t_perturb_swap": {
+    "mean": 0.07357282214798033,
+    "std": 0.0017973400072153597
+  },
+  "t_update": {
+    "mean": 0.33492872049100697,
+    "std": 0.4736364743626213
+  },
+  "seqs_per_step": 32,
+  "tokens_per_step": {
+    "mean": 13988.0,
+    "std": 1303.561467672315
+  },
+  "tokens_per_s": 2444.4623603562313,
+  "t_eff_per_effective_step": 7.62976226148506,
+  "peak_mem_torch_gb": 133.373821952,
+  "peak_mem_reserved_gb": 134.882525184,
+  "peak_mem_nvidia_smi_mib": 129737,
+  "wall_clock_s": 23.50932069774717
+}
+[rank0]:[W718 15:03:36.204327019 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

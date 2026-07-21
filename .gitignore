@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# transient logs / build output
+setup_verl.log
+
+# verl / hydra default run dump (regenerated each run; per-try copies are archived under experiments/)
+/outputs/

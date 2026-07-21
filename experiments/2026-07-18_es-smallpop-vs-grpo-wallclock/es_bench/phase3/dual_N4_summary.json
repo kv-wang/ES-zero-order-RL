@@ -1,0 +1,36 @@
+{
+  "mode": "dual_gpu",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 4,
+  "batch_size": 8,
+  "num_steps": 30,
+  "warmup": 5,
+  "max_tokens": 512,
+  "gpus": [
+    0,
+    1
+  ],
+  "zero_update_rate": 0.16666666666666666,
+  "s_per_step": {
+    "mean": 3.9474458357319238,
+    "std": 0.033387762224757485
+  },
+  "t_eval_barrier": {
+    "mean": 3.8267570631578565,
+    "std": 0.020153025049907958
+  },
+  "t_update": {
+    "mean": 0.12068877257406711,
+    "std": 0.030019988692116712
+  },
+  "seqs_per_step": 32,
+  "tokens_per_step": {
+    "mean": 14585.2,
+    "std": 883.4717426154614
+  },
+  "peak_mem_torch_gb": {
+    "1": 88.869851136,
+    "0": 88.869851136
+  },
+  "wall_clock_s": 121.40332248341292
+}

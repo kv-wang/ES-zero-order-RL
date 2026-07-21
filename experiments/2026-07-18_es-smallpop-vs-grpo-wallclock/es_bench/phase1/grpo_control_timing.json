@@ -1,0 +1,31 @@
+{
+  "n_timed_steps": 195,
+  "warmup_dropped": 5,
+  "seqs_per_step": 64,
+  "s_per_step": {
+    "mean": 6.737301075329574,
+    "std": 0.2509525492710555
+  },
+  "t_generation": {
+    "mean": 2.386916051757259,
+    "std": 0.17705402910751608
+  },
+  "t_logprob_fwd": {
+    "mean": 1.7934742047427557,
+    "std": 0.09384633309245892
+  },
+  "t_actor_update_fwd_bwd_optim": {
+    "mean": 1.676261764153456,
+    "std": 0.08844678798701053
+  },
+  "t_overhead_adv_reward_syncweights": {
+    "mean": 0.8580019831466369,
+    "std": 0.013257337080755709
+  },
+  "avg_response_length": {
+    "mean": 439.51426282051284,
+    "std": 30.62596592860267
+  },
+  "tokens_per_step_est": 28128.91282051282,
+  "tokens_per_s_est": 4175.1010539686795
+}
