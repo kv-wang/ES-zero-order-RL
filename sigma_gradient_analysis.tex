@@ -1,0 +1,224 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage{ctex}
+
+\newtheorem{proposition}{命题}
+\newtheorem{corollary}{推论}
+
+\title{为什么更大的梯度范数意味着更小的 $\sigma$}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{背景}
+
+考虑带有噪声函数评估的 antithetic ES 梯度估计器，对于 $f:\mathbb{R}^d\to\mathbb{R}$，我们只能观测到 $F(x) = f(x) + \xi$，其中 $\mathbb{E}[\xi\mid x]=0$ 且 $\mathbb{E}[\xi^2\mid x]\leq\gamma^2$：
+\[
+\widehat{g}_\sigma(x) = \frac{1}{m}\sum_{i=1}^m \frac{F(x+\sigma u_i) - F(x-\sigma u_i)}{2\sigma}u_i,
+\quad u_i\sim\mathcal{N}(0,I_d).
+\]
+
+均方误差的上界为：
+\[
+\mathbb{E}\|\widehat{g}_\sigma(x) - \nabla f(x)\|^2
+\leq
+L^2\sigma^2 d + \frac{d}{m}\|\nabla f(x)\|^2 + \frac{L^2\sigma^2 d^3}{m} + \frac{\gamma^2 d}{m\sigma^2}.
+\]
+
+\section{主要结果}
+
+\subsection{最小化绝对误差：$\sigma$ 与 $\|\nabla f\|$ 无关}
+
+\begin{proposition}[绝对误差最小化]
+最小化 $\mathbb{E}\|\widehat{g}_\sigma - \nabla f\|^2$ 的最优 $\sigma$ 为
+\[
+\sigma^* \propto \left(\frac{\gamma^2}{mL^2}\right)^{1/4},
+\]
+它与 $\|\nabla f(x)\|$ \textcolor{red}{无关}。
+\end{proposition}
+
+\begin{proof}
+在四项误差中，只有第一项和最后一项依赖于 $\sigma$。平衡主导项：
+\[
+L^2\sigma^2 d \approx \frac{\gamma^2 d}{m\sigma^2}
+\implies
+L^2\sigma^4 \approx \frac{\gamma^2}{m}
+\implies
+\sigma^* \propto \left(\frac{\gamma^2}{mL^2}\right)^{1/4}.
+\]
+注意 $\|\nabla f(x)\|$ 只出现在第二项 $\frac{d}{m}\|\nabla f\|^2$ 中，而该项不依赖于 $\sigma$。
+\end{proof}
+
+\subsection{保持恒定信噪比：$\sigma \propto 1/\|\nabla f\|$}
+
+\begin{proposition}[信噪比视角]
+如果我们希望在整个训练过程中保持恒定的信噪比，那么
+\[
+\boxed{\sigma \propto \frac{1}{\|\nabla f(x)\|}},
+\]
+即，\textcolor{red}{梯度范数越大需要越小的 $\sigma$}。
+\end{proposition}
+
+\begin{proof}
+信号强度为 $\|\mathbb{E}[\widehat{g}_\sigma]\| \approx \|\nabla f(x)\|$（忽略 $O(\sigma^2)$ 偏差）。
+
+噪声方差（忽略高阶项）为：
+\[
+\text{Var}(\widehat{g}_\sigma) \approx \frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}.
+\]
+
+定义信噪比：
+\[
+\text{SNR}^2 = \frac{\text{Signal}^2}{\text{Noise}} = \frac{\|\nabla f\|^2}{\frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}}.
+\]
+
+为了保持 $\text{SNR} = C$（常数），我们要求：
+\[
+\|\nabla f\|^2 = C^2\left[\frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}\right].
+\]
+
+重新整理：
+\[
+\|\nabla f\|^2\left(1 - \frac{C^2 d}{m}\right) = \frac{C^2\gamma^2 d}{m\sigma^2}.
+\]
+
+假设 $C^2 < m/d$（SNR 不能无限大），求解 $\sigma$：
+\[
+\sigma^2 = \frac{C^2\gamma^2 d}{m\|\nabla f\|^2\left(1 - \frac{C^2 d}{m}\right)}
+\propto \frac{1}{\|\nabla f\|^2}.
+\]
+
+因此：
+\[
+\boxed{\sigma \propto \frac{1}{\|\nabla f\|}.}
+\]
+\end{proof}
+
+\subsection{噪声放大分析：$\sigma \propto 1/\|\nabla f\|$}
+
+\begin{proposition}[噪声放大]
+从有限差分的视角，单方向信噪比为
+\[
+\text{SNR}_{\text{single}} = \frac{\|\nabla f\|\cdot\sigma}{\gamma}.
+\]
+为了保持恒定的 $\text{SNR}_{\text{single}}$，我们需要 $\sigma \propto 1/\|\nabla f\|$。
+\end{proposition}
+
+\begin{proof}
+沿方向 $u$ 的有限差分近似为：
+\[
+\frac{F(x+\sigma u) - F(x-\sigma u)}{2\sigma} = \frac{f(x+\sigma u) - f(x-\sigma u)}{2\sigma} + \frac{\xi_+ - \xi_-}{2\sigma}.
+\]
+
+信号部分：
+\[
+\frac{f(x+\sigma u) - f(x-\sigma u)}{2\sigma} \approx \nabla f(x) \cdot u,
+\]
+其大小为 $\|\nabla f\|$（在 $u$ 上的期望）。
+
+噪声部分：
+\[
+\frac{\xi_+ - \xi_-}{2\sigma}
+\]
+的标准差为：
+\[
+\frac{\sqrt{\text{Var}(\xi_+) + \text{Var}(\xi_-)}}{2\sigma} = \frac{\gamma\sqrt{2}}{2\sigma} \approx \frac{\gamma}{\sigma}.
+\]
+
+因此，单方向 SNR 为：
+\[
+\text{SNR}_{\text{single}} = \frac{\|\nabla f\|}{\gamma/\sigma} = \frac{\|\nabla f\|\cdot\sigma}{\gamma}.
+\]
+
+为了保持 $\text{SNR}_{\text{single}} = C$（常数）：
+\[
+\|\nabla f\|\cdot\sigma = C\gamma
+\implies
+\boxed{\sigma = \frac{C\gamma}{\|\nabla f\|}}.
+\]
+
+这表明 \textcolor{red}{$\sigma$ 应该随 $\|\nabla f\|$ 增大而\emph{减小}}。
+\end{proof}
+
+\subsection{一步优化误差：$\sigma \propto 1/\|\nabla f\|^{1/2}$}
+
+\begin{proposition}[一步更新误差]
+如果我们执行一步梯度下降 $x' = x - \alpha\widehat{g}_\sigma(x)$ 并最小化期望的一步误差，最优 $\sigma$ 满足：
+\[
+\sigma \propto \frac{1}{\|\nabla f\|^{1/2}}.
+\]
+\end{proposition}
+
+\begin{proof}
+考虑使用学习率 $\alpha$ 的单步更新。实际更新与理想更新之间的差异可由以下式子刻画：
+\[
+\mathbb{E}[f(x')] - f(x - \alpha\nabla f)
+\approx
+\alpha^2\sigma^2\|\nabla f\|^2 + \frac{\alpha^2 L}{2}\left[\frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}\right].
+\]
+
+依赖于 $\sigma$ 的项为：
+\[
+\text{Error}(\sigma) = \alpha^2\sigma^2\|\nabla f\|^2 + \frac{\alpha^2 L\gamma^2 d}{2m\sigma^2}.
+\]
+
+对 $\sigma$ 求导并令其为零：
+\[
+\frac{\partial}{\partial\sigma}\left[\alpha^2\sigma^2\|\nabla f\|^2 + \frac{\alpha^2 L\gamma^2 d}{2m\sigma^2}\right] = 0,
+\]
+\[
+2\alpha^2\sigma\|\nabla f\|^2 - \frac{\alpha^2 L\gamma^2 d}{m\sigma^3} = 0,
+\]
+\[
+\sigma^4 = \frac{L\gamma^2 d}{2m\|\nabla f\|^2}.
+\]
+
+因此：
+\[
+\boxed{\sigma \propto \frac{1}{\|\nabla f\|^{1/2}}.}
+\]
+
+再一次，\textcolor{red}{$\sigma$ 应该随 $\|\nabla f\|$ 增大而减小}。
+\end{proof}
+
+\section{总结}
+
+\begin{corollary}[反直觉的结果]
+在加性噪声模型 $F(x) = f(x) + \xi$ 下，多个理论视角表明：
+\begin{itemize}
+\item \textbf{绝对误差最小化}：$\sigma$ 与 $\|\nabla f\|$ 无关。
+\item \textbf{恒定信噪比}：$\sigma \propto 1/\|\nabla f\|$。
+\item \textbf{噪声放大}：$\sigma \propto 1/\|\nabla f\|$。
+\item \textbf{一步误差}：$\sigma \propto 1/\|\nabla f\|^{1/2}$。
+\end{itemize}
+
+\textcolor{red}{\textbf{这些结果都不支持"$\|\nabla f\|$ 越大需要越大的 $\sigma$"这一猜想。}}
+
+事实上，当梯度范数很大时（信号强），我们可以使用\emph{更小}的 $\sigma$ 来获得更精确的梯度估计，而不会被噪声主导。
+\end{corollary}
+
+\section{直觉解释}
+
+关键洞察是：
+\[
+\text{SNR} \propto \|\nabla f\| \cdot \sigma.
+\]
+
+当 $\|\nabla f\|$ 增大时：
+\begin{itemize}
+\item 信号变得更强。
+\item 即使 $\sigma$ 固定不变，SNR 也会提高。
+\item 我们可以\emph{减小} $\sigma$ 来获得更精确的梯度估计（减小有限差分的偏差），同时仍然保持可接受的 SNR。
+\end{itemize}
+
+反过来，当 $\|\nabla f\|$ 很小时（接近收敛）：
+\begin{itemize}
+\item 信号很弱。
+\item 噪声主导：$\frac{\xi_+ - \xi_-}{2\sigma}$ 中的 $1/\sigma$ 放大因子变得至关重要。
+\item 我们应该增大 $\sigma$，或增大采样方向数 $m$，或停止训练。
+\end{itemize}
+
+\end{document}

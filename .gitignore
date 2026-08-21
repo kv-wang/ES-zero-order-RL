@@ -8,3 +8,18 @@ setup_verl.log
 
 # verl / hydra default run dump (regenerated each run; per-try copies are archived under experiments/)
 /outputs/
+
+# Large model files
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+# Large data files
+*.parquet
+*.arrow
+*.jsonl
+
+# Claude artifacts
+.claude/
