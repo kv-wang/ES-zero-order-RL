@@ -1,0 +1,90 @@
+{
+  "variant": "grpo",
+  "axis": null,
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "hf_dir": "/tmp/grpo_math_grpo_math_gen400_qwen25_3b_instruct/global_step_400/hf_merged",
+  "actor_dir": "/tmp/grpo_math_grpo_math_gen400_qwen25_3b_instruct/global_step_400/actor",
+  "num_steps": 400,
+  "rollouts_per_step": 64,
+  "total_generations": 25600,
+  "wall_clock_s": 6642.0,
+  "kl_proxy_drift": -6.979516346023415e-08,
+  "eval_max_tokens": 1024,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.6233,
+      "extract_rate": 0.9767,
+      "headroom": 0.3767,
+      "ceiling_risk": false,
+      "gen_seconds": 7.4,
+      "per_level_accuracy": {
+        "1": 0.8519,
+        "2": 0.8214,
+        "3": 0.7344,
+        "4": 0.5926,
+        "5": 0.3194
+      },
+      "primary_L3_5_accuracy": 0.5438
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8533,
+      "extract_rate": 1.0,
+      "headroom": 0.1467,
+      "ceiling_risk": false,
+      "gen_seconds": 4.2
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9167,
+      "extract_rate": 1.0,
+      "headroom": 0.0833,
+      "ceiling_risk": false,
+      "gen_seconds": 3.6
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1691,
+      "extract_rate": 0.9596,
+      "headroom": 0.8309,
+      "ceiling_risk": false,
+      "gen_seconds": 7.6
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.21,
+      "extract_rate": 0.9067,
+      "headroom": 0.79,
+      "ceiling_risk": false,
+      "gen_seconds": 8.9
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.425,
+      "extract_rate": 0.925,
+      "headroom": 0.575,
+      "ceiling_risk": false,
+      "gen_seconds": 4.3
+    }
+  },
+  "eval_seconds": 39.72271487675607,
+  "population_size": null,
+  "pop_seed": null,
+  "pair_tie_rate": null,
+  "final_cum_disp": null,
+  "zero_update_rate": null,
+  "s_per_step_mean": null
+}

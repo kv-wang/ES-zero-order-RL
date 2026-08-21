@@ -1,0 +1,117 @@
+WARNING 08-10 06:48:28 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 08-10 06:48:29 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 08-10 06:48:35 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:05<00:00,  5.93s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:05<00:00,  5.93s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|█         | 7/67 [00:00<00:00, 64.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:00<00:00, 65.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:00<00:00, 64.37it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 64.64it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 62.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:00<00:00, 62.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 49/67 [00:00<00:00, 60.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:00<00:00, 58.04it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:01<00:00, 58.10it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 60.36it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:00<00:01, 55.04it/s]Capturing CUDA graphs (decode, FULL):  22%|██▏       | 15/67 [00:00<00:00, 74.16it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 25/67 [00:00<00:00, 82.56it/s]Capturing CUDA graphs (decode, FULL):  52%|█████▏    | 35/67 [00:00<00:00, 87.61it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:00<00:00, 91.58it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▎ | 56/67 [00:00<00:00, 94.76it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 97.31it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 90.32it/s]
+[momentum N=6 s0] step 0 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=8.02e+00
+[momentum N=6 s0] step 1 axis=8.02 disp=-0.001 frac=-0.0002 cum=-0.00 f+-f-=[+0.000,+0.000] probe=True |D|=7.47e+00
+[momentum N=6 s0] step 2 axis=10.4 disp=-5.575 frac=-0.5369 cum=-5.58 f+-f-=[-0.125,-0.250] probe=True |D|=6.87e+00
+SUMMARY: {
+  "variant": "momentum",
+  "axis": "mom",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 6,
+  "pop_seed": 0,
+  "num_steps": 3,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "mom_beta": 0.9,
+  "mom_warmup": 1,
+  "disp_sign_means": "+ along recent trajectory",
+  "final_axis_norm": 10.384175892174195,
+  "final_cum_disp": -5.576536284121999,
+  "final_cum_disp_frac": -0.5370597520866874,
+  "mean_signed_disp": 0.0,
+  "mean_signed_disp_frac": 0.0,
+  "mean_pair_fdiff": null,
+  "pair_tie_rate": null,
+  "n_pairs_evaluated": 0,
+  "steps_probe_active": 0,
+  "steps_scale_flagged": 0,
+  "zero_update_rate": 0.0,
+  "kl_proxy_drift": null,
+  "s_per_step_mean": 8.181798473621408,
+  "wall_clock_s": 24.545396611094475,
+  "eval_seconds": 20.13065425120294
+}
+EVAL_FINAL: {
+  "math500": {
+    "n": 8,
+    "full_n": 500,
+    "capped": true,
+    "accuracy": 0.75,
+    "extract_rate": 1.0,
+    "headroom": 0.25,
+    "ceiling_risk": false,
+    "gen_seconds": 1.5,
+    "per_level_accuracy": {
+      "2": 0.6667,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0
+    },
+    "primary_L3_5_accuracy": 0.8
+  },
+  "gsm8k": {
+    "n": 8,
+    "full_n": 1319,
+    "capped": true,
+    "accuracy": 0.5,
+    "extract_rate": 1.0,
+    "headroom": 0.5,
+    "ceiling_risk": false,
+    "gen_seconds": 5.1
+  },
+  "svamp": {
+    "n": 8,
+    "full_n": 300,
+    "capped": true,
+    "accuracy": 0.875,
+    "extract_rate": 1.0,
+    "headroom": 0.125,
+    "ceiling_risk": false,
+    "gen_seconds": 1.0
+  },
+  "minerva_math": {
+    "n": 8,
+    "full_n": 272,
+    "capped": true,
+    "accuracy": 0.375,
+    "extract_rate": 1.0,
+    "headroom": 0.625,
+    "ceiling_risk": false,
+    "gen_seconds": 2.2
+  },
+  "olympiadbench": {
+    "n": 8,
+    "full_n": 674,
+    "capped": true,
+    "accuracy": 0.25,
+    "extract_rate": 1.0,
+    "headroom": 0.75,
+    "ceiling_risk": false,
+    "gen_seconds": 4.9
+  },
+  "amc23": {
+    "n": 8,
+    "full_n": 40,
+    "capped": true,
+    "accuracy": 0.75,
+    "extract_rate": 1.0,
+    "headroom": 0.25,
+    "ceiling_risk": false,
+    "gen_seconds": 2.1
+  }
+}
+[rank0]:[W810 06:49:43.040402158 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

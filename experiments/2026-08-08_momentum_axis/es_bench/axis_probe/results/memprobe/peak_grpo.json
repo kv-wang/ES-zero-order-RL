@@ -1,0 +1,22 @@
+{
+  "label": "GRPO 20steps rollout_util0.5",
+  "cmd": [
+    "env",
+    "BUDGET=manual",
+    "STEPS=20",
+    "ROLLOUT_MEM=0.5",
+    "CKPT=/tmp/grpo_mem_probe",
+    "bash",
+    "axis_probe/run_grpo.sh"
+  ],
+  "returncode": 0,
+  "baseline_mib": 0,
+  "peak_total_mib": 123075,
+  "peak_total_gib": 120.19,
+  "peak_over_baseline_gib": 120.19,
+  "peak_compute_apps_mib": 123066,
+  "peak_compute_apps_gib": 120.18,
+  "samples": 1019,
+  "interval_s": 0.5,
+  "elapsed_s": 578.3
+}

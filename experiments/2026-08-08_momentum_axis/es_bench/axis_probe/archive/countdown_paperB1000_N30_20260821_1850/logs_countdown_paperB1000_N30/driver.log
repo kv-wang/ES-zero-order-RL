@@ -1,0 +1,226 @@
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 1 2 3 4        seeds: 0
+ES               : N=30  B=1000  steps=20  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 20 x 30 x 1000 = 600000   (08-16 was N=30 B=100 steps=100 = 300000)
+GRPO             : train_bs=16 x group=8 = 128 rollouts/step, steps=4687
+GRPO rollouts    : 599936   (match = 0.9999x of the ES arm)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85 / GRPO 0.5   (not equal -- see header)
+projection       : GRPO ~25.4h + ES ~12.1h/arm -> ~49.6h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 1 2 3 4        seeds: 0
+ES               : N=30  B=1000  steps=10  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 10 x 30 x 1000 = 300000   (08-16 was N=30 B=100 steps=100 = 300000)
+GRPO             : train_bs=16 x group=8 = 128 rollouts/step, steps=2343
+GRPO rollouts    : 299904   (match = 0.9997x of the ES arm)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85 / GRPO 0.5   (not equal -- see header)
+projection       : GRPO ~12.7h + ES ~6.0h/arm -> ~24.7h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 2 3 4        seeds: 0
+ES               : N=30  B=1000  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 1000 = 3000000   (08-16 was N=30 B=100 steps=100 = 300000)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85
+projection       : ES ~60.3h/arm x 2 arms x 1 seeds -> ~120.6h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 2 3 4        seeds: 0
+GPUs             : vanilla on GPU0, baseaxis on GPU1 (parallel)
+ES               : N=30  B=1000  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 1000 = 3000000   (08-16 was N=30 B=100 steps=100 = 300000)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85
+projection       : ES ~60.3h/arm (parallel on 2 GPUs) -> ~60.3h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 2 3 4        seeds: 0
+GPUs             : 0,1 (TP=2, serial: vanilla → baseaxis)
+ES               : N=30  B=1000  steps=5  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 5 x 30 x 1000 = 150000   (08-16 was N=30 B=100 steps=100 = 300000)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85
+projection       : ES ~3.0h/arm x 2 variants (serial) -> ~6.0h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 2 3 4        seeds: 0
+GPUs             : 0,1 (TP=2, serial: vanilla → baseaxis)
+ES               : N=30  B=1000  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 1000 = 3000000   (08-16 was N=30 B=100 steps=100 = 300000)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85
+projection       : ES ~60.3h/arm x 2 variants (serial) -> ~120.6h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+[2026-08-21_12:04:12] START base -> axis_probe/logs/countdown_paperB1000_N30/base.log
+[2026-08-21_12:06:11] END   base rc=0 elapsed=119s
+[2026-08-21_12:06:11] START es_vanilla_s0 -> axis_probe/logs/countdown_paperB1000_N30/vanilla_s0.log
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 2 3 4        seeds: 0
+GPUs             : 0,1 (TP=2, serial: vanilla → baseaxis)
+ES               : N=30  B=1000  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 1000 = 3000000   (08-16 was N=30 B=100 steps=100 = 300000)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85
+projection       : ES ~60.3h/arm x 2 variants (serial) -> ~120.6h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+[2026-08-21_12:07:21] SKIP stage0 base: axis_probe/results/countdown_paperB1000_N30/base_summary.json exists
+[2026-08-21_12:07:21] START es_vanilla_s0 -> axis_probe/logs/countdown_paperB1000_N30/vanilla_s0.log
+[2026-08-21_12:07:47] END   es_vanilla_s0 rc=1 elapsed=26s
+[2026-08-21_12:07:47] WARN vanilla s0 failed -- see axis_probe/logs/countdown_paperB1000_N30/vanilla_s0.log
+[2026-08-21_12:07:47] START es_baseaxis_s0 -> axis_probe/logs/countdown_paperB1000_N30/baseaxis_s0.log
+[2026-08-21_12:08:12] END   es_baseaxis_s0 rc=1 elapsed=25s
+[2026-08-21_12:08:12] WARN baseaxis s0 failed -- see axis_probe/logs/countdown_paperB1000_N30/baseaxis_s0.log
+[2026-08-21_12:08:12] START readout
+# Countdown at paper-scale B (ES B=1000) -- 1.5B-Instruct
+
+Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.
+
+## Configuration
+
+| | value |
+|---|---|
+| model | Qwen/Qwen2.5-1.5B-Instruct |
+| ES shape | N=30, B=1000, steps=100 |
+| ES generations | 3,000,000 |
+| GRPO shape | 0 rollouts/step x 0 steps |
+| GRPO rollouts | 0 |
+| rollout match | 0.0000x of the ES arm |
+| vLLM mem util | ES 0.85 / GRPO 0 (not equal) |
+
+## Accuracy
+
+countdown is the ID metric (trained on it); the six math sets are OOD.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.0100 | 0.5133 | 0.7500 | 0.8167 | 0.0846 | 0.1500 | 0.4000 |
+
+### Change vs base
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+
+## Wall clock and GPU memory
+
+Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT torch's per-process counter, which cannot see verl's separate vLLM process.
+
+| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |
+|---|---|---|---|---|---|
+| base | 0.03 h (119 s) | -- | -- | -- | 0 |
+
+## Training diagnostics
+
+| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |
+|---|---|---|---|---|
+| base | -- | -- | -- | -- |
+
+## Extraction rates
+
+countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 measured countdown extract_rate <= 0.503. Read any countdown gain against this column.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.753 | 0.970 | 0.980 | 0.963 | 0.967 | 0.900 | 1.000 |
+
+## Caveats
+
+- Seeds present: 1. The 08-13 power analysis found between-seed spread (~0.013 ID) at the same magnitude as between-method differences, so a single seed cannot rank methods.
+- ES resamples its B=1000 indices every step (with replacement) from the 1900-row countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The paper instead holds one fixed full-set batch, so its objective is stationary while this one still moves between steps -- a larger B shrinks that per-step noise but does not remove it.
+- ES and GRPO match on total generations only. Per step ES sees 30,000 generations against GRPO's 0, and ES spends them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that favours GRPO on prompt coverage.
+- GRPO runs 0 rollouts/step over 0 steps, which follows the 08-16 driver rather than the paper's countdown setting; the group size is well below what the paper used, so this is not a faithful GRPO reproduction, only a budget-matched control for the ES arms.
+- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.
+
+[2026-08-21_12:08:12] END   readout -> axis_probe/results/countdown_paperB1000_N30/REPORT.md
+[2026-08-21_12:08:12] ALL DONE. results=axis_probe/results/countdown_paperB1000_N30 logs=axis_probe/logs/countdown_paperB1000_N30
+[2026-08-21_18:42:33] END   es_vanilla_s0 rc=1 elapsed=23782s
+[2026-08-21_18:42:33] WARN vanilla s0 failed -- see axis_probe/logs/countdown_paperB1000_N30/vanilla_s0.log
+[2026-08-21_18:42:33] START es_baseaxis_s0 -> axis_probe/logs/countdown_paperB1000_N30/baseaxis_s0.log
+[2026-08-21_18:46:10] END   es_baseaxis_s0 rc=1 elapsed=217s
+[2026-08-21_18:46:10] WARN baseaxis s0 failed -- see axis_probe/logs/countdown_paperB1000_N30/baseaxis_s0.log
+[2026-08-21_18:46:10] START readout
+# Countdown at paper-scale B (ES B=1000) -- 1.5B-Instruct
+
+Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.
+
+## Configuration
+
+| | value |
+|---|---|
+| model | Qwen/Qwen2.5-1.5B-Instruct |
+| ES shape | N=30, B=1000, steps=100 |
+| ES generations | 3,000,000 |
+| GRPO shape | 0 rollouts/step x 0 steps |
+| GRPO rollouts | 0 |
+| rollout match | 0.0000x of the ES arm |
+| vLLM mem util | ES 0.85 / GRPO 0 (not equal) |
+
+## Accuracy
+
+countdown is the ID metric (trained on it); the six math sets are OOD.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.0100 | 0.5133 | 0.7500 | 0.8167 | 0.0846 | 0.1500 | 0.4000 |
+
+### Change vs base
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+
+## Wall clock and GPU memory
+
+Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT torch's per-process counter, which cannot see verl's separate vLLM process.
+
+| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |
+|---|---|---|---|---|---|
+| base | 0.03 h (119 s) | -- | -- | -- | 0 |
+
+Idle-phase card usage between stages: 241.9 GiB (subtract as the floor if the card is shared).
+
+## Training diagnostics
+
+| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |
+|---|---|---|---|---|
+| base | -- | -- | -- | -- |
+
+## Extraction rates
+
+countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 measured countdown extract_rate <= 0.503. Read any countdown gain against this column.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.753 | 0.970 | 0.980 | 0.963 | 0.967 | 0.900 | 1.000 |
+
+## Caveats
+
+- Seeds present: 1. The 08-13 power analysis found between-seed spread (~0.013 ID) at the same magnitude as between-method differences, so a single seed cannot rank methods.
+- ES resamples its B=1000 indices every step (with replacement) from the 1900-row countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The paper instead holds one fixed full-set batch, so its objective is stationary while this one still moves between steps -- a larger B shrinks that per-step noise but does not remove it.
+- ES and GRPO match on total generations only. Per step ES sees 30,000 generations against GRPO's 0, and ES spends them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that favours GRPO on prompt coverage.
+- GRPO runs 0 rollouts/step over 0 steps, which follows the 08-16 driver rather than the paper's countdown setting; the group size is well below what the paper used, so this is not a faithful GRPO reproduction, only a budget-matched control for the ES arms.
+- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.
+
+[2026-08-21_18:46:10] END   readout -> axis_probe/results/countdown_paperB1000_N30/REPORT.md
+[2026-08-21_18:46:10] ALL DONE. results=axis_probe/results/countdown_paperB1000_N30 logs=axis_probe/logs/countdown_paperB1000_N30

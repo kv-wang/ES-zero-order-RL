@@ -1,0 +1,89 @@
+{
+  "variant": "grpo",
+  "axis": null,
+  "model": "Qwen/Qwen2.5-Math-1.5B",
+  "hf_dir": "/tmp/grpo_math_grpo_gen400_base/global_step_400/hf_merged",
+  "actor_dir": "/tmp/grpo_math_grpo_gen400_base/global_step_400/actor",
+  "num_steps": 400,
+  "rollouts_per_step": 64,
+  "total_generations": 25600,
+  "wall_clock_s": 0.0,
+  "kl_proxy_drift": 1.92057661874826e-06,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5033,
+      "extract_rate": 0.9433,
+      "headroom": 0.4967,
+      "ceiling_risk": false,
+      "gen_seconds": 6.8,
+      "per_level_accuracy": {
+        "1": 0.7407,
+        "2": 0.7143,
+        "3": 0.6094,
+        "4": 0.4321,
+        "5": 0.2361
+      },
+      "primary_L3_5_accuracy": 0.4194
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.82,
+      "extract_rate": 0.9967,
+      "headroom": 0.18,
+      "ceiling_risk": false,
+      "gen_seconds": 6.2
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8667,
+      "extract_rate": 0.9833,
+      "headroom": 0.1333,
+      "ceiling_risk": false,
+      "gen_seconds": 6.1
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.114,
+      "extract_rate": 0.8529,
+      "headroom": 0.886,
+      "ceiling_risk": false,
+      "gen_seconds": 9.3
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.1667,
+      "extract_rate": 0.6933,
+      "headroom": 0.8333,
+      "ceiling_risk": false,
+      "gen_seconds": 8.7
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.275,
+      "extract_rate": 0.925,
+      "headroom": 0.725,
+      "ceiling_risk": false,
+      "gen_seconds": 5.4
+    }
+  },
+  "eval_seconds": 46.07365850452334,
+  "population_size": null,
+  "pop_seed": null,
+  "pair_tie_rate": null,
+  "final_cum_disp": null,
+  "zero_update_rate": null,
+  "s_per_step_mean": null
+}

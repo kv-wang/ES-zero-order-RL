@@ -1,0 +1,98 @@
+{
+  "variant": "momentum",
+  "axis": "mom",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 16,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "mom_beta": 0.9,
+  "mom_warmup": 1,
+  "disp_sign_means": "+ along recent trajectory",
+  "final_axis_norm": 9.168625969643637,
+  "final_cum_disp": 22.767930892270037,
+  "final_cum_disp_frac": 3.1427903379610376,
+  "mean_signed_disp": 0.10653095897164823,
+  "mean_signed_disp_frac": 0.013937210920901617,
+  "mean_pair_fdiff": 0.0019230769230769232,
+  "pair_tie_rate": 0.6564102564102564,
+  "n_pairs_evaluated": 390,
+  "steps_probe_active": 195,
+  "steps_scale_flagged": 5,
+  "zero_update_rate": 0.08205128205128205,
+  "kl_proxy_drift": 0.003390622480022132,
+  "s_per_step_mean": 21.54858783505857,
+  "wall_clock_s": 4309.717567700893,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5567,
+      "extract_rate": 0.78,
+      "headroom": 0.4433,
+      "ceiling_risk": false,
+      "gen_seconds": 8.7,
+      "per_level_accuracy": {
+        "1": 0.8519,
+        "2": 0.75,
+        "3": 0.6094,
+        "4": 0.4938,
+        "5": 0.3194
+      },
+      "primary_L3_5_accuracy": 0.47
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8733,
+      "extract_rate": 0.9933,
+      "headroom": 0.1267,
+      "ceiling_risk": false,
+      "gen_seconds": 7.0
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9233,
+      "extract_rate": 0.9867,
+      "headroom": 0.0767,
+      "ceiling_risk": false,
+      "gen_seconds": 2.6
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1654,
+      "extract_rate": 0.5588,
+      "headroom": 0.8346,
+      "ceiling_risk": false,
+      "gen_seconds": 8.8
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.22,
+      "extract_rate": 0.7167,
+      "headroom": 0.78,
+      "ceiling_risk": false,
+      "gen_seconds": 10.2
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.6,
+      "extract_rate": 1.0,
+      "headroom": 0.4,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    }
+  },
+  "eval_seconds": 47.70365316327661
+}

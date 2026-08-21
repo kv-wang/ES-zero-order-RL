@@ -1,0 +1,55 @@
+[2026-08-15_10:15:35] === countdown line start ===
+[2026-08-15_10:15:35] model=Qwen/Qwen2.5-1.5B-Instruct suffix='_qwen25_15b_instruct' seeds=[0] N=8 B=16 steps=5 maxtok=2048 smoke=1
+[2026-08-15_10:15:36] one ES arm = 640 generations
+[2026-08-15_10:15:36] GPU 0 free: 143156 MiB
+[2026-08-15_10:15:36] START stage 0: untrained base reference
+[2026-08-15_10:17:52] DONE  stage 0: untrained base reference rc=0 elapsed=136s
+[2026-08-15_10:17:52] START stage 1: GRPO
+[2026-08-15_10:25:41] DONE  stage 1: GRPO rc=0 elapsed=469s
+[2026-08-15_10:25:41] START stage 2: ES vanilla
+[2026-08-15_10:25:41]   START vanilla_N8_s0
+[2026-08-15_10:30:12]   DONE  vanilla_N8_s0 rc=0 elapsed=271s
+[2026-08-15_10:30:12] DONE  stage 2: ES vanilla rc=0 elapsed=271s
+[2026-08-15_10:34:14] === countdown line start ===
+[2026-08-15_10:34:14] model=Qwen/Qwen2.5-1.5B-Instruct suffix='_qwen25_15b_instruct' seeds=[0] N=8 B=16 steps=5 maxtok=2048 smoke=1
+[2026-08-15_10:34:14] one ES arm = 640 generations
+[2026-08-15_10:34:14] GPU 0 free: 143156 MiB
+[2026-08-15_10:34:14] SKIP  stage 0 (untrained base reference)
+[2026-08-15_10:34:14] START stage 1: GRPO
+[2026-08-15_10:36:11] DONE  stage 1: GRPO rc=0 elapsed=117s
+[2026-08-15_10:36:11] SKIP  stage 2 (ES vanilla)
+[2026-08-15_10:36:11] SKIP  stage 3 (ES baseaxis)
+[2026-08-15_10:36:11] SKIP  stage 4 (ES momentum)
+[2026-08-15_10:36:11] === countdown line complete ===
+[2026-08-15_10:37:18] === countdown line start ===
+[2026-08-15_10:37:18] model=Qwen/Qwen2.5-1.5B-Instruct suffix='_qwen25_15b_instruct' seeds=[0] N=30 B=100 steps=100 maxtok=2048 smoke=0
+[2026-08-15_10:37:18] one ES arm = 300000 generations
+[2026-08-15_10:37:18] GPU 0 free: 143156 MiB
+[2026-08-15_10:37:18] START stage 0: untrained base reference
+[2026-08-15_10:39:06] DONE  stage 0: untrained base reference rc=0 elapsed=108s
+[2026-08-15_10:39:06] START stage 1: GRPO
+[2026-08-15_23:25:12] DONE  stage 1: GRPO rc=0 elapsed=45966s
+[2026-08-15_23:25:12] START stage 2: ES vanilla
+[2026-08-15_23:25:12]   START vanilla_N30_s0
+[2026-08-16_05:29:34]   DONE  vanilla_N30_s0 rc=0 elapsed=21862s
+[2026-08-16_05:29:34] DONE  stage 2: ES vanilla rc=1 elapsed=21862s
+[2026-08-16_05:29:34]   !! stage 2 FAILED -- continuing
+[2026-08-16_05:29:34] START stage 3: ES baseaxis
+[2026-08-16_05:29:34]   START baseaxis_N30_s0
+[2026-08-16_11:32:52]   DONE  baseaxis_N30_s0 rc=0 elapsed=21798s
+[2026-08-16_11:32:52] DONE  stage 3: ES baseaxis rc=1 elapsed=21798s
+[2026-08-16_11:32:52]   !! stage 3 FAILED -- continuing
+[2026-08-16_11:32:52] SKIP  stage 4 (ES momentum)
+[2026-08-16_11:32:52] START stage 5: readout
+
+=== Qwen/Qwen2.5-1.5B-Instruct / countdown ===
+arm                                               countdown(ID)  cd_extract  math500  OOD-avg  KLx1e3     s/step
+base                                              0.01           0.7533      0.5133   0.4629                    
+grpo/grpo_countdown_gen2343_qwen25_15b_instruct   0.4            0.5033      0.43     0.4292   -0.002602        
+grpo/grpo_countdown_manual10_qwen25_15b_instruct  0.025          0.625       0.475    0.455    0.01226          
+vanilla/N30x100/s0                                0.24           0.49        0.5      0.4503   8.2        217.3 
+baseaxis/N30x100/s0                               0.1833         0.64        0.4667   0.412    35.67      216.7 
+
+countdown = ID (trained on rows [300:], evaluated on [:300]); math sets = OOD.
+[2026-08-16_11:32:52] DONE  stage 5
+[2026-08-16_11:32:52] === countdown line complete ===

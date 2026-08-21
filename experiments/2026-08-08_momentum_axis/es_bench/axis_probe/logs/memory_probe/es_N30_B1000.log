@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 74, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'

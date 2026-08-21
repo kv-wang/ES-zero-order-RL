@@ -1,0 +1,24 @@
+[2026-08-17_19:17:24] === run_all_arms start ===
+[2026-08-17_19:17:24] model=Qwen/Qwen2.5-7B-Instruct  results-suffix='_qwen25_7b_instruct'  seeds=[0]  stages=[0 1 2 3 5]  smoke=0
+[2026-08-17_19:17:24] GPU 0 free memory: 143156 MiB
+[2026-08-17_19:17:24] START stage 0: untrained base reference
+[2026-08-17_19:20:52] DONE  stage 0: untrained base reference rc=0 elapsed=207s
+[2026-08-17_19:20:52] START stage 1: GRPO
+[2026-08-17_19:26:27] DONE  stage 1: GRPO rc=1 elapsed=335s
+[2026-08-17_19:26:27]   !! stage 1 FAILED -- continuing to the next stage
+[2026-08-17_19:26:27] START stage 2: ES vanilla
+[2026-08-17_19:27:20] DONE  stage 2: ES vanilla rc=0 elapsed=53s
+[2026-08-17_19:27:20] START stage 3: ES baseaxis
+[2026-08-17_19:28:13] DONE  stage 3: ES baseaxis rc=0 elapsed=53s
+[2026-08-17_19:28:13] SKIP  stage 4 (ES momentum) -- not in STAGES
+[2026-08-17_19:28:13] START stage 5: combined readout
+
+=== Qwen/Qwen2.5-7B-Instruct ===
+arm   ID(L3-5)  MATH500  OOD-avg  KLx1e3  tie_rate  zero_upd  s/step
+base  0.5899    0.65     0.5937                                     
+
+=== per-dataset accuracy (extract rate in parens) ===
+arm   math500          svamp            gsm8k            minerva_math     olympiadbench    amc23          
+base  0.6500 (0.98)    0.9167 (1.00)    0.9233 (1.00)    0.2316 (1.00)    0.3033 (0.99)    0.4750 (0.97)  
+[2026-08-17_19:28:13] DONE  stage 5
+[2026-08-17_19:28:13] === run_all_arms complete ===

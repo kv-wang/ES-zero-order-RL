@@ -1,0 +1,97 @@
+{
+  "variant": "base",
+  "axis": null,
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "num_steps": 0,
+  "total_generations": 0,
+  "wall_clock_s": 0.0,
+  "kl_proxy_drift": null,
+  "eval_max_tokens": 2048,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5133,
+      "extract_rate": 0.97,
+      "headroom": 0.4867,
+      "ceiling_risk": false,
+      "gen_seconds": 9.1,
+      "per_level_accuracy": {
+        "1": 0.8148,
+        "2": 0.6786,
+        "3": 0.6406,
+        "4": 0.4691,
+        "5": 0.2083
+      },
+      "primary_L3_5_accuracy": 0.4332
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.75,
+      "extract_rate": 0.98,
+      "headroom": 0.25,
+      "ceiling_risk": false,
+      "gen_seconds": 7.0
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8167,
+      "extract_rate": 0.9633,
+      "headroom": 0.1833,
+      "ceiling_risk": false,
+      "gen_seconds": 6.3
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.0846,
+      "extract_rate": 0.9669,
+      "headroom": 0.9154,
+      "ceiling_risk": false,
+      "gen_seconds": 9.1
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.15,
+      "extract_rate": 0.9,
+      "headroom": 0.85,
+      "ceiling_risk": false,
+      "gen_seconds": 11.1
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.4,
+      "extract_rate": 1.0,
+      "headroom": 0.6,
+      "ceiling_risk": false,
+      "gen_seconds": 3.7
+    },
+    "countdown": {
+      "n": 300,
+      "full_n": 2200,
+      "capped": true,
+      "accuracy": 0.01,
+      "extract_rate": 0.7533,
+      "headroom": 0.99,
+      "ceiling_risk": false,
+      "gen_seconds": 9.9
+    }
+  },
+  "eval_seconds": 62.103067631833255,
+  "population_size": null,
+  "pop_seed": null,
+  "pair_tie_rate": null,
+  "final_cum_disp": null,
+  "zero_update_rate": null,
+  "s_per_step_mean": null
+}

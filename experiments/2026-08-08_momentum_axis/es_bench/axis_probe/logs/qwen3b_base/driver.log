@@ -1,0 +1,27 @@
+[2026-08-18_20:42:54] === Qwen2.5-3B base training start ===
+[2026-08-18_20:42:54] model=Qwen/Qwen2.5-3B  gpu=0  smoke=0  stages=[0 1 2 3]  seeds=[0]
+[2026-08-18_20:42:54] eval_cap=300  ES: N=16 steps=200  GRPO: steps=400
+[2026-08-18_20:42:54] checkpoints -> /tmp/qwen3b_base_ckpts
+[2026-08-18_20:42:54] GPU 0 free memory: 143156 MiB
+[2026-08-18_20:42:54] START stage 0: untrained base reference
+[2026-08-18_20:42:54]   evaluating base model...
+[2026-08-18_20:46:39] DONE  stage 0: untrained base reference rc=0 elapsed=225s
+[2026-08-18_20:46:39] START stage 1: GRPO
+[2026-08-18_20:46:39]   training GRPO (400 steps)...
+[2026-08-18_22:48:35]   GRPO checkpoint saved to: /tmp/qwen3b_base_ckpts/grpo_step400
+[2026-08-18_22:48:35] DONE  stage 1: GRPO rc=0 elapsed=7316s
+[2026-08-18_22:48:35] START stage 2: ES vanilla
+[2026-08-18_22:48:35]   training ES vanilla (N=16, steps=200, seed=0)...
+[2026-08-19_01:21:28]   ES vanilla seed=0 checkpoint saved to: /tmp/qwen3b_base_ckpts/vanilla_N16_s0
+[2026-08-19_01:21:28] DONE  stage 2: ES vanilla rc=0 elapsed=9173s
+[2026-08-19_01:21:28] START stage 3: ES baseaxis
+[2026-08-19_01:21:28]   training ES baseaxis (N=16, steps=200, seed=0)...
+[2026-08-19_01:22:41]   ES baseaxis seed=0 checkpoint saved to: /tmp/qwen3b_base_ckpts/baseaxis_N16_s0
+[2026-08-19_01:22:41] DONE  stage 3: ES baseaxis rc=0 elapsed=73s
+[2026-08-19_01:22:41] === All stages complete ===
+[2026-08-19_01:22:41] Results directory: axis_probe/results/qwen3b_base
+[2026-08-19_01:22:41] Checkpoints directory: /tmp/qwen3b_base_ckpts
+[2026-08-19_01:22:41] 
+[2026-08-19_01:22:41] Summary files:
+[2026-08-19_01:22:41] 
+[2026-08-19_01:22:41] Total size of checkpoints:

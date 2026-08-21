@@ -1,0 +1,40 @@
+WARNING 08-17 19:27:43 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 08-17 19:27:44 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 08-17 19:27:48 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:05,  1.90s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:04<00:04,  2.08s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:06<00:02,  2.06s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:07<00:00,  1.78s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:07<00:00,  1.87s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:00<00:01, 39.92it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:01, 39.54it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:00<00:01, 40.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:00<00:01, 41.29it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:00<00:01, 43.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 44.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:00<00:00, 43.92it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:00<00:00, 45.22it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 43/67 [00:00<00:00, 45.90it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:01<00:00, 45.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:01<00:00, 45.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:01<00:00, 45.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:01<00:00, 46.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 45.21it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   7%|▋         | 5/67 [00:00<00:01, 43.98it/s]Capturing CUDA graphs (decode, FULL):  16%|█▋        | 11/67 [00:00<00:01, 48.68it/s]Capturing CUDA graphs (decode, FULL):  25%|██▌       | 17/67 [00:00<00:00, 51.44it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 23/67 [00:00<00:00, 54.09it/s]Capturing CUDA graphs (decode, FULL):  45%|████▍     | 30/67 [00:00<00:00, 57.69it/s]Capturing CUDA graphs (decode, FULL):  55%|█████▌    | 37/67 [00:00<00:00, 61.39it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:00<00:00, 65.69it/s]Capturing CUDA graphs (decode, FULL):  79%|███████▉  | 53/67 [00:00<00:00, 69.33it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████ | 61/67 [00:00<00:00, 72.30it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:01<00:00, 64.89it/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 413, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 185, in main
+[rank0]:     llm.collective_rpc("es_snapshot_base")
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 507, in collective_rpc
+[rank0]:     return self.llm_engine.collective_rpc(method, timeout, args, kwargs)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 362, in collective_rpc
+[rank0]:     return self.engine_core.collective_rpc(method, timeout, args, kwargs)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 309, in collective_rpc
+[rank0]:     return self.engine_core.collective_rpc(method, timeout, args, kwargs)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 416, in collective_rpc
+[rank0]:     return self.model_executor.collective_rpc(method, timeout, args,
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
+[rank0]:     return [run_method(self.driver_worker, method, args, kwargs)]
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/utils/__init__.py", line 3122, in run_method
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/es_worker.py", line 23, in es_snapshot_base
+[rank0]:     self._es_base[name] = p.data.detach().to(torch.float32).clone()
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 518.00 MiB. GPU 0 has a total capacity of 139.80 GiB of which 251.06 MiB is free. Process 1406912 has 139.55 GiB memory in use. Of the allocated memory 137.40 GiB is allocated by PyTorch, with 330.00 MiB allocated in private pools (e.g., CUDA Graphs), and 1.07 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W817 19:28:12.082935144 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

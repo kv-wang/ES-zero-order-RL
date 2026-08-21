@@ -1,0 +1,125 @@
+[2026-08-14_11:33:51] === run_all_arms start ===
+[2026-08-14_11:33:51] model=Qwen/Qwen2.5-Math-1.5B  results-suffix='_base'  seeds=[0 1]  stages=[2]  smoke=1
+[2026-08-14_11:33:51] GPU 0 free memory: 143156 MiB
+[2026-08-14_11:33:51] SKIP  stage 0 (untrained base reference) -- not in STAGES
+[2026-08-14_11:33:51] SKIP  stage 1 (GRPO) -- not in STAGES
+[2026-08-14_11:33:51] START stage 2: ES vanilla
+[2026-08-14_11:41:15] DONE  stage 2: ES vanilla rc=0 elapsed=444s
+[2026-08-14_11:41:15] SKIP  stage 3 (ES baseaxis) -- not in STAGES
+[2026-08-14_11:41:15] SKIP  stage 4 (ES momentum) -- not in STAGES
+[2026-08-14_11:41:15] === run_all_arms complete ===
+[2026-08-14_11:45:06] === run_all_arms start ===
+[2026-08-14_11:45:06] model=Qwen/Qwen2.5-Math-1.5B  results-suffix='_base'  seeds=[0 1]  stages=[0 1 2 3 4 5]  smoke=0
+[2026-08-14_11:45:06] GPU 0 free memory: 143156 MiB
+[2026-08-14_11:45:06] START stage 0: untrained base reference
+[2026-08-14_11:46:38] DONE  stage 0: untrained base reference rc=0 elapsed=92s
+[2026-08-14_11:46:38] START stage 1: GRPO
+[2026-08-14_12:50:58] DONE  stage 1: GRPO rc=0 elapsed=3860s
+[2026-08-14_12:50:58] START stage 2: ES vanilla
+[2026-08-14_14:25:36] DONE  stage 2: ES vanilla rc=0 elapsed=5678s
+[2026-08-14_14:25:36] START stage 3: ES baseaxis
+[2026-08-14_15:11:50] === run_all_arms start ===
+[2026-08-14_15:11:50] model=Qwen/Qwen2.5-Math-1.5B  results-suffix='_base'  seeds=[0 1]  stages=[5]  smoke=0
+[2026-08-14_15:11:50] GPU 0 free memory: 3618 MiB
+[2026-08-14_15:11:50] SKIP  stage 0 (untrained base reference) -- not in STAGES
+[2026-08-14_15:11:50] SKIP  stage 1 (GRPO) -- not in STAGES
+[2026-08-14_15:11:50] SKIP  stage 2 (ES vanilla) -- not in STAGES
+[2026-08-14_15:11:50] SKIP  stage 3 (ES baseaxis) -- not in STAGES
+[2026-08-14_15:11:50] SKIP  stage 4 (ES momentum) -- not in STAGES
+[2026-08-14_15:11:50] START stage 5: combined readout
+
+=== Qwen/Qwen2.5-Math-1.5B ===
+arm                 ID(L3-5)  MATH500  OOD-avg  KLx1e3    tie_rate  zero_upd  s/step
+base                0.3594    0.4567   0.452                                        
+grpo/gen400_base    0.4194    0.5033   0.4919   0.001921                            
+vanilla/N16x200/s0  0.3272    0.43     0.44     6.442               0.04103   13.97 
+vanilla/N16x200/s1  0.3594    0.46     0.4568   2.312               0.05128   13.37 
+
+=== per-dataset accuracy (extract rate in parens) ===
+arm                 math500          svamp            gsm8k            minerva_math     olympiadbench    amc23          
+base                0.4567 (0.96)    0.8333 (1.00)    0.7533 (1.00)    0.0846 (0.83)    0.1367 (0.69)    0.1750 (0.85)  
+grpo/gen400_base    0.5033 (0.94)    0.8667 (0.98)    0.8200 (1.00)    0.1140 (0.85)    0.1667 (0.69)    0.2750 (0.93)  
+vanilla/N16x200/s0  0.4300 (0.95)    0.8433 (1.00)    0.7233 (0.99)    0.0699 (0.82)    0.1233 (0.69)    0.2000 (0.85)  
+vanilla/N16x200/s1  0.4600 (0.97)    0.8433 (1.00)    0.7833 (0.99)    0.0772 (0.83)    0.1233 (0.73)    0.2250 (0.95)  
+
+!! extract rate < 0.95 -- these accuracies are NOT comparable:
+   base                     minerva_math    0.831
+   base                     olympiadbench   0.693
+   base                     amc23           0.850
+   grpo/gen400_base         math500         0.943
+   grpo/gen400_base         minerva_math    0.853
+   grpo/gen400_base         olympiadbench   0.693
+   grpo/gen400_base         amc23           0.925
+   vanilla/N16x200/s0       minerva_math    0.816
+   vanilla/N16x200/s0       olympiadbench   0.687
+   vanilla/N16x200/s0       amc23           0.850
+   vanilla/N16x200/s1       minerva_math    0.827
+   vanilla/N16x200/s1       olympiadbench   0.727
+[2026-08-14_15:11:50] DONE  stage 5
+[2026-08-14_15:11:50] === run_all_arms complete ===
+[2026-08-14_16:00:24] DONE  stage 3: ES baseaxis rc=0 elapsed=5687s
+[2026-08-14_16:00:24] START stage 4: ES momentum
+[2026-08-14_18:15:12] === run_all_arms start ===
+[2026-08-14_18:15:12] model=Qwen/Qwen2.5-Math-1.5B  results-suffix='_base'  seeds=[0 1]  stages=[0 1 2 3 4 5]  smoke=0
+[2026-08-14_18:15:12] GPU 0 free memory: 143156 MiB
+[2026-08-14_18:15:12] START stage 0: untrained base reference
+[2026-08-14_18:15:12]   base summary exists, skipping
+[2026-08-14_18:15:12] DONE  stage 0: untrained base reference rc=0 elapsed=0s
+[2026-08-14_18:15:12] START stage 1: GRPO
+[2026-08-14_18:16:56] DONE  stage 1: GRPO rc=0 elapsed=104s
+[2026-08-14_18:16:56] START stage 2: ES vanilla
+[2026-08-14_18:16:56] DONE  stage 2: ES vanilla rc=0 elapsed=0s
+[2026-08-14_18:16:56] START stage 3: ES baseaxis
+[2026-08-14_18:16:56] DONE  stage 3: ES baseaxis rc=0 elapsed=0s
+[2026-08-14_18:16:56] START stage 4: ES momentum
+[2026-08-14_19:03:20] DONE  stage 4: ES momentum rc=0 elapsed=2784s
+[2026-08-14_19:03:20] START stage 5: combined readout
+
+=== Qwen/Qwen2.5-Math-1.5B ===
+arm                  ID(L3-5)  MATH500  OOD-avg  KLx1e3    tie_rate  zero_upd  s/step
+base                 0.3594    0.4567   0.452                                        
+grpo/gen400_base     0.4194    0.5033   0.4919   0.001921                            
+vanilla/N16x200/s0   0.3272    0.43     0.44     6.442               0.04103   13.97 
+vanilla/N16x200/s1   0.3594    0.46     0.4568   2.312               0.05128   13.37 
+baseaxis/N16x200/s0  0.3548    0.45     0.4484   0.6052    0.659     0.05128   13.65 
+baseaxis/N16x200/s1  0.3318    0.4367   0.4476   2.312     0.6103    0.03077   13.79 
+momentum/N16x200/s0  0.3687    0.46     0.4419   7.503     0.6538    0.06667   13.76 
+momentum/N16x200/s1  0.3134    0.42     0.4572   4.693     0.6231    0.06667   13.41 
+
+=== per-dataset accuracy (extract rate in parens) ===
+arm                  math500          svamp            gsm8k            minerva_math     olympiadbench    amc23          
+base                 0.4567 (0.96)    0.8333 (1.00)    0.7533 (1.00)    0.0846 (0.83)    0.1367 (0.69)    0.1750 (0.85)  
+grpo/gen400_base     0.5033 (0.94)    0.8667 (0.98)    0.8200 (1.00)    0.1140 (0.85)    0.1667 (0.69)    0.2750 (0.93)  
+vanilla/N16x200/s0   0.4300 (0.95)    0.8433 (1.00)    0.7233 (0.99)    0.0699 (0.82)    0.1233 (0.69)    0.2000 (0.85)  
+vanilla/N16x200/s1   0.4600 (0.97)    0.8433 (1.00)    0.7833 (0.99)    0.0772 (0.83)    0.1233 (0.73)    0.2250 (0.95)  
+baseaxis/N16x200/s0  0.4500 (0.97)    0.8367 (1.00)    0.7467 (1.00)    0.0735 (0.84)    0.1367 (0.72)    0.2500 (0.95)  
+baseaxis/N16x200/s1  0.4367 (0.96)    0.8133 (1.00)    0.7767 (1.00)    0.0772 (0.79)    0.1233 (0.63)    0.2250 (0.85)  
+momentum/N16x200/s0  0.4600 (0.96)    0.8333 (1.00)    0.7367 (1.00)    0.0809 (0.85)    0.1167 (0.70)    0.2500 (0.82)  
+momentum/N16x200/s1  0.4200 (0.96)    0.8333 (1.00)    0.7567 (0.99)    0.0956 (0.88)    0.1433 (0.76)    0.1250 (0.90)  
+
+!! extract rate < 0.95 -- these accuracies are NOT comparable:
+   base                     minerva_math    0.831
+   base                     olympiadbench   0.693
+   base                     amc23           0.850
+   grpo/gen400_base         math500         0.943
+   grpo/gen400_base         minerva_math    0.853
+   grpo/gen400_base         olympiadbench   0.693
+   grpo/gen400_base         amc23           0.925
+   vanilla/N16x200/s0       minerva_math    0.816
+   vanilla/N16x200/s0       olympiadbench   0.687
+   vanilla/N16x200/s0       amc23           0.850
+   vanilla/N16x200/s1       minerva_math    0.827
+   vanilla/N16x200/s1       olympiadbench   0.727
+   baseaxis/N16x200/s0      minerva_math    0.842
+   baseaxis/N16x200/s0      olympiadbench   0.723
+   baseaxis/N16x200/s1      minerva_math    0.794
+   baseaxis/N16x200/s1      olympiadbench   0.630
+   baseaxis/N16x200/s1      amc23           0.850
+   momentum/N16x200/s0      minerva_math    0.846
+   momentum/N16x200/s0      olympiadbench   0.700
+   momentum/N16x200/s0      amc23           0.825
+   momentum/N16x200/s1      minerva_math    0.879
+   momentum/N16x200/s1      olympiadbench   0.760
+   momentum/N16x200/s1      amc23           0.900
+[2026-08-14_19:03:20] DONE  stage 5
+[2026-08-14_19:03:20] === run_all_arms complete ===

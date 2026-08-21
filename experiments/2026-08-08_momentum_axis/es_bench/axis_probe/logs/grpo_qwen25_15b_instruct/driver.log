@@ -1,0 +1,9 @@
+[2026-08-15_10:39:06] start: BUDGET=gen STEPS=2343 rollouts/step=128  total_gen=299904 (ES arm = 300000) maxresp=2048
+[2026-08-15_10:39:06] STAGE1 skip (provenance matches current extractor)
+[2026-08-15_10:39:06] STAGE2 train (task=countdown, model=/tmp/rawtmpl_Qwen2.5-1.5B-Instruct)
+[2026-08-15_23:22:03] STAGE2 rc=0 elapsed=45777s
+[2026-08-15_23:22:03] STAGE3 merge + eval
+[2026-08-15_23:25:12] STAGE3 rc=0
+[2026-08-15_23:25:12] COMPLETE -> axis_probe/results/grpo_qwen25_15b_instruct/grpo_countdown_gen2343_qwen25_15b_instruct_summary.json
+  checkpoints left in /tmp/grpo_countdown_grpo_countdown_gen2343_qwen25_15b_instruct (delete when done; FSDP shards are large)
+  compare with:  $P4_PY axis_probe/compare_all.py

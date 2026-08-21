@@ -1,0 +1,27 @@
+[2026-08-10_21:25:34] start: arms=[vanilla vanilla_sigadapt] seeds=[0 1] N=16 steps=200 gain=1.0 clip=2.0 ema=0.9 warmup=10
+[2026-08-10_21:25:34] START vanilla_N16_s0
+[2026-08-10_22:39:00] DONE  vanilla_N16_s0 rc=0 elapsed=4406s
+[2026-08-10_22:39:00] START vanilla_N16_s1
+[2026-08-10_23:52:29] DONE  vanilla_N16_s1 rc=0 elapsed=4409s
+[2026-08-10_23:52:29] --- vanilla (fixed sigma) complete ---
+[2026-08-10_23:52:29] START sigadapt_N16_s0
+[2026-08-11_01:06:02] DONE  sigadapt_N16_s0 rc=0 elapsed=4413s
+[2026-08-11_01:06:02] START sigadapt_N16_s1
+[2026-08-11_02:19:23] DONE  sigadapt_N16_s1 rc=0 elapsed=4401s
+[2026-08-11_02:19:23] --- sigma-adaptive complete ---
+[2026-08-11_02:19:23] ALL ARMS COMPLETE
+
+=== fixed sigma vs gradient-scaled sigma ===
+arm          ID(L3-5)  OOD-avg  KLx1e3  zero_upd  sig_ratio(min/mean/max)  s/step
+sigadapt_s0  0.6221    0.5698   2.499   0.2103    0.64/0.93/1.25           21.49 
+sigadapt_s1  0.6221    0.5603   3.269   0.2154    0.56/0.88/1.27           21.45 
+vanilla_s0   0.6083    0.5618   2.431   0.1692                             21.45 
+vanilla_s1   0.6313    0.5659   2.807   0.2205                             21.49 
+
+Read sig_ratio first. Pinned at the lower clip => the feedback loop ran the wrong way
+(zero signal shrinks sigma, which makes ties more likely). Pinned at the upper clip =>
+the gain is too high for the clip. Only a ratio that moves inside the band is a real test.
+
+Caveats: alpha is fixed but effective_lr = alpha*sigma_t is not, so radius and step size
+are confounded; 2 seeds; absolute accuracies now use the fixed extractor and are NOT
+comparable to anything produced before 2026-08-10.

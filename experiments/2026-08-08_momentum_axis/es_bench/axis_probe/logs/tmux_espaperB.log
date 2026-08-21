@@ -1,0 +1,15 @@
+================ countdown @ paper-scale B ================
+model            : Qwen/Qwen2.5-1.5B-Instruct
+stages           : 0 2 3 4        seeds: 0
+GPUs             : 0,1 (TP=2, serial: vanilla → baseaxis)
+ES               : N=30  B=1000  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 1000 = 3000000   (08-16 was N=30 B=100 steps=100 = 300000)
+max_tokens       : 2048  (train == eval)      eval_cap: 300
+vLLM mem util    : ES 0.85
+projection       : ES ~60.3h/arm x 2 variants (serial) -> ~120.6h total
+results          : axis_probe/results/countdown_paperB1000_N30
+checkpoints      : /home/hyin66/es_ckpts/countdown_paperB1000_N30
+===========================================================
+[2026-08-21_18:49:26] START base -> axis_probe/logs/countdown_paperB1000_N30/base.log
+[2026-08-21_18:51:12] END   base rc=0 elapsed=106s
+[2026-08-21_18:51:12] START es_vanilla_s0 -> axis_probe/logs/countdown_paperB1000_N30/vanilla_s0.log

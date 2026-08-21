@@ -1,0 +1,40 @@
+WARNING 08-19 12:42:48 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 08-19 12:42:48 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 08-19 12:42:54 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:05<00:05,  5.36s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:11<00:00,  5.71s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:11<00:00,  5.66s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 35.64it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:00<00:01, 42.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:00<00:01, 46.43it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:00<00:00, 48.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:00<00:00, 49.69it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 49.80it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:00<00:00, 49.59it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:00<00:00, 50.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:01<00:00, 49.43it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:01<00:00, 48.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:01<00:00, 48.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 47.94it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 4/67 [00:00<00:01, 38.54it/s]Capturing CUDA graphs (decode, FULL):  16%|█▋        | 11/67 [00:00<00:01, 54.17it/s]Capturing CUDA graphs (decode, FULL):  27%|██▋       | 18/67 [00:00<00:00, 59.94it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 25/67 [00:00<00:00, 63.69it/s]Capturing CUDA graphs (decode, FULL):  49%|████▉     | 33/67 [00:00<00:00, 66.75it/s]Capturing CUDA graphs (decode, FULL):  61%|██████    | 41/67 [00:00<00:00, 68.89it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 49/67 [00:00<00:00, 71.95it/s]Capturing CUDA graphs (decode, FULL):  87%|████████▋ | 58/67 [00:00<00:00, 74.85it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 77.46it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 69.80it/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/eval_base.py", line 66, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/eval_base.py", line 48, in main
+[rank0]:     ev = eval_core.eval_on_llm(llm, tok, cap=a.eval_cap, max_tokens=eval_max_tokens,
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/eval_core.py", line 135, in eval_on_llm
+[rank0]:     outs = llm.generate(prompts, sp, use_tqdm=False)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 401, in generate
+[rank0]:     outputs = self._run_engine(use_tqdm=use_tqdm)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 1600, in _run_engine
+[rank0]:     step_outputs = self.llm_engine.step()
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 269, in step
+[rank0]:     processed_outputs = self.output_processor.process_outputs(
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/output_processor.py", line 435, in process_outputs
+[rank0]:     stop_string = req_state.detokenizer.update(
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/detokenizer.py", line 118, in update
+[rank0]:     self.output_text += self.decode_next(new_token_id)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/detokenizer.py", line 219, in decode_next
+[rank0]:     token = self._protected_step(next_token_id)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/detokenizer.py", line 233, in _protected_step
+[rank0]:     token = self.stream.step(self.tokenizer, next_token_id)
+[rank0]: KeyboardInterrupt
+[rank0]:[W819 12:43:52.886180822 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

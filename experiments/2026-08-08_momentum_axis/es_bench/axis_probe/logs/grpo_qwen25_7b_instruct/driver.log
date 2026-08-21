@@ -1,0 +1,9 @@
+[2026-08-17_19:20:52] start: BUDGET=gen STEPS=400 rollouts/step=64  total_gen=25600 (ES arm = 25600) maxresp=512
+[2026-08-17_19:20:52] STAGE1 build parquet (missing or stale extractor stamp)
+  provenance: {"built_by": "make_math_parquet.py", "model": "Qwen/Qwen2.5-7B-Instruct", "dataset": "math", "levels": [3, 4, 5], "train_size": 2000, "data_seed": 1234, "n_train": 2000, "n_val": 200, "answer_extraction_md5": "97f6b72fce544e6d982c069fc5ff5bec", "braced_gold_frac": 0.255}
+wrote 2000 train / 200 val rows to axis_probe/grpo/data_math_qwen25_7b_instruct
+  model=Qwen/Qwen2.5-7B-Instruct  dataset=math levels=[3, 4, 5] train_size=2000 data_seed=1234
+  first gold: '-\\frac{17}7'   (post-fix extractor keeps braced answers)
+[2026-08-17_19:21:11] STAGE2 train (task=math, model=Qwen/Qwen2.5-7B-Instruct)
+[2026-08-17_19:26:27] STAGE2 rc=1 elapsed=316s
+  !! training failed, see axis_probe/logs/grpo_qwen25_7b_instruct/grpo_math_gen400_qwen25_7b_instruct_train.log

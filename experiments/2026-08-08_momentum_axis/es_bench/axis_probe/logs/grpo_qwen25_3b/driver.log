@@ -1,0 +1,13 @@
+[2026-08-18_20:46:39] start: BUDGET=manual STEPS=400 rollouts/step=64  total_gen=25600 (ES arm = 25600) maxresp=1024
+[2026-08-18_20:46:39] STAGE1 build parquet (missing or stale extractor stamp)
+  provenance: {"built_by": "make_math_parquet.py", "model": "Qwen/Qwen2.5-3B", "dataset": "math", "levels": [3, 4, 5], "train_size": 2000, "data_seed": 1234, "n_train": 2000, "n_val": 200, "answer_extraction_md5": "97f6b72fce544e6d982c069fc5ff5bec", "braced_gold_frac": 0.255}
+wrote 2000 train / 200 val rows to axis_probe/grpo/data_math_qwen25_3b
+  model=Qwen/Qwen2.5-3B  dataset=math levels=[3, 4, 5] train_size=2000 data_seed=1234
+  first gold: '-\\frac{17}7'   (post-fix extractor keeps braced answers)
+[2026-08-18_20:46:57] STAGE2 train (task=math, model=Qwen/Qwen2.5-3B)
+[2026-08-18_22:45:42] STAGE2 rc=0 elapsed=7125s
+[2026-08-18_22:45:42] STAGE3 merge + eval
+[2026-08-18_22:48:35] STAGE3 rc=0
+[2026-08-18_22:48:35] COMPLETE -> axis_probe/results/grpo_qwen25_3b/grpo_math_manual400_qwen25_3b_summary.json
+  checkpoints left in /tmp/qwen3b_base_ckpts/grpo_step400 (delete when done; FSDP shards are large)
+  compare with:  $P4_PY axis_probe/compare_all.py

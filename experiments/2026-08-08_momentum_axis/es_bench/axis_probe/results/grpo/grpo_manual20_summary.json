@@ -1,0 +1,89 @@
+{
+  "variant": "grpo",
+  "axis": null,
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "hf_dir": "/tmp/grpo_mem_probe/global_step_20/hf_merged",
+  "actor_dir": "/tmp/grpo_mem_probe/global_step_20/actor",
+  "num_steps": 20,
+  "rollouts_per_step": 64,
+  "total_generations": 1280,
+  "wall_clock_s": 421.0,
+  "kl_proxy_drift": -2.5784057804766453e-06,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.7033,
+      "extract_rate": 0.9933,
+      "headroom": 0.2967,
+      "ceiling_risk": false,
+      "gen_seconds": 8.7,
+      "per_level_accuracy": {
+        "1": 0.8519,
+        "2": 0.8571,
+        "3": 0.8125,
+        "4": 0.6296,
+        "5": 0.5139
+      },
+      "primary_L3_5_accuracy": 0.6452
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.86,
+      "extract_rate": 0.9967,
+      "headroom": 0.14,
+      "ceiling_risk": false,
+      "gen_seconds": 7.0
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9067,
+      "extract_rate": 1.0,
+      "headroom": 0.0933,
+      "ceiling_risk": false,
+      "gen_seconds": 3.3
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1618,
+      "extract_rate": 0.9816,
+      "headroom": 0.8382,
+      "ceiling_risk": false,
+      "gen_seconds": 8.9
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.3067,
+      "extract_rate": 0.98,
+      "headroom": 0.6933,
+      "ceiling_risk": false,
+      "gen_seconds": 10.9
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.475,
+      "extract_rate": 0.975,
+      "headroom": 0.525,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    }
+  },
+  "eval_seconds": 48.34376504924148,
+  "population_size": null,
+  "pop_seed": null,
+  "pair_tie_rate": null,
+  "final_cum_disp": null,
+  "zero_update_rate": null,
+  "s_per_step_mean": null
+}

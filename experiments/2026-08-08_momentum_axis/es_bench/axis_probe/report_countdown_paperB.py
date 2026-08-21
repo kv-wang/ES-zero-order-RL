@@ -1,0 +1,243 @@
+"""Readout for run_countdown_paperB.sh: accuracy + wall clock + whole-card peak GPU memory.
+
+Three things this deliberately does NOT do:
+
+  * invent a peak-memory number for GRPO from its summary json. verl runs vLLM in a separate
+    process, so torch's per-process counter never sees it (MEMORY_REPORT.md, 08-13). Peaks here
+    come only from the nvidia-smi csv the driver samples, which is process-agnostic.
+  * present ES and GRPO peaks as a like-for-like comparison. Their vLLM KV budgets differ
+    (0.85 vs 0.5) because verl needs room for the FSDP actor; vLLM sizes KV to fill whatever it
+    is given, so the peaks partly measure the setting. The table prints both utils inline.
+  * claim significance. Single seed by default; the 08-13 power analysis put seed-to-seed spread
+    at the same magnitude as between-method differences.
+"""
+from __future__ import annotations
+import argparse, csv, json, glob, os
+from collections import defaultdict
+
+DATASETS = ["countdown", "math500", "gsm8k", "svamp", "minerva_math", "olympiadbench", "amc23"]
+
+
+def parse_args():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--results", required=True)
+    ap.add_argument("--logs", required=True)
+    ap.add_argument("--mem_csv", required=True)
+    ap.add_argument("--stage_times", required=True)
+    ap.add_argument("--es_generations", type=int, required=True)
+    ap.add_argument("--grpo_rollouts", type=int, required=True)
+    ap.add_argument("--n", type=int, required=True)
+    ap.add_argument("--b", type=int, required=True)
+    ap.add_argument("--steps", type=int, required=True)
+    ap.add_argument("--grpo_steps", type=int, required=True)
+    ap.add_argument("--grpo_rollouts_per_step", type=int, required=True)
+    ap.add_argument("--es_mem_util", required=True)
+    ap.add_argument("--grpo_mem_util", required=True)
+    ap.add_argument("--out", required=True)
+    return ap.parse_args()
+
+
+def load_arms(results: str) -> dict:
+    """method label -> summary dict. Labels match the driver's stage labels where possible."""
+    arms = {}
+    base = os.path.join(results, "base_summary.json")
+    if os.path.exists(base):
+        arms["base"] = json.load(open(base))
+    grpo = os.path.join(results, "grpo_summary.json")
+    if os.path.exists(grpo):
+        arms["grpo"] = json.load(open(grpo))
+    for path in sorted(glob.glob(os.path.join(results, "*_s*_summary.json"))):
+        name = os.path.basename(path)[: -len("_summary.json")]
+        arms[name] = json.load(open(path))
+    return arms
+
+
+def peak_by_phase(mem_csv: str) -> dict:
+    """phase label -> peak MiB over the whole card, from the driver's nvidia-smi sampler."""
+    peaks: dict[str, int] = defaultdict(int)
+    if not os.path.exists(mem_csv):
+        return {}
+    with open(mem_csv) as fh:
+        for row in csv.DictReader(fh):
+            try:
+                used = int(row["mem_used_mib"])
+            except (KeyError, ValueError):
+                continue
+            ph = row.get("phase", "unknown")
+            peaks[ph] = max(peaks[ph], used)
+    return dict(peaks)
+
+
+def stage_seconds(path: str) -> dict:
+    out = {}
+    if not os.path.exists(path):
+        return out
+    for line in open(path):
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        out[rec["stage"]] = {"seconds": rec.get("seconds"), "rc": rec.get("rc")}
+    return out
+
+
+def acc(summary: dict, ds: str):
+    ev = (summary or {}).get("eval_final") or {}
+    d = ev.get(ds)
+    return (d or {}).get("accuracy")
+
+
+def extract_rate(summary: dict, ds: str):
+    ev = (summary or {}).get("eval_final") or {}
+    d = ev.get(ds)
+    return (d or {}).get("extract_rate")
+
+
+def fmt(v, spec="{:.4f}", dash="--"):
+    return dash if v is None else spec.format(v)
+
+
+# a stage label per arm, so wall clock and memory can be attributed
+def stage_label(arm: str) -> str:
+    if arm == "base":
+        return "base"
+    if arm == "grpo":
+        return "grpo"
+    variant = "vanilla" if arm.startswith("vanilla") else "baseaxis" if arm.startswith("baseaxis") else None
+    seed = arm.rsplit("_s", 1)[-1] if "_s" in arm else "0"
+    return f"es_{variant}_s{seed}" if variant else arm
+
+
+def main():
+    a = parse_args()
+    arms = load_arms(a.results)
+    peaks = peak_by_phase(a.mem_csv)
+    times = stage_seconds(a.stage_times)
+    if not arms:
+        print(f"no summaries under {a.results}; nothing to report")
+        return
+
+    order = [k for k in ("base", "grpo") if k in arms]
+    order += sorted(k for k in arms if k.startswith("vanilla"))
+    order += sorted(k for k in arms if k.startswith("baseaxis"))
+    order += [k for k in arms if k not in order]
+
+    L = []
+    L.append("# Countdown at paper-scale B (ES B=%d) -- 1.5B-Instruct\n" % a.b)
+    L.append("Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.\n")
+
+    L.append("## Configuration\n")
+    L.append("| | value |")
+    L.append("|---|---|")
+    L.append(f"| model | {arms[order[0]].get('model', '?')} |")
+    L.append(f"| ES shape | N={a.n}, B={a.b}, steps={a.steps} |")
+    L.append(f"| ES generations | {a.es_generations:,} |")
+    L.append(f"| GRPO shape | {a.grpo_rollouts_per_step} rollouts/step x {a.grpo_steps} steps |")
+    L.append(f"| GRPO rollouts | {a.grpo_rollouts:,} |")
+    ratio = a.grpo_rollouts / a.es_generations if a.es_generations else float("nan")
+    L.append(f"| rollout match | {ratio:.4f}x of the ES arm |")
+    L.append(f"| vLLM mem util | ES {a.es_mem_util} / GRPO {a.grpo_mem_util} (not equal) |")
+    L.append("")
+
+    L.append("## Accuracy\n")
+    L.append("countdown is the ID metric (trained on it); the six math sets are OOD.\n")
+    L.append("| method | " + " | ".join(DATASETS) + " |")
+    L.append("|---|" + "---|" * len(DATASETS))
+    for arm in order:
+        cells = [fmt(acc(arms[arm], ds)) for ds in DATASETS]
+        L.append(f"| {arm} | " + " | ".join(cells) + " |")
+    L.append("")
+
+    if "base" in arms:
+        L.append("### Change vs base\n")
+        L.append("| method | " + " | ".join(DATASETS) + " |")
+        L.append("|---|" + "---|" * len(DATASETS))
+        for arm in order:
+            if arm == "base":
+                continue
+            cells = []
+            for ds in DATASETS:
+                x, b0 = acc(arms[arm], ds), acc(arms["base"], ds)
+                cells.append("--" if x is None or b0 is None else f"{x - b0:+.4f}")
+            L.append(f"| {arm} | " + " | ".join(cells) + " |")
+        L.append("")
+
+    L.append("## Wall clock and GPU memory\n")
+    L.append("Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT "
+             "torch's per-process counter, which cannot see verl's separate vLLM process.\n")
+    L.append("| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |")
+    L.append("|---|---|---|---|---|---|")
+    for arm in order:
+        s = arms[arm]
+        lab = stage_label(arm)
+        t = times.get(lab, {})
+        secs = t.get("seconds")
+        if secs is None:
+            secs = s.get("wall_clock_s")
+        hours = "--" if not secs else f"{secs / 3600:.2f} h ({int(secs):,} s)"
+        sps = s.get("s_per_step_mean")
+        pk = peaks.get(lab)
+        pk_s = "--" if pk is None else f"{pk / 1024:.1f} GiB"
+        torch_pk = s.get("peak_mem_alloc_gb")
+        L.append(f"| {arm} | {hours} | {fmt(sps, '{:.1f}')} | {pk_s} | "
+                 f"{fmt(torch_pk, '{:.1f} GB')} | {t.get('rc', '--')} |")
+    idle = peaks.get("idle")
+    if idle is not None:
+        L.append("")
+        L.append(f"Idle-phase card usage between stages: {idle / 1024:.1f} GiB "
+                 "(subtract as the floor if the card is shared).")
+    L.append("")
+
+    L.append("## Training diagnostics\n")
+    L.append("| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |")
+    L.append("|---|---|---|---|---|")
+    for arm in order:
+        s = arms[arm]
+        L.append(f"| {arm} | {fmt(s.get('kl_proxy_drift'), '{:.3e}')} | "
+                 f"{fmt(s.get('zero_update_rate'), '{:.4f}')} | "
+                 f"{fmt(s.get('pair_tie_rate'), '{:.4f}')} | "
+                 f"{s.get('steps_scale_flagged', '--')} |")
+    L.append("")
+
+    L.append("## Extraction rates\n")
+    L.append("countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 "
+             "measured countdown extract_rate <= 0.503. Read any countdown gain against this column.\n")
+    L.append("| method | " + " | ".join(DATASETS) + " |")
+    L.append("|---|" + "---|" * len(DATASETS))
+    for arm in order:
+        cells = [fmt(extract_rate(arms[arm], ds), "{:.3f}") for ds in DATASETS]
+        L.append(f"| {arm} | " + " | ".join(cells) + " |")
+    L.append("")
+
+    L.append("## Caveats\n")
+    n_seeds = len({k.rsplit('_s', 1)[-1] for k in arms if '_s' in k})
+    L.append(f"- Seeds present: {n_seeds or 1}. The 08-13 power analysis found between-seed spread "
+             "(~0.013 ID) at the same magnitude as between-method differences, so a single seed "
+             "cannot rank methods.")
+    L.append(f"- ES resamples its B={a.b} indices every step (with replacement) from the 1900-row "
+             "countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The "
+             "paper instead holds one fixed full-set batch, so its objective is stationary while "
+             "this one still moves between steps -- a larger B shrinks that per-step noise but "
+             "does not remove it.")
+    L.append("- ES and GRPO match on total generations only. Per step ES sees "
+             f"{a.n * a.b:,} generations against GRPO's {a.grpo_rollouts_per_step}, and ES spends "
+             "them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that "
+             "favours GRPO on prompt coverage.")
+    L.append(f"- GRPO runs {a.grpo_rollouts_per_step} rollouts/step over {a.grpo_steps} steps, "
+             "which follows the 08-16 driver rather than the paper's countdown setting; the "
+             "group size is well below what the paper used, so this is not a faithful GRPO "
+             "reproduction, only a budget-matched control for the ES arms.")
+    L.append("- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.")
+    L.append("")
+
+    out = "\n".join(L)
+    with open(a.out, "w") as fh:
+        fh.write(out)
+    print(out)
+
+
+if __name__ == "__main__":
+    main()

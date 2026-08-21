@@ -1,0 +1,5 @@
+[2026-08-18_10:25:17] === aligned max512 re-eval start ===
+[2026-08-18_10:25:17] STAGE0 base eval
+[2026-08-18_10:26:40] STAGE0 done rc=0
+[2026-08-18_10:26:40] STAGE1 GRPO eval from existing ckpt
+[2026-08-18_10:28:08] STAGE1 done rc=0

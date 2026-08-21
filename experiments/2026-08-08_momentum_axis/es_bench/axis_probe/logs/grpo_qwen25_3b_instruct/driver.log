@@ -1,0 +1,10 @@
+[2026-08-18_11:11:06] start: BUDGET=gen STEPS=400 rollouts/step=64  total_gen=25600 (ES arm = 25600) maxresp=1024
+[2026-08-18_11:11:07] STAGE1 skip (provenance matches current extractor)
+   {"built_by": "make_math_parquet.py", "model": "Qwen/Qwen2.5-3B-Instruct", "dataset": "math", "levels": [3, 4, 5], "train_size": 2000, "data_seed": 1234, "n_train": 2000, "n_val": 200, "answer_extraction_md5": "97f6b72fce544e6d982c069fc5ff5bec", "braced_gold_frac": 0.255}
+[2026-08-18_11:11:07] STAGE2 train (task=math, model=Qwen/Qwen2.5-3B-Instruct)
+[2026-08-18_13:01:49] STAGE2 rc=0 elapsed=6642s
+[2026-08-18_13:01:49] STAGE3 merge + eval
+[2026-08-18_13:04:15] STAGE3 rc=0
+[2026-08-18_13:04:15] COMPLETE -> axis_probe/results/grpo_qwen25_3b_instruct/grpo_math_gen400_qwen25_3b_instruct_summary.json
+  checkpoints left in /tmp/grpo_math_grpo_math_gen400_qwen25_3b_instruct (delete when done; FSDP shards are large)
+  compare with:  $P4_PY axis_probe/compare_all.py

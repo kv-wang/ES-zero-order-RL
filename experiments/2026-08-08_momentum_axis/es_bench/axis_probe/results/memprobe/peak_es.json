@@ -1,0 +1,31 @@
+{
+  "label": "ES vanilla N16 12steps util0.5",
+  "cmd": [
+    "/home/hyin66/micromamba/envs/verl/bin/python",
+    "axis_probe/src/es_train_axis.py",
+    "--variant",
+    "vanilla",
+    "--population_size",
+    "16",
+    "--num_steps",
+    "12",
+    "--pop_seed",
+    "0",
+    "--gpu",
+    "0",
+    "--gpu_mem_util",
+    "0.5",
+    "--out_prefix",
+    "axis_probe/results/memprobe/peak_es_run"
+  ],
+  "returncode": 0,
+  "baseline_mib": 0,
+  "peak_total_mib": 79619,
+  "peak_total_gib": 77.75,
+  "peak_over_baseline_gib": 77.75,
+  "peak_compute_apps_mib": 79610,
+  "peak_compute_apps_gib": 77.74,
+  "samples": 547,
+  "interval_s": 0.5,
+  "elapsed_s": 309.3
+}

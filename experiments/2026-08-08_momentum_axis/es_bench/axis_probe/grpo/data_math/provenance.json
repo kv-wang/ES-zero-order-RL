@@ -1,0 +1,16 @@
+{
+  "built_by": "make_math_parquet.py",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "dataset": "math",
+  "levels": [
+    3,
+    4,
+    5
+  ],
+  "train_size": 2000,
+  "data_seed": 1234,
+  "n_train": 2000,
+  "n_val": 200,
+  "answer_extraction_md5": "dc8e03cc117e1b4e13f5b58c018da471",
+  "braced_gold_frac": 0.247
+}

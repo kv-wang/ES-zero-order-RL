@@ -1,0 +1,65 @@
+[2026-08-09_13:47:14] start: variants=[momentum baseaxis vanilla] seeds=[0 1] N=16 steps=200 a_max=1.0 beta=0.9 warmup=1
+[2026-08-09_13:47:14] START momentum_N16_s0
+[2026-08-09_15:00:55] DONE  momentum_N16_s0 rc=0 elapsed=4421s
+[2026-08-09_15:00:55] START momentum_N16_s1
+[2026-08-09_16:14:37] DONE  momentum_N16_s1 rc=0 elapsed=4422s
+[2026-08-09_16:14:37] --- momentum arm complete ---
+[2026-08-09_16:14:37] START baseaxis_N16_s0
+[2026-08-09_17:28:18] DONE  baseaxis_N16_s0 rc=0 elapsed=4421s
+[2026-08-09_17:28:18] START baseaxis_N16_s1
+[2026-08-09_18:41:56] DONE  baseaxis_N16_s1 rc=0 elapsed=4418s
+[2026-08-09_18:41:56] --- baseaxis arm complete ---
+[2026-08-09_18:41:56] START vanilla_N16_s0
+[2026-08-09_19:55:28] DONE  vanilla_N16_s0 rc=0 elapsed=4412s
+[2026-08-09_19:55:28] START vanilla_N16_s1
+[2026-08-09_21:09:02] DONE  vanilla_N16_s1 rc=0 elapsed=4414s
+[2026-08-09_21:09:02] --- vanilla arm complete ---
+[2026-08-09_21:09:02] ALL ARMS COMPLETE
+
+=== A1 momentum vs base-axis vs vanilla (same settings) ===
+arm           ID(L3-5)  OOD-avg  KLx1e3  cum_disp  cum_frac  tie_rate  s/step
+momentum/s0   0.47      0.5455   3.391   22.77     3.143     0.6564    21.55 
+momentum/s1   0.4931    0.5483   3.348   -1.184    -2.327    0.6538    21.54 
+baseaxis/s0   0.4793    0.5371   2.169   10.48     0.2578    0.6615    21.57 
+baseaxis/s1   0.5115    0.5449   2.651   2.292     0.1477    0.6718    21.55 
+vanilla/s0    0.47      0.5378   2.842   0         0                   21.54 
+vanilla/s1    0.4885    0.5483   2.921   0         0                   21.49 
+baseaxis*/s0  0.4793    0.5371   2.169   10.48                         21.49 
+baseaxis*/s1  0.5115    0.5449   2.651   2.292                         21.5  
+baseaxis*/s2  0.4977    0.5306   2.182   13.5                          21.62 
+baseaxis*/s3  0.5161    0.538    2.048   20.52                         21.56 
+vanilla*/s0   0.47      0.5378   2.842   0.003671                      21.56 
+vanilla*/s1   0.4885    0.5483   2.921   0.006238                      21.59 
+vanilla*/s2   0.5253    0.5452   2.922   0.005658                      21.57 
+vanilla*/s3   0.4931    0.5389   3.301   -0.02425                      21.59 
+
+=== per-dataset  (accuracy / extract-rate) ===
+arm           math500     svamp       gsm8k       minerva_math  olympiadbench  amc23     
+momentum/s0   0.557/0.78  0.923/0.99  0.873/0.99  0.165/0.56    0.220/0.72     0.600/1.00
+momentum/s1   0.563/0.76  0.920/0.99  0.877/0.99  0.176/0.58    0.220/0.70     0.550/0.97
+baseaxis/s0   0.557/0.79  0.913/0.99  0.860/0.99  0.162/0.58    0.213/0.70     0.475/0.97
+baseaxis/s1   0.583/0.79  0.920/0.99  0.870/1.00  0.173/0.57    0.217/0.69     0.475/1.00
+vanilla/s0    0.550/0.78  0.923/0.98  0.850/1.00  0.158/0.58    0.220/0.71     0.500/1.00
+vanilla/s1    0.563/0.79  0.917/0.99  0.870/1.00  0.176/0.57    0.230/0.70     0.600/1.00
+baseaxis*/s0  0.557/0.79  0.913/0.99  0.860/0.99  0.162/0.58    0.213/0.70     0.475/0.97
+baseaxis*/s1  0.583/0.79  0.920/0.99  0.870/1.00  0.173/0.57    0.217/0.69     0.475/1.00
+baseaxis*/s2  0.573/0.79  0.903/0.99  0.853/0.99  0.136/0.53    0.230/0.72     0.500/1.00
+baseaxis*/s3  0.583/0.79  0.910/0.99  0.860/0.98  0.165/0.60    0.217/0.71     0.550/0.95
+vanilla*/s0   0.550/0.78  0.923/0.98  0.850/1.00  0.158/0.58    0.220/0.71     0.500/1.00
+vanilla*/s1   0.563/0.79  0.917/0.99  0.870/1.00  0.176/0.57    0.230/0.70     0.600/1.00
+vanilla*/s2   0.583/0.79  0.913/0.99  0.880/0.99  0.151/0.56    0.237/0.71     0.600/0.97
+vanilla*/s3   0.563/0.78  0.913/0.98  0.867/1.00  0.165/0.55    0.210/0.73     0.575/0.97
+
+* = 2026-07-23 run, shown for reference only. Rows without * were produced by this script.
+Reproducibility check: baseaxis/s0 and baseaxis*/s0 share settings, seed and worker logic,
+so they should agree; a gap is vLLM generation nondeterminism, not a config difference.
+cum_disp sign: momentum + = along the recent trajectory; baseaxis + = toward theta0.
+tie_rate and cum_frac are new fields, blank on the 07-23 rows.
+
+Caveats that survive this run:
+  - momentum and baseaxis differ in TWO ways, the axis and its radius policy; one run
+    cannot separate them (see PREREG).
+  - the pre-registered N=12 vanilla control still does not exist, so probe-vs-vanilla
+    cannot separate 'mechanism works' from 'four fewer Gaussian explorers'.
+  - absolute accuracies are depressed by the unfixed \boxed{} extractor bug. It is
+    common-mode across arms, so paired comparisons hold and absolute numbers do not.
