@@ -1,0 +1,86 @@
+{
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 2,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "zero_update_rate": 0.52,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 136.1026330867401,
+  "s_per_step_mean": 2.7008603784566123,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 2623.9805599484366,
+  "wall_clock_s": 540.4695892864838,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.58,
+      "extract_rate": 0.79,
+      "headroom": 0.42,
+      "ceiling_risk": false,
+      "gen_seconds": 8.6,
+      "per_level_accuracy": {
+        "1": 0.8148,
+        "2": 0.7321,
+        "3": 0.6094,
+        "4": 0.5432,
+        "5": 0.3889
+      },
+      "primary_L3_5_accuracy": 0.5115
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8667,
+      "extract_rate": 0.9967,
+      "headroom": 0.1333,
+      "ceiling_risk": false,
+      "gen_seconds": 7.4
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9,
+      "extract_rate": 0.9833,
+      "headroom": 0.1,
+      "ceiling_risk": false,
+      "gen_seconds": 2.5
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1434,
+      "extract_rate": 0.5809,
+      "headroom": 0.8566,
+      "ceiling_risk": false,
+      "gen_seconds": 9.1
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.2067,
+      "extract_rate": 0.7133,
+      "headroom": 0.7933,
+      "ceiling_risk": false,
+      "gen_seconds": 10.5
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.575,
+      "extract_rate": 0.975,
+      "headroom": 0.425,
+      "ceiling_risk": false,
+      "gen_seconds": 5.6
+    }
+  },
+  "eval_seconds": 48.64876398071647
+}

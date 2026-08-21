@@ -1,0 +1,331 @@
+{
+  "phase0": [
+    [
+      "GSM8K",
+      "Qwen/Qwen2.5-1.5B-Instruct",
+      0.772,
+      500
+    ],
+    [
+      "GSM8K",
+      "Qwen/Qwen2.5-3B-Instruct",
+      0.864,
+      500
+    ],
+    [
+      "GSM8K",
+      "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      0.854,
+      500
+    ],
+    [
+      "MATH L3-5",
+      "Qwen/Qwen2.5-1.5B-Instruct",
+      0.3242506811989101,
+      367
+    ],
+    [
+      "MATH L3-5",
+      "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      0.4986376021798365,
+      367
+    ]
+  ],
+  "phase1": {
+    "es_by_N": [
+      {
+        "N": 4,
+        "n_seeds": 2,
+        "zero_update_rate_mean": 0.3075,
+        "zero_update_rate_std": 0.017500000000000016,
+        "fitness_var_mean": 0.003583233173076923,
+        "s_per_step_mean": 5.41201386233935,
+        "t_eff_mean": 7.82035151913864,
+        "seeds": [
+          0,
+          1
+        ],
+        "per_seed_zero_rate": [
+          0.325,
+          0.29
+        ]
+      },
+      {
+        "N": 8,
+        "n_seeds": 2,
+        "zero_update_rate_mean": 0.15250000000000002,
+        "zero_update_rate_std": 0.012499999999999997,
+        "fitness_var_mean": 0.004469651442307692,
+        "s_per_step_mean": 10.81181852318442,
+        "t_eff_mean": 12.75981513132465,
+        "seeds": [
+          0,
+          1
+        ],
+        "per_seed_zero_rate": [
+          0.165,
+          0.14
+        ]
+      },
+      {
+        "N": 16,
+        "n_seeds": 2,
+        "zero_update_rate_mean": 0.08499999999999999,
+        "zero_update_rate_std": 0.0049999999999999975,
+        "fitness_var_mean": 0.004669658954326923,
+        "s_per_step_mean": 21.605575813658724,
+        "t_eff_mean": 23.613259247460647,
+        "seeds": [
+          0,
+          1
+        ],
+        "per_seed_zero_rate": [
+          0.08,
+          0.09
+        ]
+      },
+      {
+        "N": 30,
+        "n_seeds": 2,
+        "zero_update_rate_mean": 0.065,
+        "zero_update_rate_std": 0.024999999999999998,
+        "fitness_var_mean": 0.004686253561253562,
+        "s_per_step_mean": 40.44836056146723,
+        "t_eff_mean": 43.29143945520963,
+        "seeds": [
+          0,
+          1
+        ],
+        "per_seed_zero_rate": [
+          0.04,
+          0.09
+        ]
+      }
+    ],
+    "grpo_zero_adv": {
+      "samples_per_step": 64,
+      "n_steps": 200,
+      "overall_zero_adv_rate": 0.645
+    }
+  },
+  "phase2": {
+    "es": [
+      {
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "dataset": "math",
+        "levels": [
+          3,
+          4,
+          5
+        ],
+        "population_size": 4,
+        "batch_size": 8,
+        "sigma": 0.001,
+        "alpha": 0.0005,
+        "data_seed": 1234,
+        "pop_seed": 0,
+        "gpu": 0,
+        "num_steps": 30,
+        "warmup": 5,
+        "max_tokens": 512,
+        "zero_update_count": 5,
+        "zero_update_rate": 0.16666666666666666,
+        "fitness_var_mean": 0.00546875,
+        "s_per_step": {
+          "mean": 7.764973622374237,
+          "std": 0.044238987637055506
+        },
+        "t_generation": {
+          "mean": 7.513888943120837,
+          "std": 0.03862615746861269
+        },
+        "t_perturb_swap": {
+          "mean": 0.1342367809638381,
+          "std": 0.0007943547366087317
+        },
+        "t_update": {
+          "mean": 0.11684789828956127,
+          "std": 0.0287341382877214
+        },
+        "seqs_per_step": 32,
+        "tokens_per_step": {
+          "mean": 14585.2,
+          "std": 883.4717426154614
+        },
+        "tokens_per_s": 1878.332201666951,
+        "t_eff_per_effective_step": 9.317968346849083,
+        "peak_mem_torch_gb": 88.86749184,
+        "peak_mem_reserved_gb": 91.00591104,
+        "peak_mem_nvidia_smi_mib": 87995,
+        "wall_clock_s": 233.77124728262424
+      },
+      {
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "dataset": "math",
+        "levels": [
+          3,
+          4,
+          5
+        ],
+        "population_size": 8,
+        "batch_size": 8,
+        "sigma": 0.001,
+        "alpha": 0.0005,
+        "data_seed": 1234,
+        "pop_seed": 0,
+        "gpu": 0,
+        "num_steps": 30,
+        "warmup": 5,
+        "max_tokens": 512,
+        "zero_update_count": 3,
+        "zero_update_rate": 0.1,
+        "fitness_var_mean": 0.004423828125,
+        "s_per_step": {
+          "mean": 15.460152354836463,
+          "std": 0.08014274165380726
+        },
+        "t_generation": {
+          "mean": 15.003249866180122,
+          "std": 0.06907715282909181
+        },
+        "t_perturb_swap": {
+          "mean": 0.26854813899844887,
+          "std": 0.0005960248272386021
+        },
+        "t_update": {
+          "mean": 0.1883543496578932,
+          "std": 0.05132820511385446
+        },
+        "seqs_per_step": 64,
+        "tokens_per_step": {
+          "mean": 29141.28,
+          "std": 1947.435411406499
+        },
+        "tokens_per_s": 1884.9283843495639,
+        "t_eff_per_effective_step": 17.1779470609294,
+        "peak_mem_torch_gb": 88.869851136,
+        "peak_mem_reserved_gb": 91.00591104,
+        "peak_mem_nvidia_smi_mib": 87993,
+        "wall_clock_s": 464.5954511128366
+      }
+    ],
+    "grpo": {
+      "n_timed_steps": 25,
+      "warmup_dropped": 5,
+      "seqs_per_step": 64,
+      "s_per_step": {
+        "mean": 10.176600522696972,
+        "std": 0.278712061938201
+      },
+      "t_generation": {
+        "mean": 3.0310329829528926,
+        "std": 0.08496460971501578
+      },
+      "t_logprob_fwd": {
+        "mean": 3.046288857795298,
+        "std": 0.1064982870802003
+      },
+      "t_actor_update_fwd_bwd_optim": {
+        "mean": 2.7982294166833164,
+        "std": 0.14260801674858478
+      },
+      "t_overhead_adv_reward_syncweights": {
+        "mean": 1.2787256250157952,
+        "std": 0.021746793225143266
+      },
+      "avg_response_length": {
+        "mean": 445.126875,
+        "std": 27.84859326563911
+      },
+      "tokens_per_step_est": 28488.12,
+      "tokens_per_s_est": 2799.3748930659767
+    },
+    "grpo_peak_mib": 105063
+  },
+  "phase3": [
+    {
+      "N": 4,
+      "dual": {
+        "mode": "dual_gpu",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "population_size": 4,
+        "batch_size": 8,
+        "num_steps": 30,
+        "warmup": 5,
+        "max_tokens": 512,
+        "gpus": [
+          0,
+          1
+        ],
+        "zero_update_rate": 0.16666666666666666,
+        "s_per_step": {
+          "mean": 3.9474458357319238,
+          "std": 0.033387762224757485
+        },
+        "t_eval_barrier": {
+          "mean": 3.8267570631578565,
+          "std": 0.020153025049907958
+        },
+        "t_update": {
+          "mean": 0.12068877257406711,
+          "std": 0.030019988692116712
+        },
+        "seqs_per_step": 32,
+        "tokens_per_step": {
+          "mean": 14585.2,
+          "std": 883.4717426154614
+        },
+        "peak_mem_torch_gb": {
+          "1": 88.869851136,
+          "0": 88.869851136
+        },
+        "wall_clock_s": 121.40332248341292
+      },
+      "single_s_per_step": 7.764973622374237,
+      "speedup_1to2gpu": 1.9670880730234208,
+      "scaling_efficiency": 0.9835440365117104
+    },
+    {
+      "N": 8,
+      "dual": {
+        "mode": "dual_gpu",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "population_size": 8,
+        "batch_size": 8,
+        "num_steps": 30,
+        "warmup": 5,
+        "max_tokens": 512,
+        "gpus": [
+          0,
+          1
+        ],
+        "zero_update_rate": 0.1,
+        "s_per_step": {
+          "mean": 7.841417769491673,
+          "std": 0.05811578175664104
+        },
+        "t_eval_barrier": {
+          "mean": 7.648881268762052,
+          "std": 0.03313696557991558
+        },
+        "t_update": {
+          "mean": 0.19253650072962045,
+          "std": 0.051259618380856006
+        },
+        "seqs_per_step": 64,
+        "tokens_per_step": {
+          "mean": 29141.28,
+          "std": 1947.435411406499
+        },
+        "peak_mem_torch_gb": {
+          "0": 88.869851136,
+          "1": 88.869851136
+        },
+        "wall_clock_s": 237.7024297621101
+      },
+      "single_s_per_step": 15.460152354836463,
+      "speedup_1to2gpu": 1.9716016681303135,
+      "scaling_efficiency": 0.9858008340651567
+    }
+  ]
+}

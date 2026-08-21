@@ -1,0 +1,43 @@
+# ===== ES benchmark commands.log (protocol 5) =====
+# started: 2026-07-18 (session)
+# branch: codex/implement-controlled-ood-evaluation-pipeline  commit: 7a72593
+# verl env: /home/hyin66/micromamba/envs/verl  | es env: /home/hyin66/micromamba/envs/es
+[flash-attn] pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.8cxx11abiTRUE-cp310-cp310-linux_x86_64.whl
+[download] hf download Qwen/Qwen2.5-1.5B-Instruct  (non-math 1.5B, for Phase 0 model selection)
+[phase0 smoke] /home/hyin66/micromamba/envs/verl/bin/python es_bench/phase0/gsm8k_eval.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --n 8 --gpu 0 --out_prefix es_bench/phase0/results/smoke_math1.5b
+[fix] downgrade transformers to <5 in verl env (vllm 0.11 incompat with transformers 5.x)
+[phase0 eval] /home/hyin66/micromamba/envs/verl/bin/python es_bench/phase0/gsm8k_eval.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --n 500 --gpu 0 --out_prefix es_bench/phase0/results/gsm8k_math1.5b
+[phase0 eval] /home/hyin66/micromamba/envs/verl/bin/python es_bench/phase0/gsm8k_eval.py --model Qwen/Qwen2.5-1.5B-Instruct --n 500 --gpu 1 --out_prefix es_bench/phase0/results/gsm8k_instruct1.5b
+[phase0 eval] /home/hyin66/micromamba/envs/verl/bin/python es_bench/phase0/gsm8k_eval.py --model Qwen/Qwen2.5-3B-Instruct --n 500 --gpu 0 --out_prefix es_bench/phase0/results/gsm8k_instruct3b
+[phase0 math] /home/hyin66/micromamba/envs/verl/bin/python es_bench/phase0/math_eval.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --levels 3,4,5 --gpu 0 --out_prefix es_bench/phase0/results/math_math1.5b
+[phase0 math] /home/hyin66/micromamba/envs/verl/bin/python es_bench/phase0/math_eval.py --model Qwen/Qwen2.5-1.5B-Instruct --levels 3,4,5 --gpu 1 --out_prefix es_bench/phase0/results/math_instruct1.5b
+[smoke es] es_train N=4 steps=3 on Qwen2.5-Math-1.5B-Instruct
+[grpo prep] /home/hyin66/micromamba/envs/verl/bin/python es_bench/grpo/prep_data.py --levels 3,4,5 --train_size 2000 --val_size 200 --data_seed 1234
+[phase1] launch ES lane GPU0 seed0 : N in {4,8,16,30} x 200 steps
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 4 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 1024 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N4_seed0
+[grpo smoke] STEPS=2 GPU=1 verl GRPO functional test
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 8 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 1024 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N8_seed0
+[phase1] RELAUNCH ES lane GPU0 seed0 (max_tokens=512)
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 4 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N4_seed0
+[grpo smoke2] STEPS=2 GPU=1 (mode fix)
+[deps] pip install matplotlib in verl env (for phase plots)
+[phase1] launch ES lane GPU1 seed1 (max_tokens=512)
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 4 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 1 --gpu 1 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N4_seed1
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 8 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N8_seed0
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 8 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 1 --gpu 1 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N8_seed1
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 16 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N16_seed0
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 16 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 1 --gpu 1 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N16_seed1
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 30 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N30_seed0
+[phase1 es] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-Math-1.5B-Instruct --dataset math --levels 3,4,5 --population_size 30 --batch_size 8 --num_steps 200 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 1 --gpu 1 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase1/es_N30_seed1
+[analyze] phase1 ES table + plots
+[phase3 smoke] es_train_dual N=4 steps=3 (validate dual-GPU code)
+[phase1 grpo control] 1.5B GPU1 200 steps group=8 train_bs=8 (64 rollouts/step) max_resp=512
+[analyze] phase1 full (ES + GRPO zero-adv)
+[phase2] launch: 3B GPU0, ES N4/N8 + GRPO, max_tokens=512, 30 steps
+[phase2 N4] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-3B-Instruct --dataset math --levels 3,4,5 --population_size 4 --batch_size 8 --num_steps 30 --warmup 5 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase2/es_N4
+[phase2 N8] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train.py --model Qwen/Qwen2.5-3B-Instruct --dataset math --levels 3,4,5 --population_size 8 --batch_size 8 --num_steps 30 --warmup 5 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpu 0 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase2/es_N8
+[phase2 grpo] run_grpo 3B GPU0 STEPS=30 group=8
+[phase3] launch dual-GPU ES scaling 3B N=4,8
+[phase3 dual N=4] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train_dual.py --model Qwen/Qwen2.5-3B-Instruct --dataset math --levels 3,4,5 --population_size 4 --batch_size 8 --num_steps 30 --warmup 5 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpus 0,1 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase3/dual_N4
+[phase3 dual N=8] /home/hyin66/micromamba/envs/verl/bin/python es_bench/es_train_dual.py --model Qwen/Qwen2.5-3B-Instruct --dataset math --levels 3,4,5 --population_size 8 --batch_size 8 --num_steps 30 --warmup 5 --sigma 0.001 --alpha 0.0005 --data_seed 1234 --pop_seed 0 --gpus 0,1 --max_tokens 512 --gpu_mem_util 0.5 --out_prefix es_bench/phase3/dual_N8
+[report] make_report.py -> FINAL_REPORT.md

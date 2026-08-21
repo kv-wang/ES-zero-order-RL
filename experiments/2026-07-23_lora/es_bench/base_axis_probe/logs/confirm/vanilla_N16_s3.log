@@ -1,0 +1,151 @@
+WARNING 07-23 23:25:41 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-23 23:25:41 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-23 23:25:46 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02<00:00,  2.81s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02<00:00,  2.81s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|█         | 7/67 [00:00<00:00, 62.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:00<00:00, 64.64it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:00<00:00, 63.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 63.58it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 61.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:00<00:00, 58.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:00<00:00, 58.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:00<00:00, 56.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:01<00:00, 55.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 57.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 59.06it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 9/67 [00:00<00:00, 81.99it/s]Capturing CUDA graphs (decode, FULL):  27%|██▋       | 18/67 [00:00<00:00, 86.36it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 27/67 [00:00<00:00, 86.05it/s]Capturing CUDA graphs (decode, FULL):  55%|█████▌    | 37/67 [00:00<00:00, 89.35it/s]Capturing CUDA graphs (decode, FULL):  70%|███████   | 47/67 [00:00<00:00, 92.29it/s]Capturing CUDA graphs (decode, FULL):  85%|████████▌ | 57/67 [00:00<00:00, 94.45it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 93.61it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 91.31it/s]
+[kl] base-vs-base drift=-5.26e-06
+[vanilla N=16 s3] step 0 axis=0.0 disp=+0.000 cum=+0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 1 axis=4.9 disp=+0.001 cum=+0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 2 axis=6.9 disp=-0.000 cum=+0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 3 axis=8.5 disp=-0.001 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 4 axis=9.8 disp=-0.001 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 5 axis=11.0 disp=-0.001 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 10 axis=15.5 disp=+0.001 cum=+0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 15 axis=18.4 disp=+0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 20 axis=21.4 disp=-0.001 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 25 axis=23.6 disp=+0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 30 axis=25.5 disp=-0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 35 axis=27.8 disp=-0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 40 axis=29.9 disp=-0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 45 axis=31.8 disp=+0.002 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 50 axis=32.9 disp=-0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 55 axis=34.0 disp=-0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 60 axis=35.4 disp=+0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 65 axis=36.8 disp=+0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 70 axis=38.4 disp=-0.000 cum=-0.00 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 75 axis=39.9 disp=-0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 80 axis=41.4 disp=+0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 85 axis=42.5 disp=+0.001 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 90 axis=43.7 disp=+0.001 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 95 axis=45.0 disp=+0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 100 axis=46.3 disp=+0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 105 axis=47.6 disp=-0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 110 axis=48.9 disp=+0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=0.00e+00
+[vanilla N=16 s3] step 115 axis=49.8 disp=+0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 120 axis=51.0 disp=+0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 125 axis=52.2 disp=-0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 130 axis=53.4 disp=-0.000 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 135 axis=54.3 disp=-0.002 cum=-0.01 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 140 axis=55.4 disp=-0.002 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 145 axis=56.4 disp=-0.000 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 150 axis=57.5 disp=-0.001 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 155 axis=58.3 disp=+0.001 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 160 axis=59.4 disp=+0.000 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 165 axis=60.4 disp=-0.000 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 170 axis=61.4 disp=-0.001 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 175 axis=62.3 disp=-0.001 cum=-0.03 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 180 axis=63.3 disp=-0.002 cum=-0.03 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 185 axis=64.2 disp=+0.000 cum=-0.03 f+-f-=[-] anchor=False |Δ|=0.00e+00
+[vanilla N=16 s3] step 190 axis=65.0 disp=+0.002 cum=-0.03 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[vanilla N=16 s3] step 195 axis=65.9 disp=+0.001 cum=-0.02 f+-f-=[-] anchor=False |Δ|=4.91e+00
+[kl] final drift D=0.0033
+SUMMARY: {
+  "variant": "vanilla",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 16,
+  "pop_seed": 3,
+  "num_steps": 200,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "final_axis_norm": 66.45488949373295,
+  "final_cum_disp": -0.02425280499722909,
+  "mean_signed_disp": -0.00011767815448135012,
+  "mean_pair_fdiff": null,
+  "steps_scale_flagged": 195,
+  "kl_proxy_drift": 0.0033009682347530573,
+  "s_per_step_mean": 21.594981776280328,
+  "wall_clock_s": 4318.996355906129,
+  "eval_seconds": 46.7039772644639
+}
+EVAL_FINAL: {
+  "math500": {
+    "n": 300,
+    "full_n": 500,
+    "capped": true,
+    "accuracy": 0.5633,
+    "extract_rate": 0.7767,
+    "headroom": 0.4367,
+    "ceiling_risk": false,
+    "gen_seconds": 8.5,
+    "per_level_accuracy": {
+      "1": 0.7778,
+      "2": 0.7321,
+      "3": 0.6562,
+      "4": 0.5185,
+      "5": 0.3194
+    },
+    "primary_L3_5_accuracy": 0.4931
+  },
+  "gsm8k": {
+    "n": 300,
+    "full_n": 1319,
+    "capped": true,
+    "accuracy": 0.8667,
+    "extract_rate": 0.9967,
+    "headroom": 0.1333,
+    "ceiling_risk": false,
+    "gen_seconds": 3.6
+  },
+  "svamp": {
+    "n": 300,
+    "full_n": 300,
+    "capped": true,
+    "accuracy": 0.9133,
+    "extract_rate": 0.9833,
+    "headroom": 0.0867,
+    "ceiling_risk": false,
+    "gen_seconds": 6.3
+  },
+  "minerva_math": {
+    "n": 272,
+    "full_n": 272,
+    "capped": false,
+    "accuracy": 0.1654,
+    "extract_rate": 0.5478,
+    "headroom": 0.8346,
+    "ceiling_risk": false,
+    "gen_seconds": 8.9
+  },
+  "olympiadbench": {
+    "n": 300,
+    "full_n": 674,
+    "capped": true,
+    "accuracy": 0.21,
+    "extract_rate": 0.7267,
+    "headroom": 0.79,
+    "ceiling_risk": false,
+    "gen_seconds": 10.1
+  },
+  "amc23": {
+    "n": 40,
+    "full_n": 40,
+    "capped": false,
+    "accuracy": 0.575,
+    "extract_rate": 0.975,
+    "headroom": 0.425,
+    "ceiling_risk": false,
+    "gen_seconds": 5.7
+  }
+}
+[rank0]:[W724 00:39:02.544237162 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

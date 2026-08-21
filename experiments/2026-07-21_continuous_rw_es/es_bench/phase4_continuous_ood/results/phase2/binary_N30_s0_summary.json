@@ -1,0 +1,86 @@
+{
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 30,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "zero_update_rate": 0.04,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 49.69806076154026,
+  "s_per_step_mean": 40.22825559731573,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 2650.3364034388924,
+  "wall_clock_s": 8046.772410618141,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5567,
+      "extract_rate": 0.7833,
+      "headroom": 0.4433,
+      "ceiling_risk": false,
+      "gen_seconds": 8.6,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.75,
+        "3": 0.6719,
+        "4": 0.4691,
+        "5": 0.3194
+      },
+      "primary_L3_5_accuracy": 0.4793
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.88,
+      "extract_rate": 0.99,
+      "headroom": 0.12,
+      "ceiling_risk": false,
+      "gen_seconds": 7.6
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9233,
+      "extract_rate": 0.9867,
+      "headroom": 0.0767,
+      "ceiling_risk": false,
+      "gen_seconds": 3.6
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1691,
+      "extract_rate": 0.5699,
+      "headroom": 0.8309,
+      "ceiling_risk": false,
+      "gen_seconds": 9.0
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.2067,
+      "extract_rate": 0.7133,
+      "headroom": 0.7933,
+      "ceiling_risk": false,
+      "gen_seconds": 10.1
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.525,
+      "extract_rate": 0.9,
+      "headroom": 0.475,
+      "ceiling_risk": false,
+      "gen_seconds": 5.8
+    }
+  },
+  "eval_seconds": 48.84697984997183
+}

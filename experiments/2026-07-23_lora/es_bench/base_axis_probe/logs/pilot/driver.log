@@ -1,0 +1,12 @@
+[13:14:29] base-axis pilot start
+[13:14:29] GPU0 START baseaxis_N16_s0
+[13:14:29] GPU1 START vanilla_N16_s0
+[14:27:50] GPU0 DONE  baseaxis_N16_s0 rc=0
+[14:27:50] GPU0 START baseaxis_N16_s1
+[14:28:00] GPU1 DONE  vanilla_N16_s0 rc=0
+[14:28:00] GPU1 START vanilla_N16_s1
+[15:41:17] GPU0 DONE  baseaxis_N16_s1 rc=0
+[15:41:17] GPU0 LANE DONE
+[15:41:40] GPU1 DONE  vanilla_N16_s1 rc=0
+[15:41:40] GPU1 LANE DONE
+[15:41:40] base-axis pilot ALL COMPLETE

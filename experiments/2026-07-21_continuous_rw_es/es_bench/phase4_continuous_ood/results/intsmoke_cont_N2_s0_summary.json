@@ -1,0 +1,86 @@
+{
+  "reward": "continuous",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 2,
+  "pop_seed": 0,
+  "num_steps": 6,
+  "zero_update_rate": 0.0,
+  "pure_tiebreaker_rate": 0.3333333333333333,
+  "final_drift_l2": 34.023435294226225,
+  "s_per_step_mean": 2.836093509569764,
+  "t_scoring_mean": 0.11575905326753855,
+  "scoring_overhead_frac": 0.040816373958381655,
+  "tokens_per_s": 2335.254453935375,
+  "wall_clock_s": 18.49726890400052,
+  "eval_final": {
+    "math500": {
+      "n": 40,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.6,
+      "extract_rate": 0.85,
+      "headroom": 0.4,
+      "ceiling_risk": false,
+      "gen_seconds": 3.0,
+      "per_level_accuracy": {
+        "1": 0.5,
+        "2": 0.6667,
+        "3": 0.7273,
+        "4": 0.5,
+        "5": 0.5
+      },
+      "primary_L3_5_accuracy": 0.5926
+    },
+    "gsm8k": {
+      "n": 40,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.825,
+      "extract_rate": 0.975,
+      "headroom": 0.175,
+      "ceiling_risk": false,
+      "gen_seconds": 5.3
+    },
+    "svamp": {
+      "n": 40,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.85,
+      "extract_rate": 1.0,
+      "headroom": 0.15,
+      "ceiling_risk": false,
+      "gen_seconds": 0.8
+    },
+    "minerva_math": {
+      "n": 40,
+      "full_n": 272,
+      "capped": true,
+      "accuracy": 0.1,
+      "extract_rate": 0.55,
+      "headroom": 0.9,
+      "ceiling_risk": false,
+      "gen_seconds": 4.8
+    },
+    "olympiadbench": {
+      "n": 40,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.2,
+      "extract_rate": 0.725,
+      "headroom": 0.8,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": true,
+      "accuracy": 0.6,
+      "extract_rate": 0.95,
+      "headroom": 0.4,
+      "ceiling_risk": false,
+      "gen_seconds": 5.8
+    }
+  },
+  "eval_seconds": 28.78996072988957
+}

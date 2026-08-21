@@ -1,0 +1,12 @@
+  PASS test_continuous_reduces_to_binary_when_secondary_constant
+  PASS test_delta_below_primary_gap
+  PASS test_exact_full_tie_gives_equal_coeffs
+  PASS test_full_lexicographic_order
+  PASS test_n_distinct_primary
+  PASS test_primary_dominates_worst_case
+  PASS test_pure_tiebreaker_gives_nonzero_update
+  PASS test_q1_zero_update_rate_matches_summary
+  PASS test_q1_zero_update_replay_flags_match
+  PASS test_secondary_breaks_exact_primary_tie
+
+10/10 shaping/replay tests passed

@@ -1,0 +1,88 @@
+{
+  "variant": "vanilla",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 16,
+  "pop_seed": 3,
+  "num_steps": 200,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "final_axis_norm": 66.45488949373295,
+  "final_cum_disp": -0.02425280499722909,
+  "mean_signed_disp": -0.00011767815448135012,
+  "mean_pair_fdiff": null,
+  "steps_scale_flagged": 195,
+  "kl_proxy_drift": 0.0033009682347530573,
+  "s_per_step_mean": 21.594981776280328,
+  "wall_clock_s": 4318.996355906129,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5633,
+      "extract_rate": 0.7767,
+      "headroom": 0.4367,
+      "ceiling_risk": false,
+      "gen_seconds": 8.5,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.7321,
+        "3": 0.6562,
+        "4": 0.5185,
+        "5": 0.3194
+      },
+      "primary_L3_5_accuracy": 0.4931
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8667,
+      "extract_rate": 0.9967,
+      "headroom": 0.1333,
+      "ceiling_risk": false,
+      "gen_seconds": 3.6
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9133,
+      "extract_rate": 0.9833,
+      "headroom": 0.0867,
+      "ceiling_risk": false,
+      "gen_seconds": 6.3
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1654,
+      "extract_rate": 0.5478,
+      "headroom": 0.8346,
+      "ceiling_risk": false,
+      "gen_seconds": 8.9
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.21,
+      "extract_rate": 0.7267,
+      "headroom": 0.79,
+      "ceiling_risk": false,
+      "gen_seconds": 10.1
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.575,
+      "extract_rate": 0.975,
+      "headroom": 0.425,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    }
+  },
+  "eval_seconds": 46.7039772644639
+}

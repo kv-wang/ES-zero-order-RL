@@ -1,0 +1,87 @@
+{
+  "reward": "continuous",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 30,
+  "pop_seed": 1,
+  "num_steps": 200,
+  "zero_update_rate": 0.0,
+  "pure_tiebreaker_rate": 0.06,
+  "final_drift_l2": 50.72329006892212,
+  "kl_proxy_drift": 0.0016575378610522529,
+  "s_per_step_mean": 42.42575540752747,
+  "t_scoring_mean": 2.159686761153623,
+  "scoring_overhead_frac": 0.0509050867900501,
+  "tokens_per_s": 2509.5756104498323,
+  "wall_clock_s": 8488.868506503291,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5867,
+      "extract_rate": 0.7867,
+      "headroom": 0.4133,
+      "ceiling_risk": false,
+      "gen_seconds": 8.6,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.7679,
+        "3": 0.6406,
+        "4": 0.5062,
+        "5": 0.4167
+      },
+      "primary_L3_5_accuracy": 0.5161
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8633,
+      "extract_rate": 0.9933,
+      "headroom": 0.1367,
+      "ceiling_risk": false,
+      "gen_seconds": 6.9
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9067,
+      "extract_rate": 0.98,
+      "headroom": 0.0933,
+      "ceiling_risk": false,
+      "gen_seconds": 6.3
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1618,
+      "extract_rate": 0.5515,
+      "headroom": 0.8382,
+      "ceiling_risk": false,
+      "gen_seconds": 9.0
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.2233,
+      "extract_rate": 0.7033,
+      "headroom": 0.7767,
+      "ceiling_risk": false,
+      "gen_seconds": 10.3
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.525,
+      "extract_rate": 1.0,
+      "headroom": 0.475,
+      "ceiling_risk": false,
+      "gen_seconds": 4.3
+    }
+  },
+  "eval_seconds": 49.4591318545863
+}

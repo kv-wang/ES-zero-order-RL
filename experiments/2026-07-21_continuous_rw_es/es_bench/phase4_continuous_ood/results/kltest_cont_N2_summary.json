@@ -1,0 +1,16 @@
+{
+  "reward": "continuous",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 2,
+  "pop_seed": 0,
+  "num_steps": 8,
+  "zero_update_rate": 0.0,
+  "pure_tiebreaker_rate": 0.5,
+  "final_drift_l2": 39.28848646026171,
+  "kl_proxy_drift": 0.0014491946092225598,
+  "s_per_step_mean": 2.8247035269935927,
+  "t_scoring_mean": 0.11242942915608485,
+  "scoring_overhead_frac": 0.03980220510990989,
+  "tokens_per_s": 2326.4978444166377,
+  "wall_clock_s": 24.597369829192758
+}

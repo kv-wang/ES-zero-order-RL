@@ -1,0 +1,17 @@
+{
+  "variant": "baseaxis",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 8,
+  "pop_seed": 0,
+  "num_steps": 8,
+  "a_max": 0.1,
+  "anchor_threshold": 1.0,
+  "final_axis_norm": 15.788369315491794,
+  "final_cum_disp": 0.0019009661016902105,
+  "mean_signed_disp": 0.0009677059365746132,
+  "mean_pair_fdiff": 0.0,
+  "steps_scale_flagged": 3,
+  "kl_proxy_drift": null,
+  "s_per_step_mean": 10.776786039350554,
+  "wall_clock_s": 86.21428903471678
+}

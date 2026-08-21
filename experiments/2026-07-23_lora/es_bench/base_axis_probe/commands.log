@@ -1,0 +1,7 @@
+## 2026-07-23 base-axis probe: mechanism smoke (baseaxis N=8, 8 steps)
+## 2026-07-23 re-smoke a_max=1.0
+## 2026-07-23 base-axis PILOT launch (probe vs vanilla, N16, seeds{0,1}, a_max=1.0, ~2.4h)
+# Pilot launched (bg bwko4f830): baseaxis vs vanilla, N16, seeds{0,1}, a_max=1.0, --kl --eval_final.
+# Both lanes on separate GPUs, no OOM. Mechanism validated in smoke2 (f+-f- nonzero once anchor pert ~ Gaussian scale).
+# Headline diagnostic to analyze: cum_disp trajectory (learned anchor coefficient) + KL(probe) vs KL(vanilla) at matched ID acc.
+## 2026-07-23 CONFIRM run: 5 seeds N16 + matched N12 vanilla control (11 arms, ~6h)

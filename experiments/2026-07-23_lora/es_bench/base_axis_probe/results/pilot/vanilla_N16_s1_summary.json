@@ -1,0 +1,88 @@
+{
+  "variant": "vanilla",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 16,
+  "pop_seed": 1,
+  "num_steps": 200,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "final_axis_norm": 66.07916210353947,
+  "final_cum_disp": 0.006237594535988829,
+  "mean_signed_disp": 2.011816389253695e-05,
+  "mean_pair_fdiff": null,
+  "steps_scale_flagged": 195,
+  "kl_proxy_drift": 0.0029207663065953463,
+  "s_per_step_mean": 21.586080042077228,
+  "wall_clock_s": 4317.2160090357065,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.5633,
+      "extract_rate": 0.7867,
+      "headroom": 0.4367,
+      "ceiling_risk": false,
+      "gen_seconds": 8.6,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.75,
+        "3": 0.6406,
+        "4": 0.4938,
+        "5": 0.3472
+      },
+      "primary_L3_5_accuracy": 0.4885
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.87,
+      "extract_rate": 0.9967,
+      "headroom": 0.13,
+      "ceiling_risk": false,
+      "gen_seconds": 3.6
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9167,
+      "extract_rate": 0.9867,
+      "headroom": 0.0833,
+      "ceiling_risk": false,
+      "gen_seconds": 6.3
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1765,
+      "extract_rate": 0.5699,
+      "headroom": 0.8235,
+      "ceiling_risk": false,
+      "gen_seconds": 8.8
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.23,
+      "extract_rate": 0.7033,
+      "headroom": 0.77,
+      "ceiling_risk": false,
+      "gen_seconds": 10.3
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.6,
+      "extract_rate": 1.0,
+      "headroom": 0.4,
+      "ceiling_risk": false,
+      "gen_seconds": 3.9
+    }
+  },
+  "eval_seconds": 45.50151296239346
+}

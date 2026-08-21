@@ -1,0 +1,36 @@
+[19:33:10] Phase 3 start
+[19:33:11] GPU0 START continuous_N4_s0
+[19:33:11] GPU1 START binary_N4_s0
+[19:52:57] GPU1 DONE  binary_N4_s0 rc=0
+[19:52:57] GPU1 START binary_N4_s1
+[19:53:57] GPU0 DONE  continuous_N4_s0 rc=0
+[19:53:58] GPU0 START continuous_N4_s1
+[20:12:47] GPU1 DONE  binary_N4_s1 rc=0
+[20:12:47] GPU1 START binary_N4_s2
+[20:14:50] GPU0 DONE  continuous_N4_s1 rc=0
+[20:14:50] GPU0 START continuous_N4_s2
+[20:32:29] GPU1 DONE  binary_N4_s2 rc=0
+[20:32:29] GPU1 START binary_N2_s0
+[20:35:36] GPU0 DONE  continuous_N4_s2 rc=0
+[20:35:36] GPU0 START continuous_N2_s0
+[20:43:18] GPU1 DONE  binary_N2_s0 rc=0
+[20:43:18] GPU1 START binary_N2_s1
+[20:46:56] GPU0 DONE  continuous_N2_s0 rc=0
+[20:46:56] GPU0 START continuous_N2_s1
+[20:54:05] GPU1 DONE  binary_N2_s1 rc=0
+[20:54:05] GPU1 START binary_N2_s2
+[20:58:23] GPU0 DONE  continuous_N2_s1 rc=0
+[20:58:23] GPU0 START continuous_N2_s2
+[21:04:53] GPU1 DONE  binary_N2_s2 rc=0
+[21:04:53] GPU1 START binary_N30_s1
+[21:09:51] GPU0 DONE  continuous_N2_s2 rc=0
+[21:09:51] GPU0 START continuous_N30_s1
+[23:21:08] GPU1 DONE  binary_N30_s1 rc=0
+[23:21:08] GPU1 START continuous_N30_s2
+[23:33:09] GPU0 DONE  continuous_N30_s1 rc=0
+[23:33:09] GPU0 START binary_N30_s2
+[01:44:16] GPU1 DONE  continuous_N30_s2 rc=0
+[01:44:16] GPU1 LANE COMPLETE
+[01:48:52] GPU0 DONE  binary_N30_s2 rc=0
+[01:48:52] GPU0 LANE COMPLETE
+[01:48:52] Phase 3 ALL COMPLETE

@@ -1,0 +1,45 @@
+WARNING 07-22 00:57:08 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-22 00:57:09 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-22 00:57:34 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Exception in thread Thread-1 (_report_usage_worker):
+Traceback (most recent call last):
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 167, in _report_usage_worker
+    self._report_usage_once(model_architecture, usage_context, extra_kvs)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 223, in _report_usage_once
+    self._write_to_file(data)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 252, in _write_to_file
+    os.makedirs(os.path.dirname(_USAGE_STATS_JSON_PATH), exist_ok=True)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+NotADirectoryError: [Errno 20] Not a directory: '/home/hyin66/.config/vllm'
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:05<00:00,  5.33s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:05<00:00,  5.33s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 59.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:00<00:00, 64.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:00<00:00, 64.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:00<00:00, 63.64it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:00<00:00, 62.35it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:00<00:00, 61.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:00<00:00, 61.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 55/67 [00:00<00:00, 58.40it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 61/67 [00:01<00:00, 57.65it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 57.13it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 59.84it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   4%|▍         | 3/67 [00:00<00:02, 28.85it/s]Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:00<00:00, 65.99it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 23/67 [00:00<00:00, 78.54it/s]Capturing CUDA graphs (decode, FULL):  49%|████▉     | 33/67 [00:00<00:00, 84.24it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 44/67 [00:00<00:00, 89.87it/s]Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 55/67 [00:00<00:00, 93.94it/s]Capturing CUDA graphs (decode, FULL):  99%|█████████▊| 66/67 [00:00<00:00, 97.09it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 87.79it/s]
+[snapshot] base sum=67892.923881 live sum=67892.923881
+  PASS A0 es_set_member changed live weights
+  PASS A1 base intact after es_set_member
+[score@member] secondary=0.768921 pbar=[1.0, 1.0, 0.5655, 0.048, 1.0, 1.0]
+  PASS A2 secondary in (0,1], non-degenerate
+  PASS A3 scoring did NOT corrupt live (member) weights
+  PASS A4 scoring did NOT corrupt fp32 base
+  PASS A5 es_restore_base returned live weights bit-for-bit to base
+  PASS B  scoring deterministic under fixed weights
+[score@base]   secondary=0.766002
+  PASS C  scoring reflects live weights (base != member)
+
+ALL PASS
+[rank0]:[W722 00:58:01.749775785 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

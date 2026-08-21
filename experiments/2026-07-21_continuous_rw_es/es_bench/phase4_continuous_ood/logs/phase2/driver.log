@@ -1,0 +1,24 @@
+[01:29:58] Phase 2 screen start
+[01:29:58] GPU1 START binary_N30_s0
+[01:29:58] GPU0 START continuous_N30_s0
+[03:45:42] GPU1 DONE  binary_N30_s0 rc=0
+[03:45:42] GPU1 START binary_N8_s0
+[03:53:03] GPU0 DONE  continuous_N30_s0 rc=0
+[03:53:04] GPU0 START continuous_N8_s0
+[04:23:30] GPU1 DONE  binary_N8_s0 rc=0
+[04:23:30] GPU1 START binary_N4_s0
+[04:32:41] GPU0 DONE  continuous_N8_s0 rc=0
+[04:32:41] GPU0 START continuous_N4_s0
+[04:43:09] GPU1 DONE  binary_N4_s0 rc=0
+[04:43:09] GPU1 START binary_N2_s0
+[04:53:24] GPU0 DONE  continuous_N4_s0 rc=0
+[04:53:24] GPU0 START continuous_N2_s0
+[04:53:46] GPU1 DONE  binary_N2_s0 rc=0
+[04:53:46] GPU1 START continuous_N6_s0
+[05:04:34] GPU0 DONE  continuous_N2_s0 rc=0
+[05:04:34] GPU0 START binary_N6_s0
+[05:23:47] GPU1 DONE  continuous_N6_s0 rc=0
+[05:23:47] GPU1 LANE COMPLETE
+[05:33:09] GPU0 DONE  binary_N6_s0 rc=0
+[05:33:09] GPU0 LANE COMPLETE
+[05:33:09] Phase 2 screen ALL COMPLETE

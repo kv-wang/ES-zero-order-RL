@@ -1,0 +1,88 @@
+{
+  "variant": "vanilla",
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "population_size": 16,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "final_axis_norm": 66.4325109041743,
+  "final_cum_disp": 0.003671385423425629,
+  "mean_signed_disp": 1.649880591675592e-05,
+  "mean_pair_fdiff": null,
+  "steps_scale_flagged": 195,
+  "kl_proxy_drift": 0.00284155524715904,
+  "s_per_step_mean": 21.56292283302173,
+  "wall_clock_s": 4312.584567264654,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.55,
+      "extract_rate": 0.78,
+      "headroom": 0.45,
+      "ceiling_risk": false,
+      "gen_seconds": 8.6,
+      "per_level_accuracy": {
+        "1": 0.8148,
+        "2": 0.7321,
+        "3": 0.625,
+        "4": 0.4691,
+        "5": 0.3333
+      },
+      "primary_L3_5_accuracy": 0.47
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.85,
+      "extract_rate": 1.0,
+      "headroom": 0.15,
+      "ceiling_risk": false,
+      "gen_seconds": 3.6
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9233,
+      "extract_rate": 0.9833,
+      "headroom": 0.0767,
+      "ceiling_risk": false,
+      "gen_seconds": 2.6
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1581,
+      "extract_rate": 0.5772,
+      "headroom": 0.8419,
+      "ceiling_risk": false,
+      "gen_seconds": 8.9
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.22,
+      "extract_rate": 0.7133,
+      "headroom": 0.78,
+      "ceiling_risk": false,
+      "gen_seconds": 10.2
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.5,
+      "extract_rate": 1.0,
+      "headroom": 0.5,
+      "ceiling_risk": false,
+      "gen_seconds": 4.8
+    }
+  },
+  "eval_seconds": 42.26261592283845
+}

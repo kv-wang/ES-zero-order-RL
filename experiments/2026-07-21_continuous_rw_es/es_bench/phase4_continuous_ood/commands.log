@@ -1,0 +1,39 @@
+# Phase 4 — continuous-reward ES OOD. commands.log
+# All work confined to es_bench/phase4_continuous_ood/. Times are session-relative.
+
+## 2026-07-21 — setup + Phase 0 audit (read-only, no training)
+# Created self-contained try folder + es_bench snapshot:
+#   cp -a experiments/2026-07-18_.../es_bench experiments/2026-07-21_continuous_rw_es/es_bench
+#   mkdir -p phase4_continuous_ood/{logs,results,tests,eval,src}
+# Read reused code (read-only): es_train.py, es_worker.py, shared_reward.py,
+#   data_math.py, ood_eval/answer_extraction.py, phase0/math_eval.py
+# Phase 0b certified-config audit:
+python3 -c "import json;d=json.load(open('../phase1/es_N4_seed0_summary.json'));print(d)"   # certified Q1 config
+for f in ../phase1/es_N*_summary.json; do python3 -c "import json;d=json.load(open('$f'));print(d['population_size'],d['num_steps'],d['zero_update_rate'])"; done  # house budget=200, N in {4,8,16,30}, seeds {0,1}
+# FINDING: house step budget = 200 (certified). Shaping in Q1 code = z-score, NOT rank.
+# STOP — design-lock gate reported to human before writing frozen code / GPU spend.
+## 2026-07-22 Phase 0c CPU unit tests
+$ES tests/test_shaping.py
+## 2026-07-22 Phase 0c GPU tests (scoring under member weights)
+CUDA_VISIBLE_DEVICES=0 $ES phase4_continuous_ood/tests/test_scoring_gpu.py
+# CORRECTION: certified ES env = verl (phase1 logs show envs/verl paths). Use verl python for all Phase 4 GPU runs.
+CUDA_VISIBLE_DEVICES=0 $VERL phase4_continuous_ood/tests/test_scoring_gpu.py
+# Phase 0c COMPLETE: CPU 10/10 + GPU all-pass. Probing eval datasets for Phase 0a.
+## 2026-07-22 Phase 0a step-0 base eval (all 6 datasets, cap 500)
+CUDA_VISIBLE_DEVICES=0 $P4_PY phase4_continuous_ood/eval/eval_model.py --model  --tag base --cap 500
+## 2026-07-22 Phase 1 smoke: ES-cont N=4 seed0 30 steps
+CUDA_VISIBLE_DEVICES=0 $P4_PY .../es_train_continuous.py --reward continuous --population_size 4 --num_steps 30 --pop_seed 0
+# Phase 1 smoke PASS. STOP at Phase 2 gate (big GPU spend) for go-ahead.
+## 2026-07-22 Phase 2 seed-0 screen LAUNCH (10 ES arms, 2 lanes, ~4h)
+nohup bash phase4_continuous_ood/run_phase2_screen.sh &
+# BUG FIXED: es_train_continuous forces CUDA_VISIBLE_DEVICES=--gpu (default 0), overriding
+#   the driver's env var -> both lanes hit GPU0 -> OOM. Fix: driver passes --gpu $gpu.
+# Relaunched as tracked bg task (id bxhchssh8). Both lanes confirmed on separate GPUs, no OOM.
+# Lane0/GPU0: cont30,cont8,cont4,cont2,bin6 ; Lane1/GPU1: bin30,bin8,bin4,bin2,cont6. ~4h ETA.
+## 2026-07-22 Phase 3 LAUNCH: 16 ES arms (min set + seeds + KL), 2 lanes, ~6h
+# KL proxy built (eval/kl.py: base-greedy NLL drift, in-process; base-vs-base=-5e-6 OK).
+# Phase 3 launched (bg bq6wwny9j): 16 ES arms min-set+seeds+KL. Both lanes on separate GPUs, KL captured, no OOM.
+# REMAINING after Phase 3: GRPO seeds {0,1,2} (blocked on GPU until Phase 3 done; needs verl ckpt->HF->vLLM eval plumbing),
+#   then final read-out (aggregate seeds -> SD -> GO/NEUTRAL/NEG gates w/ KL ratio) + REPORT.md.
+# Phase 3 COMPLETE (16/16 arms rc=0). Aggregated seeds -> PHASE3_GATE.md. HYPOTHESIS REFUTED.
+# eval/plots.py -> results/plots/{ood,kl,rates,sstep}_vs_N.png. REPORT.md written (GRPO = deferred TODO).

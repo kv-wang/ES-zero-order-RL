@@ -1,0 +1,11 @@
+[22:11:38] confirm start
+[22:11:38] GPU0 START baseaxis_N16_s2
+[22:11:38] GPU1 START vanilla_N16_s2
+[23:25:18] GPU1 DONE  vanilla_N16_s2 rc=0
+[23:25:18] GPU1 START vanilla_N16_s3
+[23:25:26] GPU0 DONE  baseaxis_N16_s2 rc=0
+[23:25:26] GPU0 START baseaxis_N16_s3
+[00:39:02] GPU0 DONE  baseaxis_N16_s3 rc=0
+[00:39:02] GPU0 START baseaxis_N16_s4
+[00:39:03] GPU1 DONE  vanilla_N16_s3 rc=0
+[00:39:03] GPU1 START vanilla_N16_s4

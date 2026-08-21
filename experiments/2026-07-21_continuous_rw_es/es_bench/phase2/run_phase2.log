@@ -1,0 +1,7 @@
+[23:27:18] PHASE2 START model=Qwen/Qwen2.5-3B-Instruct maxtok=512 steps=30
+[23:27:18] START phase2 N4
+[23:32:35] DONE phase2 N4 (exit 0)
+[23:32:35] START phase2 N8
+[23:41:12] DONE phase2 N8 (exit 0)
+[23:50:47] PHASE2 GRPO done (exit 0) peak_gpu0=105063MiB
+[23:50:47] PHASE2 ALL DONE
