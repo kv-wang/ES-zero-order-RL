@@ -1,0 +1,30 @@
+{
+  "method": "lora_es",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "N": 30,
+  "batch": 8,
+  "max_tokens": 256,
+  "seqs_per_step": 240,
+  "s_per_step": {
+    "mean": 6.766215537985166,
+    "std": 0.492594314652751
+  },
+  "t_inject": {
+    "mean": 0.5359455185631911,
+    "std": 0.1917347206864663
+  },
+  "t_gen": {
+    "mean": 6.089789912290871,
+    "std": 0.44670949134344645
+  },
+  "t_update": {
+    "mean": 0.14048010713110368,
+    "std": 0.0007360197144832619
+  },
+  "tokens_per_step": {
+    "mean": 55185.6,
+    "std": 258.61317316280184
+  },
+  "peak_vram_torch_gb": 126.9,
+  "peak_vram_smi_mib": 127125
+}

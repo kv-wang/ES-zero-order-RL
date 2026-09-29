@@ -1,0 +1,111 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 16,
+  "sigma": 0.005,
+  "alpha": 0.002,
+  "ood_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.52,
+      "extract_rate": 0.78,
+      "headroom": 0.48,
+      "ceiling_risk": false,
+      "gen_seconds": 18.3,
+      "per_level_accuracy": {
+        "1": 0.7407,
+        "2": 0.75,
+        "3": 0.5469,
+        "4": 0.4568,
+        "5": 0.3056
+      },
+      "primary_L3_5_accuracy": 0.4332
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8633,
+      "extract_rate": 0.9867,
+      "headroom": 0.1367,
+      "ceiling_risk": false,
+      "gen_seconds": 14.3
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9133,
+      "extract_rate": 0.9933,
+      "headroom": 0.0867,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1728,
+      "extract_rate": 0.5919,
+      "headroom": 0.8272,
+      "ceiling_risk": false,
+      "gen_seconds": 17.9
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.1633,
+      "extract_rate": 0.7133,
+      "headroom": 0.8367,
+      "ceiling_risk": false,
+      "gen_seconds": 20.9
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.375,
+      "extract_rate": 1.0,
+      "headroom": 0.625,
+      "ceiling_risk": false,
+      "gen_seconds": 10.9
+    },
+    "countdown": {
+      "n": 300,
+      "full_n": 2200,
+      "capped": true,
+      "accuracy": 0.09,
+      "extract_rate": 0.8567,
+      "headroom": 0.91,
+      "ceiling_risk": false,
+      "gen_seconds": 21.0
+    }
+  },
+  "num_steps": 200,
+  "pop_seed": 0,
+  "id_curve": [
+    {
+      "step": 0,
+      "id_acc": 0.34,
+      "kl": 6.783812117498155e-06
+    },
+    {
+      "step": 100,
+      "id_acc": 0.365,
+      "kl": 0.0015201159547459351
+    },
+    {
+      "step": 200,
+      "id_acc": 0.4,
+      "kl": 0.0021773885348915635
+    }
+  ],
+  "id_base": 0.34,
+  "id_final": 0.4,
+  "id_gain": 0.06,
+  "kl_final": 0.0021773885348915635,
+  "zero_update_rate": 0.025,
+  "wall_clock_s": 1661.56642495282
+}

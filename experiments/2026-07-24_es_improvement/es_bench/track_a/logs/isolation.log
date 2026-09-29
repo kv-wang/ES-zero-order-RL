@@ -1,0 +1,41 @@
+WARNING 07-24 01:36:29 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-24 01:36:29 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+WARNING 07-24 01:36:30 [lora.py:92] `lora_extra_vocab_size` is deprecated and will be removed in v0.12.0. Additional vocabulary support for LoRA adapters is being phased out.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-24 01:36:35 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02<00:00,  2.89s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02<00:00,  2.89s/it]
+
+WARNING 07-24 01:36:45 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s]WARNING 07-24 01:36:46 [processor.py:215] vLLM has deprecated support for supporting different tokenizers for different LoRAs. By default, vLLM uses base model's tokenizer. If you are using a LoRA with its own tokenizer, consider specifying `--tokenizer [lora_path]` to use the LoRA tokenizer.
+Adding requests: 100%|██████████| 1/1 [00:00<00:00, 413.23it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, est. speed input: 12.30 toks/s, output: 26.82 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, est. speed input: 12.30 toks/s, output: 26.82 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, est. speed input: 12.30 toks/s, output: 26.82 toks/s]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s]Adding requests: 100%|██████████| 1/1 [00:00<00:00, 2605.16it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  2.66it/s, est. speed input: 29.28 toks/s, output: 63.88 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  2.66it/s, est. speed input: 29.28 toks/s, output: 63.88 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  2.66it/s, est. speed input: 29.28 toks/s, output: 63.88 toks/s]
+Adding requests:   0%|          | 0/4 [00:00<?, ?it/s]Adding requests: 100%|██████████| 4/4 [00:00<00:00, 6114.15it/s]
+Processed prompts:   0%|          | 0/4 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:  25%|██▌       | 1/4 [00:00<00:01,  2.61it/s, est. speed input: 28.66 toks/s, output: 62.53 toks/s]Processed prompts: 100%|██████████| 4/4 [00:00<00:00,  2.61it/s, est. speed input: 114.52 toks/s, output: 249.84 toks/s]Processed prompts: 100%|██████████| 4/4 [00:00<00:00, 10.41it/s, est. speed input: 114.52 toks/s, output: 249.84 toks/s]
+soloA==soloB? False  (must be False = adapters distinct)
+  PASS adapters produce distinct outputs [else test vacuous]
+  req0 (A): agree(own)=0.21 agree(other)=0.04  lcp_own=4 lcp_other=0
+  PASS req0 first token == own adapter
+  PASS req0 tracks OWN adapter (agree_own >> agree_other)
+  req1 (B): agree(own)=0.50 agree(other)=0.00  lcp_own=12 lcp_other=0
+  PASS req1 first token == own adapter
+  PASS req1 tracks OWN adapter (agree_own >> agree_other)
+  req2 (B): agree(own)=0.50 agree(other)=0.00  lcp_own=12 lcp_other=0
+  PASS req2 first token == own adapter
+  PASS req2 tracks OWN adapter (agree_own >> agree_other)
+  req3 (A): agree(own)=0.83 agree(other)=0.00  lcp_own=20 lcp_other=0
+  PASS req3 first token == own adapter
+  PASS req3 tracks OWN adapter (agree_own >> agree_other)
+  PASS req1==req2 (same adapter B, same prompt) consistent within batch
+
+ALL PASS - routing/isolation confirmed
+[rank0]:[W724 01:36:48.653781983 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

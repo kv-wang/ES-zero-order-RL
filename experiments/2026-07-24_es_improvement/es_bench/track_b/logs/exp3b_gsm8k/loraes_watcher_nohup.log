@@ -1,0 +1,4 @@
+[03:58:41] watcher: waiting for GRPO 3B to finish...
+[04:38:42] watcher: GRPO finished, starting LoRA-ES
+[04:38:42] START loraes_N16
+[04:40:22] DONE loraes_N16 rc=0

@@ -1,0 +1,652 @@
+================ countdown @ Qwen2.5-3B-Instruct ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 2 3 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, SERIAL: base -> vanilla -> baseaxis)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000   per arm
+eval             : every 10 steps + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step, after each arm
+vLLM mem util    : 0.70
+projection       : train ~12.5h + eval ~1.0h per arm  ->  ~27.0h total
+                   ESTIMATE at 0.15s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+=================================================================
+[2026-08-27_23:07:05] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-08-27_23:07:05] PREFLIGHT gpu0: 130459 MiB in use
+[2026-08-27_23:07:05] PREFLIGHT FAIL: gpu0 has 130459 MiB in use; free it first
+[2026-08-27_23:07:05] ABORT on preflight. Override with SKIP_PREFLIGHT=1 if you know better.
+================ countdown @ Qwen2.5-3B-Instruct ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 2 3 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, SERIAL: base -> vanilla -> baseaxis)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000   per arm
+eval             : every 10 steps + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step, after each arm
+vLLM mem util    : 0.70
+projection       : train ~12.5h + eval ~1.0h per arm  ->  ~27.0h total
+                   ESTIMATE at 0.15s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+=================================================================
+[2026-08-27_23:15:39] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-08-27_23:15:39] PREFLIGHT gpu0: 0 MiB in use
+[2026-08-27_23:15:39] START base -> axis_probe/logs/countdown_3b_N30_B100/base.log
+[2026-08-27_23:17:55] END   base rc=0 elapsed=136s
+[2026-08-27_23:17:55] START vanilla_s0 -> axis_probe/logs/countdown_3b_N30_B100/vanilla_N30_B100_s0.log
+[2026-08-28_14:15:48] END   vanilla_s0 rc=0 elapsed=53873s
+[2026-08-28_14:15:48] START rho_vanilla_s0 -> axis_probe/logs/countdown_3b_N30_B100/vanilla_N30_B100_s0_rho.log
+[2026-08-28_14:15:49] END   rho_vanilla_s0 rc=2 elapsed=0s
+[2026-08-28_14:15:49] START baseaxis_s0 -> axis_probe/logs/countdown_3b_N30_B100/baseaxis_N30_B100_s0.log
+================ countdown @ Qwen2.5-3B-Instruct ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 2 3 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, SERIAL: base -> vanilla -> baseaxis)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000   per arm
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step, after each arm
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h per arm  ->  ~32.4h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+=================================================================
+[2026-08-28_21:53:15] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-08-28_21:53:15] PREFLIGHT gpu0: 0 MiB in use
+[2026-08-28_21:53:15] STAGE0 skip (base summary exists)
+[2026-08-28_21:53:15] STAGE2 skip vanilla seed=0 (summary exists)
+[2026-08-28_21:53:15] START baseaxis_s0 -> axis_probe/logs/countdown_3b_N30_B100/baseaxis_N30_B100_s0.log
+================ countdown @ Qwen2.5-3B-Instruct ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 2 3 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, SERIAL: base -> vanilla -> baseaxis)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000   per arm
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step, after each arm
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h per arm  ->  ~32.4h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+=================================================================
+[2026-08-28_22:00:53] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-08-28_22:00:53] PREFLIGHT gpu0: 0 MiB in use
+[2026-08-28_22:00:53] START base -> axis_probe/logs/countdown_3b_N30_B100/base.log
+[2026-08-28_22:03:21] END   base rc=0 elapsed=148s
+[2026-08-28_22:03:21] START vanilla_s0 -> axis_probe/logs/countdown_3b_N30_B100/vanilla_N30_B100_s0.log
+[2026-08-29_13:04:28] END   vanilla_s0 rc=0 elapsed=54067s
+[2026-08-29_13:04:28] START rho_vanilla_s0 -> axis_probe/logs/countdown_3b_N30_B100/vanilla_N30_B100_s0_rho.log
+[2026-08-29_13:04:28] END   rho_vanilla_s0 rc=0 elapsed=0s
+[2026-08-29_13:04:28] START baseaxis_s0 -> axis_probe/logs/countdown_3b_N30_B100/baseaxis_N30_B100_s0.log
+[2026-08-30_04:14:57] END   baseaxis_s0 rc=0 elapsed=54629s
+[2026-08-30_04:14:57] START rho_baseaxis_s0 -> axis_probe/logs/countdown_3b_N30_B100/baseaxis_N30_B100_s0_rho.log
+[2026-08-30_04:14:57] END   rho_baseaxis_s0 rc=0 elapsed=0s
+[2026-08-30_04:14:57] STAGE4 readout -> axis_probe/results/countdown_3b_N30_B100/REPORT.md
+# Countdown at paper-scale B (ES B=100) -- Qwen2.5-3B-Instruct
+
+Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.
+
+## Configuration
+
+| | value |
+|---|---|
+| model | Qwen/Qwen2.5-3B-Instruct |
+| ES shape | N=30, B=100, steps=100 |
+| ES generations | 300,000 |
+| GRPO shape | 0 rollouts/step x 0 steps |
+| GRPO rollouts | 0 |
+| rollout match | 0.0000x of the ES arm |
+| vLLM mem util | ES 0.70 / GRPO 0 (not equal) |
+
+## Accuracy
+
+countdown is the ID metric (trained on it); the six math sets are OOD.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.0800 | 0.6333 | 0.8667 | 0.9133 | 0.1912 | 0.2533 | 0.4000 |
+| vanilla_N30_B100_s0 | 0.4700 | 0.6167 | 0.8700 | 0.9000 | 0.1728 | 0.2233 | 0.4000 |
+| baseaxis_N30_B100_s0 | 0.3933 | 0.5533 | 0.8333 | 0.8933 | 0.1434 | 0.1933 | 0.2250 |
+
+### Change vs base
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| vanilla_N30_B100_s0 | +0.3900 | -0.0166 | +0.0033 | -0.0133 | -0.0184 | -0.0300 | +0.0000 |
+| baseaxis_N30_B100_s0 | +0.3133 | -0.0800 | -0.0334 | -0.0200 | -0.0478 | -0.0600 | -0.1750 |
+
+## Wall clock and GPU memory
+
+Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT torch's per-process counter, which cannot see verl's separate vLLM process.
+
+| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |
+|---|---|---|---|---|---|
+| base | 0.04 h (148 s) | -- | 99.3 GiB | -- | 0 |
+| vanilla_N30_B100_s0 | 14.98 h (53,933 s) | 539.3 | -- | 117.7 GB | -- |
+| baseaxis_N30_B100_s0 | 15.13 h (54,468 s) | 544.7 | -- | 133.7 GB | -- |
+
+## Training diagnostics
+
+| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |
+|---|---|---|---|---|
+| base | -- | -- | -- | -- |
+| vanilla_N30_B100_s0 | -- | 0.0000 | -- | 95 |
+| baseaxis_N30_B100_s0 | -- | 0.0000 | 0.0474 | 4 |
+
+## Extraction rates
+
+countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 measured countdown extract_rate <= 0.503. Read any countdown gain against this column.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.890 | 0.990 | 1.000 | 0.997 | 0.989 | 0.973 | 0.975 |
+| vanilla_N30_B100_s0 | 0.563 | 0.980 | 1.000 | 1.000 | 0.993 | 0.953 | 0.950 |
+| baseaxis_N30_B100_s0 | 0.550 | 0.970 | 1.000 | 1.000 | 0.971 | 0.970 | 1.000 |
+
+## Caveats
+
+- Seeds present: 1. The 08-13 power analysis found between-seed spread (~0.013 ID) at the same magnitude as between-method differences, so a single seed cannot rank methods.
+- ES resamples its B=100 indices every step (with replacement) from the 1900-row countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The paper instead holds one fixed full-set batch, so its objective is stationary while this one still moves between steps -- a larger B shrinks that per-step noise but does not remove it.
+- ES and GRPO match on total generations only. Per step ES sees 3,000 generations against GRPO's 0, and ES spends them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that favours GRPO on prompt coverage.
+- GRPO runs 0 rollouts/step over 0 steps, which follows the 08-16 driver rather than the paper's countdown setting; the group size is well below what the paper used, so this is not a faithful GRPO reproduction, only a budget-matched control for the ES arms.
+- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.
+
+[2026-08-30_04:14:57] ALL DONE. Results in axis_probe/results/countdown_3b_N30_B100/
+[2026-08-30_04:14:57]   base: 0 seed(s)
+[2026-08-30_04:14:57]   vanilla: 1 seed(s)
+[2026-08-30_04:14:57]   baseaxis: 1 seed(s)
+================ countdown @ Qwen2.5-3B-Instruct (momentum_axis only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 5 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, momentum_axis ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+======================================================================================
+[2026-09-01_16:28:00] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-01_16:28:00] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-01_16:28:00] STAGE0 skip (base summary exists)
+[2026-09-01_16:28:00] START momentum_axis_s0 -> axis_probe/logs/countdown_3b_N30_B100/momentum_axis_N30_B100_s0.log
+[2026-09-01_16:28:01] END   momentum_axis_s0 rc=2 elapsed=1s
+[2026-09-01_16:28:01] !! momentum_axis seed=0 FAILED, aborting.
+================ countdown @ Qwen2.5-3B-Instruct (momentum_axis only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 5 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, momentum_axis ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+======================================================================================
+[2026-09-01_16:32:45] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-01_16:32:45] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-01_16:32:45] STAGE0 skip (base summary exists)
+[2026-09-01_16:32:45] START momentum_axis_s0 -> axis_probe/logs/countdown_3b_N30_B100/momentum_axis_N30_B100_s0.log
+[2026-09-01_16:32:45] END   momentum_axis_s0 rc=2 elapsed=0s
+[2026-09-01_16:32:46] !! momentum_axis seed=0 FAILED, aborting.
+================ countdown @ Qwen2.5-3B-Instruct (momentum_axis only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 5 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, momentum_axis ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+======================================================================================
+[2026-09-01_16:45:33] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-01_16:45:33] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-01_16:45:33] STAGE0 skip (base summary exists)
+[2026-09-01_16:45:33] START momentum_axis_s0 -> axis_probe/logs/countdown_3b_N30_B100/momentum_axis_N30_B100_s0.log
+================ countdown @ Qwen2.5-3B-Instruct (momentum_axis only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 5 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, momentum_axis ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+======================================================================================
+[2026-09-01_17:13:41] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-01_17:13:41] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-01_17:13:41] STAGE0 skip (base summary exists)
+[2026-09-01_17:13:41] START momentum_axis_s0 -> axis_probe/logs/countdown_3b_N30_B100/momentum_axis_N30_B100_s0.log
+================ countdown @ Qwen2.5-3B-Instruct (tilt only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, tilt ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+[2026-09-01_20:07:29] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-01_20:07:29] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-01_20:07:29] STAGE0 skip (base summary exists)
+[2026-09-01_20:07:29] START tilt_s0 -> axis_probe/logs/countdown_3b_N30_B100/tilt_N30_B100_kappa0.2_s0.log
+[2026-09-01_20:08:22] END   tilt_s0 rc=1 elapsed=53s
+[2026-09-01_20:08:23] !! tilt seed=0 FAILED, aborting.
+================ countdown @ Qwen2.5-3B-Instruct (tilt only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, tilt ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+[2026-09-01_20:37:21] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-01_20:37:21] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-01_20:37:21] STAGE0 skip (base summary exists)
+[2026-09-01_20:37:21] START tilt_s0 -> axis_probe/logs/countdown_3b_N30_B100/tilt_N30_B100_kappa0.2_s0.log
+================ countdown @ Qwen2.5-3B-Instruct (tilt only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, tilt ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+[2026-09-02_09:40:04] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-02_09:40:04] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-02_09:40:04] STAGE0 skip (base summary exists)
+[2026-09-02_09:40:04] START tilt_s0 -> axis_probe/logs/countdown_3b_N30_B100/tilt_N30_B100_kappa0.2_s0.log
+[2026-09-03_01:07:54] END   tilt_s0 rc=0 elapsed=55670s
+[2026-09-03_01:07:54] START rho_tilt_s0 -> axis_probe/logs/countdown_3b_N30_B100/tilt_N30_B100_kappa0.2_s0_rho.log
+[2026-09-03_01:07:55] END   rho_tilt_s0 rc=0 elapsed=1s
+[2026-09-03_01:07:55] STAGE4 readout -> axis_probe/results/countdown_3b_N30_B100/REPORT.md
+# Countdown at paper-scale B (ES B=100) -- Qwen2.5-3B-Instruct
+
+Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.
+
+## Configuration
+
+| | value |
+|---|---|
+| model | Qwen/Qwen2.5-3B-Instruct |
+| ES shape | N=30, B=100, steps=100 |
+| ES generations | 300,000 |
+| GRPO shape | 0 rollouts/step x 0 steps |
+| GRPO rollouts | 0 |
+| rollout match | 0.0000x of the ES arm |
+| vLLM mem util | ES 0.70 / GRPO 0 (not equal) |
+
+## Accuracy
+
+countdown is the ID metric (trained on it); the six math sets are OOD.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.0800 | 0.6333 | 0.8667 | 0.9133 | 0.1912 | 0.2533 | 0.4000 |
+| vanilla_N30_B100_s0 | 0.4700 | 0.6167 | 0.8700 | 0.9000 | 0.1728 | 0.2233 | 0.4000 |
+| baseaxis_N30_B100_s0 | 0.3933 | 0.5533 | 0.8333 | 0.8933 | 0.1434 | 0.1933 | 0.2250 |
+| tilt_N30_B100_kappa0.2_s0 | 0.4233 | 0.4800 | 0.7733 | 0.8100 | 0.1029 | 0.1500 | 0.0750 |
+
+### Change vs base
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| vanilla_N30_B100_s0 | +0.3900 | -0.0166 | +0.0033 | -0.0133 | -0.0184 | -0.0300 | +0.0000 |
+| baseaxis_N30_B100_s0 | +0.3133 | -0.0800 | -0.0334 | -0.0200 | -0.0478 | -0.0600 | -0.1750 |
+| tilt_N30_B100_kappa0.2_s0 | +0.3433 | -0.1533 | -0.0934 | -0.1033 | -0.0883 | -0.1033 | -0.3250 |
+
+## Wall clock and GPU memory
+
+Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT torch's per-process counter, which cannot see verl's separate vLLM process.
+
+| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |
+|---|---|---|---|---|---|
+| base | 0.04 h (148 s) | -- | -- | -- | 0 |
+| vanilla_N30_B100_s0 | 14.98 h (53,933 s) | 539.3 | -- | 117.7 GB | -- |
+| baseaxis_N30_B100_s0 | 15.13 h (54,468 s) | 544.7 | -- | 133.7 GB | -- |
+| tilt_N30_B100_kappa0.2_s0 | 15.42 h (55,495 s) | 555.0 | -- | 130.0 GB | -- |
+
+## Training diagnostics
+
+| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |
+|---|---|---|---|---|
+| base | -- | -- | -- | -- |
+| vanilla_N30_B100_s0 | -- | 0.0000 | -- | 95 |
+| baseaxis_N30_B100_s0 | -- | 0.0000 | 0.0474 | 4 |
+| tilt_N30_B100_kappa0.2_s0 | -- | 0.0000 | -- | 95 |
+
+## Extraction rates
+
+countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 measured countdown extract_rate <= 0.503. Read any countdown gain against this column.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.890 | 0.990 | 1.000 | 0.997 | 0.989 | 0.973 | 0.975 |
+| vanilla_N30_B100_s0 | 0.563 | 0.980 | 1.000 | 1.000 | 0.993 | 0.953 | 0.950 |
+| baseaxis_N30_B100_s0 | 0.550 | 0.970 | 1.000 | 1.000 | 0.971 | 0.970 | 1.000 |
+| tilt_N30_B100_kappa0.2_s0 | 0.483 | 0.977 | 0.993 | 0.997 | 0.967 | 0.943 | 0.925 |
+
+## Caveats
+
+- Seeds present: 1. The 08-13 power analysis found between-seed spread (~0.013 ID) at the same magnitude as between-method differences, so a single seed cannot rank methods.
+- ES resamples its B=100 indices every step (with replacement) from the 1900-row countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The paper instead holds one fixed full-set batch, so its objective is stationary while this one still moves between steps -- a larger B shrinks that per-step noise but does not remove it.
+- ES and GRPO match on total generations only. Per step ES sees 3,000 generations against GRPO's 0, and ES spends them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that favours GRPO on prompt coverage.
+- GRPO runs 0 rollouts/step over 0 steps, which follows the 08-16 driver rather than the paper's countdown setting; the group size is well below what the paper used, so this is not a faithful GRPO reproduction, only a budget-matched control for the ES arms.
+- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.
+
+[2026-09-03_01:07:55] ALL DONE. Results in axis_probe/results/countdown_3b_N30_B100/
+[2026-09-03_01:07:55]   base: 0 seed(s)
+[2026-09-03_01:07:55]   tilt: 1 seed(s)
+================ countdown @ Qwen2.5-3B-Instruct (tilt only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, tilt ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+[2026-09-03_10:31:30] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-03_10:31:30] PREFLIGHT gpu0: 4 MiB in use
+[2026-09-03_10:31:30] STAGE0 skip (base summary exists)
+[2026-09-03_10:31:30] STAGE6 skip tilt seed=0 (summary exists)
+[2026-09-03_10:31:30] STAGE4 readout -> axis_probe/results/countdown_3b_N30_B100/REPORT.md
+# Countdown at paper-scale B (ES B=100) -- Qwen2.5-3B-Instruct
+
+Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.
+
+## Configuration
+
+| | value |
+|---|---|
+| model | Qwen/Qwen2.5-3B-Instruct |
+| ES shape | N=30, B=100, steps=100 |
+| ES generations | 300,000 |
+| GRPO shape | 0 rollouts/step x 0 steps |
+| GRPO rollouts | 0 |
+| rollout match | 0.0000x of the ES arm |
+| vLLM mem util | ES 0.70 / GRPO 0 (not equal) |
+
+## Accuracy
+
+countdown is the ID metric (trained on it); the six math sets are OOD.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.0800 | 0.6333 | 0.8667 | 0.9133 | 0.1912 | 0.2533 | 0.4000 |
+| vanilla_N30_B100_s0 | 0.4700 | 0.6167 | 0.8700 | 0.9000 | 0.1728 | 0.2233 | 0.4000 |
+| baseaxis_N30_B100_s0 | 0.3933 | 0.5533 | 0.8333 | 0.8933 | 0.1434 | 0.1933 | 0.2250 |
+| tilt_N30_B100_kappa0.2_s0 | 0.4233 | 0.4800 | 0.7733 | 0.8100 | 0.1029 | 0.1500 | 0.0750 |
+
+### Change vs base
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| vanilla_N30_B100_s0 | +0.3900 | -0.0166 | +0.0033 | -0.0133 | -0.0184 | -0.0300 | +0.0000 |
+| baseaxis_N30_B100_s0 | +0.3133 | -0.0800 | -0.0334 | -0.0200 | -0.0478 | -0.0600 | -0.1750 |
+| tilt_N30_B100_kappa0.2_s0 | +0.3433 | -0.1533 | -0.0934 | -0.1033 | -0.0883 | -0.1033 | -0.3250 |
+
+## Wall clock and GPU memory
+
+Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT torch's per-process counter, which cannot see verl's separate vLLM process.
+
+| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |
+|---|---|---|---|---|---|
+| base | 0.04 h (148 s) | -- | -- | -- | 0 |
+| vanilla_N30_B100_s0 | 14.98 h (53,933 s) | 539.3 | -- | 117.7 GB | -- |
+| baseaxis_N30_B100_s0 | 15.13 h (54,468 s) | 544.7 | -- | 133.7 GB | -- |
+| tilt_N30_B100_kappa0.2_s0 | 15.42 h (55,495 s) | 555.0 | -- | 130.0 GB | -- |
+
+Idle-phase card usage between stages: 0.0 GiB (subtract as the floor if the card is shared).
+
+## Training diagnostics
+
+| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |
+|---|---|---|---|---|
+| base | -- | -- | -- | -- |
+| vanilla_N30_B100_s0 | -- | 0.0000 | -- | 95 |
+| baseaxis_N30_B100_s0 | -- | 0.0000 | 0.0474 | 4 |
+| tilt_N30_B100_kappa0.2_s0 | -- | 0.0000 | -- | 95 |
+
+## Extraction rates
+
+countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 measured countdown extract_rate <= 0.503. Read any countdown gain against this column.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.890 | 0.990 | 1.000 | 0.997 | 0.989 | 0.973 | 0.975 |
+| vanilla_N30_B100_s0 | 0.563 | 0.980 | 1.000 | 1.000 | 0.993 | 0.953 | 0.950 |
+| baseaxis_N30_B100_s0 | 0.550 | 0.970 | 1.000 | 1.000 | 0.971 | 0.970 | 1.000 |
+| tilt_N30_B100_kappa0.2_s0 | 0.483 | 0.977 | 0.993 | 0.997 | 0.967 | 0.943 | 0.925 |
+
+## Caveats
+
+- Seeds present: 1. The 08-13 power analysis found between-seed spread (~0.013 ID) at the same magnitude as between-method differences, so a single seed cannot rank methods.
+- ES resamples its B=100 indices every step (with replacement) from the 1900-row countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The paper instead holds one fixed full-set batch, so its objective is stationary while this one still moves between steps -- a larger B shrinks that per-step noise but does not remove it.
+- ES and GRPO match on total generations only. Per step ES sees 3,000 generations against GRPO's 0, and ES spends them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that favours GRPO on prompt coverage.
+- GRPO runs 0 rollouts/step over 0 steps, which follows the 08-16 driver rather than the paper's countdown setting; the group size is well below what the paper used, so this is not a faithful GRPO reproduction, only a budget-matched control for the ES arms.
+- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.
+
+[2026-09-03_10:31:30] ALL DONE. Results in axis_probe/results/countdown_3b_N30_B100/
+[2026-09-03_10:31:30]   base: 0 seed(s)
+[2026-09-03_10:31:30]   tilt: 1 seed(s)
+================ countdown @ Qwen2.5-3B-Instruct (tilt only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, tilt ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.1  kappa_end=0  lambda_cosine=1
+                   mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+                   If lambda_cosine=1: λ cosine-decays κ→κ_end over steps (κ=λ²/(d+λ²)).
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+================ countdown @ Qwen2.5-3B-Instruct (tilt only) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1, tilt ONLY)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  kappa_end=0.0  lambda_cosine=0
+                   half_vanilla=1  switch_frac=0.5
+                   mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+                   If lambda_cosine=1: λ cosine-decays κ→κ_end over steps (κ=λ²/(d+λ²)).
+                   If half_vanilla=1: κ for first switch_frac of steps, then vanilla ES.
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+================ countdown @ Qwen2.5-3B-Instruct (tilt half→vanilla) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  kappa_end=0.0  lambda_cosine=0
+                   half_vanilla=1  switch_frac=0.5
+                   mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+                   If lambda_cosine=1: λ cosine-decays κ→κ_end over steps (κ=λ²/(d+λ²)).
+                   If half_vanilla=1: κ for first switch_frac of steps, then vanilla ES.
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+================ countdown @ Qwen2.5-3B-Instruct (tilt half→vanilla) ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 6 4        seeds: 0        smoke: 0
+GPU              : 0 (single card, TP=1)
+ES               : N=30  B=100  steps=100  sigma=1e-3  alpha=5e-4  mini_batch=64
+tilt             : kappa=0.2  kappa_end=0.0  lambda_cosine=0
+                   half_vanilla=1  switch_frac=0.5
+                   mom_beta=0.9  warmup=1
+                   Covariance: C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ))
+                   If lambda_cosine=1: λ cosine-decays κ→κ_end over steps (κ=λ²/(d+λ²)).
+                   If half_vanilla=1: κ for first switch_frac of steps, then vanilla ES.
+ES generations   : 100 x 30 x 100 = 300000
+eval             : every 10 updates + final, cap=300, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step
+vLLM mem util    : 0.70
+projection       : train ~15.0h + eval ~1.2h  ->  ~16.2h total
+                   ESTIMATE at 0.18s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100
+==============================================================================
+[2026-09-13_17:33:35] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-09-13_17:33:35] PREFLIGHT gpu0: 0 MiB in use
+[2026-09-13_17:33:35] STAGE0 skip (base summary exists)
+[2026-09-13_17:33:35] START tilt_s0 -> axis_probe/logs/countdown_3b_N30_B100/tilt_N30_B100_kappa0.2_half0.5_s0.log
+[2026-09-14_08:49:05] END   tilt_s0 rc=0 elapsed=54930s
+[2026-09-14_08:49:05] START rho_tilt_s0 -> axis_probe/logs/countdown_3b_N30_B100/tilt_N30_B100_kappa0.2_half0.5_s0_rho.log
+[2026-09-14_08:49:05] END   rho_tilt_s0 rc=0 elapsed=0s
+[2026-09-14_08:49:05] STAGE4 readout -> axis_probe/results/countdown_3b_N30_B100/REPORT.md
+# Countdown at paper-scale B (ES B=100) -- Qwen2.5-3B-Instruct
+
+Generated by `report_countdown_paperB.py`. Single seed unless several `_s*` rows appear.
+
+## Configuration
+
+| | value |
+|---|---|
+| model | Qwen/Qwen2.5-3B-Instruct |
+| ES shape | N=30, B=100, steps=100 |
+| ES generations | 300,000 |
+| GRPO shape | 0 rollouts/step x 0 steps |
+| GRPO rollouts | 0 |
+| rollout match | 0.0000x of the ES arm |
+| vLLM mem util | ES 0.70 / GRPO 0 (not equal) |
+
+## Accuracy
+
+countdown is the ID metric (trained on it); the six math sets are OOD.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.0800 | 0.6333 | 0.8667 | 0.9133 | 0.1912 | 0.2533 | 0.4000 |
+| vanilla_N30_B100_s0 | 0.4700 | 0.6167 | 0.8700 | 0.9000 | 0.1728 | 0.2233 | 0.4000 |
+| baseaxis_N30_B100_s0 | 0.3933 | 0.5533 | 0.8333 | 0.8933 | 0.1434 | 0.1933 | 0.2250 |
+| tilt_N30_B100_kappa0.2_half0.5_s0 | 0.4100 | 0.4800 | 0.8067 | 0.8767 | 0.1360 | 0.1800 | 0.1500 |
+| tilt_N30_B100_kappa0.2_s0 | 0.4233 | 0.4800 | 0.7733 | 0.8100 | 0.1029 | 0.1500 | 0.0750 |
+| tilt_N30_B100_kappa0.2_to0.0_cos_s0 | 0.4267 | 0.4567 | 0.7900 | 0.8500 | 0.0993 | 0.1400 | 0.1250 |
+
+### Change vs base
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| vanilla_N30_B100_s0 | +0.3900 | -0.0166 | +0.0033 | -0.0133 | -0.0184 | -0.0300 | +0.0000 |
+| baseaxis_N30_B100_s0 | +0.3133 | -0.0800 | -0.0334 | -0.0200 | -0.0478 | -0.0600 | -0.1750 |
+| tilt_N30_B100_kappa0.2_half0.5_s0 | +0.3300 | -0.1533 | -0.0600 | -0.0366 | -0.0552 | -0.0733 | -0.2500 |
+| tilt_N30_B100_kappa0.2_s0 | +0.3433 | -0.1533 | -0.0934 | -0.1033 | -0.0883 | -0.1033 | -0.3250 |
+| tilt_N30_B100_kappa0.2_to0.0_cos_s0 | +0.3467 | -0.1766 | -0.0767 | -0.0633 | -0.0919 | -0.1133 | -0.2750 |
+
+## Wall clock and GPU memory
+
+Peak is whole-card `nvidia-smi` during that stage, sampled by the driver -- NOT torch's per-process counter, which cannot see verl's separate vLLM process.
+
+| method | wall clock | s/step | peak GPU (whole card) | torch peak (ES only) | rc |
+|---|---|---|---|---|---|
+| base | 0.04 h (148 s) | -- | -- | -- | 0 |
+| vanilla_N30_B100_s0 | 14.98 h (53,933 s) | 539.3 | -- | 117.7 GB | -- |
+| baseaxis_N30_B100_s0 | 15.13 h (54,468 s) | 544.7 | -- | 133.7 GB | -- |
+| tilt_N30_B100_kappa0.2_half0.5_s0 | 15.21 h (54,758 s) | 547.6 | -- | 130.0 GB | -- |
+| tilt_N30_B100_kappa0.2_s0 | 15.42 h (55,495 s) | 555.0 | -- | 130.0 GB | -- |
+| tilt_N30_B100_kappa0.2_to0.0_cos_s0 | 15.63 h (56,283 s) | 562.8 | -- | 130.0 GB | -- |
+
+## Training diagnostics
+
+| method | KL proxy drift | zero-update rate | pair tie rate | steps_scale_flagged |
+|---|---|---|---|---|
+| base | -- | -- | -- | -- |
+| vanilla_N30_B100_s0 | -- | 0.0000 | -- | 95 |
+| baseaxis_N30_B100_s0 | -- | 0.0000 | 0.0474 | 4 |
+| tilt_N30_B100_kappa0.2_half0.5_s0 | -- | 0.0000 | -- | 95 |
+| tilt_N30_B100_kappa0.2_s0 | -- | 0.0000 | -- | 95 |
+| tilt_N30_B100_kappa0.2_to0.0_cos_s0 | -- | 0.0000 | -- | 95 |
+
+## Extraction rates
+
+countdown accuracy mixes 'cannot solve' with 'did not use the <answer> tag': 08-16 measured countdown extract_rate <= 0.503. Read any countdown gain against this column.
+
+| method | countdown | math500 | gsm8k | svamp | minerva_math | olympiadbench | amc23 |
+|---|---|---|---|---|---|---|---|
+| base | 0.890 | 0.990 | 1.000 | 0.997 | 0.989 | 0.973 | 0.975 |
+| vanilla_N30_B100_s0 | 0.563 | 0.980 | 1.000 | 1.000 | 0.993 | 0.953 | 0.950 |
+| baseaxis_N30_B100_s0 | 0.550 | 0.970 | 1.000 | 1.000 | 0.971 | 0.970 | 1.000 |
+| tilt_N30_B100_kappa0.2_half0.5_s0 | 0.690 | 0.960 | 0.993 | 0.990 | 0.952 | 0.903 | 0.950 |
+| tilt_N30_B100_kappa0.2_s0 | 0.483 | 0.977 | 0.993 | 0.997 | 0.967 | 0.943 | 0.925 |
+| tilt_N30_B100_kappa0.2_to0.0_cos_s0 | 0.517 | 0.953 | 0.993 | 1.000 | 0.923 | 0.907 | 0.875 |
+
+## Caveats
+
+- Seeds present: 1. The 08-13 power analysis found between-seed spread (~0.013 ID) at the same magnitude as between-method differences, so a single seed cannot rank methods.
+- ES resamples its B=100 indices every step (with replacement) from the 1900-row countdown train pool (rows [300:] of 2200; [:300] is the pinned eval slice). The paper instead holds one fixed full-set batch, so its objective is stationary while this one still moves between steps -- a larger B shrinks that per-step noise but does not remove it.
+- ES and GRPO match on total generations only. Per step ES sees 3,000 generations against GRPO's 0, and ES spends them on the same prompts (CRN) while GRPO sees fresh prompts -- an asymmetry that favours GRPO on prompt coverage.
+- GRPO runs 0 rollouts/step over 0 steps, which follows the 08-16 driver rather than the paper's countdown setting; the group size is well below what the paper used, so this is not a faithful GRPO reproduction, only a budget-matched control for the ES arms.
+- vLLM generation is not bit-deterministic; expect +/-1-2 points run to run.
+
+[2026-09-14_08:49:06] ALL DONE. Results in axis_probe/results/countdown_3b_N30_B100/
+[2026-09-14_08:49:06]   base: 0 seed(s)
+[2026-09-14_08:49:06]   tilt: 3 seed(s)

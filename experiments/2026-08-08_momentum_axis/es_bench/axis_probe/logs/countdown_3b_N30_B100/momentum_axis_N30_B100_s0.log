@@ -1,0 +1,66 @@
+WARNING 09-01 17:14:00 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 09-01 17:14:00 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 09-01 17:14:06 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:05<00:05,  5.15s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:11<00:00,  6.00s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:11<00:00,  5.87s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 48.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:00<00:01, 49.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:00<00:00, 50.90it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:00<00:00, 51.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:00<00:00, 51.71it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:00<00:00, 50.98it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:00<00:00, 50.39it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:00<00:00, 50.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:01<00:00, 49.38it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:01<00:00, 48.46it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:01<00:00, 49.76it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 50.18it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:00<00:01, 58.17it/s]Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:00<00:00, 60.83it/s]Capturing CUDA graphs (decode, FULL):  30%|██▉       | 20/67 [00:00<00:00, 63.73it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 27/67 [00:00<00:00, 66.04it/s]Capturing CUDA graphs (decode, FULL):  52%|█████▏    | 35/67 [00:00<00:00, 67.95it/s]Capturing CUDA graphs (decode, FULL):  64%|██████▍   | 43/67 [00:00<00:00, 69.98it/s]Capturing CUDA graphs (decode, FULL):  76%|███████▌  | 51/67 [00:00<00:00, 72.77it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 59/67 [00:00<00:00, 74.88it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 71.31it/s]
+[momentum N=30 s0] step 0 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=5.07e+00
+[momentum N=30 s0] step 1 axis=5.07 disp=+2.828 frac=+0.5577 cum=+2.83 f+-f-=[+0.060,+0.070] probe=True |D|=5.27e+00
+[momentum N=30 s0] step 2 axis=8.63 disp=+3.575 frac=+0.4143 cum=+6.40 f+-f-=[+0.030,+0.120] probe=True |D|=5.58e+00
+[momentum N=30 s0] step 3 axis=12.1 disp=+3.199 frac=+0.2638 cum=+9.60 f+-f-=[+0.150,+0.020] probe=True |D|=5.12e+00
+[momentum N=30 s0] step 4 axis=14.7 disp=+2.713 frac=+0.1849 cum=+12.31 f+-f-=[+0.140,+0.030] probe=True |D|=5.26e+00
+[momentum N=30 s0] step 5 axis=16.5 disp=+2.529 frac=+0.1529 cum=+14.84 f+-f-=[-0.040,+0.160] probe=True |D|=5.04e+00
+[eval] intermediate eval after 10 updates...
+[eval] 10 updates done in 85.2s — countdown acc=0.1800
+[momentum N=30 s0] step 10 axis=20.8 disp=+5.573 frac=+0.2680 cum=+29.56 f+-f-=[+0.180,+0.190] probe=True |D|=6.68e+00
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 539, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 345, in main
+[rank0]:     f_, tk, bits = member_primary(prompts, batch)
+[rank0]:   File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 266, in member_primary
+[rank0]:     outs = llm.generate(p_chunk, sp, use_tqdm=False)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 401, in generate
+[rank0]:     outputs = self._run_engine(use_tqdm=use_tqdm)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 1600, in _run_engine
+[rank0]:     step_outputs = self.llm_engine.step()
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 265, in step
+[rank0]:     outputs = self.engine_core.get_output()
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 248, in get_output
+[rank0]:     outputs, _ = self.engine_core.step_fn()
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 284, in step
+[rank0]:     model_output = self.execute_model_with_error_logging(
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 261, in execute_model_with_error_logging
+[rank0]:     return model_fn(scheduler_output)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 103, in execute_model
+[rank0]:     output = self.collective_rpc("execute_model",
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
+[rank0]:     return [run_method(self.driver_worker, method, args, kwargs)]
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/utils/__init__.py", line 3122, in run_method
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 447, in execute_model
+[rank0]:     output = self.model_runner.execute_model(scheduler_output,
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 2413, in execute_model
+[rank0]:     ) = self._bookkeeping_sync(scheduler_output, sampler_output,
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 2144, in _bookkeeping_sync
+[rank0]:     valid_sampled_token_ids = self._to_list(sampled_token_ids)
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 4159, in _to_list
+[rank0]:     self.transfer_event.synchronize()
+[rank0]:   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/torch/cuda/streams.py", line 231, in synchronize
+[rank0]:     super().synchronize()
+[rank0]: KeyboardInterrupt

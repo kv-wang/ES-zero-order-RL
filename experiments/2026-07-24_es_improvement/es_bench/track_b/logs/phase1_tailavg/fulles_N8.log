@@ -1,0 +1,44 @@
+[cfg] track_b/results/exp3b_math/fulles_N8.jsonl: N=8 steps=200 alpha=0.0005 pop_seed=0
+[cfg] tail T=[160, 170, 180, 190, 200]  dense=last 50  lambdas=[0.25, 0.5, 0.75]  accumulators=['final', 'avg5', 'avg50dense']
+WARNING 07-28 00:36:49 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-28 00:36:49 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-28 00:36:56 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:05<00:05,  5.20s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:08<00:00,  4.13s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:08<00:00,  4.29s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 49.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:00<00:01, 50.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:00<00:00, 51.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:00<00:00, 51.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:00<00:00, 51.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:00<00:00, 51.02it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:00<00:00, 50.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:00<00:00, 51.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:01<00:00, 49.71it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:01<00:00, 48.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 64/67 [00:01<00:00, 49.01it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 50.16it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   7%|▋         | 5/67 [00:00<00:01, 49.37it/s]Capturing CUDA graphs (decode, FULL):  18%|█▊        | 12/67 [00:00<00:00, 58.22it/s]Capturing CUDA graphs (decode, FULL):  28%|██▊       | 19/67 [00:00<00:00, 61.97it/s]Capturing CUDA graphs (decode, FULL):  39%|███▉      | 26/67 [00:00<00:00, 64.73it/s]Capturing CUDA graphs (decode, FULL):  51%|█████     | 34/67 [00:00<00:00, 67.37it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 42/67 [00:00<00:00, 69.40it/s]Capturing CUDA graphs (decode, FULL):  75%|███████▍  | 50/67 [00:00<00:00, 70.93it/s]Capturing CUDA graphs (decode, FULL):  87%|████████▋ | 58/67 [00:00<00:00, 73.67it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 76.41it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 70.10it/s]
+[kl] captured 200 base completions; base-vs-base drift=3.271e-06
+[replay] steps 0-19  worst rel.err so far=0.00e+00
+[replay] steps 20-39  worst rel.err so far=0.00e+00
+[replay] steps 40-59  worst rel.err so far=0.00e+00
+[replay] steps 60-79  worst rel.err so far=0.00e+00
+[replay] steps 80-99  worst rel.err so far=0.00e+00
+[replay] steps 100-119  worst rel.err so far=0.00e+00
+[replay] steps 120-139  worst rel.err so far=0.00e+00
+[replay] steps 140-159  worst rel.err so far=0.00e+00
+[replay] steps 160-179  worst rel.err so far=0.00e+00
+[replay] steps 180-199  worst rel.err so far=0.00e+00
+[replay] done in 39.9s; max |reconstructed-logged|/logged over 200 steps = 0.000e+00
+[norm] avg5: ||A||=124.84 vs ||final||=134.99 -> lambda_eff=0.9248
+[norm] avg50dense: ||A||=123.00 vs ||final||=134.99 -> lambda_eff=0.9112
+[variant] theta_final              drift=  134.99 KL=5.4212e-02 L3-5=0.3318 (86s)
+[variant] tailavg_avg5             drift=  124.84 KL=4.4444e-02 L3-5=0.318 (79s)
+[variant] tailavg_avg50dense       drift=  123.00 KL=4.2537e-02 L3-5=0.3272 (83s)
+[variant] shrink_lam0.25           drift=   33.75 KL=4.5014e-03 L3-5=0.4101 (83s)
+[variant] shrink_lam0.5            drift=   67.49 KL=1.4652e-02 L3-5=0.4147 (87s)
+[variant] shrink_lam0.75           drift=  101.24 KL=3.0390e-02 L3-5=0.3825 (80s)
+[variant] shrink_matched_avg5      drift=  124.84 KL=4.5937e-02 L3-5=0.3088 (85s)
+[variant] shrink_matched_avg50dense drift=  123.00 KL=4.4494e-02 L3-5=0.3134 (84s)
+[sanity] theta_0 restored: drift=0.000e+00 KL=3.271e-06 (both should be ~0)
+[done] wrote track_b/results/phase1_tailavg/fulles_N8_summary.json
+[rank0]:[W728 00:49:25.987374573 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

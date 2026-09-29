@@ -74,9 +74,52 @@ from pathlib import Path
 import numpy as np
 
 
+def kappa_to_lambda(kappa: float, d: float) -> float:
+    """λ = sqrt(κ·d/(1-κ)). Caps κ→1 to avoid overflow."""
+    kappa = float(kappa)
+    if kappa <= 0.0:
+        return 0.0
+    if kappa >= 0.9999:
+        return 100.0
+    return math.sqrt(kappa * d / (1.0 - kappa))
+
+
+def lambda_to_kappa(lam: float, d: float) -> float:
+    """κ = λ²/(d+λ²), inverse of kappa_to_lambda for finite λ."""
+    lam = float(lam)
+    if lam <= 0.0:
+        return 0.0
+    lam2 = lam * lam
+    return lam2 / (d + lam2)
+
+
+def tilt_cosine_lambda(step: int, num_steps: int, lam_max: float, lam_min: float) -> float:
+    """Cosine decay of λ from lam_max (step 0) to lam_min (final step).
+
+    λ(t) = λ_min + ½(λ_max-λ_min)(1 + cos(π·t/(T-1))), matching common LR cosine schedules.
+    """
+    if num_steps <= 1:
+        return float(lam_min)
+    progress = step / (num_steps - 1)  # 0 at first step, 1 at last
+    progress = min(1.0, max(0.0, progress))
+    return lam_min + 0.5 * (lam_max - lam_min) * (1.0 + math.cos(math.pi * progress))
+
+
+def tilt_half_vanilla_kappa(step: int, num_steps: int, kappa0: float, switch_frac: float = 0.5) -> float:
+    """Piecewise schedule: κ=κ0 for the first switch_frac of steps, then κ=0 (vanilla ES).
+
+    With num_steps=100 and switch_frac=0.5: steps 0..49 use tilt, steps 50..99 use vanilla.
+    """
+    if num_steps <= 0:
+        return 0.0
+    switch_frac = min(1.0, max(0.0, float(switch_frac)))
+    switch_step = int(num_steps * switch_frac)  # first step that is vanilla
+    return float(kappa0) if step < switch_step else 0.0
+
+
 def parse_args():
     p = argparse.ArgumentParser()
-    p.add_argument("--variant", choices=["momentum", "baseaxis", "vanilla"], required=True)
+    p.add_argument("--variant", choices=["momentum", "baseaxis", "vanilla", "tilt"], required=True)
     p.add_argument("--population_size", type=int, required=True)
     p.add_argument("--num_steps", type=int, default=None)
     p.add_argument("--pop_seed", type=int, default=0)
@@ -96,6 +139,32 @@ def parse_args():
                         "at step 1 and stays above it (199/200 steps active). Matching the gate "
                         "keeps the two probe arms on an IDENTICAL prng stream -- same radii, "
                         "same Gaussian seeds, every step -- so momentum-vs-baseaxis is paired.")
+    # --- tilt variant: rank-one momentum tilt for ALL members ---
+    p.add_argument("--tilt_kappa", type=float, default=0.0,
+                   help="tilt only: energy fraction in momentum direction. 0=vanilla, 0.2 typical. "
+                        "Perturbation covariance C = σ²(I + λ²·m̂·m̂ᵀ) where λ=sqrt(κ·d/(1-κ)). "
+                        "κ=0 disables tilt (pure Gaussian ES), κ→1 collapses to 1D. "
+                        "With --tilt_lambda_cosine this is the INITIAL κ (maps to λ_max). "
+                        "With --tilt_half_vanilla this is κ for the first half of steps.")
+    p.add_argument("--tilt_kappa_end", type=float, default=0.0,
+                   help="tilt only: final energy fraction when --tilt_lambda_cosine is set "
+                        "(maps to λ_min). Default 0 = anneal to vanilla ES.")
+    p.add_argument("--tilt_lambda_cosine", action="store_true",
+                   help="tilt only: cosine-decay λ from λ(κ=tilt_kappa) to λ(κ=tilt_kappa_end) "
+                        "over num_steps, then set κ=λ²/(d+λ²) each step. Prefer this over "
+                        "cosine on κ itself (κ↔λ is nonlinear). Mutually exclusive with "
+                        "--tilt_half_vanilla.")
+    p.add_argument("--tilt_half_vanilla", action="store_true",
+                   help="tilt only: use κ=tilt_kappa for the first --tilt_switch_frac of steps, "
+                        "then κ=0 (vanilla ES) for the remainder. Mutually exclusive with "
+                        "--tilt_lambda_cosine.")
+    p.add_argument("--tilt_switch_frac", type=float, default=0.5,
+                   help="tilt only: with --tilt_half_vanilla, fraction of steps that use tilt "
+                        "before switching to vanilla. Default 0.5 = first half.")
+    p.add_argument("--tilt_mom_beta", type=float, default=0.9,
+                   help="tilt only: EMA decay for momentum buffer m = β·m + Δ")
+    p.add_argument("--tilt_warmup", type=int, default=1,
+                   help="tilt only: steps of vanilla ES before tilt activates (m needs history)")
     # --- adaptive sigma (2026-08-10): sigma scales WITH the ES gradient norm ---
     p.add_argument("--sigma_adapt", action="store_true",
                    help="scale sigma with the ES gradient norm. alpha is left untouched.")
@@ -107,6 +176,10 @@ def parse_args():
                    help="EMA decay on fitness_std; smooths the ~17%% zero-update steps")
     p.add_argument("--sigma_adapt_warmup", type=int, default=10,
                    help="steps at sigma0 used to calibrate the reference gradient norm")
+    # --- continuous reward (2026-09-13): format+answer instead of binary correctness ---
+    p.add_argument("--continuous_reward", action="store_true",
+                   help="countdown only: use 0.1×format + answer ∈ [0,1.1] instead of binary {0,1}. "
+                        "Provides finer gradient signal when correctness is sparse.")
     p.add_argument("--kl", action="store_true")
     p.add_argument("--eval_final", action="store_true")
     p.add_argument("--eval_interval", type=int, default=None,
@@ -143,9 +216,14 @@ def main():
     N = a.population_size
     num_steps = a.num_steps or C.NUM_STEPS
     probe_variant = a.variant in ("momentum", "baseaxis")
+    tilt_variant = a.variant == "tilt"
     if probe_variant and N <= 4:
         raise SystemExit(f"{a.variant} needs N>4 (4 probe members + >=1 Gaussian)")
-    which = {"momentum": "mom", "baseaxis": "base", "vanilla": None}[a.variant]
+    if a.tilt_lambda_cosine and a.tilt_half_vanilla:
+        raise SystemExit("--tilt_lambda_cosine and --tilt_half_vanilla are mutually exclusive")
+    if a.tilt_half_vanilla and not (0.0 < a.tilt_switch_frac <= 1.0):
+        raise SystemExit("--tilt_switch_frac must be in (0, 1]")
+    which = {"momentum": "mom", "baseaxis": "base", "vanilla": None, "tilt": None}[a.variant]
 
     os.environ["CUDA_VISIBLE_DEVICES"] = str(a.gpu)
     os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
@@ -171,12 +249,16 @@ def main():
     # "countdown" means: rows [300:] of countdown.json (the first 300 are the pinned eval
     # slice, so train and eval are disjoint by construction), the dataset's own raw `context`
     # as the prompt -- NO chat template, matching the original ES setup and the eval path --
-    # and the binary countdown_task reward shared with eval_core and the GRPO arm.
+    # and the countdown_task reward. By default this is binary answer_reward_function (0/1);
+    # --continuous_reward switches to 0.1×format + answer ∈ [0,1.1].
     if dataset == "countdown":
         from es_bench import data_countdown as dc
         train, _ = dc.load_split()
         mk_prompt = lambda r: r["context"]
-        row_reward = lambda text, r: dc.reward(text, r)
+        if a.continuous_reward:
+            row_reward = lambda text, r: dc.reward_continuous(text, r)
+        else:
+            row_reward = lambda text, r: dc.reward(text, r)
     else:
         levels = None if dataset == "gsm8k" else C.LEVELS
         train, _ = data_math.make_split(dataset, C.TRAIN_SIZE, 200, C.DATA_SEED, levels=levels)
@@ -196,6 +278,8 @@ def main():
         llm.collective_rpc("es_snapshot_theta0")
     elif which == "mom":
         llm.collective_rpc("es_mom_init")
+    elif tilt_variant:
+        llm.collective_rpc("es_mom_init")  # tilt also needs momentum buffer
     d = llm.collective_rpc("es_param_count")[0]
     sigma_scale = sigma * math.sqrt(d)            # Gaussian perturbation norm ~ sigma*sqrt(d)
 
@@ -274,6 +358,35 @@ def main():
         batch = [train[i] for i in step_batches[step]]
         prompts = [mk_prompt(b) for b in batch]
 
+        # ---- tilt variant: kappa -> lambda, gated on ||m|| ----
+        # Schedules (optional): cosine decay on λ, or piecewise half-tilt / half-vanilla.
+        if tilt_variant:
+            if a.tilt_lambda_cosine:
+                lam_sched = tilt_cosine_lambda(
+                    step, num_steps,
+                    kappa_to_lambda(a.tilt_kappa, d),
+                    kappa_to_lambda(a.tilt_kappa_end, d),
+                )
+                kappa = lambda_to_kappa(lam_sched, d)
+            elif a.tilt_half_vanilla:
+                kappa = tilt_half_vanilla_kappa(
+                    step, num_steps, a.tilt_kappa, a.tilt_switch_frac)
+                lam_sched = kappa_to_lambda(kappa, d)
+            else:
+                kappa = a.tilt_kappa
+                lam_sched = kappa_to_lambda(kappa, d)
+            # The worker folds 1/||m|| into its scalar coefficients, so the gate only needs
+            # the norm -- a materialized m_hat would be a third full fp32 copy of the model,
+            # which this card has no room for. ||m||=0 (nothing committed yet) disables tilt.
+            mom_norm = llm.collective_rpc("es_axis_norm", args=("mom",))[0]
+            use_tilt = (step >= a.tilt_warmup) and (kappa > 0.0) and (mom_norm > 0.0)
+            lam = lam_sched if use_tilt else 0.0
+        else:
+            use_tilt = False
+            lam = 0.0
+            kappa = 0.0
+            mom_norm = 0.0
+
         # ---- axis state and activation gate ----
         axis_norm0 = llm.collective_rpc("es_axis_norm", args=(which,))[0] if which else 0.0
         if which == "base":
@@ -294,32 +407,66 @@ def main():
         gauss_seeds = [prng.randrange(2**31 - 1) for _ in range(n_gauss)]
 
         fitness, member_bits, step_tokens = [], [], 0
-        for (av, sgn) in anchors:
-            llm.collective_rpc("es_set_axis_member", args=(sgn * av * scale, which))
-            f_, tk, bits = member_primary(prompts, batch)
-            fitness.append(f_); member_bits.append(bits); step_tokens += tk
-        for seed in gauss_seeds:
-            llm.collective_rpc("es_set_member", args=(seed, sigma))
-            f_, tk, bits = member_primary(prompts, batch)
-            fitness.append(f_); member_bits.append(bits); step_tokens += tk
+
+        # Tilt variant: all N members are tilted Gaussians, no probe.
+        # Reuse the gauss_seeds drawn above (same RNG stream as vanilla when use_probe=False /
+        # lam=0) -- do NOT draw a second batch of seeds and discard the first.
+        if tilt_variant:
+            for seed in gauss_seeds:
+                llm.collective_rpc("es_set_tilt_member", args=(seed, sigma, lam, mom_norm))
+                f_, tk, bits = member_primary(prompts, batch)
+                fitness.append(f_); member_bits.append(bits); step_tokens += tk
+        else:
+            # Probe variants: anchors first, then Gaussians
+            for (av, sgn) in anchors:
+                llm.collective_rpc("es_set_axis_member", args=(sgn * av * scale, which))
+                f_, tk, bits = member_primary(prompts, batch)
+                fitness.append(f_); member_bits.append(bits); step_tokens += tk
+            for seed in gauss_seeds:
+                llm.collective_rpc("es_set_member", args=(seed, sigma))
+                f_, tk, bits = member_primary(prompts, batch)
+                fitness.append(f_); member_bits.append(bits); step_tokens += tk
 
         f = np.array(fitness, dtype=np.float64)
         z = (f - f.mean()) / (f.std() + 1e-8)
-        gauss_z = z[len(anchors):]
-        gauss_coeffs = ((alpha / N) * gauss_z).tolist()
 
-        s_axis = 0.0; pair_fdiff = []
-        if use_probe:
-            for (pi, av) in [((0, 1), anchors[0][0]), ((2, 3), anchors[2][0])]:
-                p_plus, p_minus = pi
-                s_axis += av * (z[p_plus] - z[p_minus])
-                pair_fdiff.append(float(f[p_plus] - f[p_minus]))
-            s_axis *= (alpha / N) / sigma * scale
+        # Tilt variant: all z values are from tilted Gaussians
+        if tilt_variant:
+            gauss_z = z
+            # Same convention as the vanilla path: the worker rebuilds the sigma-FREE direction
+            # (xi + lam*zeta*m/||m||), so c carries alpha/N and the estimator's 1/sigma stays
+            # implicit. Tilt changes the DIRECTION members are drawn along, never the step scale.
+            gauss_coeffs = ((alpha / N) * gauss_z).tolist()
+            s_axis = 0.0
+            pair_fdiff = []
+            n_eff = float((z.sum() ** 2) / (z ** 2).sum()) if (z ** 2).sum() > 0 else 0.0
+        else:
+            gauss_z = z[len(anchors):]
+            gauss_coeffs = ((alpha / N) * gauss_z).tolist()
+            s_axis = 0.0; pair_fdiff = []
+            if use_probe:
+                for (pi, av) in [((0, 1), anchors[0][0]), ((2, 3), anchors[2][0])]:
+                    p_plus, p_minus = pi
+                    s_axis += av * (z[p_plus] - z[p_minus])
+                    pair_fdiff.append(float(f[p_plus] - f[p_minus]))
+                s_axis *= (alpha / N) / sigma * scale
+            n_eff = 0.0
+
+        # Build tilt_params dict if tilt is active
+        tilt_params = None
+        if tilt_variant and use_tilt:
+            tilt_params = {"lam": lam, "mom_norm": mom_norm}
+
+        # Determine momentum beta: tilt uses tilt_mom_beta, momentum axis uses mom_beta
+        mom_beta_arg = None
+        if tilt_variant:
+            mom_beta_arg = a.tilt_mom_beta
+        elif which == "mom":
+            mom_beta_arg = a.mom_beta
 
         res = llm.collective_rpc(
             "es_commit_update_axis",
-            args=(gauss_seeds, gauss_coeffs, s_axis, which,
-                  a.mom_beta if which == "mom" else None))[0]
+            args=(gauss_seeds, gauss_coeffs, s_axis, which, mom_beta_arg, tilt_params))[0]
 
         update_l2 = math.sqrt(max(res["delta_sq"], 0.0))
         signed_disp = res["signed_disp"]
@@ -350,6 +497,19 @@ def main():
             "fitness_std": float(f.std()), "zero_update": bool(f.std() < 1e-12),
             "update_l2": update_l2, "tokens": step_tokens,
         }
+        # Tilt-specific logging
+        if tilt_variant:
+            row["tilt_kappa"] = kappa
+            row["tilt_kappa0"] = a.tilt_kappa
+            row["tilt_kappa_end"] = a.tilt_kappa_end
+            row["tilt_lambda"] = lam
+            row["tilt_lambda_sched"] = lam_sched
+            row["tilt_lambda_cosine"] = bool(a.tilt_lambda_cosine)
+            row["tilt_half_vanilla"] = bool(a.tilt_half_vanilla)
+            row["tilt_switch_frac"] = a.tilt_switch_frac if a.tilt_half_vanilla else None
+            row["tilt_active"] = use_tilt
+            row["mom_norm"] = mom_norm
+            row["n_eff"] = n_eff
         # ---- advance the controller AFTER this step's fitness exists (causality) ----
         if a.sigma_adapt:
             fs = float(f.std())
@@ -366,28 +526,41 @@ def main():
                   f"disp={signed_disp:+.3f} frac={disp_frac:+.4f} cum={cum_disp:+.2f} "
                   f"f+-f-=[{fd}] probe={use_probe} |D|={update_l2:.2e}", flush=True)
 
-        # ---- intermediate evaluation every N steps ----
+        # ---- intermediate evaluation every N updates ----
         # Runs AFTER commit, so we evaluate the committed θ_t, not a perturbed member.
         # axis_worker.es_commit_update_axis already updated _es_base and copied to model params,
         # so llm.generate() will use the correct weights.
-        if a.eval_interval and step > 0 and step % a.eval_interval == 0:
+        #
+        # Gated on step+1, not step (changed 2026-08-28). step is 0-based and step 0 commits a
+        # real update, so the commit above is update number step+1. The old `step % interval`
+        # form therefore evaluated updates 11/21/.../91 while labelling them 10/20/.../90, and
+        # never reached num_steps at all -- the 3B countdown run's last point is 91 of 100
+        # updates with no measurement of the end state (COUNTDOWN_3B_SINGLE_GPU.md). Gating on
+        # step+1 puts the curve on exactly interval/2*interval/.../num_steps updates, which
+        # requires interval to divide num_steps. The old `step > 0` guard is gone: it is
+        # redundant here and at interval=1 it wrongly dropped the first update.
+        if a.eval_interval and (step + 1) % a.eval_interval == 0:
             import eval_core
-            print(f"[eval] intermediate eval at step {step}...", flush=True)
+            n_upd = step + 1
+            print(f"[eval] intermediate eval after {n_upd} updates...", flush=True)
             t_eval = time.perf_counter()
             eval_result = eval_core.eval_on_llm(
                 llm, tok, cap=a.eval_cap, max_tokens=max_tokens,
-                perq_prefix=f"{a.out_prefix}_eval_step{step:03d}",
+                perq_prefix=f"{a.out_prefix}_eval_upd{n_upd:03d}",
                 include_countdown=(dataset == "countdown")
             )
             eval_sec = time.perf_counter() - t_eval
-            rec = {"step": step, "eval_result": eval_result, "eval_seconds": eval_sec}
+            # Both keys: `updates` is the meaningful axis, `step` keeps rows joinable to the
+            # per-step jsonl. Curves written before this change carry `step` only, and their
+            # step k is k+1 updates -- do not overlay the two without relabelling.
+            rec = {"updates": n_upd, "step": step, "eval_result": eval_result, "eval_seconds": eval_sec}
             eval_history.append(rec)
             if ef is not None:
                 ef.write(json.dumps(rec) + "\n"); ef.flush()
             # Print a one-line summary
             cd_acc = eval_result.get("countdown", {}).get("accuracy") if isinstance(eval_result.get("countdown"), dict) else None
-            print(f"[eval] step {step} done in {eval_sec:.1f}s — countdown acc={cd_acc:.4f}" if cd_acc else
-                  f"[eval] step {step} done in {eval_sec:.1f}s", flush=True)
+            print(f"[eval] {n_upd} updates done in {eval_sec:.1f}s — countdown acc={cd_acc:.4f}" if cd_acc else
+                  f"[eval] {n_upd} updates done in {eval_sec:.1f}s", flush=True)
 
     jf.close()
     if ef is not None:
@@ -407,6 +580,7 @@ def main():
     summary = {
         "variant": a.variant, "axis": which, "model": C.MODEL,
         "population_size": N, "pop_seed": a.pop_seed, "num_steps": num_steps,
+        "continuous_reward": a.continuous_reward if dataset == "countdown" else None,
         "a_max": a.a_max, "anchor_threshold": a.anchor_threshold,
         "mom_beta": a.mom_beta if which == "mom" else None,
         "mom_warmup": a.mom_warmup if which == "mom" else None,
@@ -439,6 +613,20 @@ def main():
         "eval_interval": a.eval_interval,
         "eval_history": eval_history,  # list of {step, eval_result, eval_seconds}
     }
+    if tilt_variant:
+        summary.update({
+            "tilt_kappa": a.tilt_kappa,
+            "tilt_kappa_end": a.tilt_kappa_end,
+            "tilt_lambda_cosine": bool(a.tilt_lambda_cosine),
+            "tilt_half_vanilla": bool(a.tilt_half_vanilla),
+            "tilt_switch_frac": a.tilt_switch_frac if a.tilt_half_vanilla else None,
+            "tilt_switch_step": (int(num_steps * a.tilt_switch_frac)
+                                 if a.tilt_half_vanilla else None),
+            "tilt_mom_beta": a.tilt_mom_beta,
+            "tilt_warmup": a.tilt_warmup,
+            "tilt_lambda0": kappa_to_lambda(a.tilt_kappa, d),
+            "tilt_lambda_end": kappa_to_lambda(a.tilt_kappa_end, d),
+        })
     if a.eval_final:
         import eval_core
         t0 = time.perf_counter()

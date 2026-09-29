@@ -1,0 +1,6 @@
+[2026-07-29 12:15:00] === OOD diagnosis start ===
+[2026-07-29 12:15:00] 1/4 ES lambda grid + base, perq (~45 min)
+[2026-07-29 12:26:02] 2/4 GRPO battery, perq (~10 min)
+[2026-07-29 12:28:07] 3/4 memorization probe (~12 min)
+[2026-07-29 12:30:51] 4/4 paired analysis
+[2026-07-29 12:30:52] === OOD diagnosis COMPLETE -> /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/ood_diag/DIAGNOSIS.json ===

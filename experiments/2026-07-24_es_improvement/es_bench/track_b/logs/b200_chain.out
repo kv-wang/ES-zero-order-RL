@@ -1,0 +1,9 @@
+[2026-07-29 12:44:45] === bestshot chain start: loraes_B200_3b_math  N=30 B=200 r8 targets=q_proj,k_proj,v_proj,o_proj cap=2048 antithetic
+[2026-07-29 12:44:45] stage0 wait for /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/grpo_full_3b_math_t2048/summary.json (poll 120s)
+[2026-07-29 12:44:45] stage0 done: GRPO summary present, GPU at 0MiB
+[2026-07-29 12:44:45] GRPO train wall-clock budget: 5178s
+[2026-07-29 12:44:45] stage1 sigma  SKIP (already selected)
+[2026-07-29 12:44:45] stage1 done: sigma*=0.015 alpha=0.0075
+[2026-07-29 12:44:45] stage2 timing START (5 steps, exact arm config)
+[2026-07-29 13:12:21] stage2 done: 311.26 s/step at util-matched setting -> ~16 steps in budget
+[2026-07-29 13:12:21] stage3 arm    START (deadline = now + 5178s; gates ON)

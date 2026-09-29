@@ -1,0 +1,84 @@
+{
+  "method": "grpo_countdown",
+  "hf_dir": "/tmp/grpo_ckpt_grpo_full_3b_countdown/global_step_100/hf_merged",
+  "eval": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.53,
+      "extract_rate": 0.7933,
+      "headroom": 0.47,
+      "ceiling_risk": false,
+      "gen_seconds": 12.2,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.7143,
+        "3": 0.5781,
+        "4": 0.4691,
+        "5": 0.3194
+      },
+      "primary_L3_5_accuracy": 0.4516
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8633,
+      "extract_rate": 0.9967,
+      "headroom": 0.1367,
+      "ceiling_risk": false,
+      "gen_seconds": 9.7
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9067,
+      "extract_rate": 0.99,
+      "headroom": 0.0933,
+      "ceiling_risk": false,
+      "gen_seconds": 8.9
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.136,
+      "extract_rate": 0.6066,
+      "headroom": 0.864,
+      "ceiling_risk": false,
+      "gen_seconds": 13.1
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.17,
+      "extract_rate": 0.7133,
+      "headroom": 0.83,
+      "ceiling_risk": false,
+      "gen_seconds": 14.5
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.4,
+      "extract_rate": 0.975,
+      "headroom": 0.6,
+      "ceiling_risk": false,
+      "gen_seconds": 8.2
+    },
+    "countdown": {
+      "n": 300,
+      "full_n": 2200,
+      "capped": true,
+      "accuracy": 0.56,
+      "extract_rate": 0.56,
+      "headroom": 0.44,
+      "ceiling_risk": false,
+      "gen_seconds": 16.8
+    }
+  }
+}

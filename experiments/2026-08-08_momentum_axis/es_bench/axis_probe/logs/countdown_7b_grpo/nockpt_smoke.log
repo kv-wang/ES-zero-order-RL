@@ -1,0 +1,27 @@
+model=Qwen/Qwen2.5-7B-Instruct  task=countdown  gpus=0,1 (n=2, rollout TP=2)
+TRAIN_BS=16 GROUP=8 -> 128 rollouts/step
+BUDGET=manual STEPS=6 -> total_generations=768  (ES vanilla arm = 300000)
+MICRO=2 maxprompt=1024 maxresp=2048 util=0.5
+eval: in-memory countdown val (300 pinned rows, greedy) at step 0 then every 3 steps + final = 2 evals (countdown only)
+ckpt: none (save_freq=-1). Eval reads the live rollout weights, so nothing needs to land on disk. Consequence: NO resume point and NO post-hoc math OOD eval.
+out=axis_probe/results/countdown_7b_grpo
+!! NOT generation-matched: 768 vs the ES arm's 300000 (-99.744%).
+   BUDGET=manual was used. Any accuracy from this run is NOT a budget-matched
+   comparison and must be labelled as such.
+[2026-08-24_17:34:21] start grpo_countdown_7b_bs16g8_manual6  steps=6 total_gen=768
+[2026-08-24_17:34:21] STAGE1 skip (parquet exists)
+[2026-08-24_17:34:21] STAGE2 train (6 steps, model=/tmp/rawtmpl_Qwen2.5-7B-Instruct)
+[2026-08-24_17:49:48] STAGE2 rc=0 elapsed=927s (154.5 s/step)
+  gpu0 peak=117.98 GiB  median=58.34  p5=0.00  n=184
+  gpu1 peak=118.39 GiB  median=57.51  p5=0.00  n=184
+  both cards peak=236.37 GiB
+  (median << peak is expected: the peak is update_actor and lasts seconds)
+[2026-08-24_17:49:48] STAGE3 collect in-memory val curve
+Traceback (most recent call last):
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/grpo/collect_val_curve.py", line 110, in <module>
+    sys.exit(main())
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/grpo/collect_val_curve.py", line 93, in main
+    "countdown_best": max(r["countdown"] for r in rows if r["countdown"] is not None),
+ValueError: max() arg is an empty sequence
+[2026-08-24_17:49:48] STAGE3 rc=1
+  !! could not parse val metrics from axis_probe/logs/countdown_7b_grpo/grpo_countdown_7b_bs16g8_manual6_train.log

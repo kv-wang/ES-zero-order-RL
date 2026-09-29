@@ -1,0 +1,76 @@
+{
+  "eval_source": "verl_validate_in_memory",
+  "eval_note": "countdown only, greedy, 300 pinned rows == eval_core._eval_countdown's [:300] slice, graded by the same binary answer_reward_function. Weights were read live from the rollout engine: no checkpoint, no FSDP->HF merge. Math OOD sets and kl_proxy_drift are NOT measured by this path.",
+  "n_evals": 12,
+  "acc_keys": [
+    "countdown_es/acc/mean@1"
+  ],
+  "acc_key_expected": true,
+  "first_eval_step": 0,
+  "countdown_first": 0.10333333333333333,
+  "countdown_final": 0.7,
+  "final_eval_step": 586,
+  "countdown_best": 0.7233333333333334,
+  "countdown_best_step": 522,
+  "curve": [
+    {
+      "step": 0,
+      "countdown": 0.10333333333333333
+    },
+    {
+      "step": 58,
+      "countdown": 0.44333333333333336
+    },
+    {
+      "step": 116,
+      "countdown": 0.5566666666666666
+    },
+    {
+      "step": 174,
+      "countdown": 0.6266666666666667
+    },
+    {
+      "step": 232,
+      "countdown": 0.65
+    },
+    {
+      "step": 290,
+      "countdown": 0.6233333333333333
+    },
+    {
+      "step": 348,
+      "countdown": 0.66
+    },
+    {
+      "step": 406,
+      "countdown": 0.6833333333333333
+    },
+    {
+      "step": 464,
+      "countdown": 0.69
+    },
+    {
+      "step": 522,
+      "countdown": 0.7233333333333334
+    },
+    {
+      "step": 580,
+      "countdown": 0.69
+    },
+    {
+      "step": 586,
+      "countdown": 0.7
+    }
+  ],
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "task": "countdown",
+  "train_seconds": 100956,
+  "train_steps": 586,
+  "rollouts_per_step": 512,
+  "total_generations": 300032,
+  "train_bs": 64,
+  "group": 8,
+  "eval_every": 58,
+  "max_response_length": 2048,
+  "seed": 0
+}

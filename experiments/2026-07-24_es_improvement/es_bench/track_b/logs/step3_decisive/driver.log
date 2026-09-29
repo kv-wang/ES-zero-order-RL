@@ -1,0 +1,6 @@
+[19:17:57] === Step3 decisive START (model=Qwen/Qwen2.5-1.5B-Instruct N=16 steps=300) ===
+[19:17:57] control_s5e-3_a2e-3 start (sigma=0.005 alpha=2e-3)
+[19:47:51] control_s5e-3_a2e-3 DONE
+[19:47:51] B_sigstar_a3e-3 start (sigma=0.0077 alpha=3e-3)
+[20:17:49] B_sigstar_a3e-3 DONE
+[20:17:49] A_sigstar_a1e-2 start (sigma=0.0077 alpha=1e-2)

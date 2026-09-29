@@ -1,0 +1,5 @@
+[2026-09-01_16:27:31] === countdown line start ===
+[2026-09-01_16:27:31] model=Qwen/Qwen2.5-3B-Instruct suffix='_qwen25_3b_instruct' seeds=[0] N=30 B=100 steps=100 maxtok=2048 smoke=0
+[2026-09-01_16:27:31] one ES arm = 300000 generations
+[2026-09-01_16:27:31] GPU 0 free: 143153 MiB
+[2026-09-01_16:27:31] START stage 0: untrained base reference

@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "dataset": "MATH-500",
+  "levels": [
+    3,
+    4,
+    5
+  ],
+  "n": 367,
+  "accuracy": 0.4986376021798365,
+  "per_level_accuracy": {
+    "3": 0.6571,
+    "4": 0.5234,
+    "5": 0.3507
+  },
+  "per_level_n": {
+    "3": 105,
+    "4": 128,
+    "5": 134
+  },
+  "gen_seconds": 7.3,
+  "max_tokens": 1024
+}

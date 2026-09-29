@@ -1,0 +1,77 @@
+{
+  "budget_s": 5178,
+  "grpo": {
+    "exp": "grpo_full_3b_math_t2048",
+    "train_max_response": 2048,
+    "eval_max_tokens": 2048,
+    "OODavg": 0.3721,
+    "OOD_n": 5,
+    "L3_5": 0.4194,
+    "gsm8k": 0.8767,
+    "math500": 0.51,
+    "svamp": 0.92,
+    "minerva_math": 0.1471,
+    "olympiadbench": 0.18,
+    "countdown": 0.1033,
+    "reward_first10": 0.6008,
+    "reward_last10": 0.6758,
+    "resp_len_last10": 681.6,
+    "clip_ratio_last10": 0.0102,
+    "s_per_step": 25.89,
+    "n_steps": 200
+  },
+  "es_arm": {
+    "population_size": 30,
+    "batch": 100,
+    "rank": 8,
+    "targets": "q_proj,k_proj,v_proj,o_proj",
+    "antithetic": true,
+    "sigma": 0.015,
+    "alpha": 0.0075,
+    "steps_completed": 32,
+    "wall_clock_s": 5204.1005152901635,
+    "s_per_step_mean": 162.6281411028176,
+    "stop_reason": "DEADLINE reached at step 32/2000",
+    "fit_first20": 0.5538,
+    "fit_last20": 0.5503,
+    "median_split_half_spearman": 0.06296243554465786
+  },
+  "rows": {
+    "loraes_bestshot_3b_math": {
+      "OODavg": 0.375,
+      "OOD_n": 5,
+      "L3_5": 0.447,
+      "math500": 0.53,
+      "gsm8k": 0.8667,
+      "svamp": 0.9133,
+      "minerva_math": 0.1618,
+      "olympiadbench": 0.19,
+      "amc23": 0.4,
+      "countdown": 0.08
+    },
+    "loraes_bestshot_3b_math_lambda1": {
+      "OODavg": 0.3589,
+      "OOD_n": 5,
+      "L3_5": 0.4147,
+      "math500": 0.5033,
+      "gsm8k": 0.8533,
+      "svamp": 0.9033,
+      "minerva_math": 0.1581,
+      "olympiadbench": 0.1667,
+      "amc23": 0.45,
+      "countdown": 0.0633
+    },
+    "loraes_bestshot_3b_math_lambda0.5": {
+      "OODavg": 0.3636,
+      "OOD_n": 5,
+      "L3_5": 0.4147,
+      "math500": 0.4933,
+      "gsm8k": 0.88,
+      "svamp": 0.9067,
+      "minerva_math": 0.1544,
+      "olympiadbench": 0.1867,
+      "amc23": 0.45,
+      "countdown": 0.0767
+    }
+  }
+}

@@ -1,0 +1,118 @@
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+WARNING 08-24 00:37:52 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 08-24 00:37:53 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+WARNING 08-24 00:37:54 [multiproc_executor.py:720] Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+WARNING 08-24 00:38:11 [symm_mem.py:90] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+WARNING 08-24 00:38:11 [symm_mem.py:90] SymmMemCommunicator: symmetric memory multicast operations are not supported.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+WARNING 08-24 00:38:11 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+WARNING 08-24 00:38:11 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(Worker_TP0 pid=583263)[0;0m Ignored error while writing commit hash to /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/refs/main: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/refs/main'.
+[1;36m(Worker_TP0 pid=583263)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+[1;36m(Worker_TP1 pid=583265)[0;0m Ignored error while writing commit hash to /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/refs/main: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/refs/main'.
+[1;36m(Worker_TP0 pid=583263)[0;0m Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:04<00:12,  4.26s/it]
+[1;36m(Worker_TP0 pid=583263)[0;0m Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:08<00:08,  4.15s/it]
+[1;36m(Worker_TP0 pid=583263)[0;0m Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:12<00:04,  4.15s/it]
+[1;36m(Worker_TP0 pid=583263)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:16<00:00,  3.98s/it]
+[1;36m(Worker_TP0 pid=583263)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:16<00:00,  4.05s/it]
+[1;36m(Worker_TP0 pid=583263)[0;0m 
+[1;36m(Worker_TP0 pid=583263)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:00<00:01, 45.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:00<00:01, 46.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 15/67 [00:00<00:01, 46.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:00<00:00, 47.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 25/67 [00:00<00:00, 48.49it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:00<00:00, 46.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 46.46it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:00<00:00, 47.40it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:00<00:00, 48.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:01<00:00, 47.73it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 55/67 [00:01<00:00, 46.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:01<00:00, 46.61it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:01<00:00, 49.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 47.49it/s]
+[1;36m(Worker_TP0 pid=583263)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:00<00:01, 57.15it/s]Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:00<00:00, 63.25it/s]Capturing CUDA graphs (decode, FULL):  30%|██▉       | 20/67 [00:00<00:00, 65.20it/s]Capturing CUDA graphs (decode, FULL):  42%|████▏     | 28/67 [00:00<00:00, 68.74it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 36/67 [00:00<00:00, 71.98it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:00<00:00, 75.83it/s]Capturing CUDA graphs (decode, FULL):  79%|███████▉  | 53/67 [00:00<00:00, 76.29it/s]Capturing CUDA graphs (decode, FULL):  93%|█████████▎| 62/67 [00:00<00:00, 79.44it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 74.75it/s]
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+Could not cache non-existence of file. Will ignore error and continue. Error: [Errno 30] Read-only file system: '/home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/.no_exist'
+[kl] base-vs-base drift=2.47e-06
+[baseaxis N=30 s0] step 0 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=5.63e+00
+[baseaxis N=30 s0] step 1 axis=5.63 disp=-0.057 frac=-0.0100 cum=-0.06 f+-f-=[-0.040,-0.020] probe=True |D|=5.17e+00
+[baseaxis N=30 s0] step 2 axis=7.69 disp=-0.218 frac=-0.0283 cum=-0.27 f+-f-=[-0.050,-0.060] probe=True |D|=5.21e+00
+[baseaxis N=30 s0] step 3 axis=9.46 disp=-0.123 frac=-0.0130 cum=-0.40 f+-f-=[-0.040,+0.010] probe=True |D|=5.33e+00
+[baseaxis N=30 s0] step 4 axis=11 disp=-0.474 frac=-0.0432 cum=-0.87 f+-f-=[-0.100,-0.060] probe=True |D|=5.19e+00
+[baseaxis N=30 s0] step 5 axis=12.6 disp=-0.046 frac=-0.0036 cum=-0.92 f+-f-=[-0.020,-0.010] probe=True |D|=5.04e+00
+[baseaxis N=30 s0] step 10 axis=17.7 disp=-1.447 frac=-0.0819 cum=-3.03 f+-f-=[-0.110,-0.170] probe=True |D|=4.77e+00
+[eval] intermediate eval at step 10...
+[eval] step 10 done in 107.0s — countdown acc=0.3900
+[baseaxis N=30 s0] step 15 axis=24.6 disp=-0.640 frac=-0.0261 cum=-6.55 f+-f-=[+0.010,-0.080] probe=True |D|=5.11e+00
+[baseaxis N=30 s0] step 20 axis=31.3 disp=-2.277 frac=-0.0727 cum=-12.88 f+-f-=[-0.170,-0.140] probe=True |D|=5.51e+00
+[eval] intermediate eval at step 20...
+[eval] step 20 done in 106.6s — countdown acc=0.4167
+[baseaxis N=30 s0] step 25 axis=39.9 disp=-1.201 frac=-0.0301 cum=-18.65 f+-f-=[-0.060,-0.010] probe=True |D|=5.40e+00
+[baseaxis N=30 s0] step 30 axis=47.8 disp=-2.826 frac=-0.0592 cum=-26.72 f+-f-=[-0.010,-0.200] probe=True |D|=5.48e+00
+[eval] intermediate eval at step 30...
+[eval] step 30 done in 107.6s — countdown acc=0.4800
+[baseaxis N=30 s0] step 35 axis=54.9 disp=-3.733 frac=-0.0680 cum=-33.47 f+-f-=[-0.050,-0.160] probe=True |D|=5.81e+00
+[baseaxis N=30 s0] step 40 axis=68.3 disp=-2.645 frac=-0.0388 cum=-44.86 f+-f-=[+0.000,-0.100] probe=True |D|=5.61e+00
+[eval] intermediate eval at step 40...
+[eval] step 40 done in 104.7s — countdown acc=0.4900
+[baseaxis N=30 s0] step 45 axis=81.1 disp=-0.551 frac=-0.0068 cum=-54.80 f+-f-=[-0.050,-0.010] probe=True |D|=5.34e+00
+Traceback (most recent call last):
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 462, in <module>
+    main()
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 303, in main
+    f_, tk, bits = member_primary(prompts, batch)
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 254, in member_primary
+    outs = llm.generate(p_chunk, sp, use_tqdm=False)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 401, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 1600, in _run_engine
+    step_outputs = self.llm_engine.step()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 265, in step
+    outputs = self.engine_core.get_output()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 248, in get_output
+    outputs, _ = self.engine_core.step_fn()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 284, in step
+    model_output = self.execute_model_with_error_logging(
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 261, in execute_model_with_error_logging
+    return model_fn(scheduler_output)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 181, in execute_model
+    (output, ) = self.collective_rpc(
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 264, in collective_rpc
+    result = get_response(w, dequeue_timeout,
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 244, in get_response
+    status, result = w.worker_response_mq.dequeue(
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 511, in dequeue
+    with self.acquire_read(timeout, cancel, indefinite) as buf:
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 452, in acquire_read
+    self._read_spin_timer.spin()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 36, in spin
+    def spin(self):
+KeyboardInterrupt
+Exception ignored in atexit callback: <function _exit_function at 0x7965c6158790>
+Traceback (most recent call last):
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/util.py", line 357, in _exit_function
+    p.join()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/popen_fork.py", line 43, in wait
+    return self.poll(os.WNOHANG if timeout == 0.0 else 0)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/popen_fork.py", line 27, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+KeyboardInterrupt: 
+Exception ignored in atexit callback: <bound method finalize._exitfunc of <class 'weakref.finalize'>>
+Traceback (most recent call last):
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/weakref.py", line 667, in _exitfunc
+    f()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/weakref.py", line 591, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/torch/library.py", line 482, in _del_library
+    m.reset()
+KeyboardInterrupt: 

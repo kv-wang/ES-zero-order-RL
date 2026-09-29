@@ -20,7 +20,20 @@ def load_split():
 
 
 def reward(text: str, row: dict) -> float:
+    """Binary reward: 1.0 if answer is correct, else 0.0."""
     if COUNTDOWN_TASK_DIR not in sys.path:
         sys.path.insert(0, COUNTDOWN_TASK_DIR)
     from countdown_task import answer_reward_function
     return float(answer_reward_function(text, row["numbers"], row["target"]))
+
+
+def reward_continuous(text: str, row: dict) -> float:
+    """Continuous reward: 0.1×format + answer ∈ [0, 1.1].
+
+    Format gives up to 0.1 (think + answer tags present), answer gives 0 or 1.
+    This provides finer gradient signal when correctness is sparse.
+    """
+    if COUNTDOWN_TASK_DIR not in sys.path:
+        sys.path.insert(0, COUNTDOWN_TASK_DIR)
+    from countdown_task import reward_function
+    return float(reward_function(text, row["numbers"], row["target"], end_token=None)["reward"])

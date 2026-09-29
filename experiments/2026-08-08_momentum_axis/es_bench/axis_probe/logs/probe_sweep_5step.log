@@ -1,0 +1,14 @@
+model=Qwen/Qwen2.5-7B-Instruct group=8 steps=5 bs_list='8 16 32 64' ngpu=2 tp=2
+maxprompt=1024 maxresp=2048 micro=2 rollout_mem=0.5
+out=axis_probe/results/grpo_mem_7b_20260824_102424
+  bs=8 rollouts/step=64 rc=0 532s  peak/card=122.89 GiB  both=245.31 GiB
+  bs=16 rollouts/step=128 rc=0 747s  peak/card=122.90 GiB  both=245.32 GiB
+  bs=32 rollouts/step=256 rc=0 1225s  peak/card=122.86 GiB  both=245.28 GiB
+  bs=64 rollouts/step=512 rc=0 2093s  peak/card=122.82 GiB  both=245.25 GiB
+
+== 汇总 ==
+bs=8   rollouts=64   rc=0 peak/card=122.89 GiB  both= 245.31 GiB  532s
+bs=16  rollouts=128  rc=0 peak/card=122.90 GiB  both= 245.32 GiB  747s
+bs=32  rollouts=256  rc=0 peak/card=122.86 GiB  both= 245.28 GiB  1225s
+bs=64  rollouts=512  rc=0 peak/card=122.82 GiB  both= 245.25 GiB  2093s
+summary: axis_probe/results/grpo_mem_7b_20260824_102424/summary.jsonl

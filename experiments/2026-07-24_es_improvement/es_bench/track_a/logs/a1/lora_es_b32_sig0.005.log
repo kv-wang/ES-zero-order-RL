@@ -1,0 +1,40 @@
+WARNING 07-24 22:13:33 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-24 22:13:33 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+WARNING 07-24 22:13:34 [lora.py:92] `lora_extra_vocab_size` is deprecated and will be removed in v0.12.0. Additional vocabulary support for LoRA adapters is being phased out.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-24 22:13:38 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:04<00:00,  4.67s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:04<00:00,  4.67s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|▏         | 1/67 [00:04<04:34,  4.16s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 3/67 [00:04<01:11,  1.12s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:04<00:27,  2.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  13%|█▎        | 9/67 [00:04<00:15,  3.76it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:04<00:09,  5.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 15/67 [00:04<00:06,  7.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:04<00:04, 10.09it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:05<00:03, 12.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:05<00:02, 14.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:05<00:02, 16.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:05<00:02, 18.48it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:05<00:01, 19.56it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:05<00:01, 20.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 39/67 [00:05<00:01, 21.49it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:05<00:01, 22.28it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:06<00:00, 22.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:06<00:00, 23.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 51/67 [00:06<00:00, 21.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:06<00:00, 21.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 57/67 [00:06<00:00, 21.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:06<00:00, 22.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:06<00:00, 22.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:06<00:00, 24.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:07<00:00,  9.45it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   1%|▏         | 1/67 [00:03<03:58,  3.62s/it]Capturing CUDA graphs (decode, FULL):   4%|▍         | 3/67 [00:03<01:04,  1.01s/it]Capturing CUDA graphs (decode, FULL):   7%|▋         | 5/67 [00:04<00:33,  1.85it/s]Capturing CUDA graphs (decode, FULL):  12%|█▏        | 8/67 [00:04<00:16,  3.58it/s]Capturing CUDA graphs (decode, FULL):  16%|█▋        | 11/67 [00:04<00:09,  5.64it/s]Capturing CUDA graphs (decode, FULL):  21%|██        | 14/67 [00:04<00:06,  7.95it/s]Capturing CUDA graphs (decode, FULL):  25%|██▌       | 17/67 [00:04<00:04, 10.50it/s]Capturing CUDA graphs (decode, FULL):  30%|██▉       | 20/67 [00:04<00:03, 13.01it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 23/67 [00:04<00:02, 15.18it/s]Capturing CUDA graphs (decode, FULL):  39%|███▉      | 26/67 [00:04<00:02, 17.56it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 29/67 [00:04<00:01, 19.63it/s]Capturing CUDA graphs (decode, FULL):  48%|████▊     | 32/67 [00:05<00:01, 21.39it/s]Capturing CUDA graphs (decode, FULL):  52%|█████▏    | 35/67 [00:05<00:01, 22.81it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 38/67 [00:05<00:01, 23.90it/s]Capturing CUDA graphs (decode, FULL):  61%|██████    | 41/67 [00:05<00:01, 24.79it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 44/67 [00:05<00:00, 25.56it/s]Capturing CUDA graphs (decode, FULL):  70%|███████   | 47/67 [00:05<00:00, 26.46it/s]Capturing CUDA graphs (decode, FULL):  75%|███████▍  | 50/67 [00:05<00:00, 26.99it/s]Capturing CUDA graphs (decode, FULL):  79%|███████▉  | 53/67 [00:05<00:00, 27.69it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▎ | 56/67 [00:05<00:00, 27.61it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 59/67 [00:06<00:00, 28.10it/s]Capturing CUDA graphs (decode, FULL):  93%|█████████▎| 62/67 [00:06<00:00, 27.86it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 65/67 [00:06<00:00, 28.42it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:06<00:00, 10.57it/s]
+WARNING 07-24 22:14:23 [processor.py:215] vLLM has deprecated support for supporting different tokenizers for different LoRAs. By default, vLLM uses base model's tokenizer. If you are using a LoRA with its own tokenizer, consider specifying `--tokenizer [lora_path]` to use the LoRA tokenizer.
+[lora-es s0 sig0.005] step 0 ID=0.855 KL=0.0000
+[lora-es s0 sig0.005] step 50 fit=0.791 ID=0.870 KL=0.0010 |Δ|=2.149
+[lora-es s0 sig0.005] step 100 fit=0.713 ID=0.840 KL=0.0007 |Δ|=2.149
+[lora-es s0 sig0.005] step 150 fit=0.734 ID=0.840 KL=0.0024 |Δ|=2.148
+[lora-es s0 sig0.005] step 200 fit=0.834 ID=0.830 KL=0.0045 |Δ|=2.149
+[lora-es s0 sig0.005] step 250 fit=0.844 ID=0.870 KL=0.0058 |Δ|=2.149
+[lora-es s0 sig0.005] step 300 fit=0.752 ID=0.860 KL=0.0043 |Δ|=2.149
+SUMMARY: {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "population_size": 16,
+  "sigma": 0.005,
+  "alpha": 0.002,
+  "num_steps": 300,
+  "pop_seed": 0,
+  "id_base": 0.855,
+  "id_final": 0.86,
+  "id_gain": 0.0050000000000000044,
+  "kl_final": 0.0043357139484400805,
+  "zero_update_rate": 0.0,
+  "wall_clock_s": 2687.905026987195
+}
+[rank0]:[W724 22:59:17.616581392 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

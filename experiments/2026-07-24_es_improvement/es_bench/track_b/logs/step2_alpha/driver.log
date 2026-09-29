@@ -1,0 +1,10 @@
+[18:57:59] === Step2 alpha probe START (model=Qwen/Qwen2.5-1.5B-Instruct sigma*=0.0077 N=16 steps=20) ===
+[18:57:59] alpha=2e-3 start
+[19:01:19] alpha=2e-3 DONE
+[19:01:19] alpha=1e-2 start
+[19:04:34] alpha=1e-2 DONE
+[19:04:34] alpha=5e-2 start
+[19:07:46] alpha=5e-2 DONE
+[19:07:46] alpha=2e-1 start
+[19:11:03] alpha=2e-1 DONE
+[19:11:03] === Step2 alpha probe ALL DONE ===

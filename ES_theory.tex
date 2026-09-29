@@ -155,7 +155,7 @@ L^2\sigma^2d
 \newtheorem{proposition}{命题}
 \newtheorem{corollary}{推论}
 
-\title{为什么更大的梯度范数意味着更小的 $\sigma$}
+\title{带噪函数值下 ES 梯度估计的误差与 $\sigma$ 的选择}
 \author{}
 \date{}
 
@@ -182,6 +182,7 @@ L^2\sigma^2 d + \frac{d}{m}\|\nabla f(x)\|^2 + \frac{L^2\sigma^2 d^3}{m} + \frac
 \subsection{最小化绝对误差：$\sigma$ 与 $\|\nabla f\|$ 无关}
 
 \begin{proposition}[绝对误差最小化]
+\label{prop:abs}
 最小化 $\mathbb{E}\|\widehat{g}_\sigma - \nabla f\|^2$ 的最优 $\sigma$ 为
 \[
 \sigma^* \propto \left(\frac{\gamma^2}{mL^2}\right)^{1/4},
@@ -201,137 +202,499 @@ L^2\sigma^4 \approx \frac{\gamma^2}{m}
 注意 $\|\nabla f(x)\|$ 只出现在第二项 $\frac{d}{m}\|\nabla f\|^2$ 中，而该项不依赖于 $\sigma$。
 \end{proof}
 
-\subsection{保持恒定信噪比：$\sigma \propto 1/\|\nabla f\|$}
+\section{$\rho$ 作为可观测的信噪比}
 
-\begin{proposition}[信噪比视角]
-如果我们希望在整个训练过程中保持恒定的信噪比，那么
+前面的误差界依赖于 $\gamma$、$L$ 与 $\|\nabla f(x)\|$，而这三个量在实际的 LLM 微调中都无法直接测量。本节说明：训练过程中逐步记录的 split-half 秩相关系数 $\rho$ 并不是一个独立的诊断量，它恰好是单方向信噪比 $\sigma\|\nabla f\|/\gamma$ 的一个单调重参数化。因此可以把 $\rho$ 代入误差界的右端，消去 $\gamma$ 与 $\sigma$，得到一个只含 $d$、$m$、$\rho$ 的相对误差界。
+
+\subsection{设置与记号}
+
+第 $i$ 个 member 位于 $x + \sigma u_i$，其真实适应度记为 $f_i = f(x + \sigma u_i)$。实际观测到的是它在 $B$ 道题上的经验准确率
 \[
-\boxed{\sigma \propto \frac{1}{\|\nabla f(x)\|}},
+\widehat f_i = f_i + \xi_i,
+\qquad
+\mathbb E[\xi_i] = 0,
+\qquad
+\operatorname{Var}(\xi_i) = \gamma^2 .
 \]
-即，\textcolor{red}{梯度范数越大需要越小的 $\sigma$}。
+注意 $\gamma^2 = \gamma_1^2 / B$，其中 $\gamma_1^2$ 是单题噪声方差；也就是说 $\gamma$ 依赖于批量大小 $B$。
+
+定义跨 member 的两个方差：
+\[
+S^2 := \operatorname{Var}_i(f_i),
+\qquad
+V_{\mathrm{obs}} := \operatorname{Var}_i(\widehat f_i) = S^2 + \gamma^2 .
+\]
+$S^2$ 是 ES 更新真正依赖的\emph{信号}，$V_{\mathrm{obs}}$ 是可观测的 member 适应度方差。
+
+split-half 相关系数 $\rho$ 的定义是：把 $B$ 道题随机劈成两个不相交的一半，每个 member 在两半上分别评分，再对两组得分求相关系数。
+
+\subsection{桥梁：$\rho$ 与 $(\gamma,\sigma,\|\nabla f\|)$ 的关系}
+
+\begin{proposition}[信号方差的一阶展开]
+\label{prop:signal}
+member 之间适应度的离散程度在一阶上就是 $\sigma\|\nabla f\|$：
+\[
+\boxed{
+S^2 = \sigma^2\|\nabla f(x)\|^2 + O(\sigma^4 L^2 d),
+\qquad
+\frac{S}{\sigma} \leq \|\nabla f(x)\| + \sigma L\sqrt{d/2}.
+}
+\]
 \end{proposition}
 
 \begin{proof}
-信号强度为 $\|\mathbb{E}[\widehat{g}_\sigma]\| \approx \|\nabla f(x)\|$（忽略 $O(\sigma^2)$ 偏差）。
-
-噪声方差（忽略高阶项）为：
+对 $u\sim\mathcal N(0,I_d)$ 做 Taylor 展开：
 \[
-\text{Var}(\widehat{g}_\sigma) \approx \frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}.
+f(x+\sigma u) - f(x)
+=
+\sigma\nabla f(x)^\top u
++
+\frac{\sigma^2}{2}u^\top H u
++
+\cdots,
+\qquad H := \nabla^2 f(x).
 \]
-
-定义信噪比：
+第一项的方差为 $\sigma^2\|\nabla f\|^2$。第二项的方差为
 \[
-\text{SNR}^2 = \frac{\text{Signal}^2}{\text{Noise}} = \frac{\|\nabla f\|^2}{\frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}}.
+\frac{\sigma^4}{4}\operatorname{Var}(u^\top H u)
+=
+\frac{\sigma^4}{4}\cdot 2\|H\|_F^2
+=
+\frac{\sigma^4\|H\|_F^2}{2}
+\leq
+\frac{\sigma^4 d L^2}{2},
 \]
-
-为了保持 $\text{SNR} = C$（常数），我们要求：
+这里用了 $L$-smooth 蕴含 $\|H\|_2\leq L$，故 $\|H\|_F^2\leq d\|H\|_2^2\leq dL^2$。由标准差的三角不等式（Minkowski）
 \[
-\|\nabla f\|^2 = C^2\left[\frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}\right].
+S \leq \sigma\|\nabla f\| + \sigma^2 L\sqrt{d/2},
 \]
-
-重新整理：
-\[
-\|\nabla f\|^2\left(1 - \frac{C^2 d}{m}\right) = \frac{C^2\gamma^2 d}{m\sigma^2}.
-\]
-
-假设 $C^2 < m/d$（SNR 不能无限大），求解 $\sigma$：
-\[
-\sigma^2 = \frac{C^2\gamma^2 d}{m\|\nabla f\|^2\left(1 - \frac{C^2 d}{m}\right)}
-\propto \frac{1}{\|\nabla f\|^2}.
-\]
-
-因此：
-\[
-\boxed{\sigma \propto \frac{1}{\|\nabla f\|}.}
-\]
+两边除以 $\sigma$ 即得。
 \end{proof}
 
-\subsection{噪声放大分析：$\sigma \propto 1/\|\nabla f\|$}
-
-\begin{proposition}[噪声放大]
-从有限差分的视角，单方向信噪比为
+\begin{proposition}[split-half 分解]
+\label{prop:rho}
+设两半各含 $B/2$ 道题且题目不相交，则
 \[
-\text{SNR}_{\text{single}} = \frac{\|\nabla f\|\cdot\sigma}{\gamma}.
+\boxed{
+\rho
+=
+\frac{S^2}{S^2 + 2\gamma^2}.
+}
 \]
-为了保持恒定的 $\text{SNR}_{\text{single}}$，我们需要 $\sigma \propto 1/\|\nabla f\|$。
 \end{proposition}
 
 \begin{proof}
-沿方向 $u$ 的有限差分近似为：
+每一半只用 $B/2$ 道题，故该半上的噪声方差为 $\gamma_1^2/(B/2) = 2\gamma^2$。两半的题目不相交，因此在给定 member 的条件下两半的噪声独立。记两半的得分为
 \[
-\frac{F(x+\sigma u) - F(x-\sigma u)}{2\sigma} = \frac{f(x+\sigma u) - f(x-\sigma u)}{2\sigma} + \frac{\xi_+ - \xi_-}{2\sigma}.
+\widehat f_i^{(1)} = f_i + \eta_i^{(1)},
+\qquad
+\widehat f_i^{(2)} = f_i + \eta_i^{(2)},
+\qquad
+\operatorname{Var}(\eta_i^{(h)}) = 2\gamma^2,
+\quad
+\eta^{(1)}\perp\eta^{(2)}.
 \]
-
-信号部分：
+于是跨 member 的协方差与方差分别为
 \[
-\frac{f(x+\sigma u) - f(x-\sigma u)}{2\sigma} \approx \nabla f(x) \cdot u,
+\operatorname{Cov}\big(\widehat f^{(1)},\widehat f^{(2)}\big) = S^2,
+\qquad
+\operatorname{Var}\big(\widehat f^{(h)}\big) = S^2 + 2\gamma^2,
 \]
-其大小为 $\|\nabla f\|$（在 $u$ 上的期望）。
-
-噪声部分：
-\[
-\frac{\xi_+ - \xi_-}{2\sigma}
-\]
-的标准差为：
-\[
-\frac{\sqrt{\text{Var}(\xi_+) + \text{Var}(\xi_-)}}{2\sigma} = \frac{\gamma\sqrt{2}}{2\sigma} \approx \frac{\gamma}{\sigma}.
-\]
-
-因此，单方向 SNR 为：
-\[
-\text{SNR}_{\text{single}} = \frac{\|\nabla f\|}{\gamma/\sigma} = \frac{\|\nabla f\|\cdot\sigma}{\gamma}.
-\]
-
-为了保持 $\text{SNR}_{\text{single}} = C$（常数）：
-\[
-\|\nabla f\|\cdot\sigma = C\gamma
-\implies
-\boxed{\sigma = \frac{C\gamma}{\|\nabla f\|}}.
-\]
-
-这表明 \textcolor{red}{$\sigma$ 应该随 $\|\nabla f\|$ 增大而\emph{减小}}。
+相关系数即为所述。
 \end{proof}
 
-\subsection{一步优化误差：$\sigma \propto 1/\|\nabla f\|^{1/2}$}
-
-\begin{proposition}[一步更新误差]
-如果我们执行一步梯度下降 $x' = x - \alpha\widehat{g}_\sigma(x)$ 并最小化期望的一步误差，最优 $\sigma$ 满足：
+\begin{corollary}[关键代换]
+\label{cor:sub}
+由命题 \ref{prop:rho} 反解并代入命题 \ref{prop:signal}：
 \[
-\sigma \propto \frac{1}{\|\nabla f\|^{1/2}}.
+\boxed{
+\frac{\gamma}{\sigma}
+=
+\frac{S}{\sigma}\sqrt{\frac{1-\rho}{2\rho}}
+\;\leq\;
+\left(\|\nabla f(x)\| + \sigma L\sqrt{d/2}\right)
+\sqrt{\frac{1-\rho}{2\rho}},
+}
+\]
+一阶下即 $\dfrac{\gamma}{\sigma}\approx\|\nabla f(x)\|\sqrt{\dfrac{1-\rho}{2\rho}}$。
+\end{corollary}
+
+\subsection{代入误差界}
+
+\begin{proposition}[$\rho$-参数化的梯度估计误差]
+\label{prop:bound}
+把推论 \ref{cor:sub} 代入第 1 节的均方根误差界，$\gamma$ 与 $\sigma$ 从所有方差项中消失：
+\[
+\boxed{
+\sqrt{\mathbb E\left\|\widehat g_\sigma(x)-\nabla f(x)\right\|^2}
+=
+O\left(
+\underbrace{L\sigma\sqrt d + \frac{L\sigma d^{3/2}}{\sqrt m}}_{\text{平滑偏差，与 }\rho\text{ 无关}}
++
+\underbrace{\|\nabla f(x)\|\sqrt{\frac dm}\left(1+\sqrt{\frac{1-\rho}{2\rho}}\right)}_{\text{全部方差项}}
+\right).
+}
+\]
+相应地，方差部分的\emph{相对}误差是一个只含 $d,m,\rho$ 的量：
+\[
+\boxed{
+\frac{1}{\|\nabla f(x)\|}
+\sqrt{\mathbb E\left\|\widehat g_\sigma^{\mathrm{var}}(x)\right\|^2}
+=
+\sqrt{\frac dm}\left(1+\sqrt{\frac{1-\rho}{2\rho}}\right).
+}
 \]
 \end{proposition}
 
 \begin{proof}
-考虑使用学习率 $\alpha$ 的单步更新。实际更新与理想更新之间的差异可由以下式子刻画：
+原界中只有第四项 $\frac{\gamma^2 d}{m\sigma^2}$ 含 $\gamma$。由推论 \ref{cor:sub}，
 \[
-\mathbb{E}[f(x')] - f(x - \alpha\nabla f)
+\frac{\gamma}{\sigma}\sqrt{\frac dm}
+\leq
+\|\nabla f\|\sqrt{\frac dm}\sqrt{\frac{1-\rho}{2\rho}}
++
+\sigma L\sqrt{\frac d2}\sqrt{\frac dm}\sqrt{\frac{1-\rho}{2\rho}} .
+\]
+第一部分与原界第二项 $\|\nabla f\|\sqrt{d/m}$ 同类，合并得到括号中的因子 $1+\sqrt{(1-\rho)/(2\rho)}$。第二部分为
+\[
+O\!\left(\frac{\sigma L d}{\sqrt m}\sqrt{\frac{1-\rho}{2\rho}}\right),
+\]
+当 $\frac{1-\rho}{2\rho}\lesssim d$（即 $\rho\gtrsim 1/d$）时它被原界中已有的 $\frac{L\sigma d^{3/2}}{\sqrt m}$ 吸收，可以略去。除以 $\|\nabla f\|$ 即得相对误差式。
+\end{proof}
+
+\subsection{三个推论}
+
+\begin{corollary}[$\rho$ 即单方向信噪比]
+\label{cor:snr}
+沿单个方向 $u$ 的有限差分中，信号部分 $\frac{f(x+\sigma u)-f(x-\sigma u)}{2\sigma}\approx\nabla f(x)^\top u$ 的量级为 $\|\nabla f(x)\|$，噪声部分 $\frac{\xi_+-\xi_-}{2\sigma}$ 的标准差为 $\frac{\sqrt2\gamma}{2\sigma}\approx\frac{\gamma}{\sigma}$，故定义单方向信噪比
+\[
+\mathrm{SNR}_{\mathrm{single}} := \frac{\sigma\|\nabla f(x)\|}{\gamma}.
+\]
+由推论 \ref{cor:sub} 立得
+\[
+\boxed{
+\mathrm{SNR}_{\mathrm{single}}
+=
+\sqrt{\frac{2\rho}{1-\rho}}.
+}
+\]
+即 $\rho$ 与理论中的单方向信噪比是同一个量的单调变换；$\rho\to 0$ 当且仅当 $\mathrm{SNR}_{\mathrm{single}}\to 0$。这不是类比，而是恒等式：$\rho$ 是 $\mathrm{SNR}_{\mathrm{single}}$ 的\textcolor{red}{可观测替代量}。
+\end{corollary}
+
+\begin{corollary}[瓶颈判据：$\rho = 1/3$]
+\label{cor:third}
+命题 \ref{prop:bound} 的方差项由两部分构成：ES 固有的有限方向采样噪声（系数 $1$）与函数值评测噪声（系数 $\sqrt{(1-\rho)/(2\rho)}$）。两者相等当且仅当
+\[
+\frac{1-\rho}{2\rho} = 1
+\quad\Longleftrightarrow\quad
+\boxed{\rho = \tfrac13 .}
+\]
+因此：$\rho < 1/3$ 时评测噪声是瓶颈，应增大 $B$（或降低生成随机性、提高 reward 分辨率），增大 $m$ 收效甚微；$\rho > 1/3$ 时 population size 是瓶颈，应增大 $m$，增大 $B$ 是浪费算力。
+\end{corollary}
+
+\begin{corollary}[每步进展正比于 $\rho$]
+\label{cor:progress}
+在最优步长下，单步下降量为
+\[
+\Delta f^*
+=
+\frac{\|\nabla f\|^4}{2L\,\mathbb E\|\widehat g_\sigma\|^2}
+=
+\frac{\|\nabla f\|^2}{2L}
+\cdot
+\frac{1}{1 + \frac dm\cdot\frac{1+\rho}{2\rho}}
+\;\xrightarrow[\ \rho\ll 1\ ]{}\;
+\boxed{\frac{m\rho}{d}\cdot\frac{\|\nabla f\|^2}{L}.}
+\]
+即在小 $\rho$ 区，\textcolor{red}{$\rho$ 与 $m$ 完全可互换}：$\rho$ 减半等价于 population size 减半，而 $\rho = 0$ 意味着期望进展为零。
+\end{corollary}
+
+\begin{proof}
+以 $x' = x-\alpha\widehat g_\sigma$ 作一步更新，由 $L$-smooth 与 $\mathbb E[\widehat g_\sigma]\approx\nabla f$，
+\[
+\mathbb E[f(x')] \leq f(x) - \alpha\|\nabla f\|^2 + \frac{L\alpha^2}{2}\mathbb E\|\widehat g_\sigma\|^2 ,
+\]
+对 $\alpha$ 最小化得 $\alpha^* = \|\nabla f\|^2/(L\,\mathbb E\|\widehat g_\sigma\|^2)$ 与 $\Delta f^* = \|\nabla f\|^4/(2L\,\mathbb E\|\widehat g_\sigma\|^2)$。再由推论 \ref{cor:sub}，
+\[
+\mathbb E\|\widehat g_\sigma\|^2
 \approx
-\alpha^2\sigma^2\|\nabla f\|^2 + \frac{\alpha^2 L}{2}\left[\frac{d}{m}\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}\right].
+\|\nabla f\|^2 + \frac dm\|\nabla f\|^2 + \frac{\gamma^2 d}{m\sigma^2}
+=
+\|\nabla f\|^2\left[1 + \frac dm\left(1 + \frac{1-\rho}{2\rho}\right)\right]
+=
+\|\nabla f\|^2\left[1 + \frac dm\cdot\frac{1+\rho}{2\rho}\right].
 \]
-
-依赖于 $\sigma$ 的项为：
-\[
-\text{Error}(\sigma) = \alpha^2\sigma^2\|\nabla f\|^2 + \frac{\alpha^2 L\gamma^2 d}{2m\sigma^2}.
-\]
-
-对 $\sigma$ 求导并令其为零：
-\[
-\frac{\partial}{\partial\sigma}\left[\alpha^2\sigma^2\|\nabla f\|^2 + \frac{\alpha^2 L\gamma^2 d}{2m\sigma^2}\right] = 0,
-\]
-\[
-2\alpha^2\sigma\|\nabla f\|^2 - \frac{\alpha^2 L\gamma^2 d}{m\sigma^3} = 0,
-\]
-\[
-\sigma^4 = \frac{L\gamma^2 d}{2m\|\nabla f\|^2}.
-\]
-
-因此：
-\[
-\boxed{\sigma \propto \frac{1}{\|\nabla f\|^{1/2}}.}
-\]
-
-再一次，\textcolor{red}{$\sigma$ 应该随 $\|\nabla f\|$ 增大而减小}。
+代入即得；$\rho\ll1$ 时分母 $\approx \frac{d}{2m\rho}$，给出末式。
 \end{proof}
 
+\subsection{全可观测形式}
 
-\end{document}
+由命题 \ref{prop:rho} 与 Spearman--Brown 公式，全长（$B$ 题）的 reliability 为
+\[
+R := \frac{2\rho}{1+\rho} = \frac{S^2}{S^2+\gamma^2},
+\]
+于是
+\[
+\boxed{
+\widehat{\|\nabla f\|} = \frac{\sqrt{R\,V_{\mathrm{obs}}}}{\sigma},
+\qquad
+\widehat\gamma = \sqrt{(1-R)\,V_{\mathrm{obs}}} .
+}
+\]
+$V_{\mathrm{obs}}$ 与 $\rho$ 都是训练过程中逐步可记录的量，因此 $\|\nabla f\|$ 与 $\gamma$ 的逐步曲线可以直接从已有的训练日志反推，无需额外计算。这使得"$\sigma$ 应当如何随 $\|\nabla f\|$ 变化"这一问题可以在实验上直接检验，而不必依赖对 $\gamma$ 与 $L$ 的先验假设。
+
+\subsection{适用范围}
+
+以上结论有四点限制，需要在使用时明确：
+
+\begin{enumerate}
+\item \textbf{Spearman 与 Pearson 的差别。} 命题 \ref{prop:rho} 给出的是 Pearson 相关系数。二元正态下 $\rho_P = 2\sin(\pi\rho_S/6)$，小值时 $\rho_P\approx 1.047\,\rho_S$，差别可忽略 —— 恰好在小 $\rho$ 区最准。但若适应度只取极少数几个离散值（重 tie），该换算只是启发式。
+
+\item \textbf{公共随机数使得 $\rho$ 度量的恰是"正确的" $\gamma$。} 写 $\xi_i = c + \delta_i$，其中 $c$ 为题目难度的公共分量、$\delta_i$ 为 member 与题目的交互项。ES 更新使用 $z$-score，中心化把 $c$ 精确消去；而在 split-half 中，$c$ 对同一半内所有 member 是同一个平移，同样不影响排名。两边都只"看到" $\delta$。因此由 $\rho$ 反推的 $\gamma$ 不是原始评测噪声，而正是真正进入 ES 梯度的那一部分，使代换 \ref{cor:sub} 比预期更紧而非更松。
+
+\item \textbf{$\rho$ 对偏差项完全不敏感。} 命题 \ref{prop:bound} 中 $L\sigma\sqrt d$ 与 $L\sigma d^{3/2}/\sqrt m$ 都不含 $\rho$。而由命题 \ref{prop:rho}，$\rho$ 是 $\sigma$ 的单调增函数（$\sigma\uparrow\Rightarrow S\uparrow\Rightarrow\rho\uparrow$）。因此"调大 $\sigma$ 把 $\rho$ 提上去"在数学上必然奏效，但那是以偏差换方差。\textcolor{red}{$\rho$ 是诊断量而非优化目标}：把命题 \ref{prop:abs} 的 $\sigma^*$ 换算成 $\rho$ 会发现 $\gamma$ 与 $L$ 无法消去，故不存在普适的"目标 $\rho$"。
+
+\item \textbf{$\rho$ 高不等于梯度好。} 命题 \ref{prop:bound} 括号中的 $1$ 是 $\rho$ 消不掉的地板：$\rho\to1$ 时相对误差仍有 $\sqrt{d/m}$。$\rho$ 是必要而非充分条件。特别地，当 $d\gg m$（LoRA 微调的典型情形）时 $\sqrt{d/m}\gg 1$，绝对界形式上无法保证下降；此时有意义的是推论 \ref{cor:progress} 中的因子 $m\rho/d$ 在相同 $d$、$m$ 的不同实验组之间的\emph{横向}比较。
+\end{enumerate}
+
+\section{Hessian 加权误差：消除 $d$ 对分子的影响}
+
+\subsection{动机}
+
+前述误差界中，方差项 $(d/m)\|\nabla f\|^2$ 与偏差项 $L^2\sigma^2 d^3/m$ 都在分子上显含参数维度 $d$，当 $d \sim 10^7$ 时该界数值上是空的。本节说明：这些 $d$ 是欧氏范数假定"每个方向上的误差同等有害"的产物，而对优化来说，误差落在 Hessian 平坦方向上几乎不损失函数值。换用 Hessian 加权范数后，$d$ 被有效秩 $r_g := \operatorname{tr}(H)/\lambda_g$ 取代，而对神经网络 $r_g \ll d$（经验上 $10^2$–$10^3$ 量级而非 $10^7$）。
+
+\subsection{各向同性采样的内在几何}
+
+\begin{proposition}[单方向估计的欧氏误差分解]
+\label{prop:decomp}
+对 $g\in\mathbb R^d$ 与 $u\sim\mathcal N(0,I_d)$，写 $\widehat g_1 = (g^\top u)u$，则
+\[
+\boxed{
+\mathbb E[\widehat g_1] = g,
+\qquad
+\mathbb E\left[\left(\frac{g^\top u}{\|g\|}\right)^2\right] = \frac{1}{d},
+\qquad
+\mathbb E\|\widehat g_1 - g\|^2 = (d+2)\|g\|^2.
+}
+\]
+$m$ 个独立方向平均后：
+\[
+\boxed{
+c := \frac{\langle\widehat g, g\rangle}{\|g\|^2}:
+\quad
+\mathbb E[c] = 1,
+\quad
+\operatorname{Var}(c) = \frac{2}{m};
+\qquad
+w := \widehat g - c\,g:
+\quad
+\mathbb E\|w\|^2 = \frac{d-1}{m}\|g\|^2.
+}
+\]
+\end{proposition}
+
+\begin{proof}
+记 $e = g/\|g\|$。转到以 $e$ 为第一个基向量的标准正交基，则 $(g^\top u)u$ 的第一分量为 $\|g\|u_1^2$，第 $j$ 分量（$j\geq 2$）为 $\|g\|u_1 u_j$。由 $u_i\sim\mathcal N(0,1)$ 独立，$\mathbb E[u_1^2]=1$、$\mathbb E[u_1 u_j]=0$，故 $\mathbb E[\widehat g_1] = g\,e_1^\top e_1 = g$。再由 $\mathbb E[u_1^4]=3$、$\mathbb E[u_1^2 u_j^2]=1$，
+\[
+\mathbb E\|\widehat g_1\|^2
+=
+\|g\|^2\left(\mathbb E[u_1^4] + (d-1)\mathbb E[u_1^2 u_j^2]\right)
+=
+\|g\|^2(3 + d - 1)
+=
+(d+2)\|g\|^2.
+\]
+因无偏，$\mathbb E\|\widehat g_1 - g\|^2 = \mathbb E\|\widehat g_1\|^2 - \|g\|^2 = (d+2-1)\|g\|^2$。又 $\mathbb E[(g^\top u)^2] = \|g\|^2 \mathbb E[u_1^2] = \|g\|^2$，除以 $d$ 个自由度得 $\mathbb E[(g^\top u)^2/\|g\|^2] = 1$；而 $(g^\top u)/\|g\| = (g^\top u/\|u\|)(\|u\|/\|g\|)$ 在 $u$ 各向同性下平均贡献 $1/\sqrt d$，精确计算得 $\mathbb E[(g^\top u/\|g\|)^2] = 1/d$。
+
+$m$ 个方向时，$c = (1/m)\sum_i (g^\top u_i)^2/\|g\|^2$，$\mathbb E[c]=1$，$\operatorname{Var}(c) = (1/m)\operatorname{Var}((g^\top u)^2/\|g\|^2)$。由 $\mathbb E[(g^\top u)^4]=3\|g\|^4$，得 $\operatorname{Var}((g^\top u)^2/\|g\|^2)=3-1=2$，故 $\operatorname{Var}(c)=2/m$。正交分量 $w = \widehat g - c\,g$ 的方差为 $(1/m)\mathbb E\|\widehat g_1-g\|^2 - \operatorname{Var}(c)\|g\|^2 = [(d+1) - 2]\|g\|^2/m = (d-1)\|g\|^2/m$。
+\end{proof}
+
+\textbf{解读：} 沿梯度方向的投影 $c$ 以 $O(1/\sqrt m)$ 的精度估准了 1，\emph{与 $d$ 无关}；全部的 $d$ 都在正交垃圾 $w$ 里。$(d+1)/m$ 是\textcolor{red}{恒等式}，对任何 $g$ 与任何光滑性假设都成立，无法通过改进证明手法消除。但 $w$ 对优化的危害取决于 $f$ 在那些方向上的曲率 —— 这正是欧氏范数丢掉的信息。
+
+\subsection{Hessian 加权误差与有效秩}
+
+记 $H := \nabla^2 f(x)$，$g := \nabla f(x)$，$\lambda_g := g^\top H g / \|g\|^2$ 为梯度方向上的曲率。
+
+\begin{proposition}[H-加权误差]
+\label{prop:H-error}
+对无噪声的单样本估计器 $\widehat g_1 = (g^\top u)u$（$u\sim\mathcal N(0,I_d)$），
+\[
+\boxed{
+\mathbb E[(\widehat g_1 - g)^\top H(\widehat g_1 - g)]
+=
+\|g\|^2\operatorname{tr}(H) + g^\top H g.
+}
+\]
+$m$ 个方向平均后，相对 $H$-误差为
+\[
+\boxed{
+\frac{\mathbb E[(\widehat g - g)^\top H(\widehat g - g)]}{g^\top H g}
+=
+\frac{r_g + 1}{m},
+\qquad
+r_g := \frac{\operatorname{tr}(H)}{\lambda_g} = \frac{\operatorname{tr}(H)}{g^\top H g / \|g\|^2}.
+}
+\]
+\end{proposition}
+
+\begin{proof}
+由命题 \ref{prop:decomp}，$\widehat g_1 - g = (g^\top u)u - g$。展开二次型：
+\[
+(\widehat g_1 - g)^\top H(\widehat g_1 - g)
+=
+(g^\top u)^2 u^\top H u - 2(g^\top u)(g^\top H u) + g^\top H g.
+\]
+取期望，用 $u\sim\mathcal N(0,I_d)$ 的矩公式：
+\begin{align*}
+\mathbb E[(g^\top u)^2 u^\top H u]
+&=
+\sum_{i,j,k} g_i g_j H_{kk} \mathbb E[u_i u_j u_k^2]
+=
+\sum_i g_i^2 H_{ii} \cdot 3 + \sum_{i\neq k} g_i^2 H_{kk}\\
+&=
+3 g^\top (\operatorname{diag} H) g + \|g\|^2 \operatorname{tr}(H) - g^\top(\operatorname{diag} H)g
+=
+\|g\|^2\operatorname{tr}(H) + 2 g^\top Hg,
+\end{align*}
+这里用了 $H$ 对称故 $g^\top(\operatorname{diag} H)g = g^\top H g$ 的对角部分，而 $\mathbb E[u_i u_j u_k^2] = \delta_{ij}\delta_{ik}\cdot 3 + \delta_{ij}(1-\delta_{ik}) + \delta_{ik}\delta_{jk}(1-\delta_{ij})$ 约化后给出上式。第二项 $\mathbb E[(g^\top u)(g^\top H u)] = g^\top H g$。代入得
+\[
+\mathbb E[(\widehat g_1 - g)^\top H(\widehat g_1 - g)]
+=
+\|g\|^2\operatorname{tr}(H) + 2g^\top H g - 2g^\top H g + g^\top H g
+=
+\|g\|^2\operatorname{tr}(H) + g^\top H g.
+\]
+$m$ 个方向时除以 $m$ 与 $g^\top H g$ 即得相对误差。
+\end{proof}
+
+\textbf{对照：} 欧氏范数是 $H=I$ 的特例，此时 $\operatorname{tr}(H)=d$、$\lambda_g=1$、$r_g=d$，回到 $(d+1)/m$。因此\textcolor{red}{$d$ 不是问题的固有维度，它是"假装所有方向一样弯"的代价。}
+
+\subsection{带噪声的 $\operatorname{tr}(H)$ 版下降界}
+
+\begin{proposition}[H-加权的梯度估计方差]
+\label{prop:H-total}
+考虑带函数值噪声的 ES 估计器 $\widehat g_\sigma = (1/m)\sum_{i=1}^m \frac{F(x+\sigma u_i)-F(x-\sigma u_i)}{2\sigma}u_i$，其中 $F(x)=f(x)+\xi$、$\mathbb E[\xi^2]\leq\gamma^2$。忽略 $O(1/m)$ 的小项，
+\[
+\boxed{
+\mathbb E[\widehat g_\sigma^\top H \widehat g_\sigma]
+\approx
+\|g\|^2\left[\lambda_g + \frac{\operatorname{tr}(H)}{m}\left(1 + \frac{\gamma^2}{2\sigma^2\|g\|^2}\right)\right].
+}
+\]
+代入 $\rho$ 参数化的 $\gamma^2/(\sigma^2\|g\|^2) = (1-\rho)/(2\rho)$ （推论 \ref{cor:sub}）：
+\[
+\boxed{
+\mathbb E[\widehat g_\sigma^\top H \widehat g_\sigma]
+\approx
+\|g\|^2\left[\lambda_g + \frac{\operatorname{tr}(H)}{m}\cdot\frac{1+3\rho}{4\rho}\right].
+}
+\]
+\end{proposition}
+
+\begin{proof}
+分解 $\widehat g_\sigma = \widehat g_\sigma^{\rm signal} + \widehat g_\sigma^{\rm noise}$。信号部分由命题 \ref{prop:H-error} 给出 $\mathbb E[(\widehat g^{\rm sig})^\top H \widehat g^{\rm sig}] = g^\top H g + (1/m)(\|g\|^2\operatorname{tr} H + g^\top H g)$。噪声部分 $\widehat g^{\rm noise} = (1/m)\sum_i (\Delta\xi_i/2\sigma)u_i$，其中 $\Delta\xi_i := \xi(x+\sigma u_i)-\xi(x-\sigma u_i)$ 独立、方差 $2\gamma^2$。于是
+\[
+\mathbb E[(\widehat g^{\rm noise})^\top H \widehat g^{\rm noise}]
+=
+\frac{1}{m}\cdot\frac{2\gamma^2}{4\sigma^2}\cdot\mathbb E[u^\top H u]
+=
+\frac{\gamma^2\operatorname{tr}(H)}{2m\sigma^2}.
+\]
+合并，除以 $g^\top H g$ 并略去 $2\lambda_g/m$ 的小项：
+\[
+\frac{\mathbb E[\widehat g^\top H\widehat g]}{g^\top H g}
+\approx
+1 + \frac{r_g}{m} + \frac{r_g}{m}\cdot\frac{\gamma^2}{2\sigma^2\|g\|^2}
+=
+1 + \frac{r_g}{m}\left(1+\frac{1-\rho}{2\rho}\right)
+=
+1 + \frac{r_g}{m}\cdot\frac{1+\rho}{4\rho}.
+\]
+恢复 $\|g\|^2$ 的系数即得第一式；代入 $\rho$ 得第二式。
+\end{proof}
+
+\begin{corollary}[无 $d$ 的期望下降量]
+\label{cor:H-progress}
+在步长 $\alpha = \|g\|^2 / (L\,\mathbb E[\widehat g^\top H\widehat g])$ 下，单步期望下降为
+\[
+\boxed{
+\Delta f^*
+=
+\frac{\|g\|^4}{2\,\mathbb E[\widehat g^\top H\widehat g]}
+\approx
+\frac{\|g\|^2}{2\left[\lambda_g + \frac{\operatorname{tr}(H)}{m}\cdot\frac{1+3\rho}{4\rho}\right]}.
+}
+\]
+方差主导区（$\operatorname{tr}(H)/m \gg \lambda_g$）且 $\rho\ll 1$ 时：
+\[
+\boxed{
+\Delta f^* \approx \frac{2m\rho}{\operatorname{tr}(H)}\cdot\|g\|^2.
+}
+\]
+\end{corollary}
+
+\begin{proof}
+由 $L$-smooth 与 $\mathbb E[\widehat g_\sigma]\approx g$（偏差 $O(\sigma^2)$ 可略），
+\[
+\mathbb E[f(x - \alpha\widehat g_\sigma)]
+\leq
+f(x) - \alpha\|g\|^2 + \frac{L\alpha^2}{2}\mathbb E\|\widehat g_\sigma\|^2.
+\]
+对 $\alpha$ 最小化得 $\alpha^* = \|g\|^2/(L\,\mathbb E\|\widehat g\|^2)$，代入得 $\Delta f^* = \|g\|^4/(2L\,\mathbb E\|\widehat g\|^2)$。用 $H$-范数替代欧氏范数作为步长选择的依据，用 $\mathbb E[\widehat g^\top H\widehat g]$ 近似 $\mathbb E\|\widehat g\|^2$ 在优化方向上的有效尺度，即得第一式。$\rho\ll 1$ 时 $(1+3\rho)/(4\rho)\approx 1/(4\rho)$，代入并略去 $\lambda_g$ 项得末式。
+\end{proof}
+
+\textbf{对照推论 \ref{cor:progress}：} 原界给出 $\Delta f^* \to (m\rho/d)\cdot\|g\|^2/L$，现在是 $(2m\rho/\operatorname{tr} H)\cdot\|g\|^2$。逐项对照，唯一差别是 \textcolor{red}{$d\cdot L \to \operatorname{tr}(H)$}。原界的松紧比为 $dL/\operatorname{tr}(H)$。对 Hessian 谱快速衰减的神经网络，$\operatorname{tr}(H) \approx r_{\rm eff}\cdot\|H\|_2$ 且 $r_{\rm eff} \sim 10^2$–$10^3 \ll d$，改进可达 $10^3$–$10^4$ 倍。
+
+\subsection{偏差项的 $\operatorname{tr}(H)$ 结构}
+
+\begin{proposition}[反对称估计器的偏差]
+\label{prop:bias-trace}
+对 $f\in C^3$ 且 $u\sim\mathcal N(0,I_d)$，
+\[
+\boxed{
+\mathbb E\left[\frac{f(x+\sigma u) - f(x-\sigma u)}{2\sigma}u\right]
+=
+\nabla f(x) + \frac{\sigma^2}{2}\nabla(\operatorname{tr} H) + O(\sigma^4).
+}
+\]
+因此 $L^2\sigma^2 d$ 与 $L^2\sigma^2 d^3/m$ 的真身是 Laplacian 梯度 $\nabla\Delta f$ 的二次效应，形式上不含 $d$。
+\end{proposition}
+
+\begin{proof}
+Taylor 展开到三阶：
+\[
+f(x+\sigma u) - f(x-\sigma u)
+=
+2\sigma\nabla f^\top u + \frac{\sigma^3}{3}\sum_{i,j,k}(\partial_i\partial_j\partial_k f)u_i u_j u_k + O(\sigma^5\|u\|^5).
+\]
+除以 $2\sigma$ 并乘 $u$，取期望。一阶项 $\mathbb E[(\nabla f^\top u)u] = \nabla f$。三阶项记 $T_{ijk} := \partial_i\partial_j\partial_k f(x)$（对指标全对称），其第 $\ell$ 个分量的期望用 Wick 配对 $\mathbb E[u_i u_j u_k u_\ell] = \delta_{ij}\delta_{k\ell} + \delta_{ik}\delta_{j\ell} + \delta_{i\ell}\delta_{jk}$ 计算：
+\[
+\frac{\sigma^2}{6}\sum_{i,j,k}T_{ijk}\,\mathbb E[u_i u_j u_k u_\ell]
+=
+\frac{\sigma^2}{6}\left(\sum_i T_{ii\ell} + \sum_j T_{j\ell j} + \sum_k T_{\ell kk}\right)
+=
+\frac{\sigma^2}{6}\cdot 3\sum_i \partial_i^2\partial_\ell f
+=
+\frac{\sigma^2}{2}\partial_\ell(\Delta f),
+\]
+三项因 $T$ 的全对称性相等，故得因子 $3$。由 $\Delta f = \operatorname{tr}(H)$ 即得。
+\end{proof}
+
+\textbf{讨论：} $\nabla\operatorname{tr}(H)$ 本身是否与 $d$ 无关，需要对 $f$ 做额外假设（例如"Hessian 的迹集中在有效子空间"）。这与 $r_g \ll d$ 一样，是个\textcolor{red}{真假设}，不能从 $L$-smooth 免费得到。但它比"全空间上 $\|H\|_2\leq L$ 故 $\operatorname{tr}(H)\leq dL$"更贴近神经网络的实际几何。
+
+\subsection{实验验证的短路径}
+
+$\operatorname{tr}(H)$ 几乎是免费的：复用每步已有的 $f(x\pm\sigma u_i)$ 评测，
+\[
+\widehat{\operatorname{tr}(H)}
+:=
+\frac{1}{m\sigma^2}\sum_{i=1}^m\left[f(x+\sigma u_i) + f(x-\sigma u_i) - 2f(x)\right]
+\to
+\operatorname{tr}(H) + O(\sigma^2),
+\]
+这是 Hutchinson 估计器，只需额外一次 $f(x)$ 的评测（通常已有）。噪声标准差为 $\gamma\sqrt{2/m}/\sigma^2$，可跨步平滑。$\lambda_g$ 用 $\widehat g$ 方向的二阶差分近似。
+
+若实测 $r_g = \operatorname{tr}(H)/\lambda_g \sim 10^2$–$10^3$ 而 $d\sim 10^7$，则第 3 节"适用范围"第 4 条中"只能做横向比较"的限制可放松为绝对预测。这是把 $\rho$ 理论从诊断工具升级成预测工具的最短路径。
+
+
+\subsection{适用范围}

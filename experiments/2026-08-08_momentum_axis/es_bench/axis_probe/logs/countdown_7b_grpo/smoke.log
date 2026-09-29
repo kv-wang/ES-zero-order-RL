@@ -1,0 +1,16 @@
+model=Qwen/Qwen2.5-7B-Instruct  task=countdown  gpus=0,1 (n=2, rollout TP=2)
+TRAIN_BS=16 GROUP=8 -> 128 rollouts/step
+BUDGET=manual STEPS=20 -> total_generations=2560  (ES vanilla arm = 300000)
+MICRO=2 maxprompt=1024 maxresp=2048 util=0.5 save_freq=20
+out=axis_probe/results/countdown_7b_grpo  ckpt=/home/hyin66/es_ckpts/grpo_countdown_7b_bs16g8_manual20
+NOTE: total_generations differs from the ES arm by -297440 (2560 vs 300000, -99.147%) -- 128 rollouts/step does not divide 300000 evenly.
+[2026-08-24_12:50:17] start grpo_countdown_7b_bs16g8_manual20  steps=20 total_gen=2560
+[2026-08-24_12:50:17] STAGE1 skip (parquet exists)
+[2026-08-24_12:50:17] STAGE2 train (20 steps, model=/tmp/rawtmpl_Qwen2.5-7B-Instruct)
+[2026-08-24_13:28:36] STAGE2 rc=1 elapsed=2299s (115.0 s/step)
+  gpu0 peak=122.42 GiB  median=82.76  p5=0.51  n=455
+  gpu1 peak=122.84 GiB  median=82.18  p5=0.51  n=455
+  both cards peak=245.26 GiB
+  (median << peak is expected: the peak is update_actor and lasts seconds)
+  !! training failed, see axis_probe/logs/countdown_7b_grpo/grpo_countdown_7b_bs16g8_manual20_train.log
+     Traceback (most recent call last):

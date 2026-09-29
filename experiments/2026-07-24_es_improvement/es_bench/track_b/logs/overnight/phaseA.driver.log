@@ -1,0 +1,32 @@
+[01:37:04] === Phase A START (model=Qwen/Qwen2.5-3B-Instruct) ===
+[01:37:04] fullparam reference sigma=1e-3 (math, 16 prompts, 8 draws)
+[01:38:27] ref math DONE
+[01:38:27] lora grid (math, 16 prompts, 8 draws, 4 sigmas)
+[01:40:44] lora math DONE
+[01:40:44] fullparam reference sigma=1e-3 (gsm8k, 16 prompts, 8 draws)
+[01:42:06] ref gsm8k DONE
+[01:42:06] lora grid (gsm8k, 16 prompts, 8 draws, 4 sigmas)
+[01:44:11] lora gsm8k DONE
+[01:44:11] === Phase A generation DONE -> selecting sigma* ===
+Traceback (most recent call last):
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/src/phaseA_select.py", line 84, in <module>
+    main()
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/src/phaseA_select.py", line 39, in main
+    ref_pts.append(g[0]["flip_rate_mean"])
+TypeError: 'float' object is not subscriptable
+[01:44:11] === Phase A ALL DONE ===
+{
+  "reference_flip_rate_pooled": 0.30078125,
+  "band": [
+    0.150390625,
+    0.6015625
+  ],
+  "sigma_star": 0.015,
+  "alpha": 0.0075,
+  "sigma_ceiling_flag": false,
+  "selection_reason": "flip-rate 0.320 closest to reference 0.301 within band [0.150,0.602]"
+}
+  sigma=0.005  flip=0.238  kl=1.714e-03
+  sigma=0.015  flip=0.320  kl=3.737e-02
+  sigma=0.05  flip=0.844  kl=1.994e+01
+  sigma=0.15  flip=0.844  kl=1.816e+01

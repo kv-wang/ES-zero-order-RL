@@ -1,0 +1,2 @@
+exp,train_max_response,eval_max_tokens,OODavg,OOD_n,L3_5,gsm8k,math500,svamp,minerva_math,olympiadbench,countdown,reward_first10,reward_last10,resp_len_last10,clip_ratio_last10,s_per_step,n_steps
+grpo_full_3b_math_t2048,2048,2048,0.3721,5,0.4194,0.8767,0.51,0.92,0.1471,0.18,0.1033,0.6008,0.6758,681.6,0.0102,25.89,200

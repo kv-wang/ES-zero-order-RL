@@ -1,0 +1,49 @@
+{
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "dataset": "math",
+  "levels": [
+    3,
+    4,
+    5
+  ],
+  "population_size": 4,
+  "batch_size": 8,
+  "sigma": 0.001,
+  "alpha": 0.0005,
+  "data_seed": 1234,
+  "pop_seed": 0,
+  "gpu": 0,
+  "num_steps": 200,
+  "warmup": 5,
+  "max_tokens": 512,
+  "zero_update_count": 65,
+  "zero_update_rate": 0.325,
+  "fitness_var_mean": 0.0035807291666666665,
+  "s_per_step": {
+    "mean": 5.416806198178958,
+    "std": 0.11581835578583317
+  },
+  "t_generation": {
+    "mean": 5.285098825060786,
+    "std": 0.11282238205438269
+  },
+  "t_perturb_swap": {
+    "mean": 0.0721577141004113,
+    "std": 0.0007634357626564664
+  },
+  "t_update": {
+    "mean": 0.05954965901776002,
+    "std": 0.01834716118823534
+  },
+  "seqs_per_step": 32,
+  "tokens_per_step": {
+    "mean": 14244.133333333333,
+    "std": 982.5174586648303
+  },
+  "tokens_per_s": 2629.618415759822,
+  "t_eff_per_effective_step": 8.024898071376233,
+  "peak_mem_torch_gb": 80.849470464,
+  "peak_mem_reserved_gb": 82.329993216,
+  "peak_mem_nvidia_smi_mib": 79619,
+  "wall_clock_s": 1084.318414485082
+}

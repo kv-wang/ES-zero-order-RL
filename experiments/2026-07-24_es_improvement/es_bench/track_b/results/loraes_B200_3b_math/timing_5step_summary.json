@@ -1,0 +1,47 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset": "math",
+  "population_size": 30,
+  "batch": 200,
+  "rank": 8,
+  "targets": "q_proj,k_proj,v_proj,o_proj",
+  "antithetic": true,
+  "sigma": 0.015,
+  "alpha": 0.0075,
+  "num_steps_requested": 5,
+  "steps_completed": 5,
+  "pop_seed": 0,
+  "data_seed": 42,
+  "max_tokens": 2048,
+  "chunk": 2000,
+  "stop_reason": "completed",
+  "wall_clock_s": 1556.2979547819123,
+  "s_per_step_mean": 311.25959095638245,
+  "fit_first20": 0.5517333333333333,
+  "fit_last20": 0.5517333333333333,
+  "fit_slope_per_step": 0.0025499999999999967,
+  "median_split_half_spearman": 0.11293079951691486,
+  "mean_split_half_spearman": 0.05070139869859349,
+  "best_fit_step": 2,
+  "best_fit": 0.587,
+  "kl_curve": [
+    {
+      "step": 0,
+      "kl": -3.7073970869601628e-06
+    },
+    {
+      "step": 1,
+      "kl": 0.00033708058715735726
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 0,
+      "path": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/loraes_B200_3b_math/timing_5step_ckpt/theta_step0.pt"
+    },
+    {
+      "step": "final",
+      "path": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/loraes_B200_3b_math/timing_5step_ckpt/theta_step5_final.pt"
+    }
+  ]
+}

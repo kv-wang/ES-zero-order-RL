@@ -1,0 +1,115 @@
+[merge] /var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/actor -> /var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged
+config: ModelMergerConfig(operation='merge', backend='fsdp', target_dir='/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged', hf_upload_path=None, private=False, test_hf_dir=None, tie_word_embedding=False, trust_remote_code=False, is_value_model=False, local_dir='/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/actor', hf_model_config_path='/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/actor/huggingface', hf_upload=False, use_cpu_initialization=False)
+Got device mesh tensor([0, 1], dtype=torch.int32), mesh_dim_names ('fsdp',)
+Processing model shards with 2 (2,) in total
+Loading 2 FSDP shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading 2 FSDP shards:  50%|█████     | 1/2 [00:04<00:04,  4.69s/it]Loading 2 FSDP shards: 100%|██████████| 2/2 [00:04<00:00,  2.35s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tokenizer you are loading from '/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/actor/huggingface' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+The tokenizer you are loading from '/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/actor/huggingface' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Saving model to /var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged
+Saving tokenizer to /var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged
+[merge] restored real tokenizer_config from /tmp/rawtmpl_Qwen2.5-7B-Instruct/tokenizer_config.orig.json
+The tokenizer you are loading from '/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+WARNING 08-24 20:23:13 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 08-24 20:23:13 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+The tokenizer you are loading from '/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 08-24 20:23:19 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.44s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.31s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.22it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:04<00:00,  1.01s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:04<00:00,  1.05s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:00<00:01, 38.77it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:01, 38.46it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:00<00:01, 39.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:00<00:01, 40.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:00<00:01, 41.80it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 42.73it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:00<00:00, 42.59it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:00<00:00, 43.86it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 43/67 [00:01<00:00, 44.53it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:01<00:00, 44.66it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:01<00:00, 45.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:01<00:00, 44.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:01<00:00, 45.77it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 43.98it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   7%|▋         | 5/67 [00:00<00:01, 45.20it/s]Capturing CUDA graphs (decode, FULL):  15%|█▍        | 10/67 [00:00<00:01, 47.66it/s]Capturing CUDA graphs (decode, FULL):  24%|██▍       | 16/67 [00:00<00:01, 49.73it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 22/67 [00:00<00:00, 51.89it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 29/67 [00:00<00:00, 55.15it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 36/67 [00:00<00:00, 58.39it/s]Capturing CUDA graphs (decode, FULL):  64%|██████▍   | 43/67 [00:00<00:00, 61.80it/s]Capturing CUDA graphs (decode, FULL):  76%|███████▌  | 51/67 [00:00<00:00, 65.37it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 59/67 [00:00<00:00, 68.61it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:01<00:00, 62.40it/s]
+The tokenizer you are loading from '/var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_manual2/global_step_2/hf_merged' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[kl] drift=1.6842e-01 (base-vs-base floor 7.19e-06)
+EVAL_FINAL: {
+  "math500": {
+    "n": 40,
+    "full_n": 500,
+    "capped": true,
+    "accuracy": 0.675,
+    "extract_rate": 1.0,
+    "headroom": 0.325,
+    "ceiling_risk": false,
+    "gen_seconds": 6.8,
+    "per_level_accuracy": {
+      "1": 0.5,
+      "2": 0.8889,
+      "3": 0.8182,
+      "4": 0.3333,
+      "5": 0.6
+    },
+    "primary_L3_5_accuracy": 0.6296
+  },
+  "gsm8k": {
+    "n": 40,
+    "full_n": 1319,
+    "capped": true,
+    "accuracy": 0.875,
+    "extract_rate": 1.0,
+    "headroom": 0.125,
+    "ceiling_risk": false,
+    "gen_seconds": 11.8
+  },
+  "svamp": {
+    "n": 40,
+    "full_n": 300,
+    "capped": true,
+    "accuracy": 0.925,
+    "extract_rate": 1.0,
+    "headroom": 0.075,
+    "ceiling_risk": false,
+    "gen_seconds": 11.5
+  },
+  "minerva_math": {
+    "n": 40,
+    "full_n": 272,
+    "capped": true,
+    "accuracy": 0.175,
+    "extract_rate": 1.0,
+    "headroom": 0.825,
+    "ceiling_risk": false,
+    "gen_seconds": 12.4
+  },
+  "olympiadbench": {
+    "n": 40,
+    "full_n": 674,
+    "capped": true,
+    "accuracy": 0.125,
+    "extract_rate": 0.95,
+    "headroom": 0.875,
+    "ceiling_risk": false,
+    "gen_seconds": 12.4
+  },
+  "amc23": {
+    "n": 40,
+    "full_n": 40,
+    "capped": true,
+    "accuracy": 0.55,
+    "extract_rate": 0.975,
+    "headroom": 0.45,
+    "ceiling_risk": false,
+    "gen_seconds": 12.0
+  },
+  "countdown": {
+    "n": 40,
+    "full_n": 2200,
+    "capped": true,
+    "accuracy": 0.425,
+    "extract_rate": 0.675,
+    "headroom": 0.575,
+    "ceiling_risk": false,
+    "gen_seconds": 12.3
+  }
+}
+[rank0]:[W824 20:25:26.008847718 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

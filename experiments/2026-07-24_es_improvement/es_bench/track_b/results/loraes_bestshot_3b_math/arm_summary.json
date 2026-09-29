@@ -1,0 +1,55 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset": "math",
+  "population_size": 30,
+  "batch": 100,
+  "rank": 8,
+  "targets": "q_proj,k_proj,v_proj,o_proj",
+  "antithetic": true,
+  "sigma": 0.015,
+  "alpha": 0.0075,
+  "num_steps_requested": 2000,
+  "steps_completed": 32,
+  "pop_seed": 0,
+  "data_seed": 42,
+  "max_tokens": 2048,
+  "chunk": 2000,
+  "stop_reason": "DEADLINE reached at step 32/2000",
+  "wall_clock_s": 5204.1005152901635,
+  "s_per_step_mean": 162.6281411028176,
+  "fit_first20": 0.5538,
+  "fit_last20": 0.5503,
+  "fit_slope_per_step": -0.00046884164222873797,
+  "median_split_half_spearman": 0.06296243554465786,
+  "mean_split_half_spearman": 0.04882788427404777,
+  "best_fit_step": 5,
+  "best_fit": 0.6666666666666666,
+  "kl_curve": [
+    {
+      "step": 0,
+      "kl": -3.7073970869601628e-06
+    },
+    {
+      "step": 1,
+      "kl": 0.0002234066395509317
+    },
+    {
+      "step": 25,
+      "kl": 0.0031796491949454154
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 0,
+      "path": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/loraes_bestshot_3b_math/ckpt/theta_step0.pt"
+    },
+    {
+      "step": 25,
+      "path": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/loraes_bestshot_3b_math/ckpt/theta_step25.pt"
+    },
+    {
+      "step": "final",
+      "path": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/loraes_bestshot_3b_math/ckpt/theta_step32_final.pt"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "population_size": 16,
+  "sigma": 0.0077,
+  "alpha": 0.05,
+  "batch": 8,
+  "ood_final": null,
+  "num_steps": 20,
+  "pop_seed": 0,
+  "id_curve": [
+    {
+      "step": 0,
+      "id_acc": null,
+      "kl": -3.0292977931325647e-07
+    },
+    {
+      "step": 10,
+      "id_acc": null,
+      "kl": 0.7546409092881625
+    },
+    {
+      "step": 20,
+      "id_acc": null,
+      "kl": 7.802225331097174
+    }
+  ],
+  "id_base": null,
+  "id_final": null,
+  "id_gain": null,
+  "fit_first_w": 0.12890625,
+  "fit_last_w": 0.003125,
+  "fit_delta": -0.12578125,
+  "fit_window": 10,
+  "kl_final": 7.802225331097174,
+  "kl_velocity_per_step": 0.39011126655485867,
+  "zero_update_rate": 0.6,
+  "update_l2_mean_nonzero": 53.71728413992241,
+  "wall_clock_s": 109.94020483177155
+}

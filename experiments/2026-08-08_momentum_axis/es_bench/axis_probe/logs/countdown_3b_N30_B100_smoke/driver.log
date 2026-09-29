@@ -1,0 +1,23 @@
+================ countdown @ Qwen2.5-3B-Instruct ================
+model            : Qwen/Qwen2.5-3B-Instruct
+stages           : 0 2 3 4        seeds: 0        smoke: 1
+GPU              : 0 (single card, TP=1, SERIAL: base -> vanilla -> baseaxis)
+ES               : N=30  B=100  steps=2  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 2 x 30 x 100 = 6000   per arm
+eval             : every 1 steps + final, cap=50, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step, after each arm
+vLLM mem util    : 0.70
+projection       : train ~0.2h + eval ~0.0h per arm  ->  ~0.4h total
+                   ESTIMATE at 0.15s/gen -- run SMOKE=1 first to calibrate.
+results          : axis_probe/results/countdown_3b_N30_B100_smoke
+checkpoints      : /home/hyin66/es_ckpts/countdown_3b_N30_B100_smoke
+=================================================================
+[2026-08-27_22:35:03] PREFLIGHT model: /home/hyin66/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1|2|5.75
+[2026-08-27_22:35:03] PREFLIGHT gpu0: 0 MiB in use
+[2026-08-27_22:35:03] START base -> axis_probe/logs/countdown_3b_N30_B100_smoke/base.log
+[2026-08-27_22:36:42] END   base rc=0 elapsed=99s
+[2026-08-27_22:36:42] START vanilla_s0 -> axis_probe/logs/countdown_3b_N30_B100_smoke/vanilla_N30_B100_s0.log
+[2026-08-27_22:55:40] END   vanilla_s0 rc=0 elapsed=1138s
+[2026-08-27_22:55:40] START rho_vanilla_s0 -> axis_probe/logs/countdown_3b_N30_B100_smoke/vanilla_N30_B100_s0_rho.log
+[2026-08-27_22:55:40] END   rho_vanilla_s0 rc=2 elapsed=0s
+[2026-08-27_22:55:40] START baseaxis_s0 -> axis_probe/logs/countdown_3b_N30_B100_smoke/baseaxis_N30_B100_s0.log

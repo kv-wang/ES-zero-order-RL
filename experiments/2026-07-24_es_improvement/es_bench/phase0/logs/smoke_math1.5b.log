@@ -1,0 +1,43 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=33718)[0;0m WARNING 07-18 04:47:22 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Exception in thread Thread-1 (_report_usage_worker):
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=33718)[0;0m   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+[1;36m(EngineCore_DP0 pid=33718)[0;0m     self.run()
+[1;36m(EngineCore_DP0 pid=33718)[0;0m   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/threading.py", line 953, in run
+[1;36m(EngineCore_DP0 pid=33718)[0;0m     self._target(*self._args, **self._kwargs)
+[1;36m(EngineCore_DP0 pid=33718)[0;0m   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 167, in _report_usage_worker
+[1;36m(EngineCore_DP0 pid=33718)[0;0m     self._report_usage_once(model_architecture, usage_context, extra_kvs)
+[1;36m(EngineCore_DP0 pid=33718)[0;0m   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 223, in _report_usage_once
+[1;36m(EngineCore_DP0 pid=33718)[0;0m     self._write_to_file(data)
+[1;36m(EngineCore_DP0 pid=33718)[0;0m   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/usage/usage_lib.py", line 252, in _write_to_file
+[1;36m(EngineCore_DP0 pid=33718)[0;0m     os.makedirs(os.path.dirname(_USAGE_STATS_JSON_PATH), exist_ok=True)
+[1;36m(EngineCore_DP0 pid=33718)[0;0m   File "/home/hyin66/micromamba/envs/verl/lib/python3.10/os.py", line 225, in makedirs
+[1;36m(EngineCore_DP0 pid=33718)[0;0m     mkdir(name, mode)
+[1;36m(EngineCore_DP0 pid=33718)[0;0m NotADirectoryError: [Errno 20] Not a directory: '/home/hyin66/.config/vllm'
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:37<00:00, 37.74s/it]
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:37<00:00, 37.74s/it]
+[1;36m(EngineCore_DP0 pid=33718)[0;0m 
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|█         | 7/67 [00:00<00:00, 64.69it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:00<00:00, 63.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:00<00:00, 63.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 61.20it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 58.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:00<00:00, 57.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:00<00:00, 57.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:00<00:00, 55.37it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:01<00:00, 54.62it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:01<00:00, 56.10it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 46.53it/s]
+[1;36m(EngineCore_DP0 pid=33718)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   1%|▏         | 1/67 [00:00<00:21,  3.09it/s]Capturing CUDA graphs (decode, FULL):  15%|█▍        | 10/67 [00:00<00:01, 29.02it/s]Capturing CUDA graphs (decode, FULL):  28%|██▊       | 19/67 [00:00<00:01, 46.72it/s]Capturing CUDA graphs (decode, FULL):  42%|████▏     | 28/67 [00:00<00:00, 58.77it/s]Capturing CUDA graphs (decode, FULL):  55%|█████▌    | 37/67 [00:00<00:00, 67.78it/s]Capturing CUDA graphs (decode, FULL):  70%|███████   | 47/67 [00:00<00:00, 75.00it/s]Capturing CUDA graphs (decode, FULL):  85%|████████▌ | 57/67 [00:00<00:00, 79.94it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:01<00:00, 84.03it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:01<00:00, 62.69it/s]
+{
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "n": 8,
+  "gpu": 0,
+  "accuracy": 0.625,
+  "boxed_format_rate": 0.875,
+  "extraction_rate": 1.0,
+  "avg_out_tokens": 329.25,
+  "avg_words": 177.5,
+  "load_seconds": 85.68,
+  "gen_seconds": 1.43,
+  "gen_tokens_per_s": 1838.8,
+  "max_tokens": 512
+}

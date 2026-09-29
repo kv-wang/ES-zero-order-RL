@@ -1,0 +1,9 @@
+[06:13:45] === Phase D START ===
+loraes_gsm8k: steps=57 best_fit_step=2 ckpts=4 -> 2 entries
+loraes_math: steps=36 best_fit_step=32 ckpts=3 -> 2 entries
+wrote track_b/results/overnight/eval_spec.json with 4 entries
+[06:13:45] running battery (deadline 07:45:00)
+[06:28:56] eval DONE
+[06:28:56] assembling report
+wrote track_b/results/overnight/report.md and track_b/results/overnight/results.csv (12 rows)
+[06:28:57] === Phase D DONE ===

@@ -1,0 +1,49 @@
+{
+  "jsonl": "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/results/countdown_3b_N30_B100/tilt_N30_B100_kappa0.05_s0.jsonl",
+  "steps_scored": 3,
+  "truncated_lines_skipped": 0,
+  "splits_per_step": 20,
+  "split_seed": 20260823,
+  "rho_mean": 0.2868,
+  "rho_min": 0.2571,
+  "rho_max": 0.3063,
+  "steps_all_degenerate": 0,
+  "per_step": [
+    {
+      "step": 0,
+      "rho_halfsplit": 0.297,
+      "rho_full_sb": 0.4579,
+      "valid_splits": 20,
+      "degenerate_splits": 0,
+      "batch_size": 100,
+      "population_size": 30,
+      "fitness_mean": 0.0687,
+      "fitness_std": 0.03074,
+      "solve_rate": 0.0687
+    },
+    {
+      "step": 1,
+      "rho_halfsplit": 0.3063,
+      "rho_full_sb": 0.469,
+      "valid_splits": 20,
+      "degenerate_splits": 0,
+      "batch_size": 100,
+      "population_size": 30,
+      "fitness_mean": 0.0667,
+      "fitness_std": 0.03048,
+      "solve_rate": 0.0667
+    },
+    {
+      "step": 2,
+      "rho_halfsplit": 0.2571,
+      "rho_full_sb": 0.409,
+      "valid_splits": 20,
+      "degenerate_splits": 0,
+      "batch_size": 100,
+      "population_size": 30,
+      "fitness_mean": 0.079,
+      "fitness_std": 0.03134,
+      "solve_rate": 0.079
+    }
+  ]
+}

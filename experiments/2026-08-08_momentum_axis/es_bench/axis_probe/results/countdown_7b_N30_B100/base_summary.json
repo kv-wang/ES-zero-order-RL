@@ -1,0 +1,99 @@
+{
+  "variant": "base",
+  "axis": null,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "num_steps": 0,
+  "total_generations": 0,
+  "wall_clock_s": 0.0,
+  "kl_proxy_drift": null,
+  "eval_max_tokens": 2048,
+  "tensor_parallel_size": 2,
+  "gpu_mem_util": 0.6,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.65,
+      "extract_rate": 0.9767,
+      "headroom": 0.35,
+      "ceiling_risk": false,
+      "gen_seconds": 17.4,
+      "per_level_accuracy": {
+        "1": 0.8519,
+        "2": 0.7857,
+        "3": 0.75,
+        "4": 0.5679,
+        "5": 0.4722
+      },
+      "primary_L3_5_accuracy": 0.5899
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.9233,
+      "extract_rate": 1.0,
+      "headroom": 0.0767,
+      "ceiling_risk": false,
+      "gen_seconds": 7.1
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.9167,
+      "extract_rate": 1.0,
+      "headroom": 0.0833,
+      "ceiling_risk": false,
+      "gen_seconds": 6.1
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.2316,
+      "extract_rate": 0.9963,
+      "headroom": 0.7684,
+      "ceiling_risk": false,
+      "gen_seconds": 17.3
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.2967,
+      "extract_rate": 0.9933,
+      "headroom": 0.7033,
+      "ceiling_risk": false,
+      "gen_seconds": 20.8
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.475,
+      "extract_rate": 0.975,
+      "headroom": 0.525,
+      "ceiling_risk": false,
+      "gen_seconds": 9.8
+    },
+    "countdown": {
+      "n": 300,
+      "full_n": 2200,
+      "capped": true,
+      "accuracy": 0.3,
+      "extract_rate": 0.62,
+      "headroom": 0.7,
+      "ceiling_risk": false,
+      "gen_seconds": 24.2
+    }
+  },
+  "eval_seconds": 108.81984190642834,
+  "population_size": null,
+  "pop_seed": null,
+  "pair_tie_rate": null,
+  "final_cum_disp": null,
+  "zero_update_rate": null,
+  "s_per_step_mean": null
+}

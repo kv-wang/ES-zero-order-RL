@@ -1,0 +1,74 @@
+{
+  "method": "grpo_full",
+  "hf_dir": "/tmp/grpo_ckpt_grpo_full_train/global_step_200/hf_merged",
+  "eval": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.4267,
+      "extract_rate": 0.8033,
+      "headroom": 0.5733,
+      "ceiling_risk": false,
+      "gen_seconds": 8.5,
+      "per_level_accuracy": {
+        "1": 0.8148,
+        "2": 0.5714,
+        "3": 0.5469,
+        "4": 0.3704,
+        "5": 0.125
+      },
+      "primary_L3_5_accuracy": 0.341
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.78,
+      "extract_rate": 0.99,
+      "headroom": 0.22,
+      "ceiling_risk": false,
+      "gen_seconds": 3.8
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8533,
+      "extract_rate": 0.99,
+      "headroom": 0.1467,
+      "ceiling_risk": false,
+      "gen_seconds": 3.0
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1103,
+      "extract_rate": 0.6434,
+      "headroom": 0.8897,
+      "ceiling_risk": false,
+      "gen_seconds": 8.5
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.12,
+      "extract_rate": 0.7333,
+      "headroom": 0.88,
+      "ceiling_risk": false,
+      "gen_seconds": 10.0
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.2,
+      "extract_rate": 0.875,
+      "headroom": 0.8,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    }
+  }
+}

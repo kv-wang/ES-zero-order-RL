@@ -1,0 +1,90 @@
+[2026-07-29 17:48:50] === countdown battery start: steps=100 N=30 B=100 maxtok=2048 gpu=0
+[2026-07-29 17:48:50] arm1 loraes  TRAIN start (N30 B100 r16 all-targets vanilla sig=0.015)
+[2026-07-29 21:49:00] === countdown battery start: steps=100 N=30 B=100 maxtok=2048 gpu=0
+[2026-07-29 21:49:00] arm1 loraes  TRAIN start (N30 B100 r16 all-targets vanilla sig=0.015)
+[2026-07-30 02:02:37] GPU drained (0MiB)
+[2026-07-30 02:02:37] arm1 loraes  EVAL start (theta=/tmp/countdown_loraes_ckpt/theta_step100_final.pt, lambda 1.0+0.5, perq)
+[2026-07-30 02:09:03] arm1 loraes  EVAL done
+[2026-07-30 02:09:03] GPU drained (0MiB)
+[2026-07-30 02:09:03] arm2 fulles  TRAIN start (N30 B100 sig=1e-3 alpha=5e-4, in-process eval+KL)
+[2026-07-30 10:49:15] arm2 fulles  DONE (summary + in-process eval written)
+[2026-07-30 10:49:15] GPU drained (0MiB)
+[2026-07-30 10:49:15] arm3 grpo    TRAIN start (100 steps, TRAIN_BS=16 GROUP=8, raw-template model)
+[2026-07-30 11:47:38] GPU drained (0MiB)
+[2026-07-30 11:47:38] arm3 grpo    MERGE fsdp->HF
+[2026-07-30 11:48:51] arm3 grpo    tokenizer restored; EVAL start (cap300/2048, perq)
+[2026-07-30 11:51:31] arm3 grpo    EVAL done
+[2026-07-30 11:51:31] GPU drained (0MiB)
+[2026-07-30 11:51:31] comparison
+COMPARISON:
+{
+  "base_stored": {
+    "source": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/exp3b_math/base_3b.json",
+    "countdown_ID": 0.08,
+    "math500": 0.53,
+    "gsm8k": 0.8667,
+    "svamp": 0.9133,
+    "minerva_math": 0.1618,
+    "olympiadbench": 0.19,
+    "L3_5": 0.447,
+    "OODavg_math5": 0.5324
+  },
+  "loraes:base": {
+    "source": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/countdown_battery/loraes/ood_eval.json",
+    "countdown_ID": 0.08,
+    "math500": 0.53,
+    "gsm8k": 0.8667,
+    "svamp": 0.9133,
+    "minerva_math": 0.1618,
+    "olympiadbench": 0.19,
+    "L3_5": 0.447,
+    "OODavg_math5": 0.5324
+  },
+  "loraes:base_lambda1": {
+    "source": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/countdown_battery/loraes/ood_eval.json",
+    "countdown_ID": 0.4267,
+    "math500": 0.4867,
+    "gsm8k": 0.81,
+    "svamp": 0.8933,
+    "minerva_math": 0.1287,
+    "olympiadbench": 0.16,
+    "L3_5": 0.3963,
+    "OODavg_math5": 0.4957
+  },
+  "loraes:base_lambda0.5": {
+    "source": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/countdown_battery/loraes/ood_eval.json",
+    "countdown_ID": 0.3933,
+    "math500": 0.4933,
+    "gsm8k": 0.8667,
+    "svamp": 0.9,
+    "minerva_math": 0.1544,
+    "olympiadbench": 0.16,
+    "L3_5": 0.3963,
+    "OODavg_math5": 0.5149
+  },
+  "fulles": {
+    "source": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/countdown_battery/fulles/arm_summary.json",
+    "countdown_ID": 0.45,
+    "math500": 0.5233,
+    "gsm8k": 0.87,
+    "svamp": 0.92,
+    "minerva_math": 0.1397,
+    "olympiadbench": 0.1533,
+    "L3_5": 0.424,
+    "OODavg_math5": 0.5213,
+    "kl_proxy": 0.01680341117840894,
+    "s_per_step": 311.0127753082957
+  },
+  "grpo": {
+    "source": "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/countdown_battery/grpo/ood_eval.json",
+    "countdown_ID": 0.56,
+    "math500": 0.53,
+    "gsm8k": 0.8633,
+    "svamp": 0.9067,
+    "minerva_math": 0.136,
+    "olympiadbench": 0.17,
+    "L3_5": 0.4516,
+    "OODavg_math5": 0.5212
+  }
+}
+[2026-07-30 11:51:31] === countdown battery COMPLETE

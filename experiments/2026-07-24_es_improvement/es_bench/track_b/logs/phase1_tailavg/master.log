@@ -1,0 +1,10 @@
+[00:09:39] === Phase 1 tail-averaging START (model=Qwen/Qwen2.5-3B-Instruct) ===
+[00:09:39] fulles_N30 start
+[00:23:33] fulles_N30 DONE
+[00:23:33] fulles_N20 start
+[00:36:29] fulles_N20 DONE
+[00:36:29] fulles_N8 start
+[00:49:27] fulles_N8 DONE
+[00:49:27] fulles_N4 start
+[01:01:57] fulles_N4 DONE
+[01:01:57] === Phase 1 tail-averaging ALL DONE ===

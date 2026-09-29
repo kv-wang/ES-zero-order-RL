@@ -1,0 +1,87 @@
+{
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 8,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "zero_update_rate": 0.09,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 132.48014372340077,
+  "kl_proxy_drift": 0.06434324570695019,
+  "s_per_step_mean": 12.788053332154567,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 1459.2622185896842,
+  "wall_clock_s": 2560.3382035912946,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.4467,
+      "extract_rate": 0.78,
+      "headroom": 0.5533,
+      "ceiling_risk": false,
+      "gen_seconds": 12.1,
+      "per_level_accuracy": {
+        "1": 0.7037,
+        "2": 0.6429,
+        "3": 0.5,
+        "4": 0.3457,
+        "5": 0.2639
+      },
+      "primary_L3_5_accuracy": 0.3641
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8433,
+      "extract_rate": 0.99,
+      "headroom": 0.1567,
+      "ceiling_risk": false,
+      "gen_seconds": 9.5
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8567,
+      "extract_rate": 0.9967,
+      "headroom": 0.1433,
+      "ceiling_risk": false,
+      "gen_seconds": 8.8
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.0993,
+      "extract_rate": 0.511,
+      "headroom": 0.9007,
+      "ceiling_risk": false,
+      "gen_seconds": 12.3
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.16,
+      "extract_rate": 0.69,
+      "headroom": 0.84,
+      "ceiling_risk": false,
+      "gen_seconds": 15.1
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.25,
+      "extract_rate": 0.975,
+      "headroom": 0.75,
+      "ceiling_risk": false,
+      "gen_seconds": 8.1
+    }
+  },
+  "eval_seconds": 70.08651483617723
+}

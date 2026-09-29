@@ -1,0 +1,1035 @@
+WARNING 08-29 13:04:53 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 08-29 13:04:53 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 08-29 13:05:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:12<00:12, 12.77s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:19<00:00,  9.02s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:19<00:00,  9.58s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:00<00:01, 47.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:00<00:01, 47.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 16/67 [00:00<00:01, 50.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 22/67 [00:00<00:00, 51.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 51.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:00<00:00, 50.95it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:00<00:00, 50.47it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 46/67 [00:00<00:00, 50.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 52/67 [00:01<00:00, 49.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 57/67 [00:01<00:00, 48.09it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:01<00:00, 48.29it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 49.71it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:00<00:01, 53.93it/s]Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:00<00:00, 60.10it/s]Capturing CUDA graphs (decode, FULL):  30%|██▉       | 20/67 [00:00<00:00, 63.62it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 27/67 [00:00<00:00, 66.00it/s]Capturing CUDA graphs (decode, FULL):  52%|█████▏    | 35/67 [00:00<00:00, 68.32it/s]Capturing CUDA graphs (decode, FULL):  64%|██████▍   | 43/67 [00:00<00:00, 70.49it/s]Capturing CUDA graphs (decode, FULL):  76%|███████▌  | 51/67 [00:00<00:00, 72.93it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 59/67 [00:00<00:00, 74.78it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 71.01it/s]
+[baseaxis N=30 s0] step 0 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=5.07e+00
+[baseaxis N=30 s0] step 1 axis=5.07 disp=-0.172 frac=-0.0339 cum=-0.17 f+-f-=[+0.050,-0.070] probe=True |D|=4.54e+00
+[baseaxis N=30 s0] step 2 axis=6.93 disp=+0.183 frac=+0.0264 cum=+0.01 f+-f-=[+0.050,+0.020] probe=True |D|=4.50e+00
+[baseaxis N=30 s0] step 3 axis=8.11 disp=-0.198 frac=-0.0244 cum=-0.19 f+-f-=[-0.060,+0.010] probe=True |D|=4.94e+00
+[baseaxis N=30 s0] step 4 axis=9.67 disp=-0.196 frac=-0.0203 cum=-0.38 f+-f-=[-0.030,-0.040] probe=True |D|=4.50e+00
+[baseaxis N=30 s0] step 5 axis=10.8 disp=-0.364 frac=-0.0336 cum=-0.75 f+-f-=[+0.010,-0.090] probe=True |D|=4.76e+00
+[eval] intermediate eval after 10 updates...
+[eval] 10 updates done in 84.2s — countdown acc=0.1500
+[baseaxis N=30 s0] step 10 axis=15.5 disp=-0.996 frac=-0.0642 cum=-1.72 f+-f-=[-0.130,-0.080] probe=True |D|=4.61e+00
+[baseaxis N=30 s0] step 15 axis=23 disp=-0.782 frac=-0.0341 cum=-6.61 f+-f-=[-0.020,-0.090] probe=True |D|=4.80e+00
+[eval] intermediate eval after 20 updates...
+[eval] 20 updates done in 79.4s — countdown acc=0.1967
+[baseaxis N=30 s0] step 20 axis=30.2 disp=-2.964 frac=-0.0981 cum=-14.19 f+-f-=[-0.140,-0.200] probe=True |D|=5.01e+00
+[baseaxis N=30 s0] step 25 axis=40 disp=-1.419 frac=-0.0355 cum=-21.19 f+-f-=[-0.100,-0.040] probe=True |D|=4.75e+00
+[eval] intermediate eval after 30 updates...
+[eval] 30 updates done in 80.7s — countdown acc=0.3167
+[baseaxis N=30 s0] step 30 axis=49 disp=-3.937 frac=-0.0803 cum=-31.69 f+-f-=[-0.010,-0.320] probe=True |D|=5.13e+00
+[baseaxis N=30 s0] step 35 axis=62.9 disp=-3.565 frac=-0.0566 cum=-44.46 f+-f-=[-0.010,-0.250] probe=True |D|=4.82e+00
+[eval] intermediate eval after 40 updates...
+[eval] 40 updates done in 84.4s — countdown acc=0.3833
+[baseaxis N=30 s0] step 40 axis=72.6 disp=-2.285 frac=-0.0315 cum=-52.26 f+-f-=[+0.000,-0.100] probe=True |D|=4.64e+00
+[baseaxis N=30 s0] step 45 axis=82.6 disp=-0.392 frac=-0.0047 cum=-59.78 f+-f-=[+0.000,-0.060] probe=True |D|=4.67e+00
+[eval] intermediate eval after 50 updates...
+[eval] 50 updates done in 88.4s — countdown acc=0.3900
+[baseaxis N=30 s0] step 50 axis=85.4 disp=-0.187 frac=-0.0022 cum=-61.80 f+-f-=[+0.020,-0.030] probe=True |D|=4.67e+00
+[baseaxis N=30 s0] step 55 axis=85.7 disp=-1.447 frac=-0.0169 cum=-62.78 f+-f-=[+0.050,-0.080] probe=True |D|=2.83e+00
+[eval] intermediate eval after 60 updates...
+[eval] 60 updates done in 88.7s — countdown acc=0.3967
+[baseaxis N=30 s0] step 60 axis=92.6 disp=-1.305 frac=-0.0141 cum=-69.23 f+-f-=[-0.080,+0.050] probe=True |D|=4.61e+00
+[baseaxis N=30 s0] step 65 axis=93.2 disp=-4.396 frac=-0.0471 cum=-72.47 f+-f-=[-0.080,-0.120] probe=True |D|=5.76e+00
+[eval] intermediate eval after 70 updates...
+[eval] 70 updates done in 81.6s — countdown acc=0.4167
+[baseaxis N=30 s0] step 70 axis=102 disp=-2.593 frac=-0.0254 cum=-79.29 f+-f-=[+0.020,-0.110] probe=True |D|=3.86e+00
+[baseaxis N=30 s0] step 75 axis=105 disp=+2.250 frac=+0.0215 cum=-76.77 f+-f-=[+0.070,+0.050] probe=True |D|=4.87e+00
+[eval] intermediate eval after 80 updates...
+[eval] 80 updates done in 82.2s — countdown acc=0.4133
+[baseaxis N=30 s0] step 80 axis=105 disp=+2.512 frac=+0.0240 cum=-76.15 f+-f-=[+0.100,-0.020] probe=True |D|=5.23e+00
+[baseaxis N=30 s0] step 85 axis=106 disp=-2.372 frac=-0.0224 cum=-81.62 f+-f-=[+0.050,-0.120] probe=True |D|=3.75e+00
+[eval] intermediate eval after 90 updates...
+[eval] 90 updates done in 76.6s — countdown acc=0.4100
+[baseaxis N=30 s0] step 90 axis=109 disp=-0.527 frac=-0.0048 cum=-82.93 f+-f-=[-0.050,+0.040] probe=True |D|=3.14e+00
+[baseaxis N=30 s0] step 95 axis=116 disp=+3.599 frac=+0.0309 cum=-85.87 f+-f-=[+0.030,+0.120] probe=True |D|=5.71e+00
+[eval] intermediate eval after 100 updates...
+[eval] 100 updates done in 86.8s — countdown acc=0.3933
+SUMMARY: {
+  "variant": "baseaxis",
+  "axis": "base",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 30,
+  "pop_seed": 0,
+  "num_steps": 100,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "mom_beta": null,
+  "mom_warmup": null,
+  "disp_sign_means": "+ toward theta0",
+  "final_axis_norm": 113.88106458742081,
+  "final_cum_disp": -87.42500376719872,
+  "final_cum_disp_frac": -1.8212319526533884,
+  "mean_signed_disp": -0.9162294437922345,
+  "mean_signed_disp_frac": -0.01862101850303462,
+  "mean_pair_fdiff": -0.034473684210526316,
+  "pair_tie_rate": 0.04736842105263158,
+  "n_pairs_evaluated": 190,
+  "steps_probe_active": 95,
+  "steps_scale_flagged": 4,
+  "zero_update_rate": 0.0,
+  "sigma_adapt": false,
+  "sigma_adapt_gain": null,
+  "sigma_adapt_clip": null,
+  "sigma0": 0.001,
+  "sigma_final": 0.001,
+  "sigma_ratio_mean": 1.0,
+  "sigma_ratio_min": 1.0,
+  "sigma_ratio_max": 1.0,
+  "gpu_mem_util": 0.7,
+  "peak_mem_alloc_gb": 133.746724864,
+  "peak_mem_reserved_gb": 135.534739456,
+  "kl_proxy_drift": null,
+  "s_per_step_mean": 544.6838595654443,
+  "wall_clock_s": 54468.38595752418,
+  "eval_interval": 10,
+  "eval_history": [
+    {
+      "updates": 10,
+      "step": 9,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.62,
+          "extract_rate": 0.98,
+          "headroom": 0.38,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3,
+          "per_level_accuracy": {
+            "1": 0.8889,
+            "2": 0.8214,
+            "3": 0.7656,
+            "4": 0.5062,
+            "5": 0.3611
+          },
+          "primary_L3_5_accuracy": 0.5346
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.87,
+          "extract_rate": 1.0,
+          "headroom": 0.13,
+          "ceiling_risk": false,
+          "gen_seconds": 8.0
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9133,
+          "extract_rate": 1.0,
+          "headroom": 0.0867,
+          "ceiling_risk": false,
+          "gen_seconds": 9.6
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1875,
+          "extract_rate": 0.989,
+          "headroom": 0.8125,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2233,
+          "extract_rate": 0.9533,
+          "headroom": 0.7767,
+          "ceiling_risk": false,
+          "gen_seconds": 14.7
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.425,
+          "extract_rate": 0.925,
+          "headroom": 0.575,
+          "ceiling_risk": false,
+          "gen_seconds": 8.2
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.15,
+          "extract_rate": 0.7933,
+          "headroom": 0.85,
+          "ceiling_risk": false,
+          "gen_seconds": 14.1
+        }
+      },
+      "eval_seconds": 84.15147363580763
+    },
+    {
+      "updates": 20,
+      "step": 19,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.6167,
+          "extract_rate": 0.9667,
+          "headroom": 0.3833,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3,
+          "per_level_accuracy": {
+            "1": 0.7778,
+            "2": 0.7857,
+            "3": 0.75,
+            "4": 0.5679,
+            "5": 0.3611
+          },
+          "primary_L3_5_accuracy": 0.553
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8667,
+          "extract_rate": 1.0,
+          "headroom": 0.1333,
+          "ceiling_risk": false,
+          "gen_seconds": 5.1
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9067,
+          "extract_rate": 1.0,
+          "headroom": 0.0933,
+          "ceiling_risk": false,
+          "gen_seconds": 9.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1728,
+          "extract_rate": 0.989,
+          "headroom": 0.8272,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2367,
+          "extract_rate": 0.9567,
+          "headroom": 0.7633,
+          "ceiling_risk": false,
+          "gen_seconds": 14.5
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.475,
+          "extract_rate": 0.95,
+          "headroom": 0.525,
+          "ceiling_risk": false,
+          "gen_seconds": 8.3
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.1967,
+          "extract_rate": 0.6967,
+          "headroom": 0.8033,
+          "ceiling_risk": false,
+          "gen_seconds": 14.5
+        }
+      },
+      "eval_seconds": 79.44108716771007
+    },
+    {
+      "updates": 30,
+      "step": 29,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.6233,
+          "extract_rate": 0.9867,
+          "headroom": 0.3767,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2,
+          "per_level_accuracy": {
+            "1": 0.8519,
+            "2": 0.7857,
+            "3": 0.7812,
+            "4": 0.5309,
+            "5": 0.375
+          },
+          "primary_L3_5_accuracy": 0.553
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.87,
+          "extract_rate": 1.0,
+          "headroom": 0.13,
+          "ceiling_risk": false,
+          "gen_seconds": 4.6
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9,
+          "extract_rate": 0.9967,
+          "headroom": 0.1,
+          "ceiling_risk": false,
+          "gen_seconds": 9.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1654,
+          "extract_rate": 0.9853,
+          "headroom": 0.8346,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.21,
+          "extract_rate": 0.9667,
+          "headroom": 0.79,
+          "ceiling_risk": false,
+          "gen_seconds": 14.4
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.5,
+          "extract_rate": 1.0,
+          "headroom": 0.5,
+          "ceiling_risk": false,
+          "gen_seconds": 8.2
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3167,
+          "extract_rate": 0.58,
+          "headroom": 0.6833,
+          "ceiling_risk": false,
+          "gen_seconds": 16.6
+        }
+      },
+      "eval_seconds": 80.73148021101952
+    },
+    {
+      "updates": 40,
+      "step": 39,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.6133,
+          "extract_rate": 0.9733,
+          "headroom": 0.3867,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.7679,
+            "3": 0.7812,
+            "4": 0.5309,
+            "5": 0.3611
+          },
+          "primary_L3_5_accuracy": 0.5484
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8833,
+          "extract_rate": 1.0,
+          "headroom": 0.1167,
+          "ceiling_risk": false,
+          "gen_seconds": 6.1
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9033,
+          "extract_rate": 0.9967,
+          "headroom": 0.0967,
+          "ceiling_risk": false,
+          "gen_seconds": 9.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1801,
+          "extract_rate": 1.0,
+          "headroom": 0.8199,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2,
+          "extract_rate": 0.9567,
+          "headroom": 0.8,
+          "ceiling_risk": false,
+          "gen_seconds": 15.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.4,
+          "extract_rate": 0.95,
+          "headroom": 0.6,
+          "ceiling_risk": false,
+          "gen_seconds": 8.2
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3833,
+          "extract_rate": 0.5333,
+          "headroom": 0.6167,
+          "ceiling_risk": false,
+          "gen_seconds": 17.8
+        }
+      },
+      "eval_seconds": 84.44035013951361
+    },
+    {
+      "updates": 50,
+      "step": 49,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.6067,
+          "extract_rate": 0.9733,
+          "headroom": 0.3933,
+          "ceiling_risk": false,
+          "gen_seconds": 12.4,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.7857,
+            "3": 0.7188,
+            "4": 0.5802,
+            "5": 0.3194
+          },
+          "primary_L3_5_accuracy": 0.5346
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8433,
+          "extract_rate": 1.0,
+          "headroom": 0.1567,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9,
+          "extract_rate": 1.0,
+          "headroom": 0.1,
+          "ceiling_risk": false,
+          "gen_seconds": 9.6
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1544,
+          "extract_rate": 0.9706,
+          "headroom": 0.8456,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2,
+          "extract_rate": 0.9433,
+          "headroom": 0.8,
+          "ceiling_risk": false,
+          "gen_seconds": 14.6
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.35,
+          "extract_rate": 0.95,
+          "headroom": 0.65,
+          "ceiling_risk": false,
+          "gen_seconds": 8.2
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.39,
+          "extract_rate": 0.5133,
+          "headroom": 0.61,
+          "ceiling_risk": false,
+          "gen_seconds": 18.1
+        }
+      },
+      "eval_seconds": 88.41072919778526
+    },
+    {
+      "updates": 60,
+      "step": 59,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.59,
+          "extract_rate": 0.9767,
+          "headroom": 0.41,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.7857,
+            "3": 0.75,
+            "4": 0.5185,
+            "5": 0.2917
+          },
+          "primary_L3_5_accuracy": 0.5115
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.86,
+          "extract_rate": 0.9967,
+          "headroom": 0.14,
+          "ceiling_risk": false,
+          "gen_seconds": 9.7
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9,
+          "extract_rate": 0.9967,
+          "headroom": 0.1,
+          "ceiling_risk": false,
+          "gen_seconds": 9.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1654,
+          "extract_rate": 0.9779,
+          "headroom": 0.8346,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2067,
+          "extract_rate": 0.97,
+          "headroom": 0.7933,
+          "ceiling_risk": false,
+          "gen_seconds": 14.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.35,
+          "extract_rate": 0.95,
+          "headroom": 0.65,
+          "ceiling_risk": false,
+          "gen_seconds": 8.0
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3967,
+          "extract_rate": 0.4933,
+          "headroom": 0.6033,
+          "ceiling_risk": false,
+          "gen_seconds": 18.0
+        }
+      },
+      "eval_seconds": 88.72962602600455
+    },
+    {
+      "updates": 70,
+      "step": 69,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5867,
+          "extract_rate": 0.9867,
+          "headroom": 0.4133,
+          "ceiling_risk": false,
+          "gen_seconds": 12.1,
+          "per_level_accuracy": {
+            "1": 0.8519,
+            "2": 0.8393,
+            "3": 0.75,
+            "4": 0.5062,
+            "5": 0.2361
+          },
+          "primary_L3_5_accuracy": 0.4885
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8433,
+          "extract_rate": 1.0,
+          "headroom": 0.1567,
+          "ceiling_risk": false,
+          "gen_seconds": 9.7
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8933,
+          "extract_rate": 1.0,
+          "headroom": 0.1067,
+          "ceiling_risk": false,
+          "gen_seconds": 4.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1728,
+          "extract_rate": 0.989,
+          "headroom": 0.8272,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.18,
+          "extract_rate": 0.9533,
+          "headroom": 0.82,
+          "ceiling_risk": false,
+          "gen_seconds": 14.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.325,
+          "extract_rate": 0.975,
+          "headroom": 0.675,
+          "ceiling_risk": false,
+          "gen_seconds": 8.1
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.4167,
+          "extract_rate": 0.5567,
+          "headroom": 0.5833,
+          "ceiling_risk": false,
+          "gen_seconds": 17.9
+        }
+      },
+      "eval_seconds": 81.64267696626484
+    },
+    {
+      "updates": 80,
+      "step": 79,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.56,
+          "extract_rate": 0.9733,
+          "headroom": 0.44,
+          "ceiling_risk": false,
+          "gen_seconds": 12.1,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.8036,
+            "3": 0.7344,
+            "4": 0.4568,
+            "5": 0.2361
+          },
+          "primary_L3_5_accuracy": 0.4654
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.82,
+          "extract_rate": 0.9967,
+          "headroom": 0.18,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9033,
+          "extract_rate": 1.0,
+          "headroom": 0.0967,
+          "ceiling_risk": false,
+          "gen_seconds": 4.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1434,
+          "extract_rate": 0.9706,
+          "headroom": 0.8566,
+          "ceiling_risk": false,
+          "gen_seconds": 12.3
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.19,
+          "extract_rate": 0.97,
+          "headroom": 0.81,
+          "ceiling_risk": false,
+          "gen_seconds": 14.7
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.3,
+          "extract_rate": 0.875,
+          "headroom": 0.7,
+          "ceiling_risk": false,
+          "gen_seconds": 8.2
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.4133,
+          "extract_rate": 0.5367,
+          "headroom": 0.5867,
+          "ceiling_risk": false,
+          "gen_seconds": 17.6
+        }
+      },
+      "eval_seconds": 82.15909499488771
+    },
+    {
+      "updates": 90,
+      "step": 89,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5667,
+          "extract_rate": 0.9667,
+          "headroom": 0.4333,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2,
+          "per_level_accuracy": {
+            "1": 0.7407,
+            "2": 0.8214,
+            "3": 0.7188,
+            "4": 0.5185,
+            "5": 0.2222
+          },
+          "primary_L3_5_accuracy": 0.4793
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.83,
+          "extract_rate": 1.0,
+          "headroom": 0.17,
+          "ceiling_risk": false,
+          "gen_seconds": 4.7
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8933,
+          "extract_rate": 1.0,
+          "headroom": 0.1067,
+          "ceiling_risk": false,
+          "gen_seconds": 4.5
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1507,
+          "extract_rate": 0.9706,
+          "headroom": 0.8493,
+          "ceiling_risk": false,
+          "gen_seconds": 12.4
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1967,
+          "extract_rate": 0.9567,
+          "headroom": 0.8033,
+          "ceiling_risk": false,
+          "gen_seconds": 14.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.3,
+          "extract_rate": 0.975,
+          "headroom": 0.7,
+          "ceiling_risk": false,
+          "gen_seconds": 8.1
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.41,
+          "extract_rate": 0.5567,
+          "headroom": 0.59,
+          "ceiling_risk": false,
+          "gen_seconds": 17.4
+        }
+      },
+      "eval_seconds": 76.6380539946258
+    },
+    {
+      "updates": 100,
+      "step": 99,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5533,
+          "extract_rate": 0.97,
+          "headroom": 0.4467,
+          "ceiling_risk": false,
+          "gen_seconds": 12.7,
+          "per_level_accuracy": {
+            "1": 0.7778,
+            "2": 0.7321,
+            "3": 0.7344,
+            "4": 0.4938,
+            "5": 0.2361
+          },
+          "primary_L3_5_accuracy": 0.4793
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8333,
+          "extract_rate": 1.0,
+          "headroom": 0.1667,
+          "ceiling_risk": false,
+          "gen_seconds": 9.6
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8933,
+          "extract_rate": 1.0,
+          "headroom": 0.1067,
+          "ceiling_risk": false,
+          "gen_seconds": 9.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1434,
+          "extract_rate": 0.9706,
+          "headroom": 0.8566,
+          "ceiling_risk": false,
+          "gen_seconds": 12.2
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1933,
+          "extract_rate": 0.97,
+          "headroom": 0.8067,
+          "ceiling_risk": false,
+          "gen_seconds": 14.2
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.225,
+          "extract_rate": 1.0,
+          "headroom": 0.775,
+          "ceiling_risk": false,
+          "gen_seconds": 8.1
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3933,
+          "extract_rate": 0.55,
+          "headroom": 0.6067,
+          "ceiling_risk": false,
+          "gen_seconds": 17.6
+        }
+      },
+      "eval_seconds": 86.81977615319192
+    }
+  ],
+  "eval_max_tokens": 2048,
+  "eval_seconds": 86.58448883332312
+}
+EVAL_FINAL: {
+  "math500": {
+    "n": 300,
+    "full_n": 500,
+    "capped": true,
+    "accuracy": 0.5533,
+    "extract_rate": 0.97,
+    "headroom": 0.4467,
+    "ceiling_risk": false,
+    "gen_seconds": 12.1,
+    "per_level_accuracy": {
+      "1": 0.7778,
+      "2": 0.7321,
+      "3": 0.7344,
+      "4": 0.4938,
+      "5": 0.2361
+    },
+    "primary_L3_5_accuracy": 0.4793
+  },
+  "gsm8k": {
+    "n": 300,
+    "full_n": 1319,
+    "capped": true,
+    "accuracy": 0.8333,
+    "extract_rate": 1.0,
+    "headroom": 0.1667,
+    "ceiling_risk": false,
+    "gen_seconds": 9.6
+  },
+  "svamp": {
+    "n": 300,
+    "full_n": 300,
+    "capped": true,
+    "accuracy": 0.8933,
+    "extract_rate": 1.0,
+    "headroom": 0.1067,
+    "ceiling_risk": false,
+    "gen_seconds": 9.0
+  },
+  "minerva_math": {
+    "n": 272,
+    "full_n": 272,
+    "capped": false,
+    "accuracy": 0.1434,
+    "extract_rate": 0.9706,
+    "headroom": 0.8566,
+    "ceiling_risk": false,
+    "gen_seconds": 12.8
+  },
+  "olympiadbench": {
+    "n": 300,
+    "full_n": 674,
+    "capped": true,
+    "accuracy": 0.1933,
+    "extract_rate": 0.97,
+    "headroom": 0.8067,
+    "ceiling_risk": false,
+    "gen_seconds": 14.2
+  },
+  "amc23": {
+    "n": 40,
+    "full_n": 40,
+    "capped": false,
+    "accuracy": 0.225,
+    "extract_rate": 1.0,
+    "headroom": 0.775,
+    "ceiling_risk": false,
+    "gen_seconds": 8.1
+  },
+  "countdown": {
+    "n": 300,
+    "full_n": 2200,
+    "capped": true,
+    "accuracy": 0.3933,
+    "extract_rate": 0.55,
+    "headroom": 0.6067,
+    "ceiling_risk": false,
+    "gen_seconds": 17.6
+  }
+}
+[rank0]:[W830 04:14:55.748357390 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

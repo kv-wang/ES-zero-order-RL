@@ -1,0 +1,50 @@
+{
+  "tag": "grpo",
+  "model": "/tmp/grpo_ckpt_grpo_full_3b_math/global_step_200/hf_merged",
+  "math500": {
+    "overall_acc": 0.482,
+    "n_total": 500,
+    "L3_5_acc": 0.3842,
+    "L3_5_n": 367,
+    "per_level": {
+      "1": {
+        "n": 43,
+        "acc": 0.814,
+        "mean_len": 208.9,
+        "trunc_rate": 0.0
+      },
+      "2": {
+        "n": 90,
+        "acc": 0.7222,
+        "mean_len": 238.7,
+        "trunc_rate": 0.0
+      },
+      "3": {
+        "n": 105,
+        "acc": 0.5714,
+        "mean_len": 305.2,
+        "trunc_rate": 0.0095
+      },
+      "4": {
+        "n": 128,
+        "acc": 0.4141,
+        "mean_len": 384.0,
+        "trunc_rate": 0.0078
+      },
+      "5": {
+        "n": 134,
+        "acc": 0.209,
+        "mean_len": 442.5,
+        "trunc_rate": 0.0224
+      }
+    }
+  },
+  "grpo_train_eval": {
+    "n": 300,
+    "acc_eval_prompt": 0.6567,
+    "acc_train_prompt": 0.6367,
+    "prompts_identical": false,
+    "eval_prompt_head": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nWhat is the median number of moons per planet? (Include Pluto, although arguments rage on about Pluto's status...) \\begin{tabular}{c|c}\nPlanet & $\\#$ of Moons\\\\\n\\hline\nMercury&0\\\\\nVenus &0\\\\\nEarth &1\\\\\nMars &2\\\\\nJupiter&16\\\\\nSaturn&23\\\\\nUranus&15\\\\\nNeptune&2\\\\\nPluto&5\\\\\n\\end{tabular}\n",
+    "train_prompt_head": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nWhat is the median number of moons per planet? (Include Pluto, although arguments rage on about Pluto's status...) \\begin{tabular}{c|c}\nPlanet & $\\#$ of Moons\\\\\n\\hline\nMercury&0\\\\\nVenus &0\\\\\nEarth &1\\\\\nMars &2\\\\\nJupiter&16\\\\\nSaturn&23\\\\\nUranus&15\\\\\nNeptune&2\\\\\nPluto&5\\\\\n\\end{tabular}\n"
+  }
+}

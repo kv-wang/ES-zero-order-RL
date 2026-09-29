@@ -1,0 +1,40 @@
+WARNING 07-28 05:55:38 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-28 05:55:38 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-28 05:55:43 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:10<00:10, 10.55s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:12<00:00,  5.69s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:12<00:00,  6.42s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 48.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:00<00:01, 49.35it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:00<00:00, 50.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:00<00:00, 51.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:00<00:00, 51.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 50.60it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:00<00:00, 50.03it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:00<00:00, 50.76it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:01<00:00, 49.59it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:01<00:00, 48.97it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:01<00:00, 48.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 49.95it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:00<00:01, 58.58it/s]Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:00<00:00, 61.94it/s]Capturing CUDA graphs (decode, FULL):  30%|██▉       | 20/67 [00:00<00:00, 64.27it/s]Capturing CUDA graphs (decode, FULL):  42%|████▏     | 28/67 [00:00<00:00, 66.79it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 36/67 [00:00<00:00, 68.42it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 44/67 [00:00<00:00, 70.62it/s]Capturing CUDA graphs (decode, FULL):  78%|███████▊  | 52/67 [00:00<00:00, 73.32it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████ | 61/67 [00:00<00:00, 75.52it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 71.72it/s]
+[binary N=30 s42] step 0 fstd=0.0137 zero=False tb=False |Δ|=5.07e+00 t_score=0.00/100.77s
+[binary N=30 s42] step 1 fstd=0.0140 zero=False tb=False |Δ|=5.07e+00 t_score=0.00/100.89s
+[binary N=30 s42] step 2 fstd=0.0156 zero=False tb=False |Δ|=5.07e+00 t_score=0.00/100.61s
+[binary N=30 s42] step 3 fstd=0.0117 zero=False tb=False |Δ|=5.07e+00 t_score=0.00/100.70s
+[binary N=30 s42] step 4 fstd=0.0142 zero=False tb=False |Δ|=5.07e+00 t_score=0.00/100.99s
+[binary N=30 s42] step 5 fstd=0.0129 zero=False tb=False |Δ|=5.07e+00 t_score=0.00/100.11s
+SUMMARY: {
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 30,
+  "pop_seed": 42,
+  "num_steps": 10,
+  "zero_update_rate": 0.0,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 16.036895996274357,
+  "kl_proxy_drift": null,
+  "s_per_step_mean": 100.20456049535423,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 17898.696338108814,
+  "wall_clock_s": 1018.041127118282
+}
+[rank0]:[W728 06:13:11.441713887 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

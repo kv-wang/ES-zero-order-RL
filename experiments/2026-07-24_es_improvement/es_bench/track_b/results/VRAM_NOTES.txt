@@ -1,0 +1,5 @@
+full-param ES @gpu_mem_util0.85: 132920 MiB (~130 GB) [observed nvidia-smi, N-independent]
+LoRA-GRPO train peak VRAM: 80307 MiB
+LoRA-GRPO train peak VRAM: 80307 MiB
+full-param GRPO train peak VRAM: 91838 MiB
+GRPO-MATH full-param train peak VRAM: 91348 MiB

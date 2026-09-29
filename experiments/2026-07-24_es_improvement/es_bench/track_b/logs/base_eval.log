@@ -1,0 +1,3 @@
+WARNING 07-25 02:25:20 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-25 02:25:20 [model.py:1733] Casting torch.bfloat16 to torch.float16.

@@ -1,0 +1,68 @@
+[2026-07-29 00:14:36] === bestshot chain start: loraes_bestshot_3b_math  N=30 B=100 r8 targets=q_proj,k_proj,v_proj,o_proj cap=2048 antithetic
+[2026-07-29 00:14:36] stage0 wait for /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/grpo_full_3b_math_t2048/summary.json (poll 120s)
+[2026-07-29 00:56:37] stage0 done: GRPO summary present, GPU at 0MiB
+[2026-07-29 00:56:37] GRPO train wall-clock budget: 5178s
+[2026-07-29 00:56:37] stage1 sigma  START (lora grid 1.5e-2,3e-2,5e-2,9e-2, r8 attn-only, refs reused)
+{
+  "reference_flip_rate_pooled": 0.30078125,
+  "band": [
+    0.150390625,
+    0.6015625
+  ],
+  "sigma_star": 0.015,
+  "alpha": 0.0075,
+  "sigma_ceiling_flag": false,
+  "selection_reason": "flip-rate 0.309 closest to reference 0.301 within band [0.150,0.602]"
+}
+  sigma=0.015  flip=0.309  kl=2.024e-02
+  sigma=0.03  flip=0.895  kl=6.765e-01
+  sigma=0.05  flip=0.844  kl=1.286e+01
+  sigma=0.09  flip=0.844  kl=2.002e+01
+[2026-07-29 01:01:45] stage1 done: sigma*=0.015 alpha=0.0075
+[2026-07-29 01:01:45] stage2 timing START (5 steps, exact arm config)
+[2026-07-29 01:18:02] stage2 done: 165.34 s/step at util-matched setting -> ~31 steps in budget
+[2026-07-29 01:18:02] stage3 arm    START (deadline = now + 5178s; gates ON)
+[2026-07-29 02:46:37] stage3 arm completed/deadline
+[2026-07-29 02:46:38] evaluating theta: /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/loraes_bestshot_3b_math/ckpt/theta_step32_final.pt
+[2026-07-29 02:46:38] stage4 eval   START (cap300/2048, lambda 1.0 + 0.5)
+[2026-07-29 02:54:27] stage5 compare
+COMPARISON {
+  "loraes_bestshot_3b_math": {
+    "OODavg": 0.375,
+    "OOD_n": 5,
+    "L3_5": 0.447,
+    "math500": 0.53,
+    "gsm8k": 0.8667,
+    "svamp": 0.9133,
+    "minerva_math": 0.1618,
+    "olympiadbench": 0.19,
+    "amc23": 0.4,
+    "countdown": 0.08
+  },
+  "loraes_bestshot_3b_math_lambda1": {
+    "OODavg": 0.3589,
+    "OOD_n": 5,
+    "L3_5": 0.4147,
+    "math500": 0.5033,
+    "gsm8k": 0.8533,
+    "svamp": 0.9033,
+    "minerva_math": 0.1581,
+    "olympiadbench": 0.1667,
+    "amc23": 0.45,
+    "countdown": 0.0633
+  },
+  "loraes_bestshot_3b_math_lambda0.5": {
+    "OODavg": 0.3636,
+    "OOD_n": 5,
+    "L3_5": 0.4147,
+    "math500": 0.4933,
+    "gsm8k": 0.88,
+    "svamp": 0.9067,
+    "minerva_math": 0.1544,
+    "olympiadbench": 0.1867,
+    "amc23": 0.45,
+    "countdown": 0.0767
+  }
+}
+ES arm: 32 steps in 5204s (162.6s/step), stop: DEADLINE reached at step 32/2000
+[2026-07-29 02:54:27] === bestshot chain COMPLETE ===

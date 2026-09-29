@@ -1,0 +1,16 @@
+[16:05:29] GPU1 START fulles_math_N30
+[16:24:22] GPU1 START fulles_math_N30
+[16:41:01] GPU0 START fulles_math_N20
+[18:12:18] GPU0 DONE fulles_math_N20 rc=0
+[18:12:18] GPU0 START fulles_math_N4
+[18:32:14] GPU0 DONE fulles_math_N4 rc=0
+[18:32:14] GPU0 lane done (fulles)
+[18:41:01] GPU1 DONE fulles_math_N30 rc=0
+[18:41:01] GPU1 START fulles_math_N8
+[19:18:49] GPU1 DONE fulles_math_N8 rc=0
+[19:18:49] GPU1 lane done (fulles)
+[19:44:04] GPU0 START loraes_math_N30
+[20:16:29] GPU0 DONE loraes_math_N30 rc=0
+[20:16:29] GPU0 START loraes_math_N20
+[20:40:48] GPU0 DONE loraes_math_N20 rc=0
+[20:40:48] GPU0 START loraes_math_N8

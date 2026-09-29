@@ -1,0 +1,28 @@
+[16:34:17] === exp3b_math START (model=Qwen/Qwen2.5-3B-Instruct) ===
+[16:34:17] BASE eval start
+[16:36:36] BASE eval DONE
+[16:36:36] LoRA-ES N16 start
+[16:36:36] GPU0 START loraes_N16 (Qwen/Qwen2.5-3B-Instruct math)
+[17:05:51] GPU0 DONE loraes_N16 rc=0 wall=1755s peakVRAM=90191MiB
+[17:05:51] LoRA-ES DONE
+[17:05:51] GRPO train start (grpo_full_3b_math)
+[18:05:35] GRPO train DONE
+[18:05:35] GRPO eval start
+[18:08:30] GRPO eval DONE
+[18:08:30] full-param ES N4 start
+[18:08:30] GPU0 START fulles_N4 (Qwen/Qwen2.5-3B-Instruct math)
+[18:36:49] GPU0 DONE fulles_N4 rc=0 wall=1699s peakVRAM=140517MiB
+[18:36:49] full-param ES N4 DONE
+[18:36:49] full-param ES N8 start
+[18:36:49] GPU0 START fulles_N8 (Qwen/Qwen2.5-3B-Instruct math)
+[19:30:36] GPU0 DONE fulles_N8 rc=0 wall=3227s peakVRAM=140517MiB
+[19:30:36] full-param ES N8 DONE
+[19:30:36] full-param ES N20 start
+[19:30:36] GPU0 START fulles_N20 (Qwen/Qwen2.5-3B-Instruct math)
+[21:41:04] GPU0 DONE fulles_N20 rc=0 wall=7828s peakVRAM=140517MiB
+[21:41:04] full-param ES N20 DONE
+[21:41:04] full-param ES N30 start
+[21:41:05] GPU0 START fulles_N30 (Qwen/Qwen2.5-3B-Instruct math)
+[00:55:26] GPU0 DONE fulles_N30 rc=0 wall=11661s peakVRAM=140517MiB
+[00:55:26] full-param ES N30 DONE
+[00:55:26] === exp3b_math ALL DONE ===

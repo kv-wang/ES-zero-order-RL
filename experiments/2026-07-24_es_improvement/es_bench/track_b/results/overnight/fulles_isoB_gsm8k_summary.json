@@ -1,0 +1,16 @@
+{
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 30,
+  "pop_seed": 42,
+  "num_steps": 10,
+  "zero_update_rate": 0.0,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 16.036895996274357,
+  "kl_proxy_drift": null,
+  "s_per_step_mean": 100.20456049535423,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 17898.696338108814,
+  "wall_clock_s": 1018.041127118282
+}

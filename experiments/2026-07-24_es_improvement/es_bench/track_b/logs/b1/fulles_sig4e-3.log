@@ -1,0 +1,220 @@
+WARNING 07-25 00:44:06 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-25 00:44:06 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-25 00:44:12 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02<00:00,  2.82s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02<00:00,  2.82s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|█         | 7/67 [00:00<00:00, 63.65it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:00<00:00, 65.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:00<00:00, 63.99it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:00<00:00, 64.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:00<00:00, 62.20it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:00<00:00, 60.86it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 49/67 [00:00<00:00, 59.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:00<00:00, 57.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:01<00:00, 57.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 60.46it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 9/67 [00:00<00:00, 83.04it/s]Capturing CUDA graphs (decode, FULL):  28%|██▊       | 19/67 [00:00<00:00, 85.39it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 29/67 [00:00<00:00, 88.16it/s]Capturing CUDA graphs (decode, FULL):  58%|█████▊    | 39/67 [00:00<00:00, 91.23it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 49/67 [00:00<00:00, 93.93it/s]Capturing CUDA graphs (decode, FULL):  90%|████████▉ | 60/67 [00:00<00:00, 96.32it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 93.08it/s]
+[kl] captured 200 base completions; base-vs-base drift=3.19e-06
+[binary N=16 s0] step 0 fstd=0.1576 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.23s
+[binary N=16 s0] step 1 fstd=0.2632 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/16.92s
+[binary N=16 s0] step 2 fstd=0.1970 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.39s
+[binary N=16 s0] step 3 fstd=0.1795 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/20.63s
+[binary N=16 s0] step 4 fstd=0.2012 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/16.70s
+[binary N=16 s0] step 5 fstd=0.1288 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.49s
+[binary N=16 s0] step 10 fstd=0.1169 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.07s
+[binary N=16 s0] step 15 fstd=0.1513 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.69s
+[binary N=16 s0] step 20 fstd=0.1529 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/14.38s
+[binary N=16 s0] step 25 fstd=0.1834 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.27s
+[binary N=16 s0] step 30 fstd=0.1240 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/20.64s
+[binary N=16 s0] step 35 fstd=0.1480 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.03s
+[binary N=16 s0] step 40 fstd=0.1681 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/20.44s
+[binary N=16 s0] step 45 fstd=0.1497 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.75s
+[binary N=16 s0] step 50 fstd=0.1228 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.23s
+[binary N=16 s0] step 55 fstd=0.1724 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/16.71s
+[binary N=16 s0] step 60 fstd=0.1228 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/20.49s
+[binary N=16 s0] step 65 fstd=0.1159 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.44s
+[binary N=16 s0] step 70 fstd=0.1395 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/15.94s
+[binary N=16 s0] step 75 fstd=0.1976 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.90s
+[binary N=16 s0] step 80 fstd=0.1545 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.51s
+[binary N=16 s0] step 85 fstd=0.1499 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.56s
+[binary N=16 s0] step 90 fstd=0.1071 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.85s
+[binary N=16 s0] step 95 fstd=0.1457 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.49s
+[binary N=16 s0] step 100 fstd=0.1920 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.98s
+[binary N=16 s0] step 105 fstd=0.1159 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.71s
+[binary N=16 s0] step 110 fstd=0.1413 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/17.65s
+[binary N=16 s0] step 115 fstd=0.0938 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.85s
+[binary N=16 s0] step 120 fstd=0.1513 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.48s
+[binary N=16 s0] step 125 fstd=0.1666 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/17.35s
+[binary N=16 s0] step 130 fstd=0.1413 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.21s
+[binary N=16 s0] step 135 fstd=0.1248 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/20.16s
+[binary N=16 s0] step 140 fstd=0.1704 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.25s
+[binary N=16 s0] step 145 fstd=0.1240 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/16.19s
+[binary N=16 s0] step 150 fstd=0.1513 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.93s
+[binary N=16 s0] step 155 fstd=0.1562 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.81s
+[binary N=16 s0] step 160 fstd=0.1250 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.47s
+[binary N=16 s0] step 165 fstd=0.1083 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/14.86s
+[binary N=16 s0] step 170 fstd=0.1083 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.63s
+[binary N=16 s0] step 175 fstd=0.1513 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.94s
+[binary N=16 s0] step 180 fstd=0.1187 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/19.48s
+[binary N=16 s0] step 185 fstd=0.1646 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/17.67s
+[binary N=16 s0] step 190 fstd=0.1240 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/17.83s
+[binary N=16 s0] step 195 fstd=0.0870 zero=False tb=False |Δ|=4.91e+00 t_score=0.00/18.96s
+[kl] final base-greedy NLL drift D=0.0081
+EVAL_FINAL: {
+  "math500": {
+    "n": 300,
+    "full_n": 500,
+    "capped": true,
+    "accuracy": 0.4133,
+    "extract_rate": 0.7433,
+    "headroom": 0.5867,
+    "ceiling_risk": false,
+    "gen_seconds": 8.7,
+    "per_level_accuracy": {
+      "1": 0.7778,
+      "2": 0.6429,
+      "3": 0.4844,
+      "4": 0.3333,
+      "5": 0.125
+    },
+    "primary_L3_5_accuracy": 0.3088
+  },
+  "gsm8k": {
+    "n": 300,
+    "full_n": 1319,
+    "capped": true,
+    "accuracy": 0.7233,
+    "extract_rate": 0.9933,
+    "headroom": 0.2767,
+    "ceiling_risk": false,
+    "gen_seconds": 6.8
+  },
+  "svamp": {
+    "n": 300,
+    "full_n": 300,
+    "capped": true,
+    "accuracy": 0.8067,
+    "extract_rate": 0.99,
+    "headroom": 0.1933,
+    "ceiling_risk": false,
+    "gen_seconds": 3.4
+  },
+  "minerva_math": {
+    "n": 272,
+    "full_n": 272,
+    "capped": false,
+    "accuracy": 0.0956,
+    "extract_rate": 0.5037,
+    "headroom": 0.9044,
+    "ceiling_risk": false,
+    "gen_seconds": 8.9
+  },
+  "olympiadbench": {
+    "n": 300,
+    "full_n": 674,
+    "capped": true,
+    "accuracy": 0.0933,
+    "extract_rate": 0.6567,
+    "headroom": 0.9067,
+    "ceiling_risk": false,
+    "gen_seconds": 10.6
+  },
+  "amc23": {
+    "n": 40,
+    "full_n": 40,
+    "capped": false,
+    "accuracy": 0.2,
+    "extract_rate": 0.75,
+    "headroom": 0.8,
+    "ceiling_risk": false,
+    "gen_seconds": 5.7
+  }
+}
+SUMMARY: {
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "population_size": 16,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "zero_update_rate": 0.0,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 69.45544254384527,
+  "kl_proxy_drift": 0.008054916795184079,
+  "s_per_step_mean": 18.757266882644632,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 1954.654132724047,
+  "wall_clock_s": 3751.554984469898,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.4133,
+      "extract_rate": 0.7433,
+      "headroom": 0.5867,
+      "ceiling_risk": false,
+      "gen_seconds": 8.7,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.6429,
+        "3": 0.4844,
+        "4": 0.3333,
+        "5": 0.125
+      },
+      "primary_L3_5_accuracy": 0.3088
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.7233,
+      "extract_rate": 0.9933,
+      "headroom": 0.2767,
+      "ceiling_risk": false,
+      "gen_seconds": 6.8
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8067,
+      "extract_rate": 0.99,
+      "headroom": 0.1933,
+      "ceiling_risk": false,
+      "gen_seconds": 3.4
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.0956,
+      "extract_rate": 0.5037,
+      "headroom": 0.9044,
+      "ceiling_risk": false,
+      "gen_seconds": 8.9
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.0933,
+      "extract_rate": 0.6567,
+      "headroom": 0.9067,
+      "ceiling_risk": false,
+      "gen_seconds": 10.6
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.2,
+      "extract_rate": 0.75,
+      "headroom": 0.8,
+      "ceiling_risk": false,
+      "gen_seconds": 5.7
+    }
+  },
+  "eval_seconds": 47.90178371127695
+}
+[rank0]:[W725 01:47:54.056387966 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

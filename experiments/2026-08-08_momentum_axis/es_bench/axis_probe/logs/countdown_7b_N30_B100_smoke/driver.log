@@ -1,0 +1,14 @@
+================ countdown @ Qwen2.5-7B-Instruct ================
+model            : Qwen/Qwen2.5-7B-Instruct
+stages           : 0 2 3 4        seeds: 0        smoke: 1
+GPUs             : 0,1 (TP=2, SERIAL: base -> vanilla -> baseaxis)
+ES               : N=30  B=100  steps=2  sigma=1e-3  alpha=5e-4  mini_batch=64
+ES generations   : 2 x 30 x 100 = 6000   per arm
+eval             : every 1 steps + final, cap=50, max_tokens=2048 (train == eval)
+rho              : offline from correct_bits, 20 splits/step, after each arm
+vLLM mem util    : 0.60  (fp32 snapshots sit OUTSIDE this; see header)
+projection       : train ~0.5h + eval ~0.1h per arm  ->  ~1.2h total
+                   ESTIMATE ONLY at 0.30s/gen -- no measured 7B throughput exists. SMOKE=1 first.
+results          : axis_probe/results/countdown_7b_N30_B100_smoke
+checkpoints      : /home/hyin66/es_ckpts/countdown_7b_N30_B100_smoke
+=================================================================

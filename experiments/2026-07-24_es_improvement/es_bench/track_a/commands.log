@@ -1,0 +1,9 @@
+## 2026-07-24 es-improvement program kickoff; A0 vLLM-LoRA investigation dispatched
+## 2026-07-24 A0 adapter-isolation unit test (hard gate)
+## 2026-07-24 A0 LoRA-ES microbench N in {4,8,16,30} on 3B
+## 2026-07-24 A0 GRPO microbench (full-param, 3B, 64 seqs, max_resp 256)
+## 2026-07-24 A0 GRPO microbench (LoRA rank16, 3B, 64 seqs, max_resp 256)
+## 2026-07-24 A1 LoRA-ES trainer smoke (1.5B N8 20 steps)
+## 2026-07-24 A1 LoRA-ES sigma sweep {0.01,0.02,0.05} 1.5B-Instruct N16 300steps
+## 2026-07-24 A1 sweep2: lower sigma {0.002,0.005} + B=32
+## 2026-07-25 LoRA-ES OOD data point (sig0.005 B32 gsm8k) GPU0

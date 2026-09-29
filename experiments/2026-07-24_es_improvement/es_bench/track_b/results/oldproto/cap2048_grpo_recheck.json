@@ -1,0 +1,92 @@
+{
+  "model": "/tmp/grpo_ckpt_grpo_full_3b_math/global_step_200/hf_merged",
+  "theta": null,
+  "protocol": {
+    "cap": 300,
+    "max_tokens": 2048,
+    "greedy": true,
+    "note": "old protocol, matches base_3b.json / grpo_full_3b.json"
+  },
+  "entries": {
+    "grpo_t2048_recheck": {
+      "math500": {
+        "n": 300,
+        "full_n": 500,
+        "capped": true,
+        "accuracy": 0.49,
+        "extract_rate": 0.7833,
+        "headroom": 0.51,
+        "ceiling_risk": false,
+        "gen_seconds": 10.1,
+        "per_level_accuracy": {
+          "1": 0.8148,
+          "2": 0.7143,
+          "3": 0.5625,
+          "4": 0.3951,
+          "5": 0.2361
+        },
+        "primary_L3_5_accuracy": 0.3917
+      },
+      "gsm8k": {
+        "n": 300,
+        "full_n": 1319,
+        "capped": true,
+        "accuracy": 0.8433,
+        "extract_rate": 0.9967,
+        "headroom": 0.1567,
+        "ceiling_risk": false,
+        "gen_seconds": 3.2
+      },
+      "svamp": {
+        "n": 300,
+        "full_n": 300,
+        "capped": true,
+        "accuracy": 0.92,
+        "extract_rate": 0.99,
+        "headroom": 0.08,
+        "ceiling_risk": false,
+        "gen_seconds": 8.4
+      },
+      "minerva_math": {
+        "n": 272,
+        "full_n": 272,
+        "capped": false,
+        "accuracy": 0.1581,
+        "extract_rate": 0.5735,
+        "headroom": 0.8419,
+        "ceiling_risk": false,
+        "gen_seconds": 10.0
+      },
+      "olympiadbench": {
+        "n": 300,
+        "full_n": 674,
+        "capped": true,
+        "accuracy": 0.1333,
+        "extract_rate": 0.7633,
+        "headroom": 0.8667,
+        "ceiling_risk": false,
+        "gen_seconds": 10.9
+      },
+      "amc23": {
+        "n": 40,
+        "full_n": 40,
+        "capped": false,
+        "accuracy": 0.45,
+        "extract_rate": 0.975,
+        "headroom": 0.55,
+        "ceiling_risk": false,
+        "gen_seconds": 3.5
+      },
+      "countdown": {
+        "n": 300,
+        "full_n": 2200,
+        "capped": true,
+        "accuracy": 0.1033,
+        "extract_rate": 0.8733,
+        "headroom": 0.8967,
+        "ceiling_risk": false,
+        "gen_seconds": 11.5
+      }
+    }
+  }
+}

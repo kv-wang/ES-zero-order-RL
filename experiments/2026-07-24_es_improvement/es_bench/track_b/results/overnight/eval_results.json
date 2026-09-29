@@ -1,0 +1,885 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "protocol": {
+    "greedy": true,
+    "max_tokens": 512,
+    "cap_rule": "full if n<=1500 else 500-row subset (seed 12345)",
+    "capability_window": [
+      0.05,
+      0.85
+    ],
+    "kl_probe_n": 64
+  },
+  "entries": {
+    "base": {
+      "arm": "base",
+      "lambda": 0.0,
+      "kl": 2.468741173980262e-05,
+      "eval": {
+        "asdiv": {
+          "n": 500,
+          "full_n": 2305,
+          "subsampled": true,
+          "accuracy": 0.856,
+          "extract_rate": 0.928,
+          "trunc_rate": 0.024,
+          "gen_seconds": 5.5
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.07,
+          "extract_rate": 0.852,
+          "headroom": 0.93,
+          "ceiling_risk": false,
+          "gen_seconds": 7.6
+        },
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8514,
+          "extract_rate": 0.9742,
+          "trunc_rate": 0.0326,
+          "gen_seconds": 16.9
+        },
+        "gsm_symbolic": {
+          "n": 500,
+          "full_n": 5000,
+          "subsampled": true,
+          "accuracy": 0.76,
+          "extract_rate": 0.944,
+          "trunc_rate": 0.072,
+          "gen_seconds": 6.9
+        },
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.356,
+          "extract_rate": 0.536,
+          "trunc_rate": 0.504,
+          "gen_seconds": 8.3,
+          "per_level_accuracy": {
+            "1": 0.7209,
+            "2": 0.6444,
+            "3": 0.4095,
+            "4": 0.25,
+            "5": 0.1045
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2425
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.114,
+          "extract_rate": 0.4044,
+          "trunc_rate": 0.6324,
+          "gen_seconds": 5.6
+        },
+        "olympiadbench": {
+          "n": 674,
+          "full_n": 674,
+          "subsampled": false,
+          "accuracy": 0.0964,
+          "extract_rate": 0.3234,
+          "trunc_rate": 0.7997,
+          "gen_seconds": 13.0
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.91,
+          "extract_rate": 0.9833,
+          "trunc_rate": 0.0133,
+          "gen_seconds": 4.0
+        }
+      },
+      "seconds": 68.61372574232519
+    },
+    "loraes_gsm8k_final_lambda0.25": {
+      "arm": "gsm8k",
+      "lambda": 0.25,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step57_final.pt",
+      "kl": 0.0016678508278493288,
+      "eval": {
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8431,
+          "extract_rate": 0.9712,
+          "trunc_rate": 0.0334,
+          "gen_seconds": 21.1
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.9233,
+          "extract_rate": 0.9867,
+          "trunc_rate": 0.01,
+          "gen_seconds": 5.2
+        },
+        "asdiv": {
+          "n": 500,
+          "full_n": 2305,
+          "subsampled": true,
+          "accuracy": 0.848,
+          "extract_rate": 0.924,
+          "trunc_rate": 0.022,
+          "gen_seconds": 7.0
+        },
+        "gsm_symbolic": {
+          "n": 500,
+          "full_n": 5000,
+          "subsampled": true,
+          "accuracy": 0.772,
+          "extract_rate": 0.956,
+          "trunc_rate": 0.058,
+          "gen_seconds": 8.9
+        },
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.348,
+          "extract_rate": 0.548,
+          "trunc_rate": 0.498,
+          "gen_seconds": 11.4,
+          "per_level_accuracy": {
+            "1": 0.7442,
+            "2": 0.6333,
+            "3": 0.3905,
+            "4": 0.2344,
+            "5": 0.1045
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2316
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.0993,
+          "extract_rate": 0.4081,
+          "trunc_rate": 0.6066,
+          "gen_seconds": 7.6
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.09,
+          "extract_rate": 0.892,
+          "headroom": 0.91,
+          "ceiling_risk": false,
+          "gen_seconds": 9.9
+        }
+      },
+      "seconds": 72.02022494748235
+    },
+    "loraes_gsm8k_final_lambda0.5": {
+      "arm": "gsm8k",
+      "lambda": 0.5,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step57_final.pt",
+      "kl": 0.004441759829460324,
+      "eval": {
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8431,
+          "extract_rate": 0.9689,
+          "trunc_rate": 0.0334,
+          "gen_seconds": 21.5
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.92,
+          "extract_rate": 0.9933,
+          "trunc_rate": 0.0067,
+          "gen_seconds": 5.2
+        },
+        "asdiv": {
+          "n": 500,
+          "full_n": 2305,
+          "subsampled": true,
+          "accuracy": 0.85,
+          "extract_rate": 0.92,
+          "trunc_rate": 0.022,
+          "gen_seconds": 7.8
+        },
+        "gsm_symbolic": {
+          "n": 500,
+          "full_n": 5000,
+          "subsampled": true,
+          "accuracy": 0.756,
+          "extract_rate": 0.932,
+          "trunc_rate": 0.084,
+          "gen_seconds": 9.0
+        },
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.34,
+          "extract_rate": 0.53,
+          "trunc_rate": 0.5,
+          "gen_seconds": 10.8,
+          "per_level_accuracy": {
+            "1": 0.7209,
+            "2": 0.6444,
+            "3": 0.3714,
+            "4": 0.2188,
+            "5": 0.1045
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2207
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.1066,
+          "extract_rate": 0.3787,
+          "trunc_rate": 0.625,
+          "gen_seconds": 7.7
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.086,
+          "extract_rate": 0.774,
+          "headroom": 0.914,
+          "ceiling_risk": false,
+          "gen_seconds": 10.2
+        }
+      },
+      "seconds": 73.95180774107575
+    },
+    "loraes_gsm8k_final_lambda0.75": {
+      "arm": "gsm8k",
+      "lambda": 0.75,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step57_final.pt",
+      "kl": 0.008522301241998941,
+      "eval": {
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8438,
+          "extract_rate": 0.9765,
+          "trunc_rate": 0.0273,
+          "gen_seconds": 20.0
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.9233,
+          "extract_rate": 0.9867,
+          "trunc_rate": 0.01,
+          "gen_seconds": 5.2
+        },
+        "asdiv": {
+          "n": 500,
+          "full_n": 2305,
+          "subsampled": true,
+          "accuracy": 0.852,
+          "extract_rate": 0.92,
+          "trunc_rate": 0.022,
+          "gen_seconds": 6.9
+        },
+        "gsm_symbolic": {
+          "n": 500,
+          "full_n": 5000,
+          "subsampled": true,
+          "accuracy": 0.774,
+          "extract_rate": 0.936,
+          "trunc_rate": 0.078,
+          "gen_seconds": 9.6
+        },
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.348,
+          "extract_rate": 0.542,
+          "trunc_rate": 0.502,
+          "gen_seconds": 10.6,
+          "per_level_accuracy": {
+            "1": 0.7209,
+            "2": 0.6444,
+            "3": 0.3905,
+            "4": 0.25,
+            "5": 0.0896
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2316
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.1066,
+          "extract_rate": 0.3971,
+          "trunc_rate": 0.6066,
+          "gen_seconds": 7.6
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.082,
+          "extract_rate": 0.778,
+          "headroom": 0.918,
+          "ceiling_risk": false,
+          "gen_seconds": 10.2
+        }
+      },
+      "seconds": 71.0994268944487
+    },
+    "loraes_gsm8k_final_lambda1": {
+      "arm": "gsm8k",
+      "lambda": 1.0,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step57_final.pt",
+      "kl": 0.013626497539171124,
+      "eval": {
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8431,
+          "extract_rate": 0.9757,
+          "trunc_rate": 0.0296,
+          "gen_seconds": 21.1
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.9133,
+          "extract_rate": 0.9933,
+          "trunc_rate": 0.0033,
+          "gen_seconds": 5.2
+        },
+        "asdiv": {
+          "n": 500,
+          "full_n": 2305,
+          "subsampled": true,
+          "accuracy": 0.852,
+          "extract_rate": 0.922,
+          "trunc_rate": 0.018,
+          "gen_seconds": 7.0
+        },
+        "gsm_symbolic": {
+          "n": 500,
+          "full_n": 5000,
+          "subsampled": true,
+          "accuracy": 0.758,
+          "extract_rate": 0.956,
+          "trunc_rate": 0.064,
+          "gen_seconds": 8.9
+        },
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.338,
+          "extract_rate": 0.552,
+          "trunc_rate": 0.508,
+          "gen_seconds": 11.5,
+          "per_level_accuracy": {
+            "1": 0.6977,
+            "2": 0.6111,
+            "3": 0.4,
+            "4": 0.2266,
+            "5": 0.097
+          },
+          "L1_2_accuracy": 0.6391,
+          "L3_5_accuracy": 0.2289
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.1103,
+          "extract_rate": 0.4191,
+          "trunc_rate": 0.6066,
+          "gen_seconds": 7.7
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.108,
+          "extract_rate": 0.712,
+          "headroom": 0.892,
+          "ceiling_risk": false,
+          "gen_seconds": 10.6
+        }
+      },
+      "seconds": 72.91414831671864
+    },
+    "loraes_gsm8k_beststep0_lambda1": {
+      "arm": "gsm8k",
+      "lambda": 1.0,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step0.pt",
+      "kl": 2.468741173980262e-05,
+      "eval": {
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8514,
+          "extract_rate": 0.9742,
+          "trunc_rate": 0.0326,
+          "gen_seconds": 21.1
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.91,
+          "extract_rate": 0.9833,
+          "trunc_rate": 0.0133,
+          "gen_seconds": 5.3
+        },
+        "asdiv": {
+          "n": 500,
+          "full_n": 2305,
+          "subsampled": true,
+          "accuracy": 0.856,
+          "extract_rate": 0.928,
+          "trunc_rate": 0.024,
+          "gen_seconds": 7.1
+        },
+        "gsm_symbolic": {
+          "n": 500,
+          "full_n": 5000,
+          "subsampled": true,
+          "accuracy": 0.76,
+          "extract_rate": 0.944,
+          "trunc_rate": 0.072,
+          "gen_seconds": 8.9
+        },
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.356,
+          "extract_rate": 0.536,
+          "trunc_rate": 0.504,
+          "gen_seconds": 11.4,
+          "per_level_accuracy": {
+            "1": 0.7209,
+            "2": 0.6444,
+            "3": 0.4095,
+            "4": 0.25,
+            "5": 0.1045
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2425
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.114,
+          "extract_rate": 0.4044,
+          "trunc_rate": 0.6324,
+          "gen_seconds": 7.6
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.07,
+          "extract_rate": 0.852,
+          "headroom": 0.93,
+          "ceiling_risk": false,
+          "gen_seconds": 9.9
+        }
+      },
+      "seconds": 72.19617293961346
+    },
+    "loraes_math_final_lambda0.25": {
+      "arm": "math",
+      "lambda": 0.25,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step36_final.pt",
+      "kl": 5.360810880211749e-05,
+      "eval": {
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.354,
+          "extract_rate": 0.526,
+          "trunc_rate": 0.478,
+          "gen_seconds": 11.4,
+          "per_level_accuracy": {
+            "1": 0.7442,
+            "2": 0.6222,
+            "3": 0.4095,
+            "4": 0.2578,
+            "5": 0.097
+          },
+          "L1_2_accuracy": 0.6617,
+          "L3_5_accuracy": 0.2425
+        },
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8514,
+          "extract_rate": 0.9773,
+          "trunc_rate": 0.0243,
+          "gen_seconds": 20.4
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.9167,
+          "extract_rate": 0.9833,
+          "trunc_rate": 0.0133,
+          "gen_seconds": 5.2
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.1287,
+          "extract_rate": 0.4191,
+          "trunc_rate": 0.5809,
+          "gen_seconds": 7.6
+        },
+        "olympiadbench": {
+          "n": 674,
+          "full_n": 674,
+          "subsampled": false,
+          "accuracy": 0.1053,
+          "extract_rate": 0.3056,
+          "trunc_rate": 0.776,
+          "gen_seconds": 17.0
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.086,
+          "extract_rate": 0.836,
+          "headroom": 0.914,
+          "ceiling_risk": false,
+          "gen_seconds": 9.7
+        }
+      },
+      "seconds": 72.31817480083555
+    },
+    "loraes_math_final_lambda0.5": {
+      "arm": "math",
+      "lambda": 0.5,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step36_final.pt",
+      "kl": 0.0015571230397917629,
+      "eval": {
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.388,
+          "extract_rate": 0.568,
+          "trunc_rate": 0.434,
+          "gen_seconds": 11.2,
+          "per_level_accuracy": {
+            "1": 0.7442,
+            "2": 0.6333,
+            "3": 0.4857,
+            "4": 0.3047,
+            "5": 0.1119
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2861
+        },
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8469,
+          "extract_rate": 0.981,
+          "trunc_rate": 0.019,
+          "gen_seconds": 20.2
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.9167,
+          "extract_rate": 0.9867,
+          "trunc_rate": 0.01,
+          "gen_seconds": 5.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.125,
+          "extract_rate": 0.4007,
+          "trunc_rate": 0.5404,
+          "gen_seconds": 7.5
+        },
+        "olympiadbench": {
+          "n": 674,
+          "full_n": 674,
+          "subsampled": false,
+          "accuracy": 0.1217,
+          "extract_rate": 0.368,
+          "trunc_rate": 0.7389,
+          "gen_seconds": 16.0
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.084,
+          "extract_rate": 0.826,
+          "headroom": 0.916,
+          "ceiling_risk": false,
+          "gen_seconds": 10.2
+        }
+      },
+      "seconds": 71.20465214457363
+    },
+    "loraes_math_final_lambda0.75": {
+      "arm": "math",
+      "lambda": 0.75,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step36_final.pt",
+      "kl": 0.004487722710028128,
+      "eval": {
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.398,
+          "extract_rate": 0.572,
+          "trunc_rate": 0.422,
+          "gen_seconds": 10.5,
+          "per_level_accuracy": {
+            "1": 0.7674,
+            "2": 0.6556,
+            "3": 0.4857,
+            "4": 0.2969,
+            "5": 0.1343
+          },
+          "L1_2_accuracy": 0.6917,
+          "L3_5_accuracy": 0.2916
+        },
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8567,
+          "extract_rate": 0.9833,
+          "trunc_rate": 0.0129,
+          "gen_seconds": 19.9
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.92,
+          "extract_rate": 0.99,
+          "trunc_rate": 0.0,
+          "gen_seconds": 4.4
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.114,
+          "extract_rate": 0.4338,
+          "trunc_rate": 0.5184,
+          "gen_seconds": 7.5
+        },
+        "olympiadbench": {
+          "n": 674,
+          "full_n": 674,
+          "subsampled": false,
+          "accuracy": 0.1172,
+          "extract_rate": 0.3739,
+          "trunc_rate": 0.7107,
+          "gen_seconds": 16.9
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.07,
+          "extract_rate": 0.798,
+          "headroom": 0.93,
+          "ceiling_risk": false,
+          "gen_seconds": 9.5
+        }
+      },
+      "seconds": 69.69676220510155
+    },
+    "loraes_math_final_lambda1": {
+      "arm": "math",
+      "lambda": 1.0,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step36_final.pt",
+      "kl": 0.008764015630354295,
+      "eval": {
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.394,
+          "extract_rate": 0.592,
+          "trunc_rate": 0.404,
+          "gen_seconds": 10.3,
+          "per_level_accuracy": {
+            "1": 0.7442,
+            "2": 0.6333,
+            "3": 0.4762,
+            "4": 0.3047,
+            "5": 0.1418
+          },
+          "L1_2_accuracy": 0.6692,
+          "L3_5_accuracy": 0.2943
+        },
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.862,
+          "extract_rate": 0.9848,
+          "trunc_rate": 0.0106,
+          "gen_seconds": 19.7
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.9167,
+          "extract_rate": 0.99,
+          "trunc_rate": 0.0,
+          "gen_seconds": 4.8
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.1213,
+          "extract_rate": 0.4743,
+          "trunc_rate": 0.4816,
+          "gen_seconds": 7.4
+        },
+        "olympiadbench": {
+          "n": 674,
+          "full_n": 674,
+          "subsampled": false,
+          "accuracy": 0.1202,
+          "extract_rate": 0.411,
+          "trunc_rate": 0.681,
+          "gen_seconds": 16.7
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.07,
+          "extract_rate": 0.768,
+          "headroom": 0.93,
+          "ceiling_risk": false,
+          "gen_seconds": 9.5
+        }
+      },
+      "seconds": 69.42067334242165
+    },
+    "loraes_math_beststep25_lambda1": {
+      "arm": "math",
+      "lambda": 1.0,
+      "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step25.pt",
+      "kl": 0.0026425116781535647,
+      "eval": {
+        "math500": {
+          "n": 500,
+          "full_n": 500,
+          "subsampled": false,
+          "accuracy": 0.36,
+          "extract_rate": 0.546,
+          "trunc_rate": 0.464,
+          "gen_seconds": 10.5,
+          "per_level_accuracy": {
+            "1": 0.7209,
+            "2": 0.6111,
+            "3": 0.4095,
+            "4": 0.2734,
+            "5": 0.1194
+          },
+          "L1_2_accuracy": 0.6466,
+          "L3_5_accuracy": 0.2561
+        },
+        "gsm8k": {
+          "n": 1319,
+          "full_n": 1319,
+          "subsampled": false,
+          "accuracy": 0.8522,
+          "extract_rate": 0.9833,
+          "trunc_rate": 0.0197,
+          "gen_seconds": 20.5
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "subsampled": false,
+          "accuracy": 0.92,
+          "extract_rate": 0.9933,
+          "trunc_rate": 0.0033,
+          "gen_seconds": 5.9
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "subsampled": false,
+          "accuracy": 0.1029,
+          "extract_rate": 0.4118,
+          "trunc_rate": 0.5882,
+          "gen_seconds": 7.6
+        },
+        "olympiadbench": {
+          "n": 674,
+          "full_n": 674,
+          "subsampled": false,
+          "accuracy": 0.1009,
+          "extract_rate": 0.3576,
+          "trunc_rate": 0.7611,
+          "gen_seconds": 16.2
+        },
+        "countdown": {
+          "n": 500,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.112,
+          "extract_rate": 0.83,
+          "headroom": 0.888,
+          "ceiling_risk": false,
+          "gen_seconds": 10.0
+        }
+      },
+      "seconds": 71.88355309795588
+    }
+  },
+  "capability_window_dropped": {
+    "asdiv": 0.856,
+    "gsm8k": 0.8514,
+    "svamp": 0.91
+  }
+}

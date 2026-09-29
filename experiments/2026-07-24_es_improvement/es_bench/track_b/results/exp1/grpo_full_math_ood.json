@@ -1,0 +1,74 @@
+{
+  "method": "grpo_full_math",
+  "hf_dir": "/tmp/grpo_ckpt_grpo_full_math/global_step_200/hf_merged",
+  "eval": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.4,
+      "extract_rate": 0.8133,
+      "headroom": 0.6,
+      "ceiling_risk": false,
+      "gen_seconds": 7.7,
+      "per_level_accuracy": {
+        "1": 0.7778,
+        "2": 0.6607,
+        "3": 0.5,
+        "4": 0.2593,
+        "5": 0.125
+      },
+      "primary_L3_5_accuracy": 0.2857
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.7633,
+      "extract_rate": 0.9933,
+      "headroom": 0.2367,
+      "ceiling_risk": false,
+      "gen_seconds": 6.6
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.85,
+      "extract_rate": 0.99,
+      "headroom": 0.15,
+      "ceiling_risk": false,
+      "gen_seconds": 6.1
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.0956,
+      "extract_rate": 0.5257,
+      "headroom": 0.9044,
+      "ceiling_risk": false,
+      "gen_seconds": 7.6
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.12,
+      "extract_rate": 0.7167,
+      "headroom": 0.88,
+      "ceiling_risk": false,
+      "gen_seconds": 8.3
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.225,
+      "extract_rate": 0.9,
+      "headroom": 0.775,
+      "ceiling_risk": false,
+      "gen_seconds": 2.6
+    }
+  }
+}

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/diagnostics/d2_probe.py", line 132, in <module>
+    main()
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/diagnostics/d2_probe.py", line 44, in main
+    from es_bench.data_math import build_prompt, make_split
+ModuleNotFoundError: No module named 'es_bench'

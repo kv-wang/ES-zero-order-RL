@@ -1,0 +1,32 @@
+{
+  "arm": "fullparam",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "dataset": "math",
+  "n_prompts": 8,
+  "n_seeds": 1,
+  "seeds": [
+    327741616
+  ],
+  "max_tokens": 256,
+  "sigmas": [
+    0.001
+  ],
+  "points": [
+    {
+      "sigma": 0.001,
+      "flip_rate_mean": 0.5,
+      "flip_rate_std": 0.0,
+      "kl_drift_mean": 0.006776475052751051,
+      "kl_drift_std": 0.0,
+      "flip_rates": [
+        0.5
+      ],
+      "kl_drifts": [
+        0.006776475052751051
+      ]
+    }
+  ],
+  "base_extract_rate": 0.375,
+  "sanity_self_drift": 2.2790653949014694e-05,
+  "wall_clock_s": 29.29150126967579
+}

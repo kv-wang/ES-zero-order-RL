@@ -1,0 +1,12 @@
+[02:28:19] === Phase 1 START ===
+[02:28:19] D1 base start
+[02:29:37] D1 base DONE
+[02:29:37] D1 grpo start
+[02:31:03] D1 grpo DONE
+[02:31:03] D2 full start
+[02:31:22] D2 full FAIL rc=1
+[02:31:22] D2 lora start
+[02:31:42] D2 lora FAIL rc=1
+[02:31:42] ES-N8 uncapped retrain start
+[03:25:48] ES-N8 uncapped DONE
+[03:25:48] === Phase 1 ALL DONE ===

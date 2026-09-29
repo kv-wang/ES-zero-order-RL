@@ -25,3 +25,67 @@ WARNING 08-21 18:51:37 [topk_topp_sampler.py:66] FlashInfer is not available. Fa
 [1;36m(Worker_TP0 pid=115630)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:01, 58.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:00<00:00, 61.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:00<00:00, 60.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:00<00:00, 58.96it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:00<00:00, 58.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 39/67 [00:00<00:00, 57.46it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:00<00:00, 55.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 51/67 [00:00<00:00, 53.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 57/67 [00:01<00:00, 51.98it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:01<00:00, 53.22it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:01<00:00, 55.64it/s]
 [1;36m(Worker_TP0 pid=115630)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 9/67 [00:00<00:00, 82.88it/s]Capturing CUDA graphs (decode, FULL):  27%|██▋       | 18/67 [00:00<00:00, 85.83it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 27/67 [00:00<00:00, 86.67it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 36/67 [00:00<00:00, 87.28it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:00<00:00, 86.98it/s]Capturing CUDA graphs (decode, FULL):  81%|████████  | 54/67 [00:00<00:00, 87.03it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 63/67 [00:00<00:00, 87.44it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:00<00:00, 87.22it/s]
 [kl] base-vs-base drift=-1.82e-06
+[vanilla N=30 s0] step 0 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 1 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 2 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 3 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 4 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 5 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 10 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[eval] intermediate eval at step 10...
+[eval] step 10 done in 76.6s — countdown acc=0.0433
+[vanilla N=30 s0] step 15 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 20 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[eval] intermediate eval at step 20...
+[eval] step 20 done in 74.1s — countdown acc=0.1167
+[vanilla N=30 s0] step 25 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[vanilla N=30 s0] step 30 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+[eval] intermediate eval at step 30...
+[eval] step 30 done in 70.8s — countdown acc=0.1467
+[vanilla N=30 s0] step 35 axis=0 disp=+0.000 frac=+0.0000 cum=+0.00 f+-f-=[-] probe=False |D|=2.54e+00
+Traceback (most recent call last):
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 462, in <module>
+    main()
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 303, in main
+    f_, tk, bits = member_primary(prompts, batch)
+  File "/home/hyin66/es-fine-tuning-paper/experiments/2026-08-08_momentum_axis/es_bench/axis_probe/src/es_train_axis.py", line 254, in member_primary
+    outs = llm.generate(p_chunk, sp, use_tqdm=False)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 401, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 1600, in _run_engine
+    step_outputs = self.llm_engine.step()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 265, in step
+    outputs = self.engine_core.get_output()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 248, in get_output
+    outputs, _ = self.engine_core.step_fn()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 284, in step
+    model_output = self.execute_model_with_error_logging(
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 261, in execute_model_with_error_logging
+    return model_fn(scheduler_output)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 181, in execute_model
+    (output, ) = self.collective_rpc(
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 264, in collective_rpc
+    result = get_response(w, dequeue_timeout,
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/v1/executor/multiproc_executor.py", line 244, in get_response
+    status, result = w.worker_response_mq.dequeue(
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 511, in dequeue
+    with self.acquire_read(timeout, cancel, indefinite) as buf:
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 452, in acquire_read
+    self._read_spin_timer.spin()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/site-packages/vllm/distributed/device_communicators/shm_broadcast.py", line 36, in spin
+    def spin(self):
+KeyboardInterrupt
+ERROR 08-23 05:34:53 [multiproc_executor.py:154] Worker proc VllmWorker-1 died unexpectedly, shutting down executor.
+Exception ignored in atexit callback: <function _exit_function at 0x78ae04d64790>
+Traceback (most recent call last):
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/util.py", line 357, in _exit_function
+    p.join()
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/popen_fork.py", line 43, in wait
+    return self.poll(os.WNOHANG if timeout == 0.0 else 0)
+  File "/home/hyin66/micromamba/envs/verl/lib/python3.10/multiprocessing/popen_fork.py", line 27, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+KeyboardInterrupt: 

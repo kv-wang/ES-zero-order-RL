@@ -1,0 +1,40 @@
+[
+  {
+    "tag": "loraes_gsm8k_final",
+    "arm": "gsm8k",
+    "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step57_final.pt",
+    "lambdas": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  {
+    "tag": "loraes_gsm8k_beststep0",
+    "arm": "gsm8k",
+    "ckpt": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step0.pt",
+    "lambdas": [
+      1.0
+    ]
+  },
+  {
+    "tag": "loraes_math_final",
+    "arm": "math",
+    "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step36_final.pt",
+    "lambdas": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  {
+    "tag": "loraes_math_beststep25",
+    "arm": "math",
+    "ckpt": "track_b/results/overnight/ckpt_loraes_math/theta_step25.pt",
+    "lambdas": [
+      1.0
+    ]
+  }
+]

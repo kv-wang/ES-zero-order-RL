@@ -1,0 +1,16 @@
+[20:50:24] GPU1 START fulles_N30 (Qwen/Qwen2.5-3B-Instruct gsm8k)
+[20:54:39] GPU0 START fulles_N20 (Qwen/Qwen2.5-3B-Instruct gsm8k)
+[22:42:19] GPU0 DONE fulles_N20 rc=0 wall=6460s peakVRAM=139477MiB
+[22:42:19] GPU0 START fulles_N4 (Qwen/Qwen2.5-3B-Instruct gsm8k)
+[23:05:57] GPU0 DONE fulles_N4 rc=0 wall=1418s peakVRAM=139477MiB
+[23:31:33] GPU1 DONE fulles_N30 rc=0 wall=9669s peakVRAM=140860MiB
+[23:31:33] GPU1 START fulles_N8 (Qwen/Qwen2.5-3B-Instruct gsm8k)
+[00:16:18] GPU1 DONE fulles_N8 rc=0 wall=2685s peakVRAM=140860MiB
+[03:41:53] GRPO 3B train START (grpo_full_3b_gsm8k)
+[03:58:41] watcher: waiting for GRPO 3B to finish...
+[04:35:30] GRPO 3B train DONE rc=0
+[04:35:30] GRPO 3B eval START (actor=/tmp/grpo_ckpt_grpo_full_3b_gsm8k/global_step_200/actor)
+[04:38:16] GRPO 3B eval DONE rc=0 -> /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/exp3b_gsm8k/grpo_full_3b.json
+[04:38:42] watcher: GRPO finished, starting LoRA-ES
+[04:38:42] START loraes_N16
+[04:40:22] DONE loraes_N16 rc=0

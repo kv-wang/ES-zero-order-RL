@@ -1,0 +1,8 @@
+[12:32:18] A1 sigma sweep start
+[12:32:18] GPU0 START sigma=0.01
+[12:32:18] GPU1 START sigma=0.02
+[12:57:40] GPU0 DONE sigma=0.01 rc=0
+[12:57:40] GPU0 START sigma=0.05
+[12:58:11] GPU1 DONE sigma=0.02 rc=0
+[13:26:46] GPU0 DONE sigma=0.05 rc=0
+[13:26:46] A1 sigma sweep COMPLETE

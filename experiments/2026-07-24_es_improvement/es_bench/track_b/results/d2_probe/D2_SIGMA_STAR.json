@@ -1,0 +1,89 @@
+{
+  "reference": {
+    "arm": "fullparam",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "sigma": 0.001,
+    "flip_rate": 0.3984375,
+    "flip_rate_std": 0.0658292951029403,
+    "kl_drift": 0.00843157059046169,
+    "kl_drift_std": 0.0012276485391674217
+  },
+  "lora_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "n_prompts": 32,
+  "n_seeds": 8,
+  "sanity": {
+    "fullparam_self_drift": -2.1852396585441606e-06,
+    "lora_theta0_flip": 0.0,
+    "lora_theta0_drift": -2.1852396585441606e-06
+  },
+  "base_extract_rate": {
+    "fullparam": 0.625,
+    "lora": 0.625
+  },
+  "lora_grid": [
+    {
+      "sigma": 0.0001,
+      "flip_rate_mean": 0.09765625,
+      "flip_rate_std": 0.036435074426128186,
+      "kl_drift_mean": -1.4758466438915036e-05,
+      "kl_drift_std": 2.2425799997547827e-05
+    },
+    {
+      "sigma": 0.0003,
+      "flip_rate_mean": 0.109375,
+      "flip_rate_std": 0.038273277230987154,
+      "kl_drift_mean": -2.2408640921494062e-06,
+      "kl_drift_std": 6.598406394877241e-05
+    },
+    {
+      "sigma": 0.001,
+      "flip_rate_mean": 0.22265625,
+      "flip_rate_std": 0.05284277054089329,
+      "kl_drift_mean": 3.279505860372467e-05,
+      "kl_drift_std": 0.00019669792613723243
+    },
+    {
+      "sigma": 0.003,
+      "flip_rate_mean": 0.3046875,
+      "flip_rate_std": 0.030257682392245445,
+      "kl_drift_mean": 0.0005653539656546027,
+      "kl_drift_std": 0.000552895485439129
+    },
+    {
+      "sigma": 0.01,
+      "flip_rate_mean": 0.44921875,
+      "flip_rate_std": 0.044021201834315016,
+      "kl_drift_mean": 0.010763449025290717,
+      "kl_drift_std": 0.002149977760204626
+    },
+    {
+      "sigma": 0.03,
+      "flip_rate_mean": 0.70703125,
+      "flip_rate_std": 0.06799568431847348,
+      "kl_drift_mean": 1.441277221858714,
+      "kl_drift_std": 0.15469582033105161
+    },
+    {
+      "sigma": 0.1,
+      "flip_rate_mean": 0.625,
+      "flip_rate_std": 0.0,
+      "kl_drift_mean": 17.913841712993836,
+      "kl_drift_std": 0.5323659416181831
+    }
+  ],
+  "sigma_star": {
+    "flip": {
+      "value": 0.006550671878153537,
+      "target": 0.3984375,
+      "error": null
+    },
+    "KL": {
+      "value": 0.009050426722969646,
+      "target": 0.00843157059046169,
+      "error": null
+    },
+    "ratio_flip_over_KL": 0.7237970184906504,
+    "geometric_mean": 0.0076997646600040015,
+    "agree_within_2x": true
+  }
+}

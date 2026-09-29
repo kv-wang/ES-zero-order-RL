@@ -1,0 +1,97 @@
+{
+  "reward": "binary",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 8,
+  "pop_seed": 0,
+  "num_steps": 200,
+  "zero_update_rate": 0.055,
+  "pure_tiebreaker_rate": 0.0,
+  "final_drift_l2": 135.00475695343894,
+  "kl_proxy_drift": 0.054206651329475664,
+  "s_per_step_mean": 15.383479726037535,
+  "t_scoring_mean": 0.0,
+  "scoring_overhead_frac": 0.0,
+  "tokens_per_s": 1847.3206984971569,
+  "wall_clock_s": 3080.017785768956,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.43,
+      "extract_rate": 0.7733,
+      "headroom": 0.57,
+      "ceiling_risk": false,
+      "gen_seconds": 11.8,
+      "per_level_accuracy": {
+        "1": 0.7037,
+        "2": 0.6786,
+        "3": 0.4844,
+        "4": 0.3704,
+        "5": 0.1528
+      },
+      "primary_L3_5_accuracy": 0.3318
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.8567,
+      "extract_rate": 0.9867,
+      "headroom": 0.1433,
+      "ceiling_risk": false,
+      "gen_seconds": 9.4
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8867,
+      "extract_rate": 0.9933,
+      "headroom": 0.1133,
+      "ceiling_risk": false,
+      "gen_seconds": 8.8
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.1287,
+      "extract_rate": 0.6103,
+      "headroom": 0.8713,
+      "ceiling_risk": false,
+      "gen_seconds": 12.2
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.12,
+      "extract_rate": 0.6933,
+      "headroom": 0.88,
+      "ceiling_risk": false,
+      "gen_seconds": 14.7
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.3,
+      "extract_rate": 0.925,
+      "headroom": 0.7,
+      "ceiling_risk": false,
+      "gen_seconds": 8.1
+    },
+    "countdown": {
+      "n": 300,
+      "full_n": 2200,
+      "capped": true,
+      "accuracy": 0.03,
+      "extract_rate": 0.94,
+      "headroom": 0.97,
+      "ceiling_risk": false,
+      "gen_seconds": 14.2
+    }
+  },
+  "eval_seconds": 83.22648407984525
+}

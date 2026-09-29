@@ -1,0 +1,300 @@
+{
+  "paired_vs_base": {
+    "es_lambda1": {
+      "per_set": {
+        "math500": {
+          "n": 300,
+          "arm_wins": 10,
+          "arm_losses": 20,
+          "delta": -0.0333,
+          "se": 0.0182,
+          "z": -1.84,
+          "p_mcnemar": 0.0987
+        },
+        "svamp": {
+          "n": 300,
+          "arm_wins": 5,
+          "arm_losses": 7,
+          "delta": -0.0067,
+          "se": 0.0115,
+          "z": -0.58,
+          "p_mcnemar": 0.7744
+        },
+        "minerva_math": {
+          "n": 272,
+          "arm_wins": 6,
+          "arm_losses": 8,
+          "delta": -0.0074,
+          "se": 0.0137,
+          "z": -0.53,
+          "p_mcnemar": 0.7905
+        },
+        "olympiadbench": {
+          "n": 300,
+          "arm_wins": 11,
+          "arm_losses": 17,
+          "delta": -0.02,
+          "se": 0.0176,
+          "z": -1.14,
+          "p_mcnemar": 0.3449
+        },
+        "countdown": {
+          "n": 300,
+          "arm_wins": 13,
+          "arm_losses": 16,
+          "delta": -0.01,
+          "se": 0.0179,
+          "z": -0.56,
+          "p_mcnemar": 0.7111
+        }
+      },
+      "OODavg_delta": -0.0155,
+      "OODavg_se_paired": 0.0072,
+      "OODavg_z": -2.16
+    },
+    "es_lambda0.75": {
+      "per_set": {
+        "math500": {
+          "n": 300,
+          "arm_wins": 11,
+          "arm_losses": 19,
+          "delta": -0.0267,
+          "se": 0.0182,
+          "z": -1.47,
+          "p_mcnemar": 0.2005
+        },
+        "svamp": {
+          "n": 300,
+          "arm_wins": 5,
+          "arm_losses": 5,
+          "delta": 0.0,
+          "se": 0.0105,
+          "z": 0.0,
+          "p_mcnemar": 1.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "arm_wins": 5,
+          "arm_losses": 7,
+          "delta": -0.0074,
+          "se": 0.0127,
+          "z": -0.58,
+          "p_mcnemar": 0.7744
+        },
+        "olympiadbench": {
+          "n": 300,
+          "arm_wins": 5,
+          "arm_losses": 9,
+          "delta": -0.0133,
+          "se": 0.0124,
+          "z": -1.07,
+          "p_mcnemar": 0.424
+        },
+        "countdown": {
+          "n": 300,
+          "arm_wins": 22,
+          "arm_losses": 16,
+          "delta": 0.02,
+          "se": 0.0205,
+          "z": 0.97,
+          "p_mcnemar": 0.4177
+        }
+      },
+      "OODavg_delta": -0.0055,
+      "OODavg_se_paired": 0.0069,
+      "OODavg_z": -0.8
+    },
+    "es_lambda0.5": {
+      "per_set": {
+        "math500": {
+          "n": 300,
+          "arm_wins": 7,
+          "arm_losses": 19,
+          "delta": -0.04,
+          "se": 0.0168,
+          "z": -2.38,
+          "p_mcnemar": 0.029
+        },
+        "svamp": {
+          "n": 300,
+          "arm_wins": 5,
+          "arm_losses": 6,
+          "delta": -0.0033,
+          "se": 0.0111,
+          "z": -0.3,
+          "p_mcnemar": 1.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "arm_wins": 5,
+          "arm_losses": 7,
+          "delta": -0.0074,
+          "se": 0.0127,
+          "z": -0.58,
+          "p_mcnemar": 0.7744
+        },
+        "olympiadbench": {
+          "n": 300,
+          "arm_wins": 9,
+          "arm_losses": 10,
+          "delta": -0.0033,
+          "se": 0.0145,
+          "z": -0.23,
+          "p_mcnemar": 1.0
+        },
+        "countdown": {
+          "n": 300,
+          "arm_wins": 16,
+          "arm_losses": 17,
+          "delta": -0.0033,
+          "se": 0.0191,
+          "z": -0.17,
+          "p_mcnemar": 1.0
+        }
+      },
+      "OODavg_delta": -0.0115,
+      "OODavg_se_paired": 0.0068,
+      "OODavg_z": -1.7
+    },
+    "es_lambda0.25": {
+      "per_set": {
+        "math500": {
+          "n": 300,
+          "arm_wins": 10,
+          "arm_losses": 13,
+          "delta": -0.01,
+          "se": 0.016,
+          "z": -0.63,
+          "p_mcnemar": 0.6776
+        },
+        "svamp": {
+          "n": 300,
+          "arm_wins": 4,
+          "arm_losses": 2,
+          "delta": 0.0067,
+          "se": 0.0082,
+          "z": 0.82,
+          "p_mcnemar": 0.6875
+        },
+        "minerva_math": {
+          "n": 272,
+          "arm_wins": 4,
+          "arm_losses": 6,
+          "delta": -0.0074,
+          "se": 0.0116,
+          "z": -0.63,
+          "p_mcnemar": 0.7539
+        },
+        "olympiadbench": {
+          "n": 300,
+          "arm_wins": 7,
+          "arm_losses": 9,
+          "delta": -0.0067,
+          "se": 0.0133,
+          "z": -0.5,
+          "p_mcnemar": 0.8036
+        },
+        "countdown": {
+          "n": 300,
+          "arm_wins": 11,
+          "arm_losses": 12,
+          "delta": -0.0033,
+          "se": 0.016,
+          "z": -0.21,
+          "p_mcnemar": 1.0
+        }
+      },
+      "OODavg_delta": -0.0041,
+      "OODavg_se_paired": 0.006,
+      "OODavg_z": -0.69
+    },
+    "grpo": {
+      "per_set": {
+        "math500": {
+          "n": 300,
+          "arm_wins": 16,
+          "arm_losses": 22,
+          "delta": -0.02,
+          "se": 0.0205,
+          "z": -0.97,
+          "p_mcnemar": 0.4177
+        },
+        "svamp": {
+          "n": 300,
+          "arm_wins": 9,
+          "arm_losses": 7,
+          "delta": 0.0067,
+          "se": 0.0133,
+          "z": 0.5,
+          "p_mcnemar": 0.8036
+        },
+        "minerva_math": {
+          "n": 272,
+          "arm_wins": 6,
+          "arm_losses": 10,
+          "delta": -0.0147,
+          "se": 0.0147,
+          "z": -1.0,
+          "p_mcnemar": 0.4545
+        },
+        "olympiadbench": {
+          "n": 300,
+          "arm_wins": 11,
+          "arm_losses": 14,
+          "delta": -0.01,
+          "se": 0.0167,
+          "z": -0.6,
+          "p_mcnemar": 0.69
+        },
+        "countdown": {
+          "n": 300,
+          "arm_wins": 23,
+          "arm_losses": 16,
+          "delta": 0.0233,
+          "se": 0.0208,
+          "z": 1.12,
+          "p_mcnemar": 0.3368
+        }
+      },
+      "OODavg_delta": -0.0029,
+      "OODavg_se_paired": 0.0078,
+      "OODavg_z": -0.38
+    }
+  },
+  "es_dose_response_OODavg_by_lambda": {
+    "0.0 (base)": 0.375,
+    "0.25": 0.3709,
+    "0.5": 0.3636,
+    "0.75": 0.3695,
+    "1": 0.3596
+  },
+  "grpo_memorization": {
+    "train_pool": {
+      "n": 300,
+      "arm_wins": 29,
+      "arm_losses": 24,
+      "delta": 0.0167,
+      "se": 0.0242,
+      "z": 0.69,
+      "p_mcnemar": 0.5831,
+      "base_acc": 0.6333,
+      "grpo_acc": 0.65
+    },
+    "heldout": {
+      "n": 300,
+      "arm_wins": 31,
+      "arm_losses": 21,
+      "delta": 0.0333,
+      "se": 0.024,
+      "z": 1.39,
+      "p_mcnemar": 0.2116,
+      "base_acc": 0.6467,
+      "grpo_acc": 0.68
+    },
+    "diff_in_diff": {
+      "delta": -0.0166,
+      "se": 0.0341,
+      "z": -0.49
+    }
+  }
+}

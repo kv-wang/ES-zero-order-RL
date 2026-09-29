@@ -1,0 +1,79 @@
+{
+  "per_N": {
+    "4": {
+      "drift": 187.8715914827298,
+      "drift_vs_invsqrtN_pct": 0.0,
+      "kl_e3": 137.1,
+      "kl_per_drift2_e3": 3.8843220134621705,
+      "update_norm_mean_nonzero": 13.887867585686882,
+      "update_norm_CV_nonzero": 0.00010566202571066364,
+      "zero_update_frac": 0.085,
+      "fit_std_median": 0.0625,
+      "fit_std_median_in_quanta": 0.5,
+      "frac_steps_below_one_quantum": 0.88,
+      "delta_train_fitness": -0.12500000000000003,
+      "delta_heldout_L3_5": -0.21200000000000002
+    },
+    "8": {
+      "drift": 135.00475695343894,
+      "drift_vs_invsqrtN_pct": 1.6255607149565865,
+      "kl_e3": 54.2,
+      "kl_per_drift2_e3": 2.9737273275418734,
+      "update_norm_mean_nonzero": 9.820151025218394,
+      "update_norm_CV_nonzero": 0.00010374676642627847,
+      "zero_update_frac": 0.055,
+      "fit_std_median": 0.07493486755176124,
+      "fit_std_median_in_quanta": 0.5994789404140899,
+      "frac_steps_below_one_quantum": 0.935,
+      "delta_train_fitness": -0.0078125,
+      "delta_heldout_L3_5": -0.11499999999999999
+    },
+    "20": {
+      "drift": 86.95137816832198,
+      "drift_vs_invsqrtN_pct": 3.4904696272465063,
+      "kl_e3": 37.9,
+      "kl_per_drift2_e3": 5.012868015417321,
+      "update_norm_mean_nonzero": 6.210812687205647,
+      "update_norm_CV_nonzero": 0.00011221378388522328,
+      "zero_update_frac": 0.02,
+      "fit_std_median": 0.08477912478906587,
+      "fit_std_median_in_quanta": 0.6782329983125269,
+      "frac_steps_below_one_quantum": 0.945,
+      "delta_train_fitness": 0.06312500000000004,
+      "delta_heldout_L3_5": -0.018000000000000016
+    },
+    "30": {
+      "drift": 71.71581474155653,
+      "drift_vs_invsqrtN_pct": 4.540471376756572,
+      "kl_e3": 29.1,
+      "kl_per_drift2_e3": 5.658002247738014,
+      "update_norm_mean_nonzero": 5.07107385792455,
+      "update_norm_CV_nonzero": 0.00011627938346750951,
+      "zero_update_frac": 0.0,
+      "fit_std_median": 0.08745036867375632,
+      "fit_std_median_in_quanta": 0.6996029493900505,
+      "frac_steps_below_one_quantum": 0.94,
+      "delta_train_fitness": 0.08312499999999995,
+      "delta_heldout_L3_5": -0.03200000000000003
+    }
+  },
+  "notes": {
+    "drift_exponent_fitted": -0.47834369072195626,
+    "drift_exponent_ideal": -0.5,
+    "kl_exponent_fitted": -0.7177603339130538,
+    "kl_exponent_prereg": -1.0,
+    "max_abs_drift_deviation_pct": 4.540471376756572,
+    "kl_times_N": {
+      "4": 548.4,
+      "8": 433.6,
+      "20": 758.0,
+      "30": 873.0
+    },
+    "quantum": 0.125,
+    "batch_size": 8,
+    "steps": 200,
+    "seed": 0,
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "train_set": "MATH L3-5"
+  }
+}

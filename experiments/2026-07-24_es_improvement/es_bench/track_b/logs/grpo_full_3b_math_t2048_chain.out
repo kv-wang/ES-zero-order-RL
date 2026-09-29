@@ -1,0 +1,32 @@
+[2026-07-28 23:22:21] === chain start: exp=grpo_full_3b_math_t2048 model=Qwen/Qwen2.5-3B-Instruct steps=200 maxresp=2048 lora_rank=0
+[2026-07-28 23:22:21] ckpt(/tmp,disposable)=/tmp/grpo_ckpt_grpo_full_3b_math_t2048  results(home,durable)=/home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/grpo_full_3b_math_t2048
+[2026-07-28 23:22:21] preflight ok: /tmp 198G free
+[2026-07-28 23:22:21] stage1 train  START (~1.7h at maxresp=2048)
+[2026-07-29 00:52:19] stage1 train  DONE -> /tmp/grpo_ckpt_grpo_full_3b_math_t2048/global_step_200/actor
+[2026-07-29 00:52:19] waiting for GPU 0 to drain before eval
+[2026-07-29 00:52:19] GPU 0 at 0MiB, proceeding
+[2026-07-29 00:52:19] stage2+3 merge+eval  START (cap=300 max_tokens=2048)
+[2026-07-29 00:55:28] stage2+3 merge+eval  DONE -> /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/grpo_full_3b_math_t2048/ood_eval.json
+[2026-07-29 00:55:28] stage4 summarize
+SUMMARY {
+  "exp": "grpo_full_3b_math_t2048",
+  "train_max_response": 2048,
+  "eval_max_tokens": 2048,
+  "OODavg": 0.3721,
+  "OOD_n": 5,
+  "L3_5": 0.4194,
+  "gsm8k": 0.8767,
+  "math500": 0.51,
+  "svamp": 0.92,
+  "minerva_math": 0.1471,
+  "olympiadbench": 0.18,
+  "countdown": 0.1033,
+  "reward_first10": 0.6008,
+  "reward_last10": 0.6758,
+  "resp_len_last10": 681.6,
+  "clip_ratio_last10": 0.0102,
+  "s_per_step": 25.89,
+  "n_steps": 200
+}
+[2026-07-29 00:55:28] stage4 summarize DONE -> /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/grpo_full_3b_math_t2048/summary.json (+ results/grpo_chain_summary.csv)
+[2026-07-29 00:55:28] === chain COMPLETE ===

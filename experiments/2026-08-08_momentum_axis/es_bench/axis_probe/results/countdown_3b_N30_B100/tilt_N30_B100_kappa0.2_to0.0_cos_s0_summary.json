@@ -1,0 +1,980 @@
+{
+  "variant": "tilt",
+  "axis": null,
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "population_size": 30,
+  "pop_seed": 0,
+  "num_steps": 100,
+  "a_max": 1.0,
+  "anchor_threshold": 1.0,
+  "mom_beta": null,
+  "mom_warmup": null,
+  "disp_sign_means": null,
+  "final_axis_norm": 0.0,
+  "final_cum_disp": 0.0,
+  "final_cum_disp_frac": 0.0,
+  "mean_signed_disp": 0.0,
+  "mean_signed_disp_frac": 0.0,
+  "mean_pair_fdiff": null,
+  "pair_tie_rate": null,
+  "n_pairs_evaluated": 0,
+  "steps_probe_active": 0,
+  "steps_scale_flagged": 95,
+  "zero_update_rate": 0.0,
+  "sigma_adapt": false,
+  "sigma_adapt_gain": null,
+  "sigma_adapt_clip": null,
+  "sigma0": 0.001,
+  "sigma_final": 0.001,
+  "sigma_ratio_mean": 1.0,
+  "sigma_ratio_min": 1.0,
+  "sigma_ratio_max": 1.0,
+  "gpu_mem_util": 0.7,
+  "peak_mem_alloc_gb": 130.011697152,
+  "peak_mem_reserved_gb": 131.799711744,
+  "kl_proxy_drift": null,
+  "s_per_step_mean": 562.8336566896922,
+  "wall_clock_s": 56283.36566939764,
+  "eval_interval": 10,
+  "eval_history": [
+    {
+      "updates": 10,
+      "step": 9,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.59,
+          "extract_rate": 0.9833,
+          "headroom": 0.41,
+          "ceiling_risk": false,
+          "gen_seconds": 12.6,
+          "per_level_accuracy": {
+            "1": 0.8519,
+            "2": 0.8036,
+            "3": 0.7656,
+            "4": 0.5062,
+            "5": 0.2639
+          },
+          "primary_L3_5_accuracy": 0.5023
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8533,
+          "extract_rate": 1.0,
+          "headroom": 0.1467,
+          "ceiling_risk": false,
+          "gen_seconds": 5.3
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.9033,
+          "extract_rate": 1.0,
+          "headroom": 0.0967,
+          "ceiling_risk": false,
+          "gen_seconds": 4.8
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1581,
+          "extract_rate": 0.9743,
+          "headroom": 0.8419,
+          "ceiling_risk": false,
+          "gen_seconds": 12.6
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2067,
+          "extract_rate": 0.9333,
+          "headroom": 0.7933,
+          "ceiling_risk": false,
+          "gen_seconds": 14.9
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.35,
+          "extract_rate": 0.95,
+          "headroom": 0.65,
+          "ceiling_risk": false,
+          "gen_seconds": 8.3
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.1667,
+          "extract_rate": 0.5633,
+          "headroom": 0.8333,
+          "ceiling_risk": false,
+          "gen_seconds": 17.5
+        }
+      },
+      "eval_seconds": 127.69777482002974
+    },
+    {
+      "updates": 20,
+      "step": 19,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5833,
+          "extract_rate": 0.96,
+          "headroom": 0.4167,
+          "ceiling_risk": false,
+          "gen_seconds": 13.2,
+          "per_level_accuracy": {
+            "1": 0.8519,
+            "2": 0.7321,
+            "3": 0.7188,
+            "4": 0.5062,
+            "5": 0.3333
+          },
+          "primary_L3_5_accuracy": 0.5115
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8333,
+          "extract_rate": 0.9933,
+          "headroom": 0.1667,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8867,
+          "extract_rate": 0.9967,
+          "headroom": 0.1133,
+          "ceiling_risk": false,
+          "gen_seconds": 9.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1618,
+          "extract_rate": 0.9485,
+          "headroom": 0.8382,
+          "ceiling_risk": false,
+          "gen_seconds": 13.0
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.2,
+          "extract_rate": 0.92,
+          "headroom": 0.8,
+          "ceiling_risk": false,
+          "gen_seconds": 15.0
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.275,
+          "extract_rate": 0.9,
+          "headroom": 0.725,
+          "ceiling_risk": false,
+          "gen_seconds": 8.3
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.2267,
+          "extract_rate": 0.5033,
+          "headroom": 0.7733,
+          "ceiling_risk": false,
+          "gen_seconds": 17.9
+        }
+      },
+      "eval_seconds": 89.25052465125918
+    },
+    {
+      "updates": 30,
+      "step": 29,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5367,
+          "extract_rate": 0.9533,
+          "headroom": 0.4633,
+          "ceiling_risk": false,
+          "gen_seconds": 13.1,
+          "per_level_accuracy": {
+            "1": 0.7778,
+            "2": 0.7857,
+            "3": 0.7031,
+            "4": 0.4321,
+            "5": 0.2222
+          },
+          "primary_L3_5_accuracy": 0.4424
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.83,
+          "extract_rate": 0.9933,
+          "headroom": 0.17,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8533,
+          "extract_rate": 0.9933,
+          "headroom": 0.1467,
+          "ceiling_risk": false,
+          "gen_seconds": 9.2
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.136,
+          "extract_rate": 0.9669,
+          "headroom": 0.864,
+          "ceiling_risk": false,
+          "gen_seconds": 12.8
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1967,
+          "extract_rate": 0.93,
+          "headroom": 0.8033,
+          "ceiling_risk": false,
+          "gen_seconds": 15.2
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.275,
+          "extract_rate": 0.875,
+          "headroom": 0.725,
+          "ceiling_risk": false,
+          "gen_seconds": 8.4
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.2633,
+          "extract_rate": 0.4767,
+          "headroom": 0.7367,
+          "ceiling_risk": false,
+          "gen_seconds": 19.4
+        }
+      },
+      "eval_seconds": 90.91300701536238
+    },
+    {
+      "updates": 40,
+      "step": 39,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4933,
+          "extract_rate": 0.9433,
+          "headroom": 0.5067,
+          "ceiling_risk": false,
+          "gen_seconds": 13.2,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.6607,
+            "3": 0.6562,
+            "4": 0.3951,
+            "5": 0.2083
+          },
+          "primary_L3_5_accuracy": 0.4101
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.83,
+          "extract_rate": 0.9933,
+          "headroom": 0.17,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8533,
+          "extract_rate": 0.99,
+          "headroom": 0.1467,
+          "ceiling_risk": false,
+          "gen_seconds": 9.2
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1287,
+          "extract_rate": 0.9449,
+          "headroom": 0.8713,
+          "ceiling_risk": false,
+          "gen_seconds": 13.1
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1733,
+          "extract_rate": 0.8967,
+          "headroom": 0.8267,
+          "ceiling_risk": false,
+          "gen_seconds": 16.1
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.275,
+          "extract_rate": 0.875,
+          "headroom": 0.725,
+          "ceiling_risk": false,
+          "gen_seconds": 8.3
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3333,
+          "extract_rate": 0.4967,
+          "headroom": 0.6667,
+          "ceiling_risk": false,
+          "gen_seconds": 19.4
+        }
+      },
+      "eval_seconds": 92.08270579390228
+    },
+    {
+      "updates": 50,
+      "step": 49,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4667,
+          "extract_rate": 0.9367,
+          "headroom": 0.5333,
+          "ceiling_risk": false,
+          "gen_seconds": 13.3,
+          "per_level_accuracy": {
+            "1": 0.7407,
+            "2": 0.7679,
+            "3": 0.5156,
+            "4": 0.3951,
+            "5": 0.1667
+          },
+          "primary_L3_5_accuracy": 0.3548
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8067,
+          "extract_rate": 0.9833,
+          "headroom": 0.1933,
+          "ceiling_risk": false,
+          "gen_seconds": 10.5
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8433,
+          "extract_rate": 0.98,
+          "headroom": 0.1567,
+          "ceiling_risk": false,
+          "gen_seconds": 9.4
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1213,
+          "extract_rate": 0.9522,
+          "headroom": 0.8787,
+          "ceiling_risk": false,
+          "gen_seconds": 13.1
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1533,
+          "extract_rate": 0.91,
+          "headroom": 0.8467,
+          "ceiling_risk": false,
+          "gen_seconds": 15.6
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.15,
+          "extract_rate": 0.75,
+          "headroom": 0.85,
+          "ceiling_risk": false,
+          "gen_seconds": 8.5
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3467,
+          "extract_rate": 0.4833,
+          "headroom": 0.6533,
+          "ceiling_risk": false,
+          "gen_seconds": 18.2
+        }
+      },
+      "eval_seconds": 91.7630111463368
+    },
+    {
+      "updates": 60,
+      "step": 59,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4767,
+          "extract_rate": 0.9467,
+          "headroom": 0.5233,
+          "ceiling_risk": false,
+          "gen_seconds": 13.0,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.6964,
+            "3": 0.5625,
+            "4": 0.4568,
+            "5": 0.125
+          },
+          "primary_L3_5_accuracy": 0.3779
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8067,
+          "extract_rate": 0.9933,
+          "headroom": 0.1933,
+          "ceiling_risk": false,
+          "gen_seconds": 10.4
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.86,
+          "extract_rate": 0.9967,
+          "headroom": 0.14,
+          "ceiling_risk": false,
+          "gen_seconds": 9.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1397,
+          "extract_rate": 0.9081,
+          "headroom": 0.8603,
+          "ceiling_risk": false,
+          "gen_seconds": 13.4
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1567,
+          "extract_rate": 0.9,
+          "headroom": 0.8433,
+          "ceiling_risk": false,
+          "gen_seconds": 15.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.125,
+          "extract_rate": 0.925,
+          "headroom": 0.875,
+          "ceiling_risk": false,
+          "gen_seconds": 8.4
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3367,
+          "extract_rate": 0.45,
+          "headroom": 0.6633,
+          "ceiling_risk": false,
+          "gen_seconds": 18.8
+        }
+      },
+      "eval_seconds": 91.57150757871568
+    },
+    {
+      "updates": 70,
+      "step": 69,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4767,
+          "extract_rate": 0.9633,
+          "headroom": 0.5233,
+          "ceiling_risk": false,
+          "gen_seconds": 12.8,
+          "per_level_accuracy": {
+            "1": 0.7778,
+            "2": 0.6964,
+            "3": 0.625,
+            "4": 0.4074,
+            "5": 0.1389
+          },
+          "primary_L3_5_accuracy": 0.3825
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8033,
+          "extract_rate": 0.99,
+          "headroom": 0.1967,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8367,
+          "extract_rate": 1.0,
+          "headroom": 0.1633,
+          "ceiling_risk": false,
+          "gen_seconds": 9.2
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.114,
+          "extract_rate": 0.9191,
+          "headroom": 0.886,
+          "ceiling_risk": false,
+          "gen_seconds": 13.5
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.15,
+          "extract_rate": 0.92,
+          "headroom": 0.85,
+          "ceiling_risk": false,
+          "gen_seconds": 15.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.175,
+          "extract_rate": 0.95,
+          "headroom": 0.825,
+          "ceiling_risk": false,
+          "gen_seconds": 8.2
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3367,
+          "extract_rate": 0.42,
+          "headroom": 0.6633,
+          "ceiling_risk": false,
+          "gen_seconds": 19.7
+        }
+      },
+      "eval_seconds": 92.00531410053372
+    },
+    {
+      "updates": 80,
+      "step": 79,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4733,
+          "extract_rate": 0.96,
+          "headroom": 0.5267,
+          "ceiling_risk": false,
+          "gen_seconds": 12.8,
+          "per_level_accuracy": {
+            "1": 0.7407,
+            "2": 0.7143,
+            "3": 0.6406,
+            "4": 0.3704,
+            "5": 0.1528
+          },
+          "primary_L3_5_accuracy": 0.3779
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.7933,
+          "extract_rate": 1.0,
+          "headroom": 0.2067,
+          "ceiling_risk": false,
+          "gen_seconds": 9.7
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8533,
+          "extract_rate": 0.9933,
+          "headroom": 0.1467,
+          "ceiling_risk": false,
+          "gen_seconds": 9.2
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0956,
+          "extract_rate": 0.9375,
+          "headroom": 0.9044,
+          "ceiling_risk": false,
+          "gen_seconds": 13.4
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1467,
+          "extract_rate": 0.88,
+          "headroom": 0.8533,
+          "ceiling_risk": false,
+          "gen_seconds": 16.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.125,
+          "extract_rate": 0.9,
+          "headroom": 0.875,
+          "ceiling_risk": false,
+          "gen_seconds": 8.4
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.3933,
+          "extract_rate": 0.48,
+          "headroom": 0.6067,
+          "ceiling_risk": false,
+          "gen_seconds": 18.5
+        }
+      },
+      "eval_seconds": 91.41496437601745
+    },
+    {
+      "updates": 90,
+      "step": 89,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5,
+          "extract_rate": 0.95,
+          "headroom": 0.5,
+          "ceiling_risk": false,
+          "gen_seconds": 12.8,
+          "per_level_accuracy": {
+            "1": 0.8148,
+            "2": 0.75,
+            "3": 0.625,
+            "4": 0.4198,
+            "5": 0.1667
+          },
+          "primary_L3_5_accuracy": 0.3963
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.79,
+          "extract_rate": 0.9933,
+          "headroom": 0.21,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8567,
+          "extract_rate": 1.0,
+          "headroom": 0.1433,
+          "ceiling_risk": false,
+          "gen_seconds": 4.7
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0772,
+          "extract_rate": 0.9007,
+          "headroom": 0.9228,
+          "ceiling_risk": false,
+          "gen_seconds": 13.6
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.16,
+          "extract_rate": 0.9267,
+          "headroom": 0.84,
+          "ceiling_risk": false,
+          "gen_seconds": 15.7
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.225,
+          "extract_rate": 0.925,
+          "headroom": 0.775,
+          "ceiling_risk": false,
+          "gen_seconds": 8.3
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.41,
+          "extract_rate": 0.5433,
+          "headroom": 0.59,
+          "ceiling_risk": false,
+          "gen_seconds": 18.0
+        }
+      },
+      "eval_seconds": 85.9056146685034
+    },
+    {
+      "updates": 100,
+      "step": 99,
+      "eval_result": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4567,
+          "extract_rate": 0.9533,
+          "headroom": 0.5433,
+          "ceiling_risk": false,
+          "gen_seconds": 13.0,
+          "per_level_accuracy": {
+            "1": 0.7407,
+            "2": 0.7143,
+            "3": 0.5625,
+            "4": 0.3827,
+            "5": 0.1389
+          },
+          "primary_L3_5_accuracy": 0.3548
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.79,
+          "extract_rate": 0.9933,
+          "headroom": 0.21,
+          "ceiling_risk": false,
+          "gen_seconds": 9.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.85,
+          "extract_rate": 1.0,
+          "headroom": 0.15,
+          "ceiling_risk": false,
+          "gen_seconds": 9.6
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0993,
+          "extract_rate": 0.9228,
+          "headroom": 0.9007,
+          "ceiling_risk": false,
+          "gen_seconds": 13.2
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.14,
+          "extract_rate": 0.9067,
+          "headroom": 0.86,
+          "ceiling_risk": false,
+          "gen_seconds": 15.4
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.125,
+          "extract_rate": 0.875,
+          "headroom": 0.875,
+          "ceiling_risk": false,
+          "gen_seconds": 8.5
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.4267,
+          "extract_rate": 0.5167,
+          "headroom": 0.5733,
+          "ceiling_risk": false,
+          "gen_seconds": 17.8
+        }
+      },
+      "eval_seconds": 90.5944564472884
+    }
+  ],
+  "tilt_kappa": 0.2,
+  "tilt_kappa_end": 0.0,
+  "tilt_lambda_cosine": true,
+  "tilt_mom_beta": 0.9,
+  "tilt_warmup": 1,
+  "tilt_lambda0": 27775.612900528406,
+  "tilt_lambda_end": 0.0,
+  "eval_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.4567,
+      "extract_rate": 0.9533,
+      "headroom": 0.5433,
+      "ceiling_risk": false,
+      "gen_seconds": 12.9,
+      "per_level_accuracy": {
+        "1": 0.7407,
+        "2": 0.7143,
+        "3": 0.5625,
+        "4": 0.3827,
+        "5": 0.1389
+      },
+      "primary_L3_5_accuracy": 0.3548
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.79,
+      "extract_rate": 0.9933,
+      "headroom": 0.21,
+      "ceiling_risk": false,
+      "gen_seconds": 9.8
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.85,
+      "extract_rate": 1.0,
+      "headroom": 0.15,
+      "ceiling_risk": false,
+      "gen_seconds": 9.1
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.0993,
+      "extract_rate": 0.9228,
+      "headroom": 0.9007,
+      "ceiling_risk": false,
+      "gen_seconds": 13.2
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.14,
+      "extract_rate": 0.9067,
+      "headroom": 0.86,
+      "ceiling_risk": false,
+      "gen_seconds": 16.0
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.125,
+      "extract_rate": 0.875,
+      "headroom": 0.875,
+      "ceiling_risk": false,
+      "gen_seconds": 8.5
+    },
+    "countdown": {
+      "n": 300,
+      "full_n": 2200,
+      "capped": true,
+      "accuracy": 0.4267,
+      "extract_rate": 0.5167,
+      "headroom": 0.5733,
+      "ceiling_risk": false,
+      "gen_seconds": 17.8
+    }
+  },
+  "eval_max_tokens": 2048,
+  "eval_seconds": 90.32347657345235
+}

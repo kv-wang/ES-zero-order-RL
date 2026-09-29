@@ -1,0 +1,41 @@
+{
+  "reference_flip_rate_pooled": 0.30078125,
+  "reference_per_dataset": {
+    "gsm8k": 0.0859375,
+    "math": 0.515625
+  },
+  "band": [
+    0.150390625,
+    0.6015625
+  ],
+  "lora_curve": [
+    {
+      "sigma": 0.015,
+      "flip_rate": 0.30859375,
+      "kl_drift": 0.020241264240965194,
+      "n_datasets": 2
+    },
+    {
+      "sigma": 0.03,
+      "flip_rate": 0.89453125,
+      "kl_drift": 0.6765346597212536,
+      "n_datasets": 2
+    },
+    {
+      "sigma": 0.05,
+      "flip_rate": 0.84375,
+      "kl_drift": 12.862718844916975,
+      "n_datasets": 2
+    },
+    {
+      "sigma": 0.09,
+      "flip_rate": 0.84375,
+      "kl_drift": 20.02221563228498,
+      "n_datasets": 2
+    }
+  ],
+  "sigma_star": 0.015,
+  "alpha": 0.0075,
+  "sigma_ceiling_flag": false,
+  "selection_reason": "flip-rate 0.309 closest to reference 0.301 within band [0.150,0.602]"
+}

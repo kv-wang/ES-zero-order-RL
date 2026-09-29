@@ -1,0 +1,60 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset": "gsm8k",
+  "population_size": 30,
+  "batch": 200,
+  "sigma": 0.015,
+  "alpha": 0.0075,
+  "num_steps_requested": 300,
+  "steps_completed": 57,
+  "pop_seed": 42,
+  "data_seed": 42,
+  "max_tokens": 512,
+  "chunk": 6000,
+  "stop_reason": "DEADLINE reached at step 57/300",
+  "wall_clock_s": 7772.560875550844,
+  "s_per_step_mean": 136.36071711492707,
+  "fit_first20": 0.832425,
+  "fit_last20": 0.8400666666666667,
+  "fit_slope_per_step": 0.00022831864143116508,
+  "median_split_half_spearman": 0.31147900076366786,
+  "mean_split_half_spearman": 0.29738063870197634,
+  "best_fit_step": 2,
+  "best_fit": 0.8813333333333333,
+  "kl_curve": [
+    {
+      "step": 0,
+      "kl": 9.59459086404042e-06
+    },
+    {
+      "step": 1,
+      "kl": -8.174591998927935e-05
+    },
+    {
+      "step": 25,
+      "kl": 0.005081907846986032
+    },
+    {
+      "step": 50,
+      "kl": 0.010889967257956086
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 0,
+      "path": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step0.pt"
+    },
+    {
+      "step": 25,
+      "path": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step25.pt"
+    },
+    {
+      "step": 50,
+      "path": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step50.pt"
+    },
+    {
+      "step": "final",
+      "path": "track_b/results/overnight/ckpt_loraes_gsm8k/theta_step57_final.pt"
+    }
+  ]
+}

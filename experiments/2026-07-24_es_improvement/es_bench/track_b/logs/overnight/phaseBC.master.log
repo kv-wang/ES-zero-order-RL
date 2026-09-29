@@ -1,0 +1,10 @@
+[01:45:42] Phase A selected sigma*=0.015 alpha=0.0075 (grid: 0.005,0.015,0.05,0.15)
+[01:45:42] === Phase B START (model=Qwen/Qwen2.5-3B-Instruct N=30 B=200 seed=42) ===
+[01:45:42] loraes_gsm8k start (sigma=0.015 alpha=0.0075 deadline=03:55:00)
+[03:56:55] loraes_gsm8k DONE
+[03:56:55] loraes_math start (sigma=0.015 alpha=0.0075 deadline=05:55:00)
+[05:55:17] loraes_math DONE
+[05:55:17] === Phase B DONE ===
+[05:55:17] === Phase C: full-param ES iso-B (GSM8K, N=30 B=200) ===
+[06:13:12] full-param iso-B DONE
+[06:13:12] === Phase B+C ALL DONE ===

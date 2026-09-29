@@ -1,0 +1,6 @@
+[19:15:20] === GRPO KL START (base=Qwen/Qwen2.5-3B-Instruct actor=/tmp/grpo_ckpt_grpo_full_3b_math/global_step_200/hf_merged) ===
+[19:15:20] pass 1/2: capture base-greedy completions
+[19:16:36] capture DONE
+[19:16:36] pass 2/2: measure drift under the GRPO actor
+[19:17:57] measure DONE
+[19:17:57] === GRPO KL DONE ===

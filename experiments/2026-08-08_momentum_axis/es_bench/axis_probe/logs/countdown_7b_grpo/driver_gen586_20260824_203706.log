@@ -1,0 +1,11 @@
+model=Qwen/Qwen2.5-7B-Instruct  task=countdown  gpus=0,1 (n=2, rollout TP=2)
+TRAIN_BS=64 GROUP=8 -> 512 rollouts/step
+BUDGET=gen STEPS=586 -> total_generations=300032  (ES vanilla arm = 300000)
+MICRO=2 maxprompt=1024 maxresp=2048 util=0.5
+eval: in-memory countdown val (300 pinned rows, greedy) at step 0 then every 100 steps + final = 7 evals (countdown only); PLUS a final merge + full six-set battery (+KL, +extract_rate) from the step-586 ckpt
+ckpt: save_freq=586 (last) -> /var/tmp/es_ckpts/grpo_countdown_7b_bs64g8_gen586, save_contents=[model] only (~28 GB fp32 shards, NOT resumable; +~15 GB merged HF). 175 GiB free on /var/tmp -- exactly ONE ckpt, at step 586
+out=axis_probe/results/countdown_7b_grpo
+NOTE: total_generations differs by 32 (300032 vs 300000, +0.011%) -- 512 rollouts/step does not divide 300000 evenly; rounded up.
+[2026-08-24_20:37:06] start grpo_countdown_7b_bs64g8_gen586  steps=586 total_gen=300032
+[2026-08-24_20:37:06] STAGE1 skip (parquet exists)
+[2026-08-24_20:37:06] STAGE2 train (586 steps, model=/tmp/rawtmpl_Qwen2.5-7B-Instruct)

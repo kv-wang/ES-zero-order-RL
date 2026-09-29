@@ -1,0 +1,9 @@
+{
+  "tag": "grpo_full_3b_math",
+  "target_model": "/tmp/grpo_ckpt_grpo_full_3b_math/global_step_200/hf_merged",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "n_prompts": 200,
+  "max_tokens": 512,
+  "base_self_drift": 3.2707629957449958e-06,
+  "kl_proxy_drift": 0.1285013115253891
+}

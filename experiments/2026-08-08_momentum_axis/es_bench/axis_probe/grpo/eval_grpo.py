@@ -28,6 +28,10 @@ def main():
                     help="completion cap; default config.MAX_TOKENS (same as training)")
     ap.add_argument("--gpu", type=int, default=0)
     ap.add_argument("--kl", action="store_true", help="also report the KL-to-base proxy")
+    ap.add_argument("--kl_base_rec", default=None,
+                    help="json from src/kl_capture.py, recorded on the UNTRAINED base model. "
+                         "REQUIRED by --kl: without it there is no base reference in this "
+                         "process and the drift would be the trained model against itself.")
     ap.add_argument("--train_seconds", type=float, default=None,
                     help="verl training wall clock, carried into the summary for budget matching")
     ap.add_argument("--train_steps", type=int, default=None)
@@ -69,14 +73,28 @@ def main():
     llm = LLM(model=hf_dir, dtype=C.DTYPE, gpu_memory_utilization=0.85, max_model_len=4096,
               enforce_eager=False, enable_prefix_caching=False, disable_log_stats=True)
 
-    kl_drift = None
+    kl_drift = kl_floor = None
     if a.kl:
-        # Same fixed prompt set and estimator the ES arms use, so the KL column is comparable.
+        # The record MUST come from the untrained base. Capturing it here, against the merged
+        # trained model that is the only thing loaded in this process, compares that model to
+        # itself and yields the estimator's self-consistency floor (~1e-7) no matter how far
+        # training actually moved -- the defect behind the 2026-08-13 kl_proxy_drift=-2.11e-7.
+        # src/kl_capture.py records it in its own process; see that file's docstring.
         import kl as klmod
-        kl_prompts = klmod.build_kl_prompts(tok, C.KL_N_PROMPTS, C.DATA_SEED, C.LEVELS, C.TRAIN_SIZE)
-        rec = klmod.capture_base(llm, kl_prompts, max_tokens=C.MAX_TOKENS)
+        if not a.kl_base_rec:
+            sys.exit("--kl requires --kl_base_rec (src/kl_capture.py output on the BASE model): "
+                     "no base reference is loadable in this process, and capturing it here would "
+                     "silently measure the trained model against itself.")
+        with open(a.kl_base_rec) as f:
+            blob = json.load(f)
+        if blob.get("model") and os.path.realpath(blob["model"]) != os.path.realpath(C.MODEL):
+            sys.exit(f"--kl_base_rec was captured on {blob['model']} but config.MODEL is "
+                     f"{C.MODEL}; the drift would mix two models.")
+        rec = blob["rec"]
+        kl_floor = blob.get("self_drift_floor")
         kl_drift = klmod.drift(llm, tok, rec)
-        print(f"[kl] drift={kl_drift:.4f}", flush=True)
+        print(f"[kl] drift={kl_drift:.4e} (base-vs-base floor {kl_floor:.2e})"
+              if kl_floor is not None else f"[kl] drift={kl_drift:.4e}", flush=True)
 
     t0 = time.perf_counter()
     eval_max_tokens = a.max_tokens if a.max_tokens is not None else C.MAX_TOKENS
@@ -93,6 +111,12 @@ def main():
         "total_generations": gens,
         "wall_clock_s": a.train_seconds,
         "kl_proxy_drift": kl_drift,
+        # The estimator's same-weights floor, from the base capture. kl_proxy_drift is only
+        # meaningful relative to this; values at the floor's magnitude mean "not measurable",
+        # not "weights did not move". Older GRPO summaries lack this key AND were computed
+        # against a self-capture (see the --kl_base_rec comment) -- their KL is not usable.
+        "kl_self_drift_floor": kl_floor,
+        "kl_base_rec": a.kl_base_rec,
         "eval_max_tokens": eval_max_tokens,
         "eval_final": ev, "eval_seconds": eval_seconds,
         # ES-only fields, present as None so downstream tables line up

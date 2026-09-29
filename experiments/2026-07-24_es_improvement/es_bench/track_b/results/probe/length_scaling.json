@@ -1,0 +1,64 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "n_prompts": 50,
+  "rank": 8,
+  "targets": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+  ],
+  "sigma": 0.015,
+  "note": "wall-clock contaminated by co-tenant; use L_bar only",
+  "caps": {
+    "512": {
+      "base": {
+        "L_bar": 452.14,
+        "total_tokens": 22607,
+        "trunc_rate": 0.52,
+        "accuracy": 0.34,
+        "seconds_CONTAMINATED": 2.7
+      }
+    },
+    "1024": {
+      "base": {
+        "L_bar": 594.64,
+        "total_tokens": 29732,
+        "trunc_rate": 0.14,
+        "accuracy": 0.54,
+        "seconds_CONTAMINATED": 5.0
+      }
+    },
+    "2048": {
+      "base": {
+        "L_bar": 676.74,
+        "total_tokens": 33837,
+        "trunc_rate": 0.06,
+        "accuracy": 0.58,
+        "seconds_CONTAMINATED": 9.4
+      }
+    }
+  },
+  "reduced_d": {
+    "d_from_template": 3686400,
+    "n_modules": 144,
+    "perturb_norm_sigma_sqrt_d": 28.799999999999997,
+    "lora_ids": [
+      9000001
+    ],
+    "member": {
+      "L_bar": 684.68,
+      "total_tokens": 34234,
+      "trunc_rate": 0.2,
+      "accuracy": 0.46,
+      "seconds_CONTAMINATED": 6.7
+    },
+    "base_same_cap": {
+      "L_bar": 594.64,
+      "total_tokens": 29732,
+      "trunc_rate": 0.14,
+      "accuracy": 0.54,
+      "seconds_CONTAMINATED": 5.0
+    }
+  }
+}

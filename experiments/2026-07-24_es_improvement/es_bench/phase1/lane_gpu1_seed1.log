@@ -1,0 +1,10 @@
+[15:21:06] PHASE1 ES START model=Qwen/Qwen2.5-Math-1.5B-Instruct dataset=math levels=3,4,5 mode=lane
+[15:21:06] START N4_seed1 on GPU1
+[15:39:57] DONE N4_seed1 (exit 0)
+[15:39:57] START N8_seed1 on GPU1
+[16:16:54] DONE N8_seed1 (exit 0)
+[16:16:54] START N16_seed1 on GPU1
+[17:29:40] DONE N16_seed1 (exit 0)
+[17:29:40] START N30_seed1 on GPU1
+[19:45:19] DONE N30_seed1 (exit 0)
+[19:45:19] PHASE1 ES DONE (lane)

@@ -1,0 +1,69 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset": "countdown",
+  "population_size": 30,
+  "batch": 100,
+  "rank": 16,
+  "targets": "q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj",
+  "antithetic": false,
+  "sigma": 0.015,
+  "alpha": 0.0075,
+  "num_steps_requested": 100,
+  "steps_completed": 100,
+  "pop_seed": 0,
+  "data_seed": 42,
+  "max_tokens": 2048,
+  "chunk": 1500,
+  "stop_reason": "completed",
+  "resumed_from_step": 40,
+  "wall_clock_s": 15116.780286981724,
+  "s_per_step_mean": 251.94633811636206,
+  "fit_first20": 0.0638,
+  "fit_last20": 0.22176666666666672,
+  "fit_slope_per_step": 0.0020018441844184415,
+  "median_split_half_spearman": 0.5107506457282005,
+  "mean_split_half_spearman": 0.5150662947465713,
+  "best_fit_step": 97,
+  "best_fit": 0.26166666666666666,
+  "kl_curve": [
+    {
+      "step": 40,
+      "kl": 0.015309648486453734,
+      "resumed": true
+    },
+    {
+      "step": 50,
+      "kl": 0.02318889944650698
+    },
+    {
+      "step": 75,
+      "kl": 0.04983470456368594
+    },
+    {
+      "step": 100,
+      "kl": 0.07784563767283575
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 40,
+      "path": "/tmp/countdown_loraes_ckpt/theta_step40_resume.pt"
+    },
+    {
+      "step": 50,
+      "path": "/tmp/countdown_loraes_ckpt/theta_step50.pt"
+    },
+    {
+      "step": 75,
+      "path": "/tmp/countdown_loraes_ckpt/theta_step75.pt"
+    },
+    {
+      "step": 100,
+      "path": "/tmp/countdown_loraes_ckpt/theta_step100.pt"
+    },
+    {
+      "step": "final",
+      "path": "/tmp/countdown_loraes_ckpt/theta_step100_final.pt"
+    }
+  ]
+}

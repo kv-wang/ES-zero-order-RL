@@ -1,0 +1,74 @@
+## 2026-07-24 B1 full-param ES trainer smoke (gsm8k N8 15 steps)
+## 2026-07-24 B1 full-param ES sigma sweep {5e-4,1e-3,2e-3,4e-3} gsm8k N16 200steps + OOD/KL
+## 2026-07-25 GRPO OOD: full-param train (1.5B gsm8k 200steps) GPU1
+## 2026-07-25 GRPO full merge+OOD eval
+## 2026-07-25 LoRA-GRPO train (1.5B gsm8k 200steps) + OOD eval — complete the comparison
+## 2026-07-25 Exp1 MATH L3-5 1.5B: full-param ES + LoRA-ES N-sweep {4,8,20,30} + GRPO
+## 2026-07-25 GRPO-MATH full-param train (1.5B MATH-L35 200steps) GPU1
+## 2026-07-25 Exp(3B/GSM8K): full-param ES + LoRA-ES N{4,8,20,30} + GRPO, Qwen2.5-3B-Instruct
+## 2026-07-27 D2 smoke: fullparam probe (1 sigma, 1 seed, 8 prompts)
+## 2026-07-27 D2 step1: fullparam reference probe (32 prompts, 8 seeds, sigma{3e-4,1e-3,3e-3}, 512tok) 1.5B MATH-L35
+## 2026-07-27 D2 step1b: LoRA sigma log-grid probe (7 sigmas x 8 seeds, batched multi-adapter) 1.5B MATH-L35
+## 2026-07-27 D2 step2: LoRA-ES alpha KL-velocity probe (sigma*=0.0077, N16 B8, 20 steps, alpha{2e-3,1e-2,5e-2,2e-1})
+## 2026-07-27 item3: GRPO MATH ckpt KL-to-base (same proxy as ES arms)
+## 2026-07-27 Step3 decisive: LoRA-ES 300steps 1.5B MATH-L35 N16 B8 -- control(5e-3,2e-3) / B(sig*,3e-3) / A(sig*,1e-2)
+## 2026-07-27 Step3 arm A (sigma*=7.7e-3 alpha=1e-2) TERMINATED at step 128/300 by session loss (20:31); no summary written.
+##            Adjudicated early on partial trajectory (KL 0.324@100 = 10.8x band ceiling, ID 0.050) -- see STEP3_GATE.md sec.4. Not re-run.
+## 2026-07-27 Step3 gate analysis (no GPU): fitness OLS/window/paired-CRN tests + power analysis of the borrowed +0.022 threshold -> STEP3_GATE.md
+## 2026-07-28 Phase 1 tail-averaging: exact trajectory replay (no retrain, no generation) of the 3B MATH
+##            full-param ES arms N{4,8,20,30} from logged fitness + pop_seed stream; per-step ||Delta_s||
+##            reproduced to 0.0e+00 rel.err on all 800 steps. Variants: theta_final / tailavg{5,50dense} /
+##            shrink lambda{0.25,0.5,0.75} + shrink at MATCHED norm. -> PHASE1_TAILAVG_REPORT.md
+##            Result: pooled OOD gap -0.0014 (t=-0.52) = NO signal; shrinkage dominates averaging in every arm.
+## 2026-07-28 microbench step1: L_bar vs cap {512,1024,2048} + reduced-d (attn-only r8) injection check, 3B, 50 MATH-L35 prompts, GPU free (timings clean, not contaminated)
+##            RESULT: L_bar 452.1/594.6/676.7 at cap 512/1024/2048 (trunc .52/.14/.06, acc .34/.54/.58).
+##            L_bar(1024)/L_bar(512) = 1.315, NOT the 1.6 assumed in LORAES_WALLCLOCK_ANALYSIS.md sec.6.
+##            Reduced-d attn-only r8 validated: d=3,686,400 (=sec.4 prediction), injection path OK,
+##            sigma*sqrt(d)=28.8 vs 82.1 for r16 attn+mlp; member already behaviourally live at sigma=0.015
+##            (L_bar +15%, trunc .20 vs .14) => do NOT norm-match sigma up 2.85x, re-run PhaseA flip-rate.
+##            Also corrected sec.6: GRPO@2048 real budget is 31.07 s/step x 198 = 1.72h, not 4.6h (the
+##            83.8s figure was step 1, warmup-inflated) => matched-budget ES arm is 24-42 steps, not 70-90.
+## 2026-07-28 CONFIG LOCK: vLLM engine settings matched across ES and GRPO (user directive).
+##            Was: GRPO rollout 0.50, full-param ES 0.85, LoRA-ES 0.60/0.85 -> KV cache differed ->
+##            achievable concurrency differed -> s/step not comparable across methods.
+##            Now: config.py TRAIN_GPU_MEM_UTIL=0.50 (single source of truth, both track copies),
+##            consumed by es_train_fullparam / es_train_lora / es_lora_main; run_grpo_train.sh greps
+##            it out of config.py and aborts on drift. Value capped by GRPO (FSDP actor resident,
+##            57.5GB alloc / 76.6GB reserved), so ES came down to meet GRPO, not the reverse.
+##            EVAL pinned SEPARATELY at EVAL_GPU_MEM_UTIL=0.60 (unchanged) -- moving it would
+##            invalidate base_3b.json et al, which reproduce exactly only at 0.60.
+##            CONSEQUENCE: all ES s/step taken at 0.85 (A0 2.7-3.6x, overnight B=200 136.4s) are
+##            VOID at the new setting and must be re-measured before any wall-clock claim.
+## 2026-07-28/29 BESTSHOT CAMPAIGN (user: show ES benefits at proper B/N/hparams, matched wall-clock):
+##   [launched] run_grpo_chain.sh -- GRPO@2048 reference re-run at matched util 0.50 (t2048 ckpt was
+##              lost to container restart), unattended train->merge->eval->summary.
+##   [launched] run_es_bestshot_chain.sh -- waits for GRPO, then: sigma* re-selection under r8
+##              attn-only (refs reused, only lora grid re-probed), 5-step timing at util 0.50,
+##              wall-clock-matched LoRA-ES arm (N30 B100 antithetic cap2048, deadline = GRPO's
+##              summed timing_s/step), theta eval at cap300/2048 (lambda 1.0+0.5), COMPARISON.json.
+##   Code added: antithetic (lora_es_worker signs arg + es_lora_main pair-fold), --rank/--targets
+##              in es_lora_main + probe_sigma_scale + eval_oldproto, max_model_len=max_tokens+1024
+##              fix in es_lora_main (was hardcoded 2048 -> would starve cap-2048 prompts).
+## 2026-07-29 GRPO chain grpo_full_3b_math_t2048: train(200 steps, maxresp=2048) -> merge -> OOD eval
+##   cap=300 max_tokens=2048; ckpt /tmp (disposable), results /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/grpo_full_3b_math_t2048 (durable)
+## 2026-07-29 LoRA-ES bestshot chain loraes_bestshot_3b_math: sigma-recal(r8 attn-only) -> timing -> 
+##   wall-matched arm (N30 B100 antithetic cap2048, budget=GRPO 5178s) -> OOD eval -> COMPARISON.json
+## 2026-07-29 BESTSHOT CAMPAIGN COMPLETE -> BESTSHOT_COMPARISON_REPORT.md. First fully matched
+##   cross-method row (budget 5178s, cap 2048 train+eval, util 0.50 both, seed 0, unattended).
+##   GRPO@2048: 200x25.89s, reward .601->.676, clip 1%; eval OODavg .3721, L3-5 .4194.
+##   LoRA-ES bestshot (N30 B100 r8-attn antithetic sigma*=.015 alpha=.0075): 32x162.6s (6.3x
+##   GRPO/step); fit slope ~0, KL .003, median split-half rho=.063 at B=100 fresh (5x BELOW the
+##   .32 predicted by subsampling B=200 bitmaps -- extrapolation did not transfer to new regime);
+##   eval OODavg .3589 (l0.5 .3636). RANKING: base .3750 >= GRPO .3721 > ES .3589 -- nobody beats
+##   base; sigma* re-selection landed on 0.015 again (r8 knee sharp: 0.03 -> flip .895).
+##   VRAM: GRPO peak 106.7GB vs ES engine-bound ~72GB. Both user criteria NOT met at this
+##   budget/model; sole live ES lever left: larger-B/fewer-steps (rho .46@B200 vs .06@B100).
+## 2026-07-29 OOD DIAGNOSIS (user: "is it weird ES+GRPO < base OOD? analyze+resolve") -> report addendum.
+##   Paired McNemar (identical problems): GRPO vs base z=-0.38 -- NOT below base, aggregate -0.003 was
+##   noise; flips 38/300 answers with wins~losses. Memorization probe: GRPO train-pool +0.017 vs
+##   fresh-same-dist +0.033, DiD -0.017+-0.034 -- NO memorization; small real on-dist gain, nets ~0 OOD.
+##   ES-l1 vs base z=-2.16 REAL, negative all 5 sets; dose-response .3750/.3709/.3636/.3695/.3596 at
+##   l=0/.25/.5/.75/1 -- drift damage confirmed (recovers with shrinkage; rho=.06 noise direction).
+##   ES vs GRPO direct: z=-1.61 ns. Corrected reading: base ~ GRPO > ES(l1), only ES-base significant.
+## 2026-07-30 countdown battery: LoRA-ES r16-full + full-param ES + GRPO, 100 steps,
+##   train countdown[300:] B100 N30, eval countdown[:300] ID + math OOD, cap300/2048

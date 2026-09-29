@@ -1,0 +1,9 @@
+[19:15:20] === GRPO KL START (base=Qwen/Qwen2.5-3B-Instruct actor=/tmp/grpo_ckpt_grpo_full_3b_math/global_step_200/hf_merged) ===
+[19:15:20] pass 1/2: capture base-greedy completions
+[19:16:36] capture DONE
+[19:16:36] pass 2/2: measure drift under the GRPO actor
+[19:17:57] measure DONE
+track_b/logs/grpo_kl/capture.log:[capture] 200 completions from Qwen/Qwen2.5-3B-Instruct; base-vs-base self-drift=3.271e-06 (expect ~0)
+grep: track_b/logs/grpo_kl/master.log: input file is also the output
+track_b/logs/grpo_kl/measure.log:[measure] grpo_full_3b_math: KL proxy drift D = 0.128501  (base self-drift 3.271e-06)
+[19:17:57] === GRPO KL DONE ===

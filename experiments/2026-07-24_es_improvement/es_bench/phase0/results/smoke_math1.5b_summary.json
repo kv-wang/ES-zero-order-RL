@@ -1,0 +1,14 @@
+{
+  "model": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+  "n": 8,
+  "gpu": 0,
+  "accuracy": 0.625,
+  "boxed_format_rate": 0.875,
+  "extraction_rate": 1.0,
+  "avg_out_tokens": 329.25,
+  "avg_words": 177.5,
+  "load_seconds": 85.68,
+  "gen_seconds": 1.43,
+  "gen_tokens_per_s": 1838.8,
+  "max_tokens": 512
+}

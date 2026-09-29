@@ -1,0 +1,4 @@
+[03:41:53] GRPO 3B train START (grpo_full_3b_gsm8k)
+[04:35:30] GRPO 3B train DONE rc=0
+[04:35:30] GRPO 3B eval START (actor=/tmp/grpo_ckpt_grpo_full_3b_gsm8k/global_step_200/actor)
+[04:38:16] GRPO 3B eval DONE rc=0 -> /home/hyin66/es-fine-tuning-paper/experiments/2026-07-24_es_improvement/es_bench/track_b/results/exp3b_gsm8k/grpo_full_3b.json

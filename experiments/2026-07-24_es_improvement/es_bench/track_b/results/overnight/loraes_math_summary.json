@@ -1,0 +1,52 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "dataset": "math",
+  "population_size": 30,
+  "batch": 200,
+  "sigma": 0.015,
+  "alpha": 0.0075,
+  "num_steps_requested": 300,
+  "steps_completed": 36,
+  "pop_seed": 42,
+  "data_seed": 42,
+  "max_tokens": 512,
+  "chunk": 6000,
+  "stop_reason": "DEADLINE reached at step 36/300",
+  "wall_clock_s": 7009.14878956601,
+  "s_per_step_mean": 194.69857748794473,
+  "fit_first20": 0.30933333333333335,
+  "fit_last20": 0.33009166666666667,
+  "fit_slope_per_step": 0.0015194337194337194,
+  "median_split_half_spearman": 0.4590443071714225,
+  "mean_split_half_spearman": 0.4519384388763459,
+  "best_fit_step": 32,
+  "best_fit": 0.38516666666666666,
+  "kl_curve": [
+    {
+      "step": 0,
+      "kl": 6.128149791701936e-06
+    },
+    {
+      "step": 1,
+      "kl": 6.453493628704416e-06
+    },
+    {
+      "step": 25,
+      "kl": 0.0026384556885196532
+    }
+  ],
+  "checkpoints": [
+    {
+      "step": 0,
+      "path": "track_b/results/overnight/ckpt_loraes_math/theta_step0.pt"
+    },
+    {
+      "step": 25,
+      "path": "track_b/results/overnight/ckpt_loraes_math/theta_step25.pt"
+    },
+    {
+      "step": "final",
+      "path": "track_b/results/overnight/ckpt_loraes_math/theta_step36_final.pt"
+    }
+  ]
+}

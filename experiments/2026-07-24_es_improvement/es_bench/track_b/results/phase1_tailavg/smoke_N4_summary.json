@@ -1,0 +1,163 @@
+{
+  "jsonl": "track_b/results/exp3b_math/fulles_N4.jsonl",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "N": 4,
+  "num_steps": 200,
+  "alpha": 0.0005,
+  "pop_seed": 0,
+  "tail_sparse": [
+    160,
+    170,
+    180,
+    190,
+    200
+  ],
+  "tail_dense": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200
+  ],
+  "lambdas": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "accumulators": [
+    "final",
+    "avg5",
+    "avg50dense"
+  ],
+  "eval_cap": 300,
+  "replay": {
+    "seconds": 26.450481704436243,
+    "max_rel_err_vs_logged_update_l2": 0.0,
+    "validated": true,
+    "tol": 0.0001
+  },
+  "kl_base_self": 3.2707629957449958e-06,
+  "sanity_theta0": {
+    "drift_l2": 0.0,
+    "kl": 3.2707629957449958e-06
+  },
+  "variants": {
+    "theta_final": {
+      "kind": "trajectory endpoint (lambda=1)",
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 187.8754868485648,
+      "kl": 0.13712406406306735,
+      "eval": null,
+      "seconds": 2.653617757372558
+    },
+    "tailavg_avg5": {
+      "kind": "tail average",
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "drift_l2": 174.0226462717601,
+      "kl": 0.11072291665472737,
+      "eval": null,
+      "seconds": 2.5822800444439054
+    },
+    "tailavg_avg50dense": {
+      "kind": "tail average",
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "drift_l2": 171.7045267523284,
+      "kl": 0.10904953630361001,
+      "eval": null,
+      "seconds": 3.0811450826004148
+    },
+    "shrink_lam0.25": {
+      "kind": "pure-shrinkage control",
+      "weights": [
+        0.25,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 46.9688717121412,
+      "kl": 0.005109020419136623,
+      "eval": null,
+      "seconds": 2.149728609248996
+    },
+    "shrink_lam0.5": {
+      "kind": "pure-shrinkage control",
+      "weights": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 93.9377434242824,
+      "kl": 0.022925060152484238,
+      "eval": null,
+      "seconds": 2.5890622856095433
+    },
+    "shrink_lam0.75": {
+      "kind": "pure-shrinkage control",
+      "weights": [
+        0.75,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 140.90661513877475,
+      "kl": 0.06066179302896726,
+      "eval": null,
+      "seconds": 2.5938128298148513
+    }
+  }
+}

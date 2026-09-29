@@ -1,0 +1,828 @@
+{
+  "jsonl": "track_b/results/exp3b_math/fulles_N4.jsonl",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "N": 4,
+  "num_steps": 200,
+  "alpha": 0.0005,
+  "pop_seed": 0,
+  "tail_sparse": [
+    160,
+    170,
+    180,
+    190,
+    200
+  ],
+  "tail_dense": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200
+  ],
+  "lambdas": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "accumulators": [
+    "final",
+    "avg5",
+    "avg50dense"
+  ],
+  "eval_cap": 300,
+  "accum_norms": {
+    "final": 187.8754868485648,
+    "avg5": 174.0226462717601,
+    "avg50dense": 171.7045267523284
+  },
+  "lambda_eff": {
+    "avg5": 0.9262658433562935,
+    "avg50dense": 0.913927248479889
+  },
+  "replay": {
+    "seconds": 26.4571170238778,
+    "max_rel_err_vs_logged_update_l2": 0.0,
+    "validated": true,
+    "tol": 0.0001
+  },
+  "kl_base_self": 3.2707629957449958e-06,
+  "sanity_theta0": {
+    "drift_l2": 0.0,
+    "kl": 3.2707629957449958e-06
+  },
+  "variants": {
+    "theta_final": {
+      "kind": "trajectory endpoint (lambda=1)",
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 187.8754868485648,
+      "kl": 0.13712406406306735,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.34,
+          "extract_rate": 0.7767,
+          "headroom": 0.66,
+          "ceiling_risk": false,
+          "gen_seconds": 12.0,
+          "per_level_accuracy": {
+            "1": 0.6296,
+            "2": 0.6071,
+            "3": 0.4062,
+            "4": 0.2099,
+            "5": 0.1111
+          },
+          "primary_L3_5_accuracy": 0.235
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.7367,
+          "extract_rate": 0.9867,
+          "headroom": 0.2633,
+          "ceiling_risk": false,
+          "gen_seconds": 3.8
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8233,
+          "extract_rate": 0.98,
+          "headroom": 0.1767,
+          "ceiling_risk": false,
+          "gen_seconds": 3.3
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0809,
+          "extract_rate": 0.4926,
+          "headroom": 0.9191,
+          "ceiling_risk": false,
+          "gen_seconds": 12.0
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.0867,
+          "extract_rate": 0.7133,
+          "headroom": 0.9133,
+          "ceiling_risk": false,
+          "gen_seconds": 13.5
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.1,
+          "extract_rate": 0.9,
+          "headroom": 0.9,
+          "ceiling_risk": false,
+          "gen_seconds": 7.9
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.04,
+          "extract_rate": 0.68,
+          "headroom": 0.96,
+          "ceiling_risk": false,
+          "gen_seconds": 22.7
+        }
+      },
+      "seconds": 81.98078338243067
+    },
+    "tailavg_avg5": {
+      "kind": "tail average",
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "drift_l2": 174.0226462717601,
+      "kl": 0.11072291665472737,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.3867,
+          "extract_rate": 0.7867,
+          "headroom": 0.6133,
+          "ceiling_risk": false,
+          "gen_seconds": 11.5,
+          "per_level_accuracy": {
+            "1": 0.6667,
+            "2": 0.6071,
+            "3": 0.4062,
+            "4": 0.3333,
+            "5": 0.1528
+          },
+          "primary_L3_5_accuracy": 0.2949
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.78,
+          "extract_rate": 0.99,
+          "headroom": 0.22,
+          "ceiling_risk": false,
+          "gen_seconds": 9.3
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8667,
+          "extract_rate": 0.9933,
+          "headroom": 0.1333,
+          "ceiling_risk": false,
+          "gen_seconds": 3.0
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0809,
+          "extract_rate": 0.4669,
+          "headroom": 0.9191,
+          "ceiling_risk": false,
+          "gen_seconds": 12.4
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.11,
+          "extract_rate": 0.6867,
+          "headroom": 0.89,
+          "ceiling_risk": false,
+          "gen_seconds": 13.7
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.275,
+          "extract_rate": 0.925,
+          "headroom": 0.725,
+          "ceiling_risk": false,
+          "gen_seconds": 8.0
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.0467,
+          "extract_rate": 0.63,
+          "headroom": 0.9533,
+          "ceiling_risk": false,
+          "gen_seconds": 21.5
+        }
+      },
+      "seconds": 85.06708821002394
+    },
+    "tailavg_avg50dense": {
+      "kind": "tail average",
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "drift_l2": 171.7045267523284,
+      "kl": 0.10904953630361001,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.3733,
+          "extract_rate": 0.79,
+          "headroom": 0.6267,
+          "ceiling_risk": false,
+          "gen_seconds": 11.5,
+          "per_level_accuracy": {
+            "1": 0.6667,
+            "2": 0.625,
+            "3": 0.3906,
+            "4": 0.2716,
+            "5": 0.1667
+          },
+          "primary_L3_5_accuracy": 0.2719
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.7533,
+          "extract_rate": 0.9833,
+          "headroom": 0.2467,
+          "ceiling_risk": false,
+          "gen_seconds": 3.9
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8733,
+          "extract_rate": 0.9967,
+          "headroom": 0.1267,
+          "ceiling_risk": false,
+          "gen_seconds": 3.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0993,
+          "extract_rate": 0.4963,
+          "headroom": 0.9007,
+          "ceiling_risk": false,
+          "gen_seconds": 12.4
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1,
+          "extract_rate": 0.6967,
+          "headroom": 0.9,
+          "ceiling_risk": false,
+          "gen_seconds": 13.6
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.275,
+          "extract_rate": 0.975,
+          "headroom": 0.725,
+          "ceiling_risk": false,
+          "gen_seconds": 7.9
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.0333,
+          "extract_rate": 0.6567,
+          "headroom": 0.9667,
+          "ceiling_risk": false,
+          "gen_seconds": 19.9
+        }
+      },
+      "seconds": 78.04635639116168
+    },
+    "shrink_lam0.25": {
+      "kind": "pure-shrinkage control",
+      "weights": [
+        0.25,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 46.9688717121412,
+      "kl": 0.005109020419136623,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.5267,
+          "extract_rate": 0.79,
+          "headroom": 0.4733,
+          "ceiling_risk": false,
+          "gen_seconds": 11.9,
+          "per_level_accuracy": {
+            "1": 0.8519,
+            "2": 0.75,
+            "3": 0.5938,
+            "4": 0.4568,
+            "5": 0.25
+          },
+          "primary_L3_5_accuracy": 0.4286
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.86,
+          "extract_rate": 0.9967,
+          "headroom": 0.14,
+          "ceiling_risk": false,
+          "gen_seconds": 10.1
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.92,
+          "extract_rate": 0.9867,
+          "headroom": 0.08,
+          "ceiling_risk": false,
+          "gen_seconds": 8.9
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1581,
+          "extract_rate": 0.5735,
+          "headroom": 0.8419,
+          "ceiling_risk": false,
+          "gen_seconds": 12.0
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1667,
+          "extract_rate": 0.7267,
+          "headroom": 0.8333,
+          "ceiling_risk": false,
+          "gen_seconds": 14.0
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.475,
+          "extract_rate": 1.0,
+          "headroom": 0.525,
+          "ceiling_risk": false,
+          "gen_seconds": 7.7
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.1033,
+          "extract_rate": 0.7133,
+          "headroom": 0.8967,
+          "ceiling_risk": false,
+          "gen_seconds": 16.0
+        }
+      },
+      "seconds": 86.53109026420861
+    },
+    "shrink_lam0.5": {
+      "kind": "pure-shrinkage control",
+      "weights": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 93.9377434242824,
+      "kl": 0.022925060152484238,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4933,
+          "extract_rate": 0.7933,
+          "headroom": 0.5067,
+          "ceiling_risk": false,
+          "gen_seconds": 11.6,
+          "per_level_accuracy": {
+            "1": 0.7778,
+            "2": 0.6964,
+            "3": 0.5625,
+            "4": 0.4444,
+            "5": 0.2222
+          },
+          "primary_L3_5_accuracy": 0.4055
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8333,
+          "extract_rate": 0.9967,
+          "headroom": 0.1667,
+          "ceiling_risk": false,
+          "gen_seconds": 5.2
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8933,
+          "extract_rate": 0.9933,
+          "headroom": 0.1067,
+          "ceiling_risk": false,
+          "gen_seconds": 4.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1213,
+          "extract_rate": 0.5993,
+          "headroom": 0.8787,
+          "ceiling_risk": false,
+          "gen_seconds": 11.8
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1367,
+          "extract_rate": 0.6867,
+          "headroom": 0.8633,
+          "ceiling_risk": false,
+          "gen_seconds": 14.7
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.45,
+          "extract_rate": 1.0,
+          "headroom": 0.55,
+          "ceiling_risk": false,
+          "gen_seconds": 5.7
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.11,
+          "extract_rate": 0.71,
+          "headroom": 0.89,
+          "ceiling_risk": false,
+          "gen_seconds": 17.3
+        }
+      },
+      "seconds": 76.13931157905608
+    },
+    "shrink_lam0.75": {
+      "kind": "pure-shrinkage control",
+      "weights": [
+        0.75,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 140.90661513877475,
+      "kl": 0.06066179302896726,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.4333,
+          "extract_rate": 0.81,
+          "headroom": 0.5667,
+          "ceiling_risk": false,
+          "gen_seconds": 11.3,
+          "per_level_accuracy": {
+            "1": 0.7407,
+            "2": 0.6964,
+            "3": 0.5625,
+            "4": 0.284,
+            "5": 0.1667
+          },
+          "primary_L3_5_accuracy": 0.3272
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.8033,
+          "extract_rate": 0.9967,
+          "headroom": 0.1967,
+          "ceiling_risk": false,
+          "gen_seconds": 4.5
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.89,
+          "extract_rate": 0.9933,
+          "headroom": 0.11,
+          "ceiling_risk": false,
+          "gen_seconds": 4.2
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.1029,
+          "extract_rate": 0.5478,
+          "headroom": 0.8971,
+          "ceiling_risk": false,
+          "gen_seconds": 11.8
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1167,
+          "extract_rate": 0.7233,
+          "headroom": 0.8833,
+          "ceiling_risk": false,
+          "gen_seconds": 13.6
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.3,
+          "extract_rate": 1.0,
+          "headroom": 0.7,
+          "ceiling_risk": false,
+          "gen_seconds": 5.5
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.06,
+          "extract_rate": 0.6467,
+          "headroom": 0.94,
+          "ceiling_risk": false,
+          "gen_seconds": 18.8
+        }
+      },
+      "seconds": 75.37581640854478
+    },
+    "shrink_matched_avg5": {
+      "kind": "pure-shrinkage control at matched norm (lambda=0.9263) for avg5",
+      "weights": [
+        0.9262658433562935,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 174.02264484703343,
+      "kl": 0.10845877146989369,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.3567,
+          "extract_rate": 0.7867,
+          "headroom": 0.6433,
+          "ceiling_risk": false,
+          "gen_seconds": 12.0,
+          "per_level_accuracy": {
+            "1": 0.6296,
+            "2": 0.6786,
+            "3": 0.4062,
+            "4": 0.2222,
+            "5": 0.1111
+          },
+          "primary_L3_5_accuracy": 0.2396
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.7633,
+          "extract_rate": 0.98,
+          "headroom": 0.2367,
+          "ceiling_risk": false,
+          "gen_seconds": 9.3
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8533,
+          "extract_rate": 0.9867,
+          "headroom": 0.1467,
+          "ceiling_risk": false,
+          "gen_seconds": 3.1
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0846,
+          "extract_rate": 0.5257,
+          "headroom": 0.9154,
+          "ceiling_risk": false,
+          "gen_seconds": 11.7
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.1067,
+          "extract_rate": 0.7267,
+          "headroom": 0.8933,
+          "ceiling_risk": false,
+          "gen_seconds": 13.3
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.375,
+          "extract_rate": 0.95,
+          "headroom": 0.625,
+          "ceiling_risk": false,
+          "gen_seconds": 8.0
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.0467,
+          "extract_rate": 0.6933,
+          "headroom": 0.9533,
+          "ceiling_risk": false,
+          "gen_seconds": 22.4
+        }
+      },
+      "seconds": 85.37320000864565
+    },
+    "shrink_matched_avg50dense": {
+      "kind": "pure-shrinkage control at matched norm (lambda=0.9139) for avg50dense",
+      "weights": [
+        0.913927248479889,
+        0.0,
+        0.0
+      ],
+      "drift_l2": 171.70452836540304,
+      "kl": 0.10439695134626926,
+      "eval": {
+        "math500": {
+          "n": 300,
+          "full_n": 500,
+          "capped": true,
+          "accuracy": 0.36,
+          "extract_rate": 0.79,
+          "headroom": 0.64,
+          "ceiling_risk": false,
+          "gen_seconds": 11.8,
+          "per_level_accuracy": {
+            "1": 0.7037,
+            "2": 0.6607,
+            "3": 0.3906,
+            "4": 0.2469,
+            "5": 0.0972
+          },
+          "primary_L3_5_accuracy": 0.2396
+        },
+        "gsm8k": {
+          "n": 300,
+          "full_n": 1319,
+          "capped": true,
+          "accuracy": 0.77,
+          "extract_rate": 0.9833,
+          "headroom": 0.23,
+          "ceiling_risk": false,
+          "gen_seconds": 4.3
+        },
+        "svamp": {
+          "n": 300,
+          "full_n": 300,
+          "capped": true,
+          "accuracy": 0.8633,
+          "extract_rate": 0.98,
+          "headroom": 0.1367,
+          "ceiling_risk": false,
+          "gen_seconds": 8.7
+        },
+        "minerva_math": {
+          "n": 272,
+          "full_n": 272,
+          "capped": false,
+          "accuracy": 0.0993,
+          "extract_rate": 0.5588,
+          "headroom": 0.9007,
+          "ceiling_risk": false,
+          "gen_seconds": 11.9
+        },
+        "olympiadbench": {
+          "n": 300,
+          "full_n": 674,
+          "capped": true,
+          "accuracy": 0.0967,
+          "extract_rate": 0.68,
+          "headroom": 0.9033,
+          "ceiling_risk": false,
+          "gen_seconds": 13.7
+        },
+        "amc23": {
+          "n": 40,
+          "full_n": 40,
+          "capped": false,
+          "accuracy": 0.275,
+          "extract_rate": 1.0,
+          "headroom": 0.725,
+          "ceiling_risk": false,
+          "gen_seconds": 7.9
+        },
+        "countdown": {
+          "n": 300,
+          "full_n": 2200,
+          "capped": true,
+          "accuracy": 0.07,
+          "extract_rate": 0.71,
+          "headroom": 0.93,
+          "ceiling_risk": false,
+          "gen_seconds": 20.3
+        }
+      },
+      "seconds": 84.55192651413381
+    }
+  }
+}

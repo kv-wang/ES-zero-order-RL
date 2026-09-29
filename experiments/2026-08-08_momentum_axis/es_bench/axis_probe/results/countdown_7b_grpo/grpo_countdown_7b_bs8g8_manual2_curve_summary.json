@@ -1,0 +1,36 @@
+{
+  "eval_source": "verl_validate_in_memory",
+  "eval_note": "countdown only, greedy, 300 pinned rows == eval_core._eval_countdown's [:300] slice, graded by the same binary answer_reward_function. Weights were read live from the rollout engine: no checkpoint, no FSDP->HF merge. Math OOD sets and kl_proxy_drift are NOT measured by this path.",
+  "n_evals": 2,
+  "acc_keys": [
+    "countdown_es/acc/mean@1"
+  ],
+  "acc_key_expected": true,
+  "first_eval_step": 0,
+  "countdown_first": 0.31666666666666665,
+  "countdown_final": 0.37,
+  "final_eval_step": 2,
+  "countdown_best": 0.37,
+  "countdown_best_step": 2,
+  "curve": [
+    {
+      "step": 0,
+      "countdown": 0.31666666666666665
+    },
+    {
+      "step": 2,
+      "countdown": 0.37
+    }
+  ],
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "task": "countdown",
+  "train_seconds": 460,
+  "train_steps": 2,
+  "rollouts_per_step": 64,
+  "total_generations": 128,
+  "train_bs": 8,
+  "group": 8,
+  "eval_every": 2,
+  "max_response_length": 2048,
+  "seed": 0
+}

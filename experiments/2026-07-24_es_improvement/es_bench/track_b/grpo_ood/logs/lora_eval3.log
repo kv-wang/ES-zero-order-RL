@@ -1,0 +1,93 @@
+The tokenizer you are loading from '/tmp/grpo_ckpt_grpo_lora_train/global_step_200/hf_merged' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[eval] LoRA checkpoint: base /tmp/grpo_ckpt_grpo_lora_train/global_step_200/hf_merged + adapter /tmp/grpo_ckpt_grpo_lora_train/global_step_200/hf_merged/lora_adapter
+WARNING 07-25 16:35:51 [model.py:371] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 07-25 16:35:51 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+WARNING 07-25 16:35:51 [lora.py:92] `lora_extra_vocab_size` is deprecated and will be removed in v0.12.0. Additional vocabulary support for LoRA adapters is being phased out.
+The tokenizer you are loading from '/tmp/grpo_ckpt_grpo_lora_train/global_step_200/hf_merged' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+WARNING 07-25 16:35:56 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.01s/it]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.01s/it]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|▏         | 1/67 [00:01<02:11,  1.99s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:02<00:57,  1.13it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:02<00:17,  3.60it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:02<00:09,  6.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:02<00:05,  9.38it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:02<00:04, 12.39it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:02<00:03, 15.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:02<00:02, 17.56it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:02<00:02, 19.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:03<00:01, 21.10it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:03<00:01, 22.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:03<00:01, 23.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:03<00:01, 23.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:03<00:01, 24.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:03<00:01, 24.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:03<00:00, 24.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:03<00:00, 24.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:04<00:00, 22.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:04<00:00, 21.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:04<00:00, 22.02it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:04<00:00, 22.69it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:04<00:00, 22.96it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:04<00:00, 23.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:04<00:00, 13.98it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   1%|▏         | 1/67 [00:02<02:16,  2.08s/it]Capturing CUDA graphs (decode, FULL):   6%|▌         | 4/67 [00:02<00:26,  2.38it/s]Capturing CUDA graphs (decode, FULL):  10%|█         | 7/67 [00:02<00:12,  4.69it/s]Capturing CUDA graphs (decode, FULL):  15%|█▍        | 10/67 [00:02<00:07,  7.40it/s]Capturing CUDA graphs (decode, FULL):  19%|█▉        | 13/67 [00:02<00:05, 10.37it/s]Capturing CUDA graphs (decode, FULL):  24%|██▍       | 16/67 [00:02<00:03, 13.47it/s]Capturing CUDA graphs (decode, FULL):  28%|██▊       | 19/67 [00:02<00:02, 16.45it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 22/67 [00:02<00:02, 19.23it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 25/67 [00:02<00:01, 21.64it/s]Capturing CUDA graphs (decode, FULL):  42%|████▏     | 28/67 [00:02<00:01, 23.56it/s]Capturing CUDA graphs (decode, FULL):  46%|████▋     | 31/67 [00:03<00:01, 24.92it/s]Capturing CUDA graphs (decode, FULL):  51%|█████     | 34/67 [00:03<00:01, 26.20it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 38/67 [00:03<00:01, 27.48it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 42/67 [00:03<00:00, 28.16it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 45/67 [00:03<00:00, 28.49it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 49/67 [00:03<00:00, 29.15it/s]Capturing CUDA graphs (decode, FULL):  79%|███████▉  | 53/67 [00:03<00:00, 29.63it/s]Capturing CUDA graphs (decode, FULL):  85%|████████▌ | 57/67 [00:03<00:00, 29.85it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████ | 61/67 [00:04<00:00, 30.06it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 65/67 [00:04<00:00, 30.41it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:04<00:00, 15.64it/s]
+The tokenizer you are loading from '/tmp/grpo_ckpt_grpo_lora_train/global_step_200/hf_merged' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+WARNING 07-25 16:36:29 [processor.py:215] vLLM has deprecated support for supporting different tokenizers for different LoRAs. By default, vLLM uses base model's tokenizer. If you are using a LoRA with its own tokenizer, consider specifying `--tokenizer [lora_path]` to use the LoRA tokenizer.
+GRPO_OOD: {
+  "math500": {
+    "n": 300,
+    "full_n": 500,
+    "capped": true,
+    "accuracy": 0.42,
+    "extract_rate": 0.7733,
+    "headroom": 0.58,
+    "ceiling_risk": false,
+    "gen_seconds": 17.9,
+    "per_level_accuracy": {
+      "1": 0.7407,
+      "2": 0.625,
+      "3": 0.5,
+      "4": 0.3827,
+      "5": 0.1111
+    },
+    "primary_L3_5_accuracy": 0.3272
+  },
+  "gsm8k": {
+    "n": 300,
+    "full_n": 1319,
+    "capped": true,
+    "accuracy": 0.7667,
+    "extract_rate": 0.9933,
+    "headroom": 0.2333,
+    "ceiling_risk": false,
+    "gen_seconds": 12.3
+  },
+  "svamp": {
+    "n": 300,
+    "full_n": 300,
+    "capped": true,
+    "accuracy": 0.8367,
+    "extract_rate": 0.9833,
+    "headroom": 0.1633,
+    "ceiling_risk": false,
+    "gen_seconds": 11.2
+  },
+  "minerva_math": {
+    "n": 272,
+    "full_n": 272,
+    "capped": false,
+    "accuracy": 0.0919,
+    "extract_rate": 0.5699,
+    "headroom": 0.9081,
+    "ceiling_risk": false,
+    "gen_seconds": 14.6
+  },
+  "olympiadbench": {
+    "n": 300,
+    "full_n": 674,
+    "capped": true,
+    "accuracy": 0.1167,
+    "extract_rate": 0.7167,
+    "headroom": 0.8833,
+    "ceiling_risk": false,
+    "gen_seconds": 17.1
+  },
+  "amc23": {
+    "n": 40,
+    "full_n": 40,
+    "capped": false,
+    "accuracy": 0.225,
+    "extract_rate": 0.95,
+    "headroom": 0.775,
+    "ceiling_risk": false,
+    "gen_seconds": 10.2
+  }
+}
+[rank0]:[W725 16:37:57.484670668 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

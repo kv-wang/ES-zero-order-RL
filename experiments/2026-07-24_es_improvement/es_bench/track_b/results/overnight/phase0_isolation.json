@@ -1,0 +1,52 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "n_adapters": 4,
+  "sigma": 0.05,
+  "spec_criterion_exact_match": {
+    "n_exact": 4,
+    "n_total": 4,
+    "passed_as_specified": true
+  },
+  "routing_criterion": {
+    "all_routed_correctly": true,
+    "mean_agree_own": 1.0,
+    "mean_agree_other_max": 0.0,
+    "margin": 1.0,
+    "passed": true
+  },
+  "per_request": [
+    {
+      "req": 0,
+      "exact_match": true,
+      "agree_own": 1.0,
+      "agree_other_max": 0.0,
+      "agree_other_mean": 0.0,
+      "routed_correctly": true
+    },
+    {
+      "req": 1,
+      "exact_match": true,
+      "agree_own": 1.0,
+      "agree_other_max": 0.0,
+      "agree_other_mean": 0.0,
+      "routed_correctly": true
+    },
+    {
+      "req": 2,
+      "exact_match": true,
+      "agree_own": 1.0,
+      "agree_other_max": 0.0,
+      "agree_other_mean": 0.0,
+      "routed_correctly": true
+    },
+    {
+      "req": 3,
+      "exact_match": true,
+      "agree_own": 1.0,
+      "agree_other_max": 0.0,
+      "agree_other_mean": 0.0,
+      "routed_correctly": true
+    }
+  ],
+  "GATE": "PASS"
+}

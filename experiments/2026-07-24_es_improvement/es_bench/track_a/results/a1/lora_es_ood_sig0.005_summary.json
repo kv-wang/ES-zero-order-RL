@@ -1,0 +1,101 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "population_size": 16,
+  "sigma": 0.005,
+  "alpha": 0.002,
+  "ood_final": {
+    "math500": {
+      "n": 300,
+      "full_n": 500,
+      "capped": true,
+      "accuracy": 0.42,
+      "extract_rate": 0.75,
+      "headroom": 0.58,
+      "ceiling_risk": false,
+      "gen_seconds": 13.6,
+      "per_level_accuracy": {
+        "1": 0.7407,
+        "2": 0.6429,
+        "3": 0.5312,
+        "4": 0.3333,
+        "5": 0.125
+      },
+      "primary_L3_5_accuracy": 0.3226
+    },
+    "gsm8k": {
+      "n": 300,
+      "full_n": 1319,
+      "capped": true,
+      "accuracy": 0.7467,
+      "extract_rate": 0.9867,
+      "headroom": 0.2533,
+      "ceiling_risk": false,
+      "gen_seconds": 11.5
+    },
+    "svamp": {
+      "n": 300,
+      "full_n": 300,
+      "capped": true,
+      "accuracy": 0.8367,
+      "extract_rate": 0.98,
+      "headroom": 0.1633,
+      "ceiling_risk": false,
+      "gen_seconds": 9.8
+    },
+    "minerva_math": {
+      "n": 272,
+      "full_n": 272,
+      "capped": false,
+      "accuracy": 0.0993,
+      "extract_rate": 0.5184,
+      "headroom": 0.9007,
+      "ceiling_risk": false,
+      "gen_seconds": 13.4
+    },
+    "olympiadbench": {
+      "n": 300,
+      "full_n": 674,
+      "capped": true,
+      "accuracy": 0.1,
+      "extract_rate": 0.66,
+      "headroom": 0.9,
+      "ceiling_risk": false,
+      "gen_seconds": 16.0
+    },
+    "amc23": {
+      "n": 40,
+      "full_n": 40,
+      "capped": false,
+      "accuracy": 0.2,
+      "extract_rate": 0.925,
+      "headroom": 0.8,
+      "ceiling_risk": false,
+      "gen_seconds": 8.4
+    }
+  },
+  "num_steps": 200,
+  "pop_seed": 0,
+  "id_curve": [
+    {
+      "step": 0,
+      "id_acc": 0.855,
+      "kl": 7.680844543436154e-06
+    },
+    {
+      "step": 100,
+      "id_acc": 0.86,
+      "kl": 0.000708951891877411
+    },
+    {
+      "step": 200,
+      "id_acc": 0.85,
+      "kl": 2.311077227730639e-06
+    }
+  ],
+  "id_base": 0.855,
+  "id_final": 0.85,
+  "id_gain": -0.0050000000000000044,
+  "kl_final": 2.311077227730639e-06,
+  "zero_update_rate": 0.0,
+  "wall_clock_s": 1870.099699134007
+}
